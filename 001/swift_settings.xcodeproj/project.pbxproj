@@ -14,6 +14,7 @@
 		D2370C1D215CBB5000001D57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2370C1B215CBB5000001D57 /* LaunchScreen.storyboard */; };
 		D2370C28215CBB5000001D57 /* swift_settingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2370C27215CBB5000001D57 /* swift_settingsTests.swift */; };
 		D2370C33215CBB5000001D57 /* swift_settingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2370C32215CBB5000001D57 /* swift_settingsUITests.swift */; };
+		D24C3D03215CCBFD007189C9 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C3D02215CCBFD007189C9 /* GlobalSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D2370C2E215CBB5000001D57 /* swift_settingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swift_settingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2370C32215CBB5000001D57 /* swift_settingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_settingsUITests.swift; sourceTree = "<group>"; };
 		D2370C34215CBB5000001D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D24C3D02215CCBFD007189C9 /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		D2370C11215CBB4F00001D57 /* swift_settings */ = {
 			isa = PBXGroup;
 			children = (
+				D24C3D01215CCBE7007189C9 /* singleton */,
 				D2370C12215CBB4F00001D57 /* AppDelegate.swift */,
 				D2370C14215CBB4F00001D57 /* ViewController.swift */,
 				D2370C16215CBB4F00001D57 /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				D2370C34215CBB5000001D57 /* Info.plist */,
 			);
 			path = swift_settingsUITests;
+			sourceTree = "<group>";
+		};
+		D24C3D01215CCBE7007189C9 /* singleton */ = {
+			isa = PBXGroup;
+			children = (
+				D24C3D02215CCBFD007189C9 /* GlobalSettings.swift */,
+			);
+			path = singleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			files = (
 				D2370C15215CBB4F00001D57 /* ViewController.swift in Sources */,
 				D2370C13215CBB4F00001D57 /* AppDelegate.swift in Sources */,
+				D24C3D03215CCBFD007189C9 /* GlobalSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        "".pwd(self)
+        
+        if GlobalSettings.shared.logLevel.contains(.minor) { print("print what you want")}
     }
 
 
