@@ -22,6 +22,20 @@ class swift_settingsTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        GlobalSettings.shared.logLevel = .all
+        
+        XCTAssert(GlobalSettings.shared.logLevel.contains(.critical))
+        XCTAssert(GlobalSettings.shared.logLevel.contains(.major))
+        XCTAssert(GlobalSettings.shared.logLevel.contains(.minor))
+        XCTAssert(GlobalSettings.shared.logLevel.contains(.callBack))
+        XCTAssert(GlobalSettings.shared.logLevel.contains(.infiniteLoop))
+        XCTAssert(GlobalSettings.shared.logLevel.contains(.resourceLeak))
+        XCTAssert(GlobalSettings.shared.logLevel.contains(.memoryJobs))
+        XCTAssert(GlobalSettings.shared.logLevel.contains(.library))
+        
+        GlobalSettings.shared.logLevel = .critical
+        XCTAssertFalse(GlobalSettings.shared.logLevel.contains(.library))
+        XCTAssertTrue(GlobalSettings.shared.logLevel.contains(.critical))
     }
 
     func testPerformanceExample() {
