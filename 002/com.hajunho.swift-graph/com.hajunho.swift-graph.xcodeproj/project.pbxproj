@@ -74,6 +74,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2162C0C21707FB500514441 /* jhpanel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = jhpanel;
+			sourceTree = "<group>";
+		};
+		D2162C0D21707FBA00514441 /* jhscene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = jhscene;
+			sourceTree = "<group>";
+		};
+		D2162C0E21707FBF00514441 /* jhgraph */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = jhgraph;
+			sourceTree = "<group>";
+		};
+		D2162C0F21707FC300514441 /* jhdata */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = jhdata;
+			sourceTree = "<group>";
+		};
 		D21BCA56216B3E3900099859 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +125,10 @@
 		D21BCA61216B3E3900099859 /* com.hajunho.swift-graph */ = {
 			isa = PBXGroup;
 			children = (
+				D2162C0F21707FC300514441 /* jhdata */,
+				D2162C0E21707FBF00514441 /* jhgraph */,
+				D2162C0D21707FBA00514441 /* jhscene */,
+				D2162C0C21707FB500514441 /* jhpanel */,
 				D21BCA62216B3E3900099859 /* AppDelegate.swift */,
 				D21BCA64216B3E3900099859 /* ViewController.swift */,
 				D21BCA66216B3E3900099859 /* Main.storyboard */,
