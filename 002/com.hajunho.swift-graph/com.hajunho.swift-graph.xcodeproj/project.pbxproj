@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2162C112170A6C100514441 /* Data_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C102170A6C100514441 /* Data_p.swift */; };
+		D2162C132170A7C900514441 /* jhScene_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C122170A7C900514441 /* jhScene_p.swift */; };
+		D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C142170AAD200514441 /* jhPanel_p.swift */; };
 		D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA62216B3E3900099859 /* AppDelegate.swift */; };
 		D21BCA65216B3E3900099859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA64216B3E3900099859 /* ViewController.swift */; };
 		D21BCA68216B3E3900099859 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21BCA66216B3E3900099859 /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2162C102170A6C100514441 /* Data_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_p.swift; sourceTree = "<group>"; };
+		D2162C122170A7C900514441 /* jhScene_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhScene_p.swift; sourceTree = "<group>"; };
+		D2162C142170AAD200514441 /* jhPanel_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhPanel_p.swift; sourceTree = "<group>"; };
 		D21BCA5F216B3E3900099859 /* com.hajunho.swift-graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "com.hajunho.swift-graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21BCA62216B3E3900099859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D21BCA64216B3E3900099859 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 		D2162C0C21707FB500514441 /* jhpanel */ = {
 			isa = PBXGroup;
 			children = (
+				D2162C142170AAD200514441 /* jhPanel_p.swift */,
 			);
 			path = jhpanel;
 			sourceTree = "<group>";
@@ -84,6 +91,7 @@
 		D2162C0D21707FBA00514441 /* jhscene */ = {
 			isa = PBXGroup;
 			children = (
+				D2162C122170A7C900514441 /* jhScene_p.swift */,
 			);
 			path = jhscene;
 			sourceTree = "<group>";
@@ -98,6 +106,7 @@
 		D2162C0F21707FC300514441 /* jhdata */ = {
 			isa = PBXGroup;
 			children = (
+				D2162C102170A6C100514441 /* Data_p.swift */,
 			);
 			path = jhdata;
 			sourceTree = "<group>";
@@ -289,6 +298,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D21BCA65216B3E3900099859 /* ViewController.swift in Sources */,
+				D2162C132170A7C900514441 /* jhScene_p.swift in Sources */,
+				D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */,
+				D2162C112170A6C100514441 /* Data_p.swift in Sources */,
 				D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
