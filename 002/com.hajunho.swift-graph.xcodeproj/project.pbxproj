@@ -20,6 +20,9 @@
 		D21BCA6D216B3E3A00099859 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21BCA6B216B3E3A00099859 /* LaunchScreen.storyboard */; };
 		D21BCA78216B3E3A00099859 /* com_hajunho_swift_graphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA77216B3E3A00099859 /* com_hajunho_swift_graphTests.swift */; };
 		D21BCA83216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA82216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift */; };
+		D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */; };
+		D2CC0CBE21747B4700DE1BB1 /* jhFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */; };
+		D2CC0CC82174804600DE1BB1 /* testdata.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2CC0CC72174804600DE1BB1 /* testdata.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,16 @@
 		D21BCA7E216B3E3A00099859 /* com.hajunho.swift-graphUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "com.hajunho.swift-graphUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21BCA82216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = com_hajunho_swift_graphUITests.swift; sourceTree = "<group>"; };
 		D21BCA84216B3E3A00099859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhPanel.swift; sourceTree = "<group>"; };
+		D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhFile.swift; sourceTree = "<group>"; };
+		D2CC0CC021747E5A00DE1BB1 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
+		D2CC0CC121747E5A00DE1BB1 /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
+		D2CC0CC221747E5A00DE1BB1 /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
+		D2CC0CC321747E5A00DE1BB1 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		D2CC0CC421747E5A00DE1BB1 /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
+		D2CC0CC521747E5A00DE1BB1 /* NanumSquareOTFLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFLight.otf; sourceTree = "<group>"; };
+		D2CC0CC621747E5B00DE1BB1 /* Pecita.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pecita.otf; sourceTree = "<group>"; };
+		D2CC0CC72174804600DE1BB1 /* testdata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testdata.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				D2162C142170AAD200514441 /* jhPanel_p.swift */,
+				D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */,
 			);
 			path = jhpanel;
 			sourceTree = "<group>";
@@ -113,7 +127,9 @@
 		D2162C0F21707FC300514441 /* jhdata */ = {
 			isa = PBXGroup;
 			children = (
+				D2CC0CC72174804600DE1BB1 /* testdata.plist */,
 				D2162C102170A6C100514441 /* Data_p.swift */,
+				D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */,
 			);
 			path = jhdata;
 			sourceTree = "<group>";
@@ -149,6 +165,7 @@
 		D21BCA61216B3E3900099859 /* com.hajunho.swift-graph */ = {
 			isa = PBXGroup;
 			children = (
+				D2CC0CBF21747E4000DE1BB1 /* labelfont */,
 				D2162C1821741F5500514441 /* jhcore */,
 				D2162C0F21707FC300514441 /* jhdata */,
 				D2162C0E21707FBF00514441 /* jhgraph */,
@@ -181,6 +198,20 @@
 				D21BCA84216B3E3A00099859 /* Info.plist */,
 			);
 			path = "com.hajunho.swift-graphUITests";
+			sourceTree = "<group>";
+		};
+		D2CC0CBF21747E4000DE1BB1 /* labelfont */ = {
+			isa = PBXGroup;
+			children = (
+				D2CC0CC221747E5A00DE1BB1 /* NanumSquareOTFBold.otf */,
+				D2CC0CC421747E5A00DE1BB1 /* NanumSquareOTFExtraBold.otf */,
+				D2CC0CC521747E5A00DE1BB1 /* NanumSquareOTFLight.otf */,
+				D2CC0CC121747E5A00DE1BB1 /* NanumSquareOTFRegular.otf */,
+				D2CC0CC621747E5B00DE1BB1 /* Pecita.otf */,
+				D2CC0CC021747E5A00DE1BB1 /* SF-Pro-Text-Light.otf */,
+				D2CC0CC321747E5A00DE1BB1 /* SF-Pro-Text-Regular.otf */,
+			);
+			path = labelfont;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2162C172174198600514441 /* license.txt in Resources */,
+				D2CC0CC82174804600DE1BB1 /* testdata.plist in Resources */,
 				D21BCA6D216B3E3A00099859 /* LaunchScreen.storyboard in Resources */,
 				D21BCA6A216B3E3A00099859 /* Assets.xcassets in Resources */,
 				D21BCA68216B3E3900099859 /* Main.storyboard in Resources */,
@@ -317,6 +349,8 @@
 			files = (
 				D21BCA65216B3E3900099859 /* ViewController.swift in Sources */,
 				D2162C132170A7C900514441 /* jhScene_p.swift in Sources */,
+				D2CC0CBE21747B4700DE1BB1 /* jhFile.swift in Sources */,
+				D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */,
 				D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */,
 				D2162C112170A6C100514441 /* Data_p.swift in Sources */,
 				D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */,

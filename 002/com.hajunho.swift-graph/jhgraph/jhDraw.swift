@@ -23,8 +23,12 @@ class jhDraw : UIView {
         }
     }
     
-    func jhColor(r:CGFloat , g:CGFloat , b:CGFloat , a:Float) -> CGColor {
-        return  UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: r).cgColor
+    func jhColor(red: CGFloat , green: CGFloat , blue: CGFloat) -> CGColor {
+        return  UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: 1.0).cgColor
+    }
+    
+    func jhColor(red:CGFloat , green:CGFloat , blue:CGFloat , alpha: CGFloat) -> CGColor {
+        return  UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha).cgColor
     }
     
     func worldLine(context : CGContext?, _ x1 : Int, _ y1 : Int, _ x2 : Int, _ y2 : Int, _ lineWidth : CGFloat) {
