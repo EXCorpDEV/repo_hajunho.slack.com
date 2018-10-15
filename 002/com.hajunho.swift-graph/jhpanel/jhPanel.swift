@@ -164,8 +164,14 @@ class jhPanel : jhDraw, jhPanel_p {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
         let img = renderer.image { ctx in
             let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.alignment = .center
-            let attrs = [NSAttributedString.Key.font: UIFont(name: "".font1(), size: width/2)!, NSAttributedString.Key.paragraphStyle: paragraphStyle]
+            paragraphStyle.alignment = .center            
+            let attrs = [
+                NSAttributedString.Key.strokeColor : UIColor.black,
+                NSAttributedString.Key.foregroundColor : UIColor.white,
+                NSAttributedString.Key.strokeWidth : -2.0,
+                NSAttributedString.Key.font : UIFont(name: "".font1(), size: width/2) as Any
+                ] as [NSAttributedString.Key : Any]
+            
             let string = str
             string.draw(with: CGRect(x: 0, y: 0, width: width, height: 10), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
         }

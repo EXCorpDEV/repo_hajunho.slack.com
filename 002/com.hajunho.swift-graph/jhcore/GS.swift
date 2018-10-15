@@ -71,7 +71,7 @@ class GS {
     
     private init() {
         logLevel = .all
-        logLevel = .none
+//        logLevel = .none
         //        logLevel = .critical
         //        logLevel = .graphPanel
         //        logLevel = .dashboard
