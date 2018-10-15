@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EB5E78CE4B1A60BC01AAB3C /* Pods_restapiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2466FB696ACF02B1D1A3D01B /* Pods_restapiUITests.framework */; };
+		AA246F632E84853C545A41B5 /* Pods_restapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA113A0436FB15BD6447532 /* Pods_restapi.framework */; };
+		C92C2BF6C2361218765019DA /* Pods_restapiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7DA1ED78B58E5335C88066 /* Pods_restapiTests.framework */; };
 		D2397BB121746948006D2740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2397BB021746948006D2740 /* AppDelegate.swift */; };
 		D2397BB321746948006D2740 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2397BB221746948006D2740 /* ViewController.swift */; };
 		D2397BB621746948006D2740 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2397BB421746948006D2740 /* Main.storyboard */; };
@@ -34,6 +37,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		109FB5873E56A814E07989A5 /* Pods-restapi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restapi.release.xcconfig"; path = "Pods/Target Support Files/Pods-restapi/Pods-restapi.release.xcconfig"; sourceTree = "<group>"; };
+		2466FB696ACF02B1D1A3D01B /* Pods_restapiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_restapiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C7DA1ED78B58E5335C88066 /* Pods_restapiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_restapiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		649AD6FF3A4F5E2065997C60 /* Pods-restapiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restapiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-restapiTests/Pods-restapiTests.release.xcconfig"; sourceTree = "<group>"; };
+		6FAECD32289C211F05B01751 /* Pods-restapiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restapiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-restapiUITests/Pods-restapiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7D5B5D2D049E1DE3E846E1E5 /* Pods-restapi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restapi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-restapi/Pods-restapi.debug.xcconfig"; sourceTree = "<group>"; };
+		7EA113A0436FB15BD6447532 /* Pods_restapi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_restapi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87D826A1A2896D9982747525 /* Pods-restapiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restapiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-restapiUITests/Pods-restapiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CBBC0CAD227A690DABEB4114 /* Pods-restapiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restapiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-restapiTests/Pods-restapiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2397BAD21746948006D2740 /* restapi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = restapi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2397BB021746948006D2740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2397BB221746948006D2740 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA246F632E84853C545A41B5 /* Pods_restapi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92C2BF6C2361218765019DA /* Pods_restapiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EB5E78CE4B1A60BC01AAB3C /* Pods_restapiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C74A58CC7839D8E285F9933 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D5B5D2D049E1DE3E846E1E5 /* Pods-restapi.debug.xcconfig */,
+				109FB5873E56A814E07989A5 /* Pods-restapi.release.xcconfig */,
+				CBBC0CAD227A690DABEB4114 /* Pods-restapiTests.debug.xcconfig */,
+				649AD6FF3A4F5E2065997C60 /* Pods-restapiTests.release.xcconfig */,
+				87D826A1A2896D9982747525 /* Pods-restapiUITests.debug.xcconfig */,
+				6FAECD32289C211F05B01751 /* Pods-restapiUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D2397BA421746948006D2740 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +109,8 @@
 				D2397BC42174694A006D2740 /* restapiTests */,
 				D2397BCF2174694A006D2740 /* restapiUITests */,
 				D2397BAE21746948006D2740 /* Products */,
+				6C74A58CC7839D8E285F9933 /* Pods */,
+				EC0FD67E45CF141394FAD11E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +155,16 @@
 			path = restapiUITests;
 			sourceTree = "<group>";
 		};
+		EC0FD67E45CF141394FAD11E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7EA113A0436FB15BD6447532 /* Pods_restapi.framework */,
+				4C7DA1ED78B58E5335C88066 /* Pods_restapiTests.framework */,
+				2466FB696ACF02B1D1A3D01B /* Pods_restapiUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2397BD52174694A006D2740 /* Build configuration list for PBXNativeTarget "restapi" */;
 			buildPhases = (
+				82610F3B87678DCE220BC1F2 /* [CP] Check Pods Manifest.lock */,
 				D2397BA921746948006D2740 /* Sources */,
 				D2397BAA21746948006D2740 /* Frameworks */,
 				D2397BAB21746948006D2740 /* Resources */,
+				EF858A95B844367404661D1F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2397BD82174694A006D2740 /* Build configuration list for PBXNativeTarget "restapiTests" */;
 			buildPhases = (
+				5E7398E6BC12CBFF785CA9DB /* [CP] Check Pods Manifest.lock */,
 				D2397BBD2174694A006D2740 /* Sources */,
 				D2397BBE2174694A006D2740 /* Frameworks */,
 				D2397BBF2174694A006D2740 /* Resources */,
@@ -167,6 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2397BDB2174694A006D2740 /* Build configuration list for PBXNativeTarget "restapiUITests" */;
 			buildPhases = (
+				37C5E99C7F2C0EB1DD374164 /* [CP] Check Pods Manifest.lock */,
 				D2397BC82174694A006D2740 /* Sources */,
 				D2397BC92174694A006D2740 /* Frameworks */,
 				D2397BCA2174694A006D2740 /* Resources */,
@@ -250,6 +294,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37C5E99C7F2C0EB1DD374164 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-restapiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E7398E6BC12CBFF785CA9DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-restapiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82610F3B87678DCE220BC1F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-restapi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF858A95B844367404661D1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-restapi/Pods-restapi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-restapi/Pods-restapi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2397BA921746948006D2740 /* Sources */ = {
@@ -430,6 +567,7 @@
 		};
 		D2397BD62174694A006D2740 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D5B5D2D049E1DE3E846E1E5 /* Pods-restapi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +586,7 @@
 		};
 		D2397BD72174694A006D2740 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 109FB5873E56A814E07989A5 /* Pods-restapi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +605,7 @@
 		};
 		D2397BD92174694A006D2740 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBBC0CAD227A690DABEB4114 /* Pods-restapiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +627,7 @@
 		};
 		D2397BDA2174694A006D2740 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 649AD6FF3A4F5E2065997C60 /* Pods-restapiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +649,7 @@
 		};
 		D2397BDC2174694A006D2740 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87D826A1A2896D9982747525 /* Pods-restapiUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +670,7 @@
 		};
 		D2397BDD2174694A006D2740 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FAECD32289C211F05B01751 /* Pods-restapiUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
