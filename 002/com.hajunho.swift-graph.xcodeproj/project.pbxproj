@@ -11,7 +11,7 @@
 		D2162C132170A7C900514441 /* jhScene_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C122170A7C900514441 /* jhScene_p.swift */; };
 		D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C142170AAD200514441 /* jhPanel_p.swift */; };
 		D2162C172174198600514441 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2162C162174198600514441 /* license.txt */; };
-		D2162C1A21741F7500514441 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C1921741F7500514441 /* GlobalSettings.swift */; };
+		D2162C1A21741F7500514441 /* GS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C1921741F7500514441 /* GS.swift */; };
 		D2162C1C217421DB00514441 /* jhDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C1B217421DB00514441 /* jhDraw.swift */; };
 		D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA62216B3E3900099859 /* AppDelegate.swift */; };
 		D21BCA65216B3E3900099859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA64216B3E3900099859 /* ViewController.swift */; };
@@ -44,7 +44,7 @@
 		D2162C122170A7C900514441 /* jhScene_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhScene_p.swift; sourceTree = "<group>"; };
 		D2162C142170AAD200514441 /* jhPanel_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhPanel_p.swift; sourceTree = "<group>"; };
 		D2162C162174198600514441 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
-		D2162C1921741F7500514441 /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
+		D2162C1921741F7500514441 /* GS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS.swift; sourceTree = "<group>"; };
 		D2162C1B217421DB00514441 /* jhDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhDraw.swift; sourceTree = "<group>"; };
 		D21BCA5F216B3E3900099859 /* com.hajunho.swift-graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "com.hajunho.swift-graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21BCA62216B3E3900099859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		D2162C1821741F5500514441 /* jhcore */ = {
 			isa = PBXGroup;
 			children = (
-				D2162C1921741F7500514441 /* GlobalSettings.swift */,
+				D2162C1921741F7500514441 /* GS.swift */,
 			);
 			path = jhcore;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 				D2162C112170A6C100514441 /* Data_p.swift in Sources */,
 				D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */,
 				D2162C1C217421DB00514441 /* jhDraw.swift in Sources */,
-				D2162C1A21741F7500514441 /* GlobalSettings.swift in Sources */,
+				D2162C1A21741F7500514441 /* GS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

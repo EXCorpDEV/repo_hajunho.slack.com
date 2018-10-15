@@ -37,7 +37,7 @@ struct plistV1 : Codable {
     }
 }
 
-class GlobalSettings {
+class GS {
     var logLevel : _logLevel
     
     private init() {
@@ -56,5 +56,5 @@ class GlobalSettings {
     
     let current_eoGraphType : eoGraphType = eoGraphType.first
     
-    static let shared = GlobalSettings()
+    static let shared = GS()
 }
