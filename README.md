@@ -1,4 +1,6 @@
 # iOS_startUpCodes
 
-[001] iOS_swift_ Global Log Setting
-[002] iOS_swift_ Graph
+1. [x] **[001] iOS_swift_ Global Log Setting**
+2. [x] **[002] iOS_swift_ Graph**
+
+**[BLOG](https://swiospot.blogspot.com/)**
