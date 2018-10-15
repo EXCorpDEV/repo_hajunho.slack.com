@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>New item - 3</key>
+	<array>
+		<date>2018-10-15T07:55:17Z</date>
+		<integer>3220</integer>
+	</array>
+	<key>New item - 4</key>
+	<array>
+		<date>2018-10-15T07:55:17Z</date>
+		<integer>1119</integer>
+	</array>
+	<key>New item - 5</key>
+	<array>
+		<date>2018-10-15T07:55:17Z</date>
+		<integer>740</integer>
+	</array>
+</dict>
+</plist>
