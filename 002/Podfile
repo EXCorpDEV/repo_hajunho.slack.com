@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'com.hajunho.swift-graph' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for com.hajunho.swift-graph
+  pod 'SnapKit', '~> 4.0.0'
+
+  target 'com.hajunho.swift-graphTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'com.hajunho.swift-graphUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BA9D12C5E43EB22221EC8A2 /* Pods_com_hajunho_swift_graphUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44E2AD07926AFD3A55E9B37 /* Pods_com_hajunho_swift_graphUITests.framework */; };
+		6AADCECC0FCE931FD4ABD2C7 /* Pods_com_hajunho_swift_graph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76755D9EFF3208927392EEAF /* Pods_com_hajunho_swift_graph.framework */; };
 		D2162C112170A6C100514441 /* Data_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C102170A6C100514441 /* Data_p.swift */; };
 		D2162C132170A7C900514441 /* jhScene_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C122170A7C900514441 /* jhScene_p.swift */; };
 		D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C142170AAD200514441 /* jhPanel_p.swift */; };
-		D2162C172174198600514441 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2162C162174198600514441 /* license.txt */; };
 		D2162C1A21741F7500514441 /* GS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C1921741F7500514441 /* GS.swift */; };
 		D2162C1C217421DB00514441 /* jhDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C1B217421DB00514441 /* jhDraw.swift */; };
 		D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA62216B3E3900099859 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		D2CC0CCE2174870700DE1BB1 /* jhGraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CCD2174870700DE1BB1 /* jhGraphBuilder.swift */; };
 		D2CC0CD02174877C00DE1BB1 /* jhLineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CCF2174877C00DE1BB1 /* jhLineGraph.swift */; };
 		D2CC0CD22174879B00DE1BB1 /* jhBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CD12174879B00DE1BB1 /* jhBarGraph.swift */; };
+		F0A5FD5839358FB0E6C63109 /* Pods_com_hajunho_swift_graphTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7838D44C36043252B5732E /* Pods_com_hajunho_swift_graphTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,10 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		426E6B15E35938642CF2C9B0 /* Pods-com.hajunho.swift-graphUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.hajunho.swift-graphUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-com.hajunho.swift-graphUITests/Pods-com.hajunho.swift-graphUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7563CA14015930841D2EC1CB /* Pods-com.hajunho.swift-graphTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.hajunho.swift-graphTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-com.hajunho.swift-graphTests/Pods-com.hajunho.swift-graphTests.release.xcconfig"; sourceTree = "<group>"; };
+		76755D9EFF3208927392EEAF /* Pods_com_hajunho_swift_graph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_hajunho_swift_graph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F7838D44C36043252B5732E /* Pods_com_hajunho_swift_graphTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_hajunho_swift_graphTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99246F5508F24ECFAA577687 /* Pods-com.hajunho.swift-graph.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.hajunho.swift-graph.release.xcconfig"; path = "Pods/Target Support Files/Pods-com.hajunho.swift-graph/Pods-com.hajunho.swift-graph.release.xcconfig"; sourceTree = "<group>"; };
+		9F9EE77AA164FBA321E0340F /* Pods-com.hajunho.swift-graphTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.hajunho.swift-graphTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com.hajunho.swift-graphTests/Pods-com.hajunho.swift-graphTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2162C102170A6C100514441 /* Data_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_p.swift; sourceTree = "<group>"; };
 		D2162C122170A7C900514441 /* jhScene_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhScene_p.swift; sourceTree = "<group>"; };
 		D2162C142170AAD200514441 /* jhPanel_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhPanel_p.swift; sourceTree = "<group>"; };
-		D2162C162174198600514441 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		D2162C1921741F7500514441 /* GS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS.swift; sourceTree = "<group>"; };
 		D2162C1B217421DB00514441 /* jhDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhDraw.swift; sourceTree = "<group>"; };
 		D21BCA5F216B3E3900099859 /* com.hajunho.swift-graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "com.hajunho.swift-graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +89,9 @@
 		D2CC0CCD2174870700DE1BB1 /* jhGraphBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhGraphBuilder.swift; sourceTree = "<group>"; };
 		D2CC0CCF2174877C00DE1BB1 /* jhLineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhLineGraph.swift; sourceTree = "<group>"; };
 		D2CC0CD12174879B00DE1BB1 /* jhBarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhBarGraph.swift; sourceTree = "<group>"; };
+		EAA28A77BB94101D11F206D8 /* Pods-com.hajunho.swift-graphUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.hajunho.swift-graphUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com.hajunho.swift-graphUITests/Pods-com.hajunho.swift-graphUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F44E2AD07926AFD3A55E9B37 /* Pods_com_hajunho_swift_graphUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_hajunho_swift_graphUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82C672D1E1891BF7965863B /* Pods-com.hajunho.swift-graph.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.hajunho.swift-graph.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com.hajunho.swift-graph/Pods-com.hajunho.swift-graph.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AADCECC0FCE931FD4ABD2C7 /* Pods_com_hajunho_swift_graph.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A5FD5839358FB0E6C63109 /* Pods_com_hajunho_swift_graphTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,12 +115,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA9D12C5E43EB22221EC8A2 /* Pods_com_hajunho_swift_graphUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B202D4D4177A90B04213DA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76755D9EFF3208927392EEAF /* Pods_com_hajunho_swift_graph.framework */,
+				7F7838D44C36043252B5732E /* Pods_com_hajunho_swift_graphTests.framework */,
+				F44E2AD07926AFD3A55E9B37 /* Pods_com_hajunho_swift_graphUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D2162C0C21707FB500514441 /* jhpanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +187,8 @@
 				D21BCA76216B3E3A00099859 /* com.hajunho.swift-graphTests */,
 				D21BCA81216B3E3A00099859 /* com.hajunho.swift-graphUITests */,
 				D21BCA60216B3E3900099859 /* Products */,
+				EFB332833925209008A0026A /* Pods */,
+				3B202D4D4177A90B04213DA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,7 +217,6 @@
 				D21BCA69216B3E3A00099859 /* Assets.xcassets */,
 				D21BCA6B216B3E3A00099859 /* LaunchScreen.storyboard */,
 				D21BCA6E216B3E3A00099859 /* Info.plist */,
-				D2162C162174198600514441 /* license.txt */,
 			);
 			path = "com.hajunho.swift-graph";
 			sourceTree = "<group>";
@@ -229,6 +253,19 @@
 			path = labelfont;
 			sourceTree = "<group>";
 		};
+		EFB332833925209008A0026A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F82C672D1E1891BF7965863B /* Pods-com.hajunho.swift-graph.debug.xcconfig */,
+				99246F5508F24ECFAA577687 /* Pods-com.hajunho.swift-graph.release.xcconfig */,
+				9F9EE77AA164FBA321E0340F /* Pods-com.hajunho.swift-graphTests.debug.xcconfig */,
+				7563CA14015930841D2EC1CB /* Pods-com.hajunho.swift-graphTests.release.xcconfig */,
+				EAA28A77BB94101D11F206D8 /* Pods-com.hajunho.swift-graphUITests.debug.xcconfig */,
+				426E6B15E35938642CF2C9B0 /* Pods-com.hajunho.swift-graphUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,9 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D21BCA87216B3E3A00099859 /* Build configuration list for PBXNativeTarget "com.hajunho.swift-graph" */;
 			buildPhases = (
+				9A104837678BA1E287C2950F /* [CP] Check Pods Manifest.lock */,
 				D21BCA5B216B3E3900099859 /* Sources */,
 				D21BCA5C216B3E3900099859 /* Frameworks */,
 				D21BCA5D216B3E3900099859 /* Resources */,
+				E941E7F358852B25BDF8A627 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +292,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D21BCA8A216B3E3A00099859 /* Build configuration list for PBXNativeTarget "com.hajunho.swift-graphTests" */;
 			buildPhases = (
+				5821760B6D34466D17E69F27 /* [CP] Check Pods Manifest.lock */,
 				D21BCA6F216B3E3A00099859 /* Sources */,
 				D21BCA70216B3E3A00099859 /* Frameworks */,
 				D21BCA71216B3E3A00099859 /* Resources */,
@@ -271,6 +311,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D21BCA8D216B3E3A00099859 /* Build configuration list for PBXNativeTarget "com.hajunho.swift-graphUITests" */;
 			buildPhases = (
+				55E3C3AE8DD1027BBDA46B98 /* [CP] Check Pods Manifest.lock */,
 				D21BCA7A216B3E3A00099859 /* Sources */,
 				D21BCA7B216B3E3A00099859 /* Frameworks */,
 				D21BCA7C216B3E3A00099859 /* Resources */,
@@ -333,7 +374,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2162C172174198600514441 /* license.txt in Resources */,
 				D2CC0CC82174804600DE1BB1 /* testdata.plist in Resources */,
 				D21BCA6D216B3E3A00099859 /* LaunchScreen.storyboard in Resources */,
 				D21BCA6A216B3E3A00099859 /* Assets.xcassets in Resources */,
@@ -356,6 +396,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		55E3C3AE8DD1027BBDA46B98 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-com.hajunho.swift-graphUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5821760B6D34466D17E69F27 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-com.hajunho.swift-graphTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A104837678BA1E287C2950F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-com.hajunho.swift-graph-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E941E7F358852B25BDF8A627 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-com.hajunho.swift-graph/Pods-com.hajunho.swift-graph-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-com.hajunho.swift-graph/Pods-com.hajunho.swift-graph-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D21BCA5B216B3E3900099859 /* Sources */ = {
@@ -548,6 +679,7 @@
 		};
 		D21BCA88216B3E3A00099859 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F82C672D1E1891BF7965863B /* Pods-com.hajunho.swift-graph.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -566,6 +698,7 @@
 		};
 		D21BCA89216B3E3A00099859 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99246F5508F24ECFAA577687 /* Pods-com.hajunho.swift-graph.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -584,6 +717,7 @@
 		};
 		D21BCA8B216B3E3A00099859 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F9EE77AA164FBA321E0340F /* Pods-com.hajunho.swift-graphTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -605,6 +739,7 @@
 		};
 		D21BCA8C216B3E3A00099859 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7563CA14015930841D2EC1CB /* Pods-com.hajunho.swift-graphTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -626,6 +761,7 @@
 		};
 		D21BCA8E216B3E3A00099859 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAA28A77BB94101D11F206D8 /* Pods-com.hajunho.swift-graphUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -646,6 +782,7 @@
 		};
 		D21BCA8F216B3E3A00099859 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 426E6B15E35938642CF2C9B0 /* Pods-com.hajunho.swift-graphUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
