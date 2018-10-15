@@ -9,9 +9,7 @@
 import UIKit
 
 protocol jhScene_p {
-    func createPanels()
-    func drawBackboard()
-    func drawBackboardLabels()
-    func drawGraph()
+    func createPanels(withHeightRatios: ratioNtype...)
+    func drawPanels()
     func drawScene()
 }
