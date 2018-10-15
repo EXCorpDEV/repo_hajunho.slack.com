@@ -8,6 +8,35 @@
 
 import UIKit
 
+//Where am I, exactly  ex) "".pwd(self)
+extension String {
+    
+    func pwd(_ x: Any)  {
+        if(!GS.shared.logLevel.contains(.none)) {
+            print("pwd_", String(describing: x.self))
+        }
+    }
+    func pwdJustString(_ x: Any) -> String {
+        return String(describing: x.self)
+    }
+    
+    func font1() -> String {
+        return "NanumSquareOTFR"
+    }
+    
+    func font1L() -> String {
+        return "NanumSquareOTFL"
+    }
+    
+    func font1B() -> String {
+        return "NanumSquareOTFB"
+    }
+    
+    func font2() -> String {
+        return "Pecita"
+    }
+}
+
 struct _logLevel: OptionSet {
     let rawValue: Int
     
@@ -48,13 +77,6 @@ class GS {
         //        logLevel = .dashboard
         //        logLevel = .just
     }
-    
-    enum eoGraphType {
-        case general
-        case first
-    }
-    
-    let current_eoGraphType : eoGraphType = eoGraphType.first
     
     static let shared = GS()
 }
