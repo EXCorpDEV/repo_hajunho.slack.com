@@ -10,6 +10,8 @@
 		D2162C112170A6C100514441 /* Data_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C102170A6C100514441 /* Data_p.swift */; };
 		D2162C132170A7C900514441 /* jhScene_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C122170A7C900514441 /* jhScene_p.swift */; };
 		D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C142170AAD200514441 /* jhPanel_p.swift */; };
+		D2162C172174198600514441 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2162C162174198600514441 /* license.txt */; };
+		D2162C1A21741F7500514441 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2162C1921741F7500514441 /* GlobalSettings.swift */; };
 		D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA62216B3E3900099859 /* AppDelegate.swift */; };
 		D21BCA65216B3E3900099859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA64216B3E3900099859 /* ViewController.swift */; };
 		D21BCA68216B3E3900099859 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21BCA66216B3E3900099859 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		D2162C102170A6C100514441 /* Data_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_p.swift; sourceTree = "<group>"; };
 		D2162C122170A7C900514441 /* jhScene_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhScene_p.swift; sourceTree = "<group>"; };
 		D2162C142170AAD200514441 /* jhPanel_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhPanel_p.swift; sourceTree = "<group>"; };
+		D2162C162174198600514441 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		D2162C1921741F7500514441 /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
 		D21BCA5F216B3E3900099859 /* com.hajunho.swift-graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "com.hajunho.swift-graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21BCA62216B3E3900099859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D21BCA64216B3E3900099859 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,14 @@
 			path = jhdata;
 			sourceTree = "<group>";
 		};
+		D2162C1821741F5500514441 /* jhcore */ = {
+			isa = PBXGroup;
+			children = (
+				D2162C1921741F7500514441 /* GlobalSettings.swift */,
+			);
+			path = jhcore;
+			sourceTree = "<group>";
+		};
 		D21BCA56216B3E3900099859 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +146,7 @@
 		D21BCA61216B3E3900099859 /* com.hajunho.swift-graph */ = {
 			isa = PBXGroup;
 			children = (
+				D2162C1821741F5500514441 /* jhcore */,
 				D2162C0F21707FC300514441 /* jhdata */,
 				D2162C0E21707FBF00514441 /* jhgraph */,
 				D2162C0D21707FBA00514441 /* jhscene */,
@@ -144,6 +157,7 @@
 				D21BCA69216B3E3A00099859 /* Assets.xcassets */,
 				D21BCA6B216B3E3A00099859 /* LaunchScreen.storyboard */,
 				D21BCA6E216B3E3A00099859 /* Info.plist */,
+				D2162C162174198600514441 /* license.txt */,
 			);
 			path = "com.hajunho.swift-graph";
 			sourceTree = "<group>";
@@ -270,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2162C172174198600514441 /* license.txt in Resources */,
 				D21BCA6D216B3E3A00099859 /* LaunchScreen.storyboard in Resources */,
 				D21BCA6A216B3E3A00099859 /* Assets.xcassets in Resources */,
 				D21BCA68216B3E3900099859 /* Main.storyboard in Resources */,
@@ -302,6 +317,7 @@
 				D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */,
 				D2162C112170A6C100514441 /* Data_p.swift in Sources */,
 				D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */,
+				D2162C1A21741F7500514441 /* GlobalSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
