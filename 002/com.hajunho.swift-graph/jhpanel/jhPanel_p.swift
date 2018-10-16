@@ -13,5 +13,5 @@ protocol jhPanel_p {
     func initDatas()
     func drawBackboard()
     func drawPanel()
-    func drawText(str : String, x : CGFloat, y : CGFloat, width : CGFloat, height : CGFloat) -> UIImageView
+//    func drawText(str : String, x : CGFloat, y : CGFloat, width : CGFloat, height : CGFloat) -> UIImageView
 }

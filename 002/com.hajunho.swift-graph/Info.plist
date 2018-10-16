@@ -2,15 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SF-Pro-Text-Light.otf</string>
-		<string>NanumSquareOTFExtraBold.otf</string>
-		<string>NanumSquareOTFBold.otf</string>
-		<string>NanumSquareOTFRegular.otf</string>
-		<string>NanumSquareOTFLight.otf</string>
-		<string>Pecita.otf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -29,6 +20,15 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SF-Pro-Text-Light.otf</string>
+		<string>NanumSquareOTFExtraBold.otf</string>
+		<string>NanumSquareOTFBold.otf</string>
+		<string>NanumSquareOTFRegular.otf</string>
+		<string>NanumSquareOTFLight.otf</string>
+		<string>Pecita.otf</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

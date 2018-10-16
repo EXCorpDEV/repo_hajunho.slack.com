@@ -160,25 +160,25 @@ class jhPanel : jhDraw, jhPanel_p {
         drawAxes()
     }
     
-    func drawText(str : String, x : CGFloat, y : CGFloat, width : CGFloat, height : CGFloat) -> UIImageView {
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
-        let img = renderer.image { ctx in
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.alignment = .center            
-            let attrs = [
-                NSAttributedString.Key.strokeColor : UIColor.black,
-                NSAttributedString.Key.foregroundColor : UIColor.white,
-                NSAttributedString.Key.strokeWidth : -2.0,
-                NSAttributedString.Key.font : UIFont(name: "".font1(), size: width/2) as Any
-                ] as [NSAttributedString.Key : Any]
-            
-            let string = str
-            string.draw(with: CGRect(x: 0, y: 0, width: width, height: 10), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
-        }
-        let imageView : UIImageView = UIImageView(frame: CGRect(x: getX(x)!, y: getY(y)!, width: width, height: height))
-        imageView.image = img
-        return imageView
-    }
+//    func drawText(str : String, x : CGFloat, y : CGFloat, width : CGFloat, height : CGFloat) -> UIImageView {
+//        let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
+//        let img = renderer.image { ctx in
+//            let paragraphStyle = NSMutableParagraphStyle()
+//            paragraphStyle.alignment = .center
+//            let attrs = [
+//                NSAttributedString.Key.strokeColor : UIColor.black,
+//                NSAttributedString.Key.foregroundColor : UIColor.white,
+//                NSAttributedString.Key.strokeWidth : -2.0,
+//                NSAttributedString.Key.font : UIFont(name: "".font1(), size: width/2) as Any
+//                ] as [NSAttributedString.Key : Any]
+//
+//            let string = str
+//            string.draw(with: CGRect(x: 0, y: 0, width: width, height: 10), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+//        }
+//        let imageView : UIImageView = UIImageView(frame: CGRect(x: getX(x)!, y: getY(y)!, width: width, height: height))
+//        imageView.image = img
+//        return imageView
+//    }
     
     func drawAxes() {
         var xlocation : CGFloat = 0
@@ -188,7 +188,7 @@ class jhPanel : jhDraw, jhPanel_p {
             drawLine(xlocation, mMargin, xlocation, jhDraw.maxR-mMargin)
             
             //TODO: LABEL
-            self.addSubview(drawText(str: String(x), x: xlocation-10, y: jhDraw.maxR-mMargin, width: 10, height: 10))
+//            self.addSubview(drawText(str: String(x), x: xlocation-10, y: jhDraw.maxR-mMargin, width: 10, height: 10))
         }
         
         for x in 1..<mcountOfHorizontalAxes+1 {
@@ -196,7 +196,7 @@ class jhPanel : jhDraw, jhPanel_p {
             drawLine(mMargin, fx, jhDraw.maxR-mMargin, fx)
             
             //TODO: LABEL
-            self.addSubview(drawText(str: String(x), x: 100, y: fx, width: 10, height: 10))
+//            self.addSubview(drawText(str: String(x), x: 100, y: fx, width: 10, height: 10))
         }
         
         //TODO: warning guide line. There's a bug.
