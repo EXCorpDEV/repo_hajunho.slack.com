@@ -89,6 +89,8 @@ class jhDraw : UIView {
         retY = y * panelHeight / fixedPanelHeight
         return retY
     }
+    
+    func redrawGraph() {}
 }
 
 

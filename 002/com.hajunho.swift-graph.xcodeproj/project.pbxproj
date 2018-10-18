@@ -19,6 +19,8 @@
 		D21BCA6D216B3E3A00099859 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21BCA6B216B3E3A00099859 /* LaunchScreen.storyboard */; };
 		D21BCA78216B3E3A00099859 /* com_hajunho_swift_graphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA77216B3E3A00099859 /* com_hajunho_swift_graphTests.swift */; };
 		D21BCA83216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA82216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift */; };
+		D2720903217874260037D092 /* opserver_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2720902217874260037D092 /* opserver_p.swift */; };
+		D2720905217874C80037D092 /* jhClientServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2720904217874C80037D092 /* jhClientServer.swift */; };
 		D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */; };
 		D2CC0CBE21747B4700DE1BB1 /* jhFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */; };
 		D2CC0CC82174804600DE1BB1 /* testdata.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2CC0CC72174804600DE1BB1 /* testdata.plist */; };
@@ -72,6 +74,8 @@
 		D21BCA7E216B3E3A00099859 /* com.hajunho.swift-graphUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "com.hajunho.swift-graphUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21BCA82216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = com_hajunho_swift_graphUITests.swift; sourceTree = "<group>"; };
 		D21BCA84216B3E3A00099859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2720902217874260037D092 /* opserver_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opserver_p.swift; sourceTree = "<group>"; };
+		D2720904217874C80037D092 /* jhClientServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhClientServer.swift; sourceTree = "<group>"; };
 		D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhPanel.swift; sourceTree = "<group>"; };
 		D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhFile.swift; sourceTree = "<group>"; };
 		D2CC0CC021747E5A00DE1BB1 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				D2CC0CC72174804600DE1BB1 /* testdata.plist */,
 				D2162C102170A6C100514441 /* Data_p.swift */,
 				D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */,
+				D2720904217874C80037D092 /* jhClientServer.swift */,
 			);
 			path = jhdata;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				D2162C1921741F7500514441 /* GS.swift */,
+				D2720902217874260037D092 /* opserver_p.swift */,
 			);
 			path = jhcore;
 			sourceTree = "<group>";
@@ -499,6 +505,8 @@
 				D2CC0CD22174879B00DE1BB1 /* jhBarGraph.swift in Sources */,
 				D2D1FEC8217560C900FD2615 /* ViewController.swift in Sources */,
 				D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */,
+				D2720903217874260037D092 /* opserver_p.swift in Sources */,
+				D2720905217874C80037D092 /* jhClientServer.swift in Sources */,
 				D2CC0CCC217484CC00DE1BB1 /* jhGuideLine.swift in Sources */,
 				D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */,
 				D2162C112170A6C100514441 /* Data_p.swift in Sources */,

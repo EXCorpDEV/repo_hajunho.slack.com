@@ -8,7 +8,7 @@
 
 import UIKit
 
-class jhPanel : jhDraw, jhPanel_p {
+class jhPanel : jhDraw, jhPanel_p, observer_p {
     
     var jhEnforcingMode: Bool = false
     var jhPanelID: Int = 0
