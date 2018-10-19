@@ -58,7 +58,7 @@ struct jhData {
         mcountOfHorizontalAxes = 3
         //This will be moved to jhScene
         
-        let dataSource = jhFile.legacyConverterToArray("testdata", "plist")!
+        let dataSource = getDefaultDataSet()
         
         var maxValue : CGFloat = 0.0
         var minValue : CGFloat = jhDraw.maxR
@@ -85,13 +85,11 @@ struct jhData {
         mVerticalRatioToDraw_view = (jhDraw.maxR - (2*mMargin)) / mMaxValueOfDatas
         if GS.shared.logLevel.contains(.graph) {
             print("mVerticalRatioToDraw_view =", mVerticalRatioToDraw_view)
-            
         }
         mCountOfaxes_view = mAllofCountOfDatas
     }
     
-//    func getArrayOfData() -> NSArray {
-//        return jhFile.legacyConverterToArray("testdata", "plist")!
-//    }
-    
+    func getDefaultDataSet() -> NSArray {
+        return jhFile.legacyConverterToArray("testdata", "plist")!
+    }
 }

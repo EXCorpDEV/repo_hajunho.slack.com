@@ -30,8 +30,6 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     
     private var mLineWidth : CGFloat = 1
     private var mColor : CGColor = UIColor.blue.cgColor
- 
-
     
     override init(frame: CGRect) {
         if GS.shared.logLevel.contains(.graphPanel) { print("jhPanel override init(\(frame.width), \(frame.height))")}
