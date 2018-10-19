@@ -14,7 +14,7 @@ class jhBarGraph : jhPanel {
         var fx, fy : CGFloat
         
         var x : Int = 0
-        for y in mValuesOfDatas {
+        for y in data.mValuesOfDatas {
             x += 1
             fx = CGFloat(x)*data.axisDistance
             fy = CGFloat(y)*data.mVerticalRatioToDraw_view + self.data.mMargin

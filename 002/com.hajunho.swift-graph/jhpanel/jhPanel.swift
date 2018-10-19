@@ -18,13 +18,6 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     
     var data = jhData()
     
-    internal var mValuesOfDatas : Array<CGFloat> = Array() {
-        didSet {
-            if GS.shared.logLevel.contains(.graph) {
-                print("mValuesOfDatas.count has been changed to \(mValuesOfDatas.count) in jhPanel")
-            }
-        }
-    }
     
     //stored property related with Drawing
     private let mFixedPanelWidth : CGFloat = jhDraw.maxR //basic ratio 0~10000.0
@@ -37,17 +30,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     
     private var mLineWidth : CGFloat = 1
     private var mColor : CGColor = UIColor.blue.cgColor
-    
-    
  
-    
-    //calculated property related with DATAs' View
-    private var mAllofCountOfDatas : Int {
-        get {
-            return self.mValuesOfDatas.count
-        }
-    }
-    
 
     
     override init(frame: CGRect) {
@@ -75,9 +58,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         
         initDatas()
         drawBackboard()
-        
-        
-        
+    
         drawDatas()
     }
     
@@ -139,9 +120,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         mColor = jhColor(red: 229, green: 229, blue: 229)
         
         drawRect(margin: self.data.mMargin)
-        
-        self.data.mCountOfaxes_view = mAllofCountOfDatas
-        
+    
         drawAxes()
     }
     
@@ -190,33 +169,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     }
     
     func initDatas() {
-        let dataSource = getArrayOfData()
-        
-        var maxValue : CGFloat = 0.0
-        var minValue : CGFloat = jhDraw.maxR
-        
-        for element in dataSource {
-            let _element = element as! NSArray
-            let vDate = _element[0] as! CFDate
-            let vNumber = _element[1] as! CGFloat
-            
-            if GS.shared.logLevel.contains(.graph) {
-                print("datasrc2 \(vDate) \(vNumber)")
-            }
-            
-            if vNumber > maxValue { maxValue = vNumber }
-            if vNumber < minValue { minValue = maxValue }
-            mValuesOfDatas.append(vNumber) //TODO:
-            jhClientServer.mValuesOfDatas.append(vNumber)
-        }
-        
-        self.data.mMaxValueOfDatas = maxValue
-        self.data.mMinvalueOfDatas = minValue
-        
-        self.data.mVerticalRatioToDraw_view = (jhDraw.maxR - (2*self.data.mMargin)) / self.data.mMaxValueOfDatas
-        if GS.shared.logLevel.contains(.graph) {
-            print("mVerticalRatioToDraw_view =", self.data.mVerticalRatioToDraw_view)
-        }
+ 
     }
     
     func jhReSize(size : CGSize) {
@@ -224,13 +177,8 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         //        self.jhSceneFrameHeight = size.height
     }
     
-    //This will be moved to jhScene
-    func getArrayOfData() -> NSArray {
-        return jhFile.legacyConverterToArray("testdata", "plist")!
-    }
-    
     func drawDatas() {
-        dataLayer = jhLayer(&jhClientServer.mValuesOfDatas, self.data.axisDistance, self.data.mVerticalRatioToDraw_view, self.data.mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0)
+        dataLayer = jhLayer(&self.data.mValuesOfDatas, self.data.axisDistance, self.data.mVerticalRatioToDraw_view, self.data.mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
         dataLayer.zPosition=1
