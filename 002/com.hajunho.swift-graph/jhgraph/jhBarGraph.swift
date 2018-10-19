@@ -16,10 +16,10 @@ class jhBarGraph : jhPanel {
         var x : Int = 0
         for y in mValuesOfDatas {
             x += 1
-            fx = CGFloat(x)*axisDistance
-            fy = CGFloat(y)*mVerticalRatioToDraw_view + mMargin
+            fx = CGFloat(x)*data.axisDistance
+            fy = CGFloat(y)*data.mVerticalRatioToDraw_view + self.data.mMargin
             drawEllipse(fx, fy, 2, 2, thickness: 2, UIColor.blue.cgColor)
-            pointCloud.append(CGPoint.init(x: getX(fx+mMargin)!, y: getY(fy)!))
+            pointCloud.append(CGPoint.init(x: getX(fx+self.data.mMargin)!, y: getY(fy)!))
         }
         
         mContext?.move(to: CGPoint.init(x: 0, y: 0))
@@ -34,7 +34,7 @@ class jhBarGraph : jhPanel {
             mContext?.setStrokeColor(jhColor(red: 184, green: 70, blue: 201, alpha: 1.0))
             mContext?.setLineWidth(1)
             
-            let rectangle = CGRect(x: x.x-5, y: x.y, width: 10, height: -(x.y-getY(mMargin)!)) //TODO: 좌표 계산 부분 한 곳으로 몰기.
+            let rectangle = CGRect(x: x.x-5, y: x.y, width: 10, height: -(x.y-getY(self.data.mMargin)!)) //TODO: 좌표 계산 부분 한 곳으로 몰기.
             mContext?.addRect(rectangle)
             mContext?.drawPath(using: .fillStroke)
         }

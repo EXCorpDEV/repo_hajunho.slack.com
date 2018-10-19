@@ -16,10 +16,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     
     internal var mContext : CGContext? = nil
     
-    //stored property realted with DATAs
-    private var mCountOfDatas : Int = 0
-    private var mMaxValueOfDatas : CGFloat = 0
-    private var mMinvalueOfDatas : CGFloat = 0
+    var data = jhData()
     
     internal var mValuesOfDatas : Array<CGFloat> = Array() {
         didSet {
@@ -34,7 +31,6 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     private let mFixedPanelHeight : CGFloat = jhDraw.maxR  //basic ratio
     
     //    private var mMargin : CGFloat = 1333.3 //1000.0 is 13.3..%, margin between panel & graph area 0<=martgin<10000.0
-    internal var mMargin : CGFloat = 300 //1000.0 is 13.3..%, margin between panel & graph area 0<=martgin<10000.0
     
     private var mPanelWidth : CGFloat? = nil
     private var mPanelHeight : CGFloat? = nil
@@ -43,12 +39,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     private var mColor : CGColor = UIColor.blue.cgColor
     
     
-    /// Axes
-    var mCountOfaxes_view : Int = 1
-    var mUnitOfHorizontalAxes : CGFloat = 100
-    var mcountOfHorizontalAxes : Int = 3
-    
-    internal var mVerticalRatioToDraw_view : CGFloat = 1.0
+ 
     
     //calculated property related with DATAs' View
     private var mAllofCountOfDatas : Int {
@@ -57,14 +48,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         }
     }
     
-    var axisDistance : CGFloat {
-        get {
-            return (jhDraw.maxR  - mMargin * 2) / CGFloat(mCountOfaxes_view+1)
-        }
-        set(distance) {
-            mCountOfaxes_view = Int(jhDraw.maxR  / CGFloat(distance))
-        }
-    }
+
     
     override init(frame: CGRect) {
         if GS.shared.logLevel.contains(.graphPanel) { print("jhPanel override init(\(frame.width), \(frame.height))")}
@@ -145,18 +129,18 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     func drawEllipse(_ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, thickness : CGFloat, _ color : CGColor){
         //        worldEllipse(context: mContext, getX(x)!, getY(jhDraw.maxR - y)!, width, height, thickness, color)
         if GS.shared.logLevel.contains(.graph) {
-            print("worldEllipse(context: mContext,", getX(x+mMargin)!, getY(jhDraw.maxR-y)!, width, height, thickness, color)
+            print("worldEllipse(context: mContext,", getX(x+self.data.mMargin)!, getY(jhDraw.maxR-y)!, width, height, thickness, color)
         }
-        jhDraw.worldEllipse(context: mContext, getX(x+mMargin)!, getY(y)!, width, height, thickness, color)
+        jhDraw.worldEllipse(context: mContext, getX(x+self.data.mMargin)!, getY(y)!, width, height, thickness, color)
     }
     
     /// draw X-axes, Y-axes
     func drawBackboard() {
         mColor = jhColor(red: 229, green: 229, blue: 229)
         
-        drawRect(margin: mMargin)
+        drawRect(margin: self.data.mMargin)
         
-        mCountOfaxes_view = mAllofCountOfDatas
+        self.data.mCountOfaxes_view = mAllofCountOfDatas
         
         drawAxes()
     }
@@ -184,25 +168,25 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     func drawAxes() {
         var xlocation : CGFloat = 0
         
-        for x in 1..<mCountOfaxes_view+1 {
-            xlocation = CGFloat(x) * axisDistance + mMargin
-            drawLine(xlocation, mMargin, xlocation, jhDraw.maxR-mMargin)
+        for x in 1..<self.data.mCountOfaxes_view+1 {
+            xlocation = CGFloat(x) * self.data.axisDistance + self.data.mMargin
+            drawLine(xlocation, self.data.mMargin, xlocation, jhDraw.maxR-self.data.mMargin)
             
             //TODO: LABEL
 //            self.addSubview(drawText(str: String(x), x: xlocation-10, y: jhDraw.maxR-mMargin, width: 10, height: 10))
         }
         
-        for x in 1..<mcountOfHorizontalAxes+1 {
-            let fx = CGFloat(x)*mUnitOfHorizontalAxes*mVerticalRatioToDraw_view + mMargin
-            drawLine(mMargin, fx, jhDraw.maxR-mMargin, fx)
+        for x in 1..<self.data.mcountOfHorizontalAxes+1 {
+            let fx = CGFloat(x)*self.data.mUnitOfHorizontalAxes*self.data.mVerticalRatioToDraw_view + self.data.mMargin
+            drawLine(self.data.mMargin, fx, jhDraw.maxR-self.data.mMargin, fx)
             
             //TODO: LABEL
 //            self.addSubview(drawText(str: String(x), x: 100, y: fx, width: 10, height: 10))
         }
         
         //TODO: warning guide line. There's a bug.
-        drawLineWithColor(mMargin, 20*mUnitOfHorizontalAxes, jhDraw.maxR-mMargin, 20*mUnitOfHorizontalAxes, lineWidth: 2, color: jhColor(red: 254, green: 191, blue: 4))
-        drawLineWithColor(mMargin, 60*mUnitOfHorizontalAxes, jhDraw.maxR-mMargin, 60*mUnitOfHorizontalAxes, lineWidth: 2, color: jhColor(red: 251, green: 83, blue: 96))
+        drawLineWithColor(self.data.mMargin, 20*self.data.mUnitOfHorizontalAxes, jhDraw.maxR-self.data.mMargin, 20*self.data.mUnitOfHorizontalAxes, lineWidth: 2, color: jhColor(red: 254, green: 191, blue: 4))
+        drawLineWithColor(self.data.mMargin, 60*self.data.mUnitOfHorizontalAxes, jhDraw.maxR-self.data.mMargin, 60*self.data.mUnitOfHorizontalAxes, lineWidth: 2, color: jhColor(red: 251, green: 83, blue: 96))
     }
     
     func initDatas() {
@@ -226,12 +210,12 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
             jhClientServer.mValuesOfDatas.append(vNumber)
         }
         
-        self.mMaxValueOfDatas = maxValue
-        self.mMinvalueOfDatas = minValue
+        self.data.mMaxValueOfDatas = maxValue
+        self.data.mMinvalueOfDatas = minValue
         
-        self.mVerticalRatioToDraw_view = (jhDraw.maxR - (2*mMargin)) / self.mMaxValueOfDatas
+        self.data.mVerticalRatioToDraw_view = (jhDraw.maxR - (2*self.data.mMargin)) / self.data.mMaxValueOfDatas
         if GS.shared.logLevel.contains(.graph) {
-            print("mVerticalRatioToDraw_view =", mVerticalRatioToDraw_view)
+            print("mVerticalRatioToDraw_view =", self.data.mVerticalRatioToDraw_view)
         }
     }
     
@@ -246,7 +230,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     }
     
     func drawDatas() {
-        dataLayer = jhLayer(&jhClientServer.mValuesOfDatas, axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0)
+        dataLayer = jhLayer(&jhClientServer.mValuesOfDatas, self.data.axisDistance, self.data.mVerticalRatioToDraw_view, self.data.mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
         dataLayer.zPosition=1

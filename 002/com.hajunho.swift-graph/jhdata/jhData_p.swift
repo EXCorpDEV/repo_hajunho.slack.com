@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol Data_p: Decodable {
+protocol jhData_p: Decodable {
     
 }
