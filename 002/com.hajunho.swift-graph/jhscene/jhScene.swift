@@ -8,9 +8,7 @@
 
 import UIKit
 
-class jhScene : UIScrollView, jhScene_p {
-
-    
+class jhScene : UIScrollView, jhScene_p, observer_p {
     
     var jhEnforcingMode: Bool = true
     var jhSceneFrameWidth: CGFloat = jhDraw.maxR
@@ -115,4 +113,7 @@ class jhScene : UIScrollView, jhScene_p {
         if GS.shared.logLevel.contains(.graph2) { print("jhScene_touchesEnded", tempCount) }
     }
     
+    func jhRedraw() {
+        
+    }
 }

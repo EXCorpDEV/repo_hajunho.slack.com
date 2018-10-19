@@ -9,5 +9,5 @@
 import UIKit
 
 protocol observer_p {
-    func redrawGraph()
+    func jhRedraw()
 }

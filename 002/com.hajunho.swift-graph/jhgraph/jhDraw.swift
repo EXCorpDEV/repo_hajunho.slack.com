@@ -90,7 +90,7 @@ class jhDraw : UIView {
         return retY
     }
     
-    func redrawGraph() {}
+    func jhRedraw() {}
 }
 
 

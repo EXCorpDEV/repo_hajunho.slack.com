@@ -10,11 +10,11 @@ import UIKit
 
 class jhClientServer {
     
-    private var listeners = [jhDraw]()
+    private var listeners = [observer_p]()
     
     public func notiDataDowloadFinish() {
         for x in listeners {
-            x.redrawGraph()
+            x.jhRedraw()
         }
     }
     
