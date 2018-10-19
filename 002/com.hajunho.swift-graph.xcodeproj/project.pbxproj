@@ -21,6 +21,7 @@
 		D21BCA83216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA82216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift */; };
 		D2720903217874260037D092 /* observer_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2720902217874260037D092 /* observer_p.swift */; };
 		D2720905217874C80037D092 /* jhClientServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2720904217874C80037D092 /* jhClientServer.swift */; };
+		D272090821798B4A0037D092 /* jhLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272090721798B4A0037D092 /* jhLayer.swift */; };
 		D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */; };
 		D2CC0CBE21747B4700DE1BB1 /* jhFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */; };
 		D2CC0CC82174804600DE1BB1 /* testdata.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2CC0CC72174804600DE1BB1 /* testdata.plist */; };
@@ -76,6 +77,7 @@
 		D21BCA84216B3E3A00099859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2720902217874260037D092 /* observer_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = observer_p.swift; sourceTree = "<group>"; };
 		D2720904217874C80037D092 /* jhClientServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhClientServer.swift; sourceTree = "<group>"; };
+		D272090721798B4A0037D092 /* jhLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhLayer.swift; sourceTree = "<group>"; };
 		D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhPanel.swift; sourceTree = "<group>"; };
 		D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhFile.swift; sourceTree = "<group>"; };
 		D2CC0CC021747E5A00DE1BB1 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		D21BCA61216B3E3900099859 /* com.hajunho.swift-graph */ = {
 			isa = PBXGroup;
 			children = (
+				D2720906217978660037D092 /* jhlayer */,
 				D2D1FEC7217560C900FD2615 /* ViewController.swift */,
 				D2CC0CBF21747E4000DE1BB1 /* labelfont */,
 				D2162C1821741F5500514441 /* jhcore */,
@@ -243,6 +246,14 @@
 				D21BCA84216B3E3A00099859 /* Info.plist */,
 			);
 			path = "com.hajunho.swift-graphUITests";
+			sourceTree = "<group>";
+		};
+		D2720906217978660037D092 /* jhlayer */ = {
+			isa = PBXGroup;
+			children = (
+				D272090721798B4A0037D092 /* jhLayer.swift */,
+			);
+			path = jhlayer;
 			sourceTree = "<group>";
 		};
 		D2CC0CBF21747E4000DE1BB1 /* labelfont */ = {
@@ -505,6 +516,7 @@
 				D2CC0CD22174879B00DE1BB1 /* jhBarGraph.swift in Sources */,
 				D2D1FEC8217560C900FD2615 /* ViewController.swift in Sources */,
 				D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */,
+				D272090821798B4A0037D092 /* jhLayer.swift in Sources */,
 				D2720903217874260037D092 /* observer_p.swift in Sources */,
 				D2720905217874C80037D092 /* jhClientServer.swift in Sources */,
 				D2CC0CCC217484CC00DE1BB1 /* jhGuideLine.swift in Sources */,

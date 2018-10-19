@@ -12,6 +12,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     
     var jhEnforcingMode: Bool = false
     var jhPanelID: Int = 0
+    var dataLayer : CALayer = CALayer(layer: 0)
     
     internal var mContext : CGContext? = nil
     
@@ -146,7 +147,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         if GS.shared.logLevel.contains(.graph) {
             print("worldEllipse(context: mContext,", getX(x+mMargin)!, getY(jhDraw.maxR-y)!, width, height, thickness, color)
         }
-        worldEllipse(context: mContext, getX(x+mMargin)!, getY(y)!, width, height, thickness, color)
+        jhDraw.worldEllipse(context: mContext, getX(x+mMargin)!, getY(y)!, width, height, thickness, color)
     }
     
     /// draw X-axes, Y-axes
@@ -221,7 +222,8 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
             
             if vNumber > maxValue { maxValue = vNumber }
             if vNumber < minValue { minValue = maxValue }
-            mValuesOfDatas.append(vNumber)
+            mValuesOfDatas.append(vNumber) //TODO:
+            jhClientServer.mValuesOfDatas.append(vNumber)
         }
         
         self.mMaxValueOfDatas = maxValue
@@ -244,26 +246,14 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     }
     
     func drawDatas() {
-        //        worldEllipse(context: mContext, 100, 100, 100, 100, 2, UIColor.blue.cgColor)
+        dataLayer = jhLayer(&jhClientServer.mValuesOfDatas, axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0)
         
-        var pointCloud = Array<CGPoint>()
-        var fx, fy : CGFloat
-        
-        var x : Int = 0
-        for y in mValuesOfDatas {
-            //ref:drawLine(CGFloat(x)*axisDistance + mMargin, mMargin, CGFloat(x) * axisDistance + mMargin, 10000-mMargin)
-            x += 1
-            fx = CGFloat(x)*axisDistance
-            fy = CGFloat(y)*mVerticalRatioToDraw_view + mMargin
-            drawEllipse(fx, fy, 2, 2, thickness: 2, UIColor.blue.cgColor)
-            pointCloud.append(CGPoint.init(x: getX(fx+mMargin)!, y: getY(fy)!))
-        }
-        
-        mContext?.move(to: CGPoint.init(x: 0, y: 0))
-        mContext?.setStrokeColorSpace(CGColorSpaceCreateDeviceRGB())
-        mContext?.setStrokeColor(UIColor.blue.cgColor)
-        mContext?.setLineWidth(1.0)
-        mContext?.addLines(between: pointCloud)
-        mContext?.strokePath()
+        dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
+        dataLayer.zPosition=1
+        //        guideLine.isGeometryFlipped = true
+//        dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
+        self.layer.addSublayer(dataLayer)
+        dataLayer.setNeedsDisplay()
+        jhClientServer.attachObserver(observer: self)
     }
 }

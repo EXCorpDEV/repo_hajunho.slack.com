@@ -66,7 +66,7 @@ class jhDraw : UIView {
         context?.strokePath()
     }
     
-    func worldEllipse(context : CGContext?, _ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, _ lineWidth : CGFloat, _ color : CGColor) {
+    static func worldEllipse(context : CGContext?, _ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, _ lineWidth : CGFloat, _ color : CGColor) {
         if GS.shared.logLevel.contains(.graph) { print("draw_worldEllipse_\(x), \(y), \(width), \(height)")}
         context?.addEllipse(in: CGRect(x: x - width/2 , y: y - height/2, width: width, height: height))
         context?.setStrokeColor(color)

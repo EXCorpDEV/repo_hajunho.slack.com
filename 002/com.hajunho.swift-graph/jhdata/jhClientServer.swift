@@ -10,9 +10,23 @@ import UIKit
 
 class jhClientServer {
     
-    private var listeners = [observer_p]()
+    public static var mValuesOfDatas : Array<CGFloat> = Array() {
+        didSet {
+            if GS.shared.logLevel.contains(.graph) {
+                print("mValuesOfDatas.count has been changed to \(mValuesOfDatas.count) in jhPanel")
+            }
+        }
+    }
     
-    public func notiDataDowloadFinish() {
+    public static var mCountOfaxes_view : Int = 1
+    
+    private static var listeners = [observer_p]()
+    
+    static func attachObserver(observer : observer_p) {
+        listeners.append(observer)
+    }
+
+    public static func notiDataDowloadFinish() {
         for x in listeners {
             x.jhRedraw()
         }
