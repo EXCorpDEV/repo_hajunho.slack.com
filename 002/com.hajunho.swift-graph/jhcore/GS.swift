@@ -49,6 +49,7 @@ struct _logLevel: OptionSet {
     static let graphPanel = _logLevel(rawValue: 1 << 6)
     static let dashboard = _logLevel(rawValue: 1 << 7)
     static let none = _logLevel(rawValue: 1 << 8)
+    static let network = _logLevel(rawValue: 1 << 9)
     static let all: _logLevel = [.critical, .major, .minor, .just, .graph, .graph2, .graphPanel, .dashboard]
 }
 
@@ -70,7 +71,8 @@ class GS {
     var logLevel : _logLevel
     
     private init() {
-        logLevel = .all
+//        logLevel = .all
+        logLevel = .network
 //        logLevel = .none
         //        logLevel = .critical
         //        logLevel = .graphPanel

@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class jhServerTest {
     
-    let urlString: String = "https://yoursite.com"
+    let urlString: String = "https://data.cityofchicago.org/api/views/ijzp-q8t2"
     let token: String = "/yourTokenAPI"
     let login: String = "/yourLoginAPI"
     let testUserName: String = "hajunho"
@@ -23,11 +23,33 @@ class jhServerTest {
     
     var count: Int = 0
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view, typically from a nib.
-//        getLoginToken()
-//    }
+    init() {
+        if GS.shared.logLevel.contains(.network) { print(connectionTest(urlString, auth: false)) }
+        
+        let parameters: Parameters = [:]
+
+        Alamofire.request(urlString, parameters: parameters).responseJSON { response in
+            if(false) {
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")                         // response serialization result
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("Data: \(utf8Text)") // original server data as UTF8 string
+                }
+            }
+            
+            if let json = response.result.value {
+                if(false) {
+                    print("JSON: \(json)") // serialized json response
+                }
+                 print("JSON: \(json)") // serialized json response
+//                let swiftyJsonVar = JSON(json)
+//                let resToken = swiftyJsonVar[self.json1level][self.json2level].stringValue //KEYPOINT!!
+//                print(resToken)
+                
+            }
+        }
+    }
     
     func connectionTest(_ site: String, auth: Bool) {
         Alamofire.request(site)
