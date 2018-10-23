@@ -8,7 +8,7 @@
 
 import UIKit
 
-class jhLayer : CALayer {
+class jhDrawDataLayer : CALayer {
     
     private let panelID: Int
     
@@ -47,7 +47,7 @@ class jhLayer : CALayer {
 //            mValuesOfDatas.append(jhData.mDatas[panelID]!.d[y].y)
 //        }
         
-        for y in jhData.nonNetworkData {
+        for y in jhDataCenter.nonNetworkData {
             mValuesOfDatas.append(y)
         }
         

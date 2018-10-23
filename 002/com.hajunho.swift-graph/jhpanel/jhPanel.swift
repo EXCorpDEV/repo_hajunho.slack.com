@@ -45,14 +45,14 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     //calculated property related with DATAs' View
     internal var mAllofCountOfDatas : Int {
         get {
-            return jhData.nonNetworkData.count
+            return jhDataCenter.nonNetworkData.count
 //            return jhData.mDatas[0]?.d.count ?? 0
         }
     }
     
     var axisDistance : CGFloat {
         get {
-            return (jhDraw.maxR  - mMargin * 2) / CGFloat(jhData.mCountOfaxes_view+1)
+            return (jhDraw.maxR  - mMargin * 2) / CGFloat(jhDataCenter.mCountOfaxes_view+1)
         }
         //        set(distance) {
         //            jhData.mCountOfaxes_view = Int(jhDraw.maxR  / CGFloat(distance))
@@ -138,7 +138,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         mColor = jhColor(r: 229, g: 229, b: 229, a: 1.0)
         drawRect(margin: mMargin)
         
-        jhData.mCountOfaxes_view = mAllofCountOfDatas
+        jhDataCenter.mCountOfaxes_view = mAllofCountOfDatas
         
         drawAxes()
     }
@@ -192,7 +192,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
             if vNumber > maxValue { maxValue = vNumber }
             if vNumber < minValue { minValue = maxValue }
             
-            jhData.nonNetworkData.append(vNumber)
+            jhDataCenter.nonNetworkData.append(vNumber)
         }
         
         self.mMaxValueOfDatas = maxValue
@@ -215,7 +215,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     }
     
     func drawDatas() {
-        dataLayer = jhLayer(axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0, panelID: 0)
+        dataLayer = jhDrawDataLayer(axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0, panelID: 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
         dataLayer.zPosition=1
@@ -223,15 +223,15 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
         self.layer.addSublayer(dataLayer)
         dataLayer.setNeedsDisplay()
-        jhData.attachObserver(observer: self)
+        jhDataCenter.attachObserver(observer: self)
     }
     
     func jhRedraw() {
         dataLayer.removeFromSuperlayer()
         
-        jhData.mCountOfaxes_view = mAllofCountOfDatas
+        jhDataCenter.mCountOfaxes_view = mAllofCountOfDatas
         
-        dataLayer = jhLayer(axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0, panelID: 0)
+        dataLayer = jhDrawDataLayer(axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0, panelID: 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
         dataLayer.zPosition=1

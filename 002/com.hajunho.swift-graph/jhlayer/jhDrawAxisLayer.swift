@@ -49,7 +49,7 @@ class jhDrawAxisLayer : CALayer {
         
         var xlocation : CGFloat = 0
         
-        for x in 1..<jhData.mCountOfaxes_view+1 {
+        for x in 1..<jhDataCenter.mCountOfaxes_view+1 {
             
             xlocation = CGFloat(x) * axisDistance + mMargin
             

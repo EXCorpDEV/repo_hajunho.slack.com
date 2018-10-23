@@ -16,7 +16,7 @@ class jhBarGraph : jhPanel {
         var fx, fy : CGFloat
         
         var x : Int = 0
-        for y in (jhData.mDatas[jhPanelID]?.d)! {
+        for y in (jhDataCenter.mDatas[jhPanelID]?.d)! {
             //ref:drawLine(CGFloat(x)*axisDistance + mMargin, mMargin, CGFloat(x) * axisDistance + mMargin, 10000-mMargin)
             x += 1
             fx = CGFloat(x)*axisDistance

@@ -32,7 +32,7 @@ struct hjh {
     var d : Array<s>
 }
 
-class jhData{
+class jhDataCenter {
     
     public static var mDatas : [Int:hjh] = [0:hjh(d: Array<s>()),
                                             1:hjh(d: Array<s>()),
