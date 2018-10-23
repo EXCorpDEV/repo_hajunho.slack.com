@@ -10,16 +10,19 @@ import UIKit
 
 class jhBarGraph : jhPanel {
     override func drawDatas() {
+        //        worldEllipse(context: mContext, 100, 100, 100, 100, 2, UIColor.blue.cgColor)
+        
         var pointCloud = Array<CGPoint>()
         var fx, fy : CGFloat
         
         var x : Int = 0
-        for y in data.mValuesOfDatas {
+        for y in (jhData.mDatas[jhPanelID]?.d)! {
+            //ref:drawLine(CGFloat(x)*axisDistance + mMargin, mMargin, CGFloat(x) * axisDistance + mMargin, 10000-mMargin)
             x += 1
-            fx = CGFloat(x)*data.axisDistance
-            fy = CGFloat(y)*data.mVerticalRatioToDraw_view + self.data.mMargin
+            fx = CGFloat(x)*axisDistance
+            fy = CGFloat(y.y)*mVerticalRatioToDraw_view + mMargin
             drawEllipse(fx, fy, 2, 2, thickness: 2, UIColor.blue.cgColor)
-            pointCloud.append(CGPoint.init(x: getX(fx+self.data.mMargin)!, y: getY(fy)!))
+            pointCloud.append(CGPoint.init(x: getX(fx+mMargin)!, y: getY(fy)!))
         }
         
         mContext?.move(to: CGPoint.init(x: 0, y: 0))
@@ -30,14 +33,13 @@ class jhBarGraph : jhPanel {
         mContext?.strokePath()
         
         for x in pointCloud {
-            mContext?.setFillColor(jhColor(red: 184, green: 70, blue: 201, alpha: 0.5))
-            mContext?.setStrokeColor(jhColor(red: 184, green: 70, blue: 201, alpha: 1.0))
+            mContext?.setFillColor(jhColor(r: 184, g: 70, b: 201, a: 0.5))
+            mContext?.setStrokeColor(jhColor(r: 184, g: 70, b: 201, a: 1.0))
             mContext?.setLineWidth(1)
             
-            let rectangle = CGRect(x: x.x-5, y: x.y, width: 10, height: -(x.y-getY(self.data.mMargin)!)) //TODO: 좌표 계산 부분 한 곳으로 몰기.
+            let rectangle = CGRect(x: x.x-5, y: x.y, width: 10, height: -(x.y-getY(mMargin)!)) //TODO: 좌표 계산 부분 한 곳으로 몰기.
             mContext?.addRect(rectangle)
             mContext?.drawPath(using: .fillStroke)
         }
     }
 }
-

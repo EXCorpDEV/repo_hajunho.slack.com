@@ -26,10 +26,11 @@ class jhClientServer {
         listeners.append(observer)
     }
 
+    /// not yet
     public static func notiDataDowloadFinish() {
-        for x in listeners {
-            x.jhRedraw()
-        }
+//        for x in listeners {
+//            x.jhRedraw()
+//        }
     }
     
     //    public func getData() -> Array<CGFloat> {

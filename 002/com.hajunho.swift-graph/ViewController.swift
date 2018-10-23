@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         
-        jhServerTest.init()
+//        jhServerTest.init()
         
         
         // Do any additional setup after loading the view.

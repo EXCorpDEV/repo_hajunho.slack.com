@@ -10,13 +10,15 @@ import UIKit
 
 class jhLayer : CALayer {
     
+    private let panelID: Int
+    
     internal var mValuesOfDatas : Array<CGFloat> = Array()
     
     var axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth, mPanelHeight, mFixedPanelWidth, mFixedPanelHeight : CGFloat
     
-    init(_ value: inout Array<CGFloat>, _ axisD: CGFloat, _ vRatio: CGFloat, _ margin: CGFloat, _ w: CGFloat, _ h: CGFloat, _ fw: CGFloat, _ fh: CGFloat, layer: Any) {
+    
+    init(_ axisD: CGFloat, _ vRatio: CGFloat, _ margin: CGFloat, _ w: CGFloat, _ h: CGFloat, _ fw: CGFloat, _ fh: CGFloat, layer: Any, panelID: Int) {
         
-        self.mValuesOfDatas = value
         self.axisDistance = axisD
         self.mVerticalRatioToDraw_view = vRatio
         self.mMargin = margin
@@ -24,6 +26,8 @@ class jhLayer : CALayer {
         self.mPanelHeight = h
         self.mFixedPanelWidth = fw
         self.mFixedPanelHeight = fh
+        
+        self.panelID = panelID
         
         super.init(layer: layer)
     }
@@ -38,11 +42,21 @@ class jhLayer : CALayer {
         var fx, fy : CGFloat
         
         var x : Int = 0
+        
+//not yet        for y in 0..<jhData.mDatas[panelID]!.d.count {
+//            mValuesOfDatas.append(jhData.mDatas[panelID]!.d[y].y)
+//        }
+        
+        for y in jhData.nonNetworkData {
+            mValuesOfDatas.append(y)
+        }
+        
         for y in mValuesOfDatas {
             //ref:drawLine(CGFloat(x)*axisDistance + mMargin, mMargin, CGFloat(x) * axisDistance + mMargin, 10000-mMargin)
             x += 1
             fx = CGFloat(x)*axisDistance
             fy = CGFloat(y)*mVerticalRatioToDraw_view + mMargin
+            print(fx, " ", fy)
             drawEllipse2(ctx, fx, fy, 2, 2, thickness: 2, UIColor.blue.cgColor)
             pointCloud.append(CGPoint.init(x: getX(fx+mMargin)!, y: getY(fy)!))
         }

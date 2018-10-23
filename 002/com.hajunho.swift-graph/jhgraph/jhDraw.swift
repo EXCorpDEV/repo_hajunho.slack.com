@@ -18,11 +18,13 @@ struct ratioNtype {
     var type : graphType
 }
 
+import UIKit
+
 class jhDraw : UIView {
     
     internal static let maxR : CGFloat = 10000.0 // standard value to calculate x, y position
     
-    var color : CGColor = UIColor.blue.cgColor
+    static var color : CGColor = UIColor.blue.cgColor
     
     struct _xy {
         var x : CGFloat
@@ -33,15 +35,11 @@ class jhDraw : UIView {
         }
     }
     
-    func jhColor(red: CGFloat , green: CGFloat , blue: CGFloat) -> CGColor {
-        return  UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: 1.0).cgColor
+    func jhColor(r:CGFloat , g:CGFloat , b:CGFloat , a:Float) -> CGColor {
+        return  UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: r).cgColor
     }
     
-    func jhColor(red:CGFloat , green:CGFloat , blue:CGFloat , alpha: CGFloat) -> CGColor {
-        return  UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha).cgColor
-    }
-    
-    func worldLine(context : CGContext?, _ x1 : Int, _ y1 : Int, _ x2 : Int, _ y2 : Int, _ lineWidth : CGFloat) {
+    static func worldLine(context : CGContext?, _ x1 : Int, _ y1 : Int, _ x2 : Int, _ y2 : Int, _ lineWidth : CGFloat) {
         context?.move(to: CGPoint(x: x1, y: y1))
         context?.addLine(to: CGPoint(x: x2, y: y2))
         context?.setStrokeColor(self.color)
@@ -49,7 +47,7 @@ class jhDraw : UIView {
         context?.strokePath()
     }
     
-    func worldLine(context : CGContext?, _ x1 : Int, _ y1 : Int, _ x2 : Int, _ y2 : Int, _ lineWidth : CGFloat, _ color : CGColor) {
+    static func worldLine(context : CGContext?, _ x1 : Int, _ y1 : Int, _ x2 : Int, _ y2 : Int, _ lineWidth : CGFloat, _ color : CGColor) {
         context?.move(to: CGPoint(x: x1, y: y1))
         context?.addLine(to: CGPoint(x: x2, y: y2))
         context?.setStrokeColor(color)
@@ -57,7 +55,7 @@ class jhDraw : UIView {
         context?.strokePath()
     }
     
-    func worldLine(context : CGContext?, _ x1 : CGFloat, _ y1 : CGFloat, _ x2 : CGFloat, _ y2 : CGFloat, _ lineWidth : CGFloat, _ color : CGColor) {
+    static func worldLine(context : CGContext?, _ x1 : CGFloat, _ y1 : CGFloat, _ x2 : CGFloat, _ y2 : CGFloat, _ lineWidth : CGFloat, _ color : CGColor) {
         if GS.shared.logLevel.contains(.graph) { print("draw_worldLine_\(x1), \(y1), \(x2), \(y2)")}
         context?.move(to: CGPoint(x: x1, y: y1))
         context?.addLine(to: CGPoint(x: x2, y: y2))
@@ -74,7 +72,7 @@ class jhDraw : UIView {
         context?.strokePath()
     }
     
-    func setColor(color : CGColor) {
+    static func setColor(color : CGColor) {
         self.color = color
     }
     
@@ -90,7 +88,6 @@ class jhDraw : UIView {
         return retY
     }
     
-    func jhRedraw() {}
+    
 }
-
 

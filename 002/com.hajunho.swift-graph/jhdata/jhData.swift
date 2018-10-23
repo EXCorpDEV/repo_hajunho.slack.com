@@ -8,88 +8,92 @@
 
 import UIKit
 
-struct jhData {
+protocol s {
+    var x: CGFloat { get set }
+    var y: CGFloat { get set }
+}
+
+/// x-axiS, y-axiS
+struct ss : s {
+    var x: CGFloat
+    var y: CGFloat
+}
+
+/// start x-axiS, end x-axiS, start y-axiS, end y-axiS
+struct ssss : s {
+    var x: CGFloat
+    var y: CGFloat
+    var x2: CGFloat
+    var y2: CGFloat
+}
+
+/// grapH jh
+struct hjh {
+    var d : Array<s>
+}
+
+class jhData{
     
-    internal var mValuesOfDatas : Array<CGFloat> = Array() {
-        didSet {
-            if GS.shared.logLevel.contains(.graph) {
-                print("mValuesOfDatas.count has been changed to \(mValuesOfDatas.count) in jhData")
-            }
-        }
-    }
+    public static var mDatas : [Int:hjh] = [0:hjh(d: Array<s>()),
+                                            1:hjh(d: Array<s>()),
+                                            2:hjh(d: Array<s>())
+    ]
     
-    //calculated property related with DATAs' View
-    private var mAllofCountOfDatas : Int {
-        get {
-            return self.mValuesOfDatas.count
-        }
-    }
-    
-    var mCountOfDatas : Int
-    var mMaxValueOfDatas : CGFloat
-    var mMinvalueOfDatas : CGFloat
-    
-    internal var mVerticalRatioToDraw_view : CGFloat = 1.0
-    
-    /// Axes
-    var mCountOfaxes_view : Int
-    var mUnitOfHorizontalAxes : CGFloat
-    var mcountOfHorizontalAxes : Int
-    
-    var axisDistance : CGFloat {
-        get {
-            return (jhDraw.maxR  - mMargin * 2) / CGFloat(mCountOfaxes_view+1)
-        }
-//        set(distance) {
-//            mCountOfaxes_view = Int(jhDraw.maxR  / CGFloat(distance))
-//        }
-    }
-    
-    internal var mMargin : CGFloat = 300 //1000.0
-    //1000.0 is 13.3..%, margin between panel & graph area 0<=martgin<10000.0
+    public static var mCountOfaxes_view : Int = 1
     
     init() {
-        mCountOfDatas = 0
-        mMaxValueOfDatas = 0
-        mMinvalueOfDatas = 0
-        
-        mCountOfaxes_view = 1
-        mUnitOfHorizontalAxes = 100
-        mcountOfHorizontalAxes = 3
-        //This will be moved to jhScene
-        
-        let dataSource = getDefaultDataSet()
-        
-        var maxValue : CGFloat = 0.0
-        var minValue : CGFloat = jhDraw.maxR
-        
-        for element in dataSource {
-            let _element = element as! NSArray
-            let vDate = _element[0] as! CFDate
-            let vNumber = _element[1] as! CGFloat
-            
-            if GS.shared.logLevel.contains(.graph) {
-                print("datasrc2 \(vDate) \(vNumber)")
-            }
-            
-            if vNumber > maxValue { maxValue = vNumber }
-            if vNumber < minValue { minValue = maxValue }
-            mValuesOfDatas.append(vNumber) //TODO:
-            jhClientServer.mValuesOfDatas.append(vNumber)
-            mCountOfDatas = mValuesOfDatas.count
-        }
-        
-        mMaxValueOfDatas = maxValue
-        mMinvalueOfDatas = minValue
-        
-        mVerticalRatioToDraw_view = (jhDraw.maxR - (2*mMargin)) / mMaxValueOfDatas
-        if GS.shared.logLevel.contains(.graph) {
-            print("mVerticalRatioToDraw_view =", mVerticalRatioToDraw_view)
-        }
-        mCountOfaxes_view = mAllofCountOfDatas
     }
     
-    func getDefaultDataSet() -> NSArray {
-        return jhFile.legacyConverterToArray("testdata", "plist")!
+    public static var nonNetworkData : Array<CGFloat> = Array()
+    
+    public static func convertArrayToSS(src: Array<CGFloat>) -> hjh {
+        
+        var temp = ss.init(x: 0, y: 0)
+        var ret = hjh.init(d: [])
+        
+        for l in 0..<src.count {
+            temp.x = CGFloat(l)
+            temp.y = src[l]
+            ret.d.append(temp)
+        }
+        return ret
     }
+    
+    public static var mValuesOfDatas2 : Array<CGFloat> = Array() {
+        didSet {
+            if GS.shared.logLevel.contains(.graph) {
+                print("mValuesOfDatas.count has been changed to \(mValuesOfDatas2.count) in jhPanel")
+            }
+        }
+    }
+    
+    public static var mValuesOfDatas3 : Array<CGFloat> = Array() {
+        didSet {
+            if GS.shared.logLevel.contains(.graph) {
+                print("mValuesOfDatas.count has been changed to \(mValuesOfDatas3.count) in jhPanel")
+            }
+        }
+    }
+    
+    //    public static var mDatas : Array<Array<CGFloat>> = Array()
+    
+    private static var listeners = [observer_p]()
+    
+    static func attachObserver(observer : observer_p) {
+        listeners.append(observer)
+    }
+    
+    public static func notiDataDowloadFinish() {
+        for x in listeners {
+            x.jhRedraw()
+        }
+    }
+    
+    //    public func getData() -> Array<CGFloat> {
+    //        return self.mValuesOfDatas
+    //    }
+    //
+    //    public func setData(x: Array<CGFloat>) {
+    //        self.mValuesOfDatas = x
+    //    }
 }
