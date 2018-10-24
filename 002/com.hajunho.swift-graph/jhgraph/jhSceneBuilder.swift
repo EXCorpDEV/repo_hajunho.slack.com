@@ -27,8 +27,12 @@ class jhSceneBuilder {
         y = 0
         width = UIScreen.main.bounds.width
         height = UIScreen.main.bounds.height
-        
-        
+    }
+    
+    @discardableResult
+    func type(_ x: sceneType) -> jhSceneBuilder {
+        self.mType = x
+        return self
     }
     
     @discardableResult
@@ -44,20 +48,24 @@ class jhSceneBuilder {
     func build() -> jhScene {
         switch mType {
         case .TIMELINE:
-            return jhSceneTimeLine(frame: CGRect(x: x, y: y, width: width, height: height))
-        case .NORMAL:
-            let ret = jhScene(frame: CGRect(x: x, y: y, width: width, height: height))
-            
-            ret.contentSize = CGSize(width: ret.frame.width*4, height: ret.frame.height+100) //TODO:
-            ret.isUserInteractionEnabled = true
-            ret.translatesAutoresizingMaskIntoConstraints = true
-            ret.maximumZoomScale = 4.0
-            ret.minimumZoomScale = 0.1
-            ret.isScrollEnabled = true
-            
-            ret.backgroundColor = UIColor.white
+            var ret = jhSceneTimeLine(frame: CGRect(x: x, y: y, width: width, height: height))
+            temp(ret: &ret)
             return ret
             
+        case .NORMAL:
+            var ret = jhScene(frame: CGRect(x: x, y: y, width: width, height: height))
+            temp(ret: &ret)
+            return ret
         }
+    }
+    
+    private func temp<T: jhScene>(ret: inout T) {
+        ret.contentSize = CGSize(width: ret.frame.width*4, height: ret.frame.height+100) //TODO:
+        ret.isUserInteractionEnabled = true
+        ret.translatesAutoresizingMaskIntoConstraints = true
+        ret.maximumZoomScale = 4.0
+        ret.minimumZoomScale = 0.1
+        ret.isScrollEnabled = true
+        ret.backgroundColor = UIColor.white
     }
 }
