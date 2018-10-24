@@ -16,18 +16,17 @@ class jhCommonDataLayer : CALayer {
     
     var axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth, mPanelHeight, mFixedPanelWidth, mFixedPanelHeight : CGFloat
     
-    
-    init(_ axisD: CGFloat, _ vRatio: CGFloat, _ margin: CGFloat, _ w: CGFloat, _ h: CGFloat, _ fw: CGFloat, _ fh: CGFloat, layer: Any, panelID: Int) {
+    init(_ x: jhPanel, _ layer: Any) {
         
-        self.axisDistance = axisD
-        self.mVerticalRatioToDraw_view = vRatio
-        self.mMargin = margin
-        self.mPanelWidth = w
-        self.mPanelHeight = h
-        self.mFixedPanelWidth = fw
-        self.mFixedPanelHeight = fh
+        self.axisDistance = x.axisDistance
+        self.mVerticalRatioToDraw_view = x.mVerticalRatioToDraw_view
+        self.mMargin = x.mMargin
+        self.mPanelWidth = x.mPanelWidth ?? 0
+        self.mPanelHeight = x.mPanelHeight ?? 0
+        self.mFixedPanelWidth = x.mFixedPanelWidth
+        self.mFixedPanelHeight = x.mFixedPanelHeight
         
-        self.panelID = panelID
+        self.panelID = x.jhPanelID
         
         super.init(layer: layer)
     }
