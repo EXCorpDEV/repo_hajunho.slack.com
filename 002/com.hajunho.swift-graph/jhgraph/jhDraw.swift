@@ -8,18 +8,6 @@
 
 import UIKit
 
-enum graphType {
-    case LINE
-    case BAR
-}
-
-struct ratioNtype {
-    var ratio : CGFloat
-    var type : graphType
-}
-
-import UIKit
-
 class jhDraw : UIView {
     
     internal static let maxR : CGFloat = 10000.0 // standard value to calculate x, y position

@@ -8,6 +8,16 @@
 
 import UIKit
 
+enum graphType {
+    case LINE
+    case BAR
+}
+
+struct ratioNtype {
+    var ratio : CGFloat
+    var type : graphType
+}
+
 class jhGraphBuilder {
     
     private var x : CGFloat
