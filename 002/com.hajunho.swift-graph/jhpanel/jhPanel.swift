@@ -215,7 +215,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     }
     
     func drawDatas() {
-        dataLayer = jhDrawDataLayer(axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0, panelID: 0)
+        dataLayer = jhCommonDataLayer(axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0, panelID: 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
         dataLayer.zPosition=1
@@ -231,7 +231,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         
         jhDataCenter.mCountOfaxes_view = mAllofCountOfDatas
         
-        dataLayer = jhDrawDataLayer(axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0, panelID: 0)
+        dataLayer = jhCommonDataLayer(axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0, panelID: 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
         dataLayer.zPosition=1

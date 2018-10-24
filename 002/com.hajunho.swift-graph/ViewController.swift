@@ -64,16 +64,9 @@ class ViewController: UIViewController {
         
         var scene: jhScene? = nil
         
-        scene = jhScene(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 488)) //TODO: sum of Panel size
-        
-        scene!.contentSize = CGSize(width: scene!.frame.width*4, height: scene!.frame.height+100) //TODO:
-        scene!.isUserInteractionEnabled = true
-        scene!.translatesAutoresizingMaskIntoConstraints = true
-        scene!.maximumZoomScale = 4.0
-        scene!.minimumZoomScale = 0.1
-        scene!.isScrollEnabled = true
-        
-        scene!.backgroundColor = UIColor.white
+        scene = jhSceneBuilder()
+            .frame(0, 0, UIScreen.main.bounds.width, 488)
+            .build() //TODO: sum of Panel size
         
         scene!.createPanels(withHeightRatios: ratioNtype(ratio: 5, type: graphType.LINE), ratioNtype(ratio: 3, type: graphType.BAR), ratioNtype(ratio: 2, type: graphType.BAR))
         scene!.drawScene()

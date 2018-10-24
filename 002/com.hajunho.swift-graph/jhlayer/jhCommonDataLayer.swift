@@ -8,7 +8,7 @@
 
 import UIKit
 
-class jhDrawDataLayer : CALayer {
+class jhCommonDataLayer : CALayer {
     
     private let panelID: Int
     
