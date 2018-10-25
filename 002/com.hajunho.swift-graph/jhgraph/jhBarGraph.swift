@@ -8,7 +8,7 @@
 
 import UIKit
 
-class jhBarGraph : jhPanel {
+class jhBarGraph<T> : jhPanel<T> {
     override func drawDatas() {
         //        worldEllipse(context: mContext, 100, 100, 100, 100, 2, UIColor.blue.cgColor)
         
@@ -33,8 +33,8 @@ class jhBarGraph : jhPanel {
         mContext?.strokePath()
         
         for x in pointCloud {
-            mContext?.setFillColor(jhColor(r: 184, g: 70, b: 201, a: 0.5))
-            mContext?.setStrokeColor(jhColor(r: 184, g: 70, b: 201, a: 1.0))
+            mContext?.setFillColor(jhDraw.jhColor(r: 184, g: 70, b: 201, a: 0.5))
+            mContext?.setStrokeColor(jhDraw.jhColor(r: 184, g: 70, b: 201, a: 1.0))
             mContext?.setLineWidth(1)
             
             let rectangle = CGRect(x: x.x-5, y: x.y, width: 10, height: -(x.y-getY(mMargin)!)) //TODO: 좌표 계산 부분 한 곳으로 몰기.

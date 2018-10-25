@@ -40,6 +40,7 @@ class jhDataCenter {
     ]
     
     public static var mCountOfaxes_view : Int = 1
+    public static var mCountOfdatas_view : Int = 1
     
     init() {
     }
@@ -84,9 +85,9 @@ class jhDataCenter {
     }
     
     public static func notiDataDowloadFinish() {
-        for x in listeners {
-            x.jhRedraw()
-        }
+//        for x in listeners {
+//            x.jhRedraw()
+//        }
     }
     
     //    public func getData() -> Array<CGFloat> {

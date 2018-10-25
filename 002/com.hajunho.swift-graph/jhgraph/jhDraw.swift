@@ -23,7 +23,7 @@ class jhDraw : UIView {
         }
     }
     
-    func jhColor(r:CGFloat , g:CGFloat , b:CGFloat , a:Float) -> CGColor {
+    static func jhColor(r:CGFloat , g:CGFloat , b:CGFloat , a:Float) -> CGColor {
         return  UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: r).cgColor
     }
     
@@ -75,7 +75,6 @@ class jhDraw : UIView {
         retY = y * panelHeight / fixedPanelHeight
         return retY
     }
-    
     
 }
 

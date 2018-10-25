@@ -8,7 +8,12 @@
 
 import UIKit
 
-class jhPanel : jhDraw, jhPanel_p, observer_p {
+class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
+    
+    internal var superScene: T?
+    //P/ Axes
+    let isFixedAxesCount: Bool = true
+    let fixedAxesCount: Int = 24
     
     var jhEnforcingMode: Bool = false
     var jhPanelID: Int = 0
@@ -35,7 +40,6 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     internal var mLineWidth : CGFloat = 1
     internal var mColor : CGColor = UIColor.blue.cgColor
     
-    
     /// Axes
     var mUnitOfHorizontalAxes : CGFloat = 100
     var mcountOfHorizontalAxes : Int = 3
@@ -45,18 +49,27 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     //calculated property related with DATAs' View
     internal var mAllofCountOfDatas : Int {
         get {
-            return jhDataCenter.nonNetworkData.count
-//            return jhData.mDatas[0]?.d.count ?? 0
+            return jhDataCenter.mDatas[0]?.d.count ?? 0
         }
     }
     
-    var axisDistance : CGFloat {
+    var xDistance: CGFloat {
+        //        get {
+        //            return (jhDraw.maxR - mMargin * 2) / CGFloat(mAllofCountOfDatas)
+        //        }
+        
+        get {
+            return (jhDraw.maxR  - mMargin * 2) / CGFloat(jhDataCenter.mCountOfdatas_view+1)
+        }
+        //        set(distance) {
+        //            jhDataCenter.mCountOfaxes_view = Int(jhDraw.maxR  / CGFloat(distance))
+        //        }
+    }
+    
+    var axisDistance: CGFloat {
         get {
             return (jhDraw.maxR  - mMargin * 2) / CGFloat(jhDataCenter.mCountOfaxes_view+1)
         }
-        //        set(distance) {
-        //            jhData.mCountOfaxes_view = Int(jhDraw.maxR  / CGFloat(distance))
-        //        }
     }
     
     override init(frame: CGRect) {
@@ -69,13 +82,17 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         if GS.shared.logLevel.contains(.graphPanel) { print("jhPanel init color", mLineWidth)}
     }
     
+    convenience init(frame: CGRect, scene: inout T?) {
+        self.init(frame: frame)
+        self.superScene = scene
+    }
+    
     override func draw(_ rect: CGRect) {
         if GS.shared.logLevel.contains(.graphPanel) {
             print("jhPanel draw()")
         }
         
         self.mContext = UIGraphicsGetCurrentContext()
-        
         drawPanel()
     }
     
@@ -135,10 +152,16 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     
     /// draw X-axes, Y-axes
     func drawBackboard() {
-        mColor = jhColor(r: 229, g: 229, b: 229, a: 1.0)
+        mColor = UIColor(red: 229, green: 229, blue: 229, alpha: 1.0).cgColor
         drawRect(margin: mMargin)
         
-        jhDataCenter.mCountOfaxes_view = mAllofCountOfDatas
+        if isFixedAxesCount {
+            jhDataCenter.mCountOfaxes_view = fixedAxesCount
+        } else {
+            jhDataCenter.mCountOfaxes_view = mAllofCountOfDatas
+        }
+        
+        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
         
         drawAxes()
     }
@@ -167,7 +190,8 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         axisLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
         self.layer.addSublayer(axisLayer)
         axisLayer.setNeedsDisplay()
-        //        jhData.attachObserver(observer: self)
+        //         dataLayer.setNeedsDisplay()
+        //        jhDataCenter.attachObserver(observer: self)
     }
     
     func initDatas() {
@@ -202,6 +226,7 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
         if GS.shared.logLevel.contains(.graph) {
             print("mVerticalRatioToDraw_view =", mVerticalRatioToDraw_view)
         }
+        
     }
     
     func jhReSize(size : CGSize) {
@@ -215,6 +240,9 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     }
     
     func drawDatas() {
+        
+        print("xDistance", xDistance)
+        
         dataLayer = jhCommonDataLayer(self, 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
@@ -227,10 +255,20 @@ class jhPanel : jhDraw, jhPanel_p, observer_p {
     }
     
     func jhRedraw() {
+        
+        print("xDistance", xDistance)
+        
         dataLayer.removeFromSuperlayer()
         
-        jhDataCenter.mCountOfaxes_view = mAllofCountOfDatas
+        if isFixedAxesCount {
+            jhDataCenter.mCountOfaxes_view = fixedAxesCount
+        } else {
+            jhDataCenter.mCountOfaxes_view = mAllofCountOfDatas
+        }
         
+        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
+        
+        print("hjh", xDistance)
         dataLayer = jhCommonDataLayer(self, 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.

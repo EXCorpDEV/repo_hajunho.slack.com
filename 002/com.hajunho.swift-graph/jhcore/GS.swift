@@ -68,17 +68,27 @@ struct plistV1 : Codable {
 }
 
 class GS {
+    
     var logLevel : _logLevel
+    var currentServerTime : Double = 0
+    var sceneWidthByTime : CGFloat = 86400
     
     private init() {
-//        logLevel = .all
-//        logLevel = .network
-        logLevel = .none
+        //        logLevel = .all
+        logLevel = .network
+        //        logLevel = .none
         //        logLevel = .critical
         //        logLevel = .graphPanel
         //        logLevel = .dashboard
         //        logLevel = .just
     }
+    
+    enum eoGraphType {
+        case general
+        case first
+    }
+    
+    let current_eoGraphType : eoGraphType = eoGraphType.first
     
     static let shared = GS()
 }

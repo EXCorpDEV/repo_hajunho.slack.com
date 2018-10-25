@@ -62,13 +62,14 @@ class ViewController: UIViewController {
     
     fileprivate func addGraph() -> jhScene {
         
-        var scene: jhScene? = nil
+        var scene: jhSceneTimeLine? = nil
         
         scene = jhSceneBuilder()
             .frame(0, 0, UIScreen.main.bounds.width, 488)
+            .type(.TIMELINE)
             .build() //TODO: sum of Panel size
         
-        scene!.createPanels(withHeightRatios: ratioNtype(ratio: 5, type: graphType.LINE), ratioNtype(ratio: 3, type: graphType.BAR), ratioNtype(ratio: 2, type: graphType.BAR))
+        scene!.createPanels(s: scene!, withHeightRatios: ratioNtype(ratio: 5, type: graphType.TYPE1), ratioNtype(ratio: 3, type: graphType.BAR), ratioNtype(ratio: 2, type: graphType.BAR))
         scene!.drawScene()
         
         let ret : UIView = UIView(frame: CGRect(x: 0, y: 0, width: scene!.bounds.width, height: scene!.bounds.height))

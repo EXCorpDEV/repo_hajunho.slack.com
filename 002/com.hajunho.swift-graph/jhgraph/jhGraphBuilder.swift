@@ -11,27 +11,39 @@ import UIKit
 enum graphType {
     case LINE
     case BAR
+    case TYPE1
+    case TYPE4
 }
 
 struct ratioNtype {
     var ratio : CGFloat
     var type : graphType
+    //    var datas : hjh
 }
 
-class jhGraphBuilder {
+class jhGraphBuilder<T> {
     
     private var x : CGFloat
     private var y : CGFloat
     private var width : CGFloat
     private var height : CGFloat
+    
     private var mGtype : graphType
+    private var superScene : T?
     
     init() {
         mGtype = graphType.LINE
         x = 0
         y = 0
         width = UIScreen.main.bounds.width
-        height = UIScreen.main.bounds.width
+        height = UIScreen.main.bounds.height
+        superScene = nil
+    }
+    
+    @discardableResult
+    func scene<V>(_ x: V) -> jhGraphBuilder {
+        self.superScene? = x as! T
+        return self
     }
     
     @discardableResult
@@ -50,13 +62,16 @@ class jhGraphBuilder {
     }
     
     @discardableResult
-    func build() -> jhPanel {
+    func build() -> jhPanel<T> {
         switch mGtype {
-            
         case .LINE:
-            return jhLineGraph(frame: CGRect(x: x, y: y, width: width, height: height))
+            return jhLineGraph<T>(frame: CGRect(x: x, y: y, width: width, height: height))
         case .BAR:
-            return jhBarGraph(frame: CGRect(x: x, y: y, width: width, height: height))
+            return jhBarGraph<T>(frame: CGRect(x: x, y: y, width: width, height: height))
+        case .TYPE1:
+            return jhType1graphPanel<T>(frame: CGRect(x: x, y: y, width: width, height: height), scene: &superScene)
+        case .TYPE4:
+            return jhType4graph<T>(frame: CGRect(x: x, y: y, width: width, height: height))
         }
     }
     

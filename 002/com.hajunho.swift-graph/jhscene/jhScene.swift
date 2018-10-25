@@ -8,15 +8,18 @@
 
 import UIKit
 
-class jhScene : UIScrollView, jhScene_p, observer_p {
+class jhScene : UIScrollView, observer_p {
+    
+    func jhRedraw() {
+        
+    }
     
     var jhEnforcingMode: Bool = true
-    var jhSceneFrameWidth: CGFloat = jhDraw.maxR
-    var jhSceneFrameHeight: CGFloat = jhDraw.maxR
-    let draw = jhDraw()
+    var jhSceneFrameWidth: CGFloat = 10000.0
+    var jhSceneFrameHeight: CGFloat = 10000.0
     var guideLine : jhGuideLine
     var tempCount : UInt64 = 0
-    var mPanels : [jhPanel]
+    private var mPanels : [jhPanel<jhScene>]
     
     struct iPhoneScreensize {
         var width : CGFloat
@@ -39,6 +42,7 @@ class jhScene : UIScrollView, jhScene_p, observer_p {
         //        layer.frame = CGRect(x: 0, y: 0, width: 100 , height: 100 )
         
         "".pwd(self)
+        jhDataCenter.attachObserver(observer: self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,9 +64,9 @@ class jhScene : UIScrollView, jhScene_p, observer_p {
         }
     }
     
-    func createPanels(withHeightRatios: ratioNtype...) {
+    func createPanels(s : jhScene, withHeightRatios: ratioNtype...) {
         
-        var panel : jhPanel? = nil
+        var panel : jhPanel<jhScene>? = nil
         var y : CGFloat = 0.0
         var vHeight : CGFloat = 0.0
         
@@ -74,7 +78,11 @@ class jhScene : UIScrollView, jhScene_p, observer_p {
             assert(!(rnt.ratio < 0.1 || rnt.ratio > 10.0), "heightRation Range is 0.1~10.0")
             
             vHeight = rnt.ratio * 0.1 * self.jhSceneFrameHeight
-            panel = jhGraphBuilder().type(rnt.type).frame(0, y, jhSceneFrameWidth*4, vHeight).build()
+            panel = jhGraphBuilder<jhScene>()
+                .type(rnt.type)
+                .frame(0, y, jhSceneFrameWidth*4, vHeight)
+                .scene(self)
+                .build()
             y += vHeight
             
             if GS.shared.logLevel.contains(.graphPanel) {
@@ -113,7 +121,7 @@ class jhScene : UIScrollView, jhScene_p, observer_p {
         if GS.shared.logLevel.contains(.graph2) { print("jhScene_touchesEnded", tempCount) }
     }
     
-    func jhRedraw() {
-        
-    }
+    
+    
+    
 }

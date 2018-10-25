@@ -8,5 +8,5 @@
 
 import UIKit
 
-class jhLineGraph : jhPanel {
+class jhLineGraph<T> : jhPanel<T> {
 }

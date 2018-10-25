@@ -8,17 +8,19 @@
 
 import UIKit
 
-class jhCommonDataLayer : CALayer {
+class jhCommonDataLayer<T> : CALayer {
     
-    private let panelID: Int
+    internal var panelID: Int
     
     internal var mValuesOfDatas : Array<CGFloat> = Array()
     
-    var axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth, mPanelHeight, mFixedPanelWidth, mFixedPanelHeight : CGFloat
+    var xDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth, mPanelHeight, mFixedPanelWidth, mFixedPanelHeight : CGFloat
     
-    init(_ x: jhPanel, _ layer: Any) {
+    internal var superScene: T?
+    
+    init(_ x: jhPanel<T>, _ layer: Any) {
         
-        self.axisDistance = x.axisDistance
+        self.xDistance = x.xDistance
         self.mVerticalRatioToDraw_view = x.mVerticalRatioToDraw_view
         self.mMargin = x.mMargin
         self.mPanelWidth = x.mPanelWidth ?? 0
@@ -27,6 +29,8 @@ class jhCommonDataLayer : CALayer {
         self.mFixedPanelHeight = x.mFixedPanelHeight
         
         self.panelID = x.jhPanelID
+        
+        self.superScene = x.superScene
         
         super.init(layer: layer)
     }
@@ -42,25 +46,21 @@ class jhCommonDataLayer : CALayer {
         
         var x : Int = 0
         
-//not yet        for y in 0..<jhData.mDatas[panelID]!.d.count {
-//            mValuesOfDatas.append(jhData.mDatas[panelID]!.d[y].y)
-//        }
-        
-        for y in jhDataCenter.nonNetworkData {
-            mValuesOfDatas.append(y)
+        for y in 0..<jhDataCenter.mDatas[panelID]!.d.count {
+            mValuesOfDatas.append(jhDataCenter.mDatas[panelID]!.d[y].y)
         }
         
-        for y in mValuesOfDatas {
+        for y in mValuesOfDatas { //TODO:
             //ref:drawLine(CGFloat(x)*axisDistance + mMargin, mMargin, CGFloat(x) * axisDistance + mMargin, 10000-mMargin)
             x += 1
-            fx = CGFloat(x)*axisDistance
+            fx = CGFloat(x)*xDistance
             fy = CGFloat(y)*mVerticalRatioToDraw_view + mMargin
-            print(fx, " ", fy)
             drawEllipse2(ctx, fx, fy, 2, 2, thickness: 2, UIColor.blue.cgColor)
             pointCloud.append(CGPoint.init(x: getX(fx+mMargin)!, y: getY(fy)!))
         }
         
         ctx.move(to: CGPoint.init(x: 0, y: 0))
+        print("move to ", ctx.currentPointOfPath.x)
         ctx.setStrokeColorSpace(CGColorSpaceCreateDeviceRGB())
         ctx.setStrokeColor(UIColor.blue.cgColor)
         ctx.setLineWidth(1.0)

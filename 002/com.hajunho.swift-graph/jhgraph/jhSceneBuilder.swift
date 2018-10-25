@@ -6,6 +6,14 @@
 //  Copyright © 2018년 hajunho.com. All rights reserved.
 //
 
+//
+//  jhSceneBuilder.swift
+//  bridge8
+//
+//  Created by Junho HA on 2018. 10. 24..
+//  Copyright © 2018년 eoflow. All rights reserved.
+//
+
 import UIKit
 
 enum sceneType {
@@ -13,7 +21,7 @@ enum sceneType {
     case TIMELINE
 }
 
-class jhSceneBuilder {
+class jhSceneBuilder<T : jhScene> {
     
     private var x: CGFloat
     private var y: CGFloat
@@ -45,17 +53,17 @@ class jhSceneBuilder {
     }
     
     @discardableResult
-    func build() -> jhScene {
+    func build<T>() -> T {
         switch mType {
         case .TIMELINE:
             var ret = jhSceneTimeLine(frame: CGRect(x: x, y: y, width: width, height: height))
             temp(ret: &ret)
-            return ret
+            return ret as! T
             
         case .NORMAL:
             var ret = jhScene(frame: CGRect(x: x, y: y, width: width, height: height))
             temp(ret: &ret)
-            return ret
+            return ret as! T
         }
     }
     

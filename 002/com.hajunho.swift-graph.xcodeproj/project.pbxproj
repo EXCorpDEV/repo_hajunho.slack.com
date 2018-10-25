@@ -37,6 +37,9 @@
 		D2D1FEC6217560A600FD2615 /* GraphExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D1FEC5217560A600FD2615 /* GraphExample.storyboard */; };
 		D2D1FEC8217560C900FD2615 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1FEC7217560C900FD2615 /* ViewController.swift */; };
 		D2DE7700217EB0F00088D017 /* jhDrawAxisLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE76FF217EB0F00088D017 /* jhDrawAxisLayer.swift */; };
+		D2E833D421813F2E008AE829 /* jhType1graphPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E833D321813F2E008AE829 /* jhType1graphPanel.swift */; };
+		D2E833D621813F88008AE829 /* jhType1graphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E833D521813F88008AE829 /* jhType1graphLayer.swift */; };
+		D2E833D82181411C008AE829 /* jhType4graphPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E833D72181411C008AE829 /* jhType4graphPanel.swift */; };
 		F0A5FD5839358FB0E6C63109 /* Pods_com_hajunho_swift_graphTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7838D44C36043252B5732E /* Pods_com_hajunho_swift_graphTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +108,9 @@
 		D2D1FEC5217560A600FD2615 /* GraphExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GraphExample.storyboard; sourceTree = "<group>"; };
 		D2D1FEC7217560C900FD2615 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D2DE76FF217EB0F00088D017 /* jhDrawAxisLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhDrawAxisLayer.swift; sourceTree = "<group>"; };
+		D2E833D321813F2E008AE829 /* jhType1graphPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhType1graphPanel.swift; sourceTree = "<group>"; };
+		D2E833D521813F88008AE829 /* jhType1graphLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhType1graphLayer.swift; sourceTree = "<group>"; };
+		D2E833D72181411C008AE829 /* jhType4graphPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhType4graphPanel.swift; sourceTree = "<group>"; };
 		EAA28A77BB94101D11F206D8 /* Pods-com.hajunho.swift-graphUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.hajunho.swift-graphUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com.hajunho.swift-graphUITests/Pods-com.hajunho.swift-graphUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F44E2AD07926AFD3A55E9B37 /* Pods_com_hajunho_swift_graphUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_hajunho_swift_graphUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82C672D1E1891BF7965863B /* Pods-com.hajunho.swift-graph.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.hajunho.swift-graph.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com.hajunho.swift-graph/Pods-com.hajunho.swift-graph.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,8 +157,10 @@
 		D2162C0C21707FB500514441 /* jhpanel */ = {
 			isa = PBXGroup;
 			children = (
+				D2E833D321813F2E008AE829 /* jhType1graphPanel.swift */,
 				D2162C142170AAD200514441 /* jhPanel_p.swift */,
 				D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */,
+				D2E833D72181411C008AE829 /* jhType4graphPanel.swift */,
 			);
 			path = jhpanel;
 			sourceTree = "<group>";
@@ -275,6 +283,7 @@
 			children = (
 				D272090721798B4A0037D092 /* jhCommonDataLayer.swift */,
 				D2DE76FF217EB0F00088D017 /* jhDrawAxisLayer.swift */,
+				D2E833D521813F88008AE829 /* jhType1graphLayer.swift */,
 			);
 			path = jhlayer;
 			sourceTree = "<group>";
@@ -543,12 +552,15 @@
 				D272090A21799DEA0037D092 /* jhDataCenter.swift in Sources */,
 				D2CC0CD22174879B00DE1BB1 /* jhBarGraph.swift in Sources */,
 				D2D1FEC8217560C900FD2615 /* ViewController.swift in Sources */,
+				D2E833D621813F88008AE829 /* jhType1graphLayer.swift in Sources */,
 				D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */,
 				D272090821798B4A0037D092 /* jhCommonDataLayer.swift in Sources */,
 				D2720903217874260037D092 /* observer_p.swift in Sources */,
 				D2170256217FF777003031E4 /* jhSceneTimeLine.swift in Sources */,
 				D2170254217FF756003031E4 /* jhSceneBuilder.swift in Sources */,
+				D2E833D421813F2E008AE829 /* jhType1graphPanel.swift in Sources */,
 				D2720905217874C80037D092 /* jhClientServer.swift in Sources */,
+				D2E833D82181411C008AE829 /* jhType4graphPanel.swift in Sources */,
 				D2DE7700217EB0F00088D017 /* jhDrawAxisLayer.swift in Sources */,
 				D2CC0CCC217484CC00DE1BB1 /* jhGuideLine.swift in Sources */,
 				D21FF5752179CAF300CAA568 /* jhServerTest.swift in Sources */,
