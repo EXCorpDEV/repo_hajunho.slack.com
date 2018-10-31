@@ -15,17 +15,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
 //        jhServerTest.init()
-        
-        
+
         // Do any additional setup after loading the view.
         
         let scrollView : UIScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         
-        scrollView.contentSize = CGSize(width: safeArea.frame.width, height: 894) //TODO: contents size
-        scrollView.setContentOffset(CGPoint(x: 0, y: 200), animated: true)
+        scrollView.contentSize = CGSize(width: safeArea.frame.width*4, height: 3000) //TODO: contents size
+//        scrollView.setContentOffset(CGPoint(x: 0, y: 200), animated: true)
         scrollView.isUserInteractionEnabled = true
         scrollView.translatesAutoresizingMaskIntoConstraints = true
         scrollView.maximumZoomScale = 4.0
@@ -62,14 +60,19 @@ class ViewController: UIViewController {
     
     fileprivate func addGraph() -> jhScene {
         
-        var scene: jhSceneTimeLine? = nil
+        var scene:jhSceneTimeLine? = nil
         
-        scene = jhSceneBuilder()
-            .frame(0, 0, UIScreen.main.bounds.width, 488)
+        scene = jhSceneBuilder<jhSceneTimeLine>()
             .type(.TIMELINE)
+            .frame(0, 0, UIScreen.main.bounds.width, 488)
             .build() //TODO: sum of Panel size
         
-        scene!.createPanels(s: scene!, withHeightRatios: ratioNtype(ratio: 5, type: graphType.TYPE1), ratioNtype(ratio: 3, type: graphType.BAR), ratioNtype(ratio: 2, type: graphType.BAR))
+        if GS.shared.logLevel.contains(.network2) {
+            print("ctime in ViewController", scene?.currentTime)
+        }
+        
+        scene!.createPanels(s: scene!, withHeightRatios: ratioNtype(ratio: 10, type: graphType.TYPE1), ratioNtype(ratio: 5, type: graphType.TYPE2), ratioNtype(ratio: 2, type: graphType.TYPE3))
+        
         scene!.drawScene()
         
         let ret : UIView = UIView(frame: CGRect(x: 0, y: 0, width: scene!.bounds.width, height: scene!.bounds.height))
@@ -77,4 +80,5 @@ class ViewController: UIViewController {
         //        return ret
         return scene!
     }
+    
 }

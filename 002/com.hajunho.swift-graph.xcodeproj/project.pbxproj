@@ -22,6 +22,9 @@
 		D21BCA78216B3E3A00099859 /* com_hajunho_swift_graphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA77216B3E3A00099859 /* com_hajunho_swift_graphTests.swift */; };
 		D21BCA83216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCA82216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift */; };
 		D21FF5752179CAF300CAA568 /* jhServerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF5742179CAF300CAA568 /* jhServerTest.swift */; };
+		D26876F92189B580009C14E4 /* jhType2graphPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26876F82189B580009C14E4 /* jhType2graphPanel.swift */; };
+		D26876FB2189B589009C14E4 /* jhType3graphPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26876FA2189B589009C14E4 /* jhType3graphPanel.swift */; };
+		D26876FF2189B73C009C14E4 /* jhBarGraphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26876FE2189B73C009C14E4 /* jhBarGraphLayer.swift */; };
 		D2720903217874260037D092 /* observer_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2720902217874260037D092 /* observer_p.swift */; };
 		D2720905217874C80037D092 /* jhClientServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2720904217874C80037D092 /* jhClientServer.swift */; };
 		D272090821798B4A0037D092 /* jhCommonDataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272090721798B4A0037D092 /* jhCommonDataLayer.swift */; };
@@ -91,6 +94,9 @@
 		D21BCA82216B3E3A00099859 /* com_hajunho_swift_graphUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = com_hajunho_swift_graphUITests.swift; sourceTree = "<group>"; };
 		D21BCA84216B3E3A00099859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D21FF5742179CAF300CAA568 /* jhServerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhServerTest.swift; sourceTree = "<group>"; };
+		D26876F82189B580009C14E4 /* jhType2graphPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhType2graphPanel.swift; sourceTree = "<group>"; };
+		D26876FA2189B589009C14E4 /* jhType3graphPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhType3graphPanel.swift; sourceTree = "<group>"; };
+		D26876FE2189B73C009C14E4 /* jhBarGraphLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhBarGraphLayer.swift; sourceTree = "<group>"; };
 		D2720902217874260037D092 /* observer_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = observer_p.swift; sourceTree = "<group>"; };
 		D2720904217874C80037D092 /* jhClientServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhClientServer.swift; sourceTree = "<group>"; };
 		D272090721798B4A0037D092 /* jhCommonDataLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhCommonDataLayer.swift; sourceTree = "<group>"; };
@@ -171,6 +177,8 @@
 				D2162C142170AAD200514441 /* jhPanel_p.swift */,
 				D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */,
 				D2E833D72181411C008AE829 /* jhType4graphPanel.swift */,
+				D26876F82189B580009C14E4 /* jhType2graphPanel.swift */,
+				D26876FA2189B589009C14E4 /* jhType3graphPanel.swift */,
 			);
 			path = jhpanel;
 			sourceTree = "<group>";
@@ -292,13 +300,14 @@
 		D2720906217978660037D092 /* jhlayer */ = {
 			isa = PBXGroup;
 			children = (
-				D272090721798B4A0037D092 /* jhCommonDataLayer.swift */,
 				D2DE76FF217EB0F00088D017 /* jhDrawAxisLayer.swift */,
+				D272090721798B4A0037D092 /* jhCommonDataLayer.swift */,
 				D2E833D521813F88008AE829 /* jhType1graphLayer.swift */,
 				D2CF07852189AC490089F5A7 /* jhLayer_p.swift */,
 				D2CF07872189AC570089F5A7 /* jhType2graphLayer.swift */,
 				D2CF07892189AC600089F5A7 /* jhType3graphLayer.swift */,
 				D2CF078B2189AC6D0089F5A7 /* jhType4graphLayer.swift */,
+				D26876FE2189B73C009C14E4 /* jhBarGraphLayer.swift */,
 			);
 			path = jhlayer;
 			sourceTree = "<group>";
@@ -573,6 +582,7 @@
 				D2D1FEC8217560C900FD2615 /* ViewController.swift in Sources */,
 				D2E833D621813F88008AE829 /* jhType1graphLayer.swift in Sources */,
 				D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */,
+				D26876FF2189B73C009C14E4 /* jhBarGraphLayer.swift in Sources */,
 				D2CF07862189AC490089F5A7 /* jhLayer_p.swift in Sources */,
 				D272090821798B4A0037D092 /* jhCommonDataLayer.swift in Sources */,
 				D2720903217874260037D092 /* observer_p.swift in Sources */,
@@ -586,7 +596,9 @@
 				D21FF5752179CAF300CAA568 /* jhServerTest.swift in Sources */,
 				D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */,
 				D2162C112170A6C100514441 /* jhData_p.swift in Sources */,
+				D26876F92189B580009C14E4 /* jhType2graphPanel.swift in Sources */,
 				D2CC0CD02174877C00DE1BB1 /* jhLineGraph.swift in Sources */,
+				D26876FB2189B589009C14E4 /* jhType3graphPanel.swift in Sources */,
 				D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */,
 				D2162C1C217421DB00514441 /* jhDraw.swift in Sources */,
 				D2CC0CCE2174870700DE1BB1 /* jhGraphBuilder.swift in Sources */,

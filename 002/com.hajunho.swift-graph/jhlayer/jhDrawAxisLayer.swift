@@ -8,33 +8,30 @@
 
 import UIKit
 
-class jhDrawAxisLayer : CALayer {
+class jhDrawAxisLayer<T> : CALayer {
     
     private let panelID: Int
     
     private var mContext: CGContext?
+    private var horizontalGuide: Bool
     
     /// Axes
     private var mUnitOfHorizontalAxes : CGFloat = 100
     private var mcountOfHorizontalAxes : Int = 3
+    private var mMargin : CGFloat
     
     internal var mLineWidth : CGFloat = 1
-    internal var mColor : CGColor = UIColor.blue.cgColor
-//        UIColor(red: 229, green: 229, blue: 229, alpha: 1.0).cgColor
+    internal var mColor : CGColor = UIColor(red: 229, green: 229, blue: 229).cgColor
     
-    var axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth, mPanelHeight, mFixedPanelWidth, mFixedPanelHeight : CGFloat
+    var axisDistance : CGFloat
     
-    init(_ axisD: CGFloat, _ vRatio: CGFloat, _ margin: CGFloat, _ w: CGFloat, _ h: CGFloat, _ fw: CGFloat, _ fh: CGFloat, layer: Any, panelID: Int) {
+    init(_ x: jhPanel<T>, layer: Any, panelID: Int, hGuide: Bool) {
         self.mContext = UIGraphicsGetCurrentContext()
-        self.axisDistance = axisD
-        self.mVerticalRatioToDraw_view = vRatio
-        self.mMargin = margin
-        self.mPanelWidth = w
-        self.mPanelHeight = h
-        self.mFixedPanelWidth = fw
-        self.mFixedPanelHeight = fh
+        self.axisDistance = x.axisDistance
         
         self.panelID = panelID
+        self.mMargin = GV.s.ui_common_margin
+        self.horizontalGuide = hGuide
         
         super.init(layer: layer)
     }
@@ -53,26 +50,18 @@ class jhDrawAxisLayer : CALayer {
             
             xlocation = CGFloat(x) * axisDistance + mMargin
             
-            drawLine(xlocation, mMargin, xlocation, jhDraw.maxR-mMargin)
-            
-            //TODO: LABEL
-            //            self.contents = (drawText(str: String(x), x: xlocation-10, y: jhDraw.maxR-mMargin, width: 10, height: 10)).cgImage
-            
-            self.addSublayer(drawText(str: String(x), x: xlocation-10, y: jhDraw.maxR-mMargin, width: 10, height: 10))
+            drawLine(xlocation, mMargin, xlocation, jhDraw.ARQ-mMargin)
         }
         
         for x in 1..<mcountOfHorizontalAxes+1 {
-            let fx = CGFloat(x)*mUnitOfHorizontalAxes*mVerticalRatioToDraw_view + mMargin
-            drawLine(mMargin, fx, jhDraw.maxR-mMargin, fx)
+            let fx = CGFloat(x)*mUnitOfHorizontalAxes*(self.bounds.height/jhDraw.ARQ) + mMargin
+            drawLine(mMargin, fx, jhDraw.ARQ-mMargin, fx)
             
-            //TODO: LABEL
-            
-            self.addSublayer(drawText(str: String(x), x: 100, y: fx, width: 10, height: 10))
         }
         
-        //TODO: warning guide line. There's a bug.
-        drawLineWithColor(mMargin, 20*mUnitOfHorizontalAxes, jhDraw.maxR-mMargin, 20*mUnitOfHorizontalAxes, lineWidth: 2, color: UIColor(red: 254, green: 191, blue: 4, alpha: 0.5).cgColor)
-        drawLineWithColor(mMargin, 60*mUnitOfHorizontalAxes, jhDraw.maxR-mMargin, 60*mUnitOfHorizontalAxes, lineWidth: 2, color: UIColor(red: 251, green: 83, blue: 96, alpha: 0.5).cgColor)
+        //draw backboard
+        mColor = UIColor(red: 229, green: 229, blue: 229).cgColor
+        drawRect(margin: mMargin)
     }
     
     private func drawLine(_ x1 : CGFloat, _ y1 : CGFloat, _ x2 : CGFloat, _ y2 : CGFloat) {
@@ -85,30 +74,26 @@ class jhDrawAxisLayer : CALayer {
     
     private func getX(_ x: CGFloat) -> CGFloat? {
         var retX : CGFloat? = nil
-        retX = x * mPanelWidth / mFixedPanelWidth
+        retX = x * self.bounds.width / jhDraw.ARQ
         return retX
     }
     
     private func getY(_ y: CGFloat) -> CGFloat? {
         var retY : CGFloat? = nil
-        retY = y * mPanelHeight / mFixedPanelHeight
+        retY = y * self.bounds.height / jhDraw.ARQ
         return retY
     }
-    
     
     private func drawText(str : String, x : CGFloat, y : CGFloat, width : CGFloat, height : CGFloat) -> CALayer {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
         let img = renderer.image { ctx in
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .center
-//            let attrs = [NSAttributedString.Key.font: UIFont(name: "".font1(), size: width/2)!, NSAttributedString.Key.paragraphStyle: paragraphStyle]
+            let attrs = [NSAttributedString.Key.font: UIFont(name: "".font1(), size: width/2)!, NSAttributedString.Key.paragraphStyle: paragraphStyle]
             let string = str
-//            string.draw(with: CGRect(x: 0, y: 0, width: width, height: 10), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+            string.draw(with: CGRect(x: 0, y: 0, width: width, height: 10), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
         }
-        //        let imageView : UIImageView = UIImageView(frame: CGRect(x: getX(x)!, y: getY(y)!, width: width, height: height))
-        //
-        //        imageView.image = img
-        
+
         let tLayer = CALayer()
         let tImg = img.cgImage
         tLayer.frame = CGRect(x: getX(x)!, y: getY(y)!, width: width, height: height)
@@ -116,4 +101,15 @@ class jhDrawAxisLayer : CALayer {
         
         return tLayer
     }
+    
+    func drawRect(margin : CGFloat) {
+        drawLine(margin, margin, jhDraw.ARQ-margin, margin)
+        drawLine(jhDraw.ARQ-margin, margin, jhDraw.ARQ-margin, jhDraw.ARQ-margin)
+        drawLine(jhDraw.ARQ-margin, jhDraw.ARQ-margin, margin, jhDraw.ARQ-margin)
+        ////For DEBUG
+        //        drawLine(0, 0, jhDraw.maxR, jhDraw.maxR)
+        //        drawLine(0, jhDraw.maxR, jhDraw.maxR, 0)
+        drawLine(margin, jhDraw.ARQ-margin, margin, margin)
+    }
+    
 }

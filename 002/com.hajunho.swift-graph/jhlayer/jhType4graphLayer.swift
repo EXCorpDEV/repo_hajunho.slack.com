@@ -17,7 +17,7 @@ class jhType4graphLayer<T> : jhCommonDataLayer<T>, jhLayer_p {
     override func draw(in ctx: CGContext) {
         "".pwd(self)
         
-        let isTestMode: Bool = false
+        let isTestMode: Bool = true
         let xRatio : CGFloat = self.bounds.width / hhhWidth
         
         guard

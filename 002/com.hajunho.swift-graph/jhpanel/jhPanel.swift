@@ -14,6 +14,8 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     //P/ Axes
     let isFixedAxesCount: Bool = true
     let fixedAxesCount: Int = 24
+    let mMargin : CGFloat = GV.s.ui_common_margin
+    let mLineWidth : CGFloat = GV.s.ui_common_graph_line_width
     
     var jhEnforcingMode: Bool = false
     var jhPanelID: Int = 0
@@ -24,27 +26,14 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     
     //stored property realted with DATAs
     internal var mCountOfDatas : Int = 0
-    internal var mMaxValueOfDatas : CGFloat = 0
-    internal var mMinvalueOfDatas : CGFloat = 0
     
-    //stored property related with Drawing
-    internal let mFixedPanelWidth : CGFloat = jhDraw.maxR //basic ratio 0~10000.0
-    internal let mFixedPanelHeight : CGFloat = jhDraw.maxR  //basic ratio
-    
-    //    private var mMargin : CGFloat = 1333.3 //1000.0 is 13.3..%, margin between panel & graph area 0<=martgin<10000.0
-    internal var mMargin : CGFloat = 300 //1000.0 is 13.3..%, margin between panel & graph area 0<=martgin<10000.0
-    
-    internal var mPanelWidth : CGFloat? = nil
-    internal var mPanelHeight : CGFloat? = nil
-    
-    internal var mLineWidth : CGFloat = 1
     internal var mColor : CGColor = UIColor.blue.cgColor
     
     /// Axes
     var mUnitOfHorizontalAxes : CGFloat = 100
     var mcountOfHorizontalAxes : Int = 3
     
-    internal var mVerticalRatioToDraw_view : CGFloat = 1.0
+    
     
     //calculated property related with DATAs' View
     internal var mAllofCountOfDatas : Int {
@@ -59,7 +48,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
         //        }
         
         get {
-            return (jhDraw.maxR  - mMargin * 2) / CGFloat(jhDataCenter.mCountOfdatas_view+1)
+            return (jhDraw.ARQ  - mMargin * 2) / CGFloat(jhDataCenter.mCountOfdatas_view+1)
         }
         //        set(distance) {
         //            jhDataCenter.mCountOfaxes_view = Int(jhDraw.maxR  / CGFloat(distance))
@@ -68,7 +57,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     
     var axisDistance: CGFloat {
         get {
-            return (jhDraw.maxR  - mMargin * 2) / CGFloat(jhDataCenter.mCountOfaxes_view+1)
+            return (jhDraw.ARQ  - mMargin * 2) / CGFloat(jhDataCenter.mCountOfaxes_view+1)
         }
     }
     
@@ -77,14 +66,16 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
         super.init(frame: frame)
         self.layer.isGeometryFlipped = true
         mContext = UIGraphicsGetCurrentContext()
-        self.mPanelWidth = frame.width
-        self.mPanelHeight = frame.height
         if GS.shared.logLevel.contains(.graphPanel) { print("jhPanel init color", mLineWidth)}
     }
     
     convenience init(frame: CGRect, scene: inout T?) {
         self.init(frame: frame)
         self.superScene = scene
+        if GS.shared.logLevel.contains(.network2) {
+            print("ctime in jhPanel = ", (scene as? jhSceneTimeLine)?.currentTime)
+            print("ctime in jhPanel = ", (self.superScene as? jhSceneTimeLine)?.currentTime)
+        }
     }
     
     override func draw(_ rect: CGRect) {
@@ -109,20 +100,15 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func changePanelSize(_ x : CGFloat, _ y : CGFloat) {
-        self.mPanelWidth = x
-        self.mPanelHeight = y
-    }
-    
     func getX(_ x: CGFloat) -> CGFloat? {
         var retX : CGFloat? = nil
-        retX = x * mPanelWidth! / mFixedPanelWidth
+        retX = x * self.bounds.width / jhDraw.ARQ
         return retX
     }
     
     func getY(_ y: CGFloat) -> CGFloat? {
         var retY : CGFloat? = nil
-        retY = y * mPanelHeight! / mFixedPanelHeight
+        retY = y * self.bounds.width / jhDraw.ARQ
         return retY
     }
     
@@ -136,13 +122,13 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     }
     
     func drawRect(margin : CGFloat) {
-        drawLine(margin, margin, mFixedPanelWidth-margin, margin)
-        drawLine(mFixedPanelWidth-margin, margin, mFixedPanelWidth-margin, mFixedPanelHeight-margin)
-        drawLine(mFixedPanelWidth-margin, mFixedPanelHeight-margin, margin, mFixedPanelHeight-margin)
+        drawLine(margin, margin, jhDraw.ARQ-margin, margin)
+        drawLine(jhDraw.ARQ-margin, margin, jhDraw.ARQ-margin, jhDraw.ARQ-margin)
+        drawLine(jhDraw.ARQ-margin, jhDraw.ARQ-margin, margin, jhDraw.ARQ-margin)
         ////For DEBUG
-        //        drawLine(0, 0, mFixedPanelWidth, mFixedPanelHeight)
-        //        drawLine(0, mFixedPanelHeight, mFixedPanelWidth, 0)
-        drawLine(margin, mFixedPanelHeight-margin, margin, margin)
+        //        drawLine(0, 0, jhDraw.maxR, jhDraw.maxR)
+        //        drawLine(0, jhDraw.maxR, jhDraw.maxR, 0)
+        drawLine(margin, jhDraw.ARQ-margin, margin, margin)
     }
     
     func drawRect(margin : CGFloat, color : CGColor) {
@@ -152,9 +138,6 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     
     /// draw X-axes, Y-axes
     func drawBackboard() {
-        mColor = UIColor(red: 229, green: 229, blue: 229, alpha: 1.0).cgColor
-        drawRect(margin: mMargin)
-        
         if isFixedAxesCount {
             jhDataCenter.mCountOfaxes_view = fixedAxesCount
         } else {
@@ -182,16 +165,6 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     
     func drawAxes() {
         
-        axisLayer = jhDrawAxisLayer(axisDistance, mVerticalRatioToDraw_view, mMargin, mPanelWidth ?? 0, mPanelHeight ?? 0, mFixedPanelWidth, mFixedPanelHeight, layer: 0, panelID: 0)
-        
-        axisLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
-        axisLayer.zPosition=1
-        //        guideLine.isGeometryFlipped = true
-        axisLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
-        self.layer.addSublayer(axisLayer)
-        axisLayer.setNeedsDisplay()
-        //         dataLayer.setNeedsDisplay()
-        //        jhDataCenter.attachObserver(observer: self)
     }
     
     func initDatas() {
@@ -202,7 +175,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
         }
         
         var maxValue : CGFloat = 0.0
-        var minValue : CGFloat = jhDraw.maxR
+        var minValue : CGFloat = jhDraw.ARQ
         
         for element in dataSource {
             let _element = element as! NSArray
@@ -219,14 +192,10 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
             jhDataCenter.nonNetworkData.append(vNumber)
         }
         
-        self.mMaxValueOfDatas = maxValue
-        self.mMinvalueOfDatas = minValue
+        GS.shared.testDataMaxValue = maxValue
+        GS.shared.testDataMinValue = minValue
         
-        self.mVerticalRatioToDraw_view = (jhDraw.maxR - (2*mMargin)) / self.mMaxValueOfDatas
-        if GS.shared.logLevel.contains(.graph) {
-            print("mVerticalRatioToDraw_view =", mVerticalRatioToDraw_view)
-        }
-        
+        GS.shared.testDataVerticalRatioToDraw_view = (jhDraw.ARQ - (2*mMargin)) / GS.shared.testDataMaxValue
     }
     
     func jhReSize(size : CGSize) {
@@ -245,7 +214,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
         
         dataLayer = jhCommonDataLayer(self, 0)
         
-        dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
+        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
         dataLayer.zPosition=1
         //        guideLine.isGeometryFlipped = true
         dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
@@ -271,7 +240,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
         print("hjh", xDistance)
         dataLayer = jhCommonDataLayer(self, 0)
         
-        dataLayer.frame = CGRect(x: 0, y: 0, width: self.mPanelWidth!, height: self.mPanelHeight!) //TODO: will be changed.
+        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
         dataLayer.zPosition=1
         //        guideLine.isGeometryFlipped = true
         dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
@@ -285,7 +254,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     func drawEllipse(_ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, thickness : CGFloat, _ color : CGColor){
         //        worldEllipse(context: mContext, getX(x)!, getY(jhDraw.maxR - y)!, width, height, thickness, color)
         if GS.shared.logLevel.contains(.graph) {
-            print("worldEllipse(context: mContext,", getX(x+mMargin)!, getY(jhDraw.maxR-y)!, width, height, thickness, color)
+            print("worldEllipse(context: mContext,", getX(x+mMargin)!, getY(jhDraw.ARQ-y)!, width, height, thickness, color)
         }
         jhDraw.worldEllipse(context: mContext, getX(x+mMargin)!, getY(y)!, width, height, thickness, color)
     }

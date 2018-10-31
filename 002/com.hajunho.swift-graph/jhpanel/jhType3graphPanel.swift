@@ -1,19 +1,20 @@
 //
-//  jhBarGraph.swift
+//  jhType3graphPanel.swift
 //  com.hajunho.swift-graph
 //
-//  Created by Junho HA on 2018. 10. 15..
-//  Copyright © 2018년 hajunho.com. All rights reserved.
+//  Created by Junho HA on 31/10/2018.
+//  Copyright © 2018 hajunho.com. All rights reserved.
 //
 
 import UIKit
 
-class jhBarGraph<T> : jhPanel<T> {
+class jhType3graphPanel<T> : jhPanel<T> {
     override func drawDatas() {
-        print("hjh", xDistance)
+        if(GS.shared.logLevel.contains(.network2)) {
+            print("ctime in jhType3graphPanel<T> = ", (self.superScene as? jhSceneTimeLine)?.currentTime)
+        }
         //        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
-        
-        dataLayer = jhBarGraphLayer<T>(self, 0)
+        dataLayer = jhType3graphLayer<T>(self, 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
         dataLayer.zPosition=1
@@ -28,7 +29,6 @@ class jhBarGraph<T> : jhPanel<T> {
         print("hjh", xDistance)
         drawAxes()
         
-        
         if isFixedAxesCount {
             jhDataCenter.mCountOfaxes_view = fixedAxesCount
         } else {
@@ -37,7 +37,7 @@ class jhBarGraph<T> : jhPanel<T> {
         
         jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
         
-        dataLayer = jhBarGraphLayer(self, 0)
+        dataLayer = jhType3graphLayer(self, 0)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
         dataLayer.zPosition=1
@@ -47,6 +47,17 @@ class jhBarGraph<T> : jhPanel<T> {
         dataLayer.setNeedsDisplay()
         jhDataCenter.attachObserver(observer: self)
         
-        drawAxes()
+        //        drawAxes()
+    }
+    
+    override func drawAxes() {
+        axisLayer = jhDrawAxisLayer(self, layer: 0, panelID: 0, hGuide: false)
+        
+        axisLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
+        axisLayer.zPosition=1
+        axisLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
+        self.layer.addSublayer(axisLayer)
+        axisLayer.setNeedsDisplay()
+        //        jhDataCenter.attachObserver(observer: self)
     }
 }
