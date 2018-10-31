@@ -34,6 +34,11 @@
 		D2CC0CCE2174870700DE1BB1 /* jhGraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CCD2174870700DE1BB1 /* jhGraphBuilder.swift */; };
 		D2CC0CD02174877C00DE1BB1 /* jhLineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CCF2174877C00DE1BB1 /* jhLineGraph.swift */; };
 		D2CC0CD22174879B00DE1BB1 /* jhBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CD12174879B00DE1BB1 /* jhBarGraph.swift */; };
+		D2CF07862189AC490089F5A7 /* jhLayer_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF07852189AC490089F5A7 /* jhLayer_p.swift */; };
+		D2CF07882189AC570089F5A7 /* jhType2graphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF07872189AC570089F5A7 /* jhType2graphLayer.swift */; };
+		D2CF078A2189AC600089F5A7 /* jhType3graphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF07892189AC600089F5A7 /* jhType3graphLayer.swift */; };
+		D2CF078C2189AC6D0089F5A7 /* jhType4graphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF078B2189AC6D0089F5A7 /* jhType4graphLayer.swift */; };
+		D2CF078E2189AE0A0089F5A7 /* GV.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF078D2189AE0A0089F5A7 /* GV.swift */; };
 		D2D1FEC6217560A600FD2615 /* GraphExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D1FEC5217560A600FD2615 /* GraphExample.storyboard */; };
 		D2D1FEC8217560C900FD2615 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1FEC7217560C900FD2615 /* ViewController.swift */; };
 		D2DE7700217EB0F00088D017 /* jhDrawAxisLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE76FF217EB0F00088D017 /* jhDrawAxisLayer.swift */; };
@@ -105,6 +110,11 @@
 		D2CC0CCD2174870700DE1BB1 /* jhGraphBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhGraphBuilder.swift; sourceTree = "<group>"; };
 		D2CC0CCF2174877C00DE1BB1 /* jhLineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhLineGraph.swift; sourceTree = "<group>"; };
 		D2CC0CD12174879B00DE1BB1 /* jhBarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhBarGraph.swift; sourceTree = "<group>"; };
+		D2CF07852189AC490089F5A7 /* jhLayer_p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhLayer_p.swift; sourceTree = "<group>"; };
+		D2CF07872189AC570089F5A7 /* jhType2graphLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhType2graphLayer.swift; sourceTree = "<group>"; };
+		D2CF07892189AC600089F5A7 /* jhType3graphLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhType3graphLayer.swift; sourceTree = "<group>"; };
+		D2CF078B2189AC6D0089F5A7 /* jhType4graphLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhType4graphLayer.swift; sourceTree = "<group>"; };
+		D2CF078D2189AE0A0089F5A7 /* GV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GV.swift; sourceTree = "<group>"; };
 		D2D1FEC5217560A600FD2615 /* GraphExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GraphExample.storyboard; sourceTree = "<group>"; };
 		D2D1FEC7217560C900FD2615 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D2DE76FF217EB0F00088D017 /* jhDrawAxisLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhDrawAxisLayer.swift; sourceTree = "<group>"; };
@@ -205,6 +215,7 @@
 			children = (
 				D2162C1921741F7500514441 /* GS.swift */,
 				D2720902217874260037D092 /* observer_p.swift */,
+				D2CF078D2189AE0A0089F5A7 /* GV.swift */,
 			);
 			path = jhcore;
 			sourceTree = "<group>";
@@ -284,6 +295,10 @@
 				D272090721798B4A0037D092 /* jhCommonDataLayer.swift */,
 				D2DE76FF217EB0F00088D017 /* jhDrawAxisLayer.swift */,
 				D2E833D521813F88008AE829 /* jhType1graphLayer.swift */,
+				D2CF07852189AC490089F5A7 /* jhLayer_p.swift */,
+				D2CF07872189AC570089F5A7 /* jhType2graphLayer.swift */,
+				D2CF07892189AC600089F5A7 /* jhType3graphLayer.swift */,
+				D2CF078B2189AC6D0089F5A7 /* jhType4graphLayer.swift */,
 			);
 			path = jhlayer;
 			sourceTree = "<group>";
@@ -546,14 +561,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CF078A2189AC600089F5A7 /* jhType3graphLayer.swift in Sources */,
 				D2CC0CCA2174849800DE1BB1 /* jhScene.swift in Sources */,
 				D2162C132170A7C900514441 /* jhScene_p.swift in Sources */,
+				D2CF07882189AC570089F5A7 /* jhType2graphLayer.swift in Sources */,
 				D2CC0CBE21747B4700DE1BB1 /* jhFile.swift in Sources */,
 				D272090A21799DEA0037D092 /* jhDataCenter.swift in Sources */,
+				D2CF078C2189AC6D0089F5A7 /* jhType4graphLayer.swift in Sources */,
 				D2CC0CD22174879B00DE1BB1 /* jhBarGraph.swift in Sources */,
+				D2CF078E2189AE0A0089F5A7 /* GV.swift in Sources */,
 				D2D1FEC8217560C900FD2615 /* ViewController.swift in Sources */,
 				D2E833D621813F88008AE829 /* jhType1graphLayer.swift in Sources */,
 				D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */,
+				D2CF07862189AC490089F5A7 /* jhLayer_p.swift in Sources */,
 				D272090821798B4A0037D092 /* jhCommonDataLayer.swift in Sources */,
 				D2720903217874260037D092 /* observer_p.swift in Sources */,
 				D2170256217FF777003031E4 /* jhSceneTimeLine.swift in Sources */,

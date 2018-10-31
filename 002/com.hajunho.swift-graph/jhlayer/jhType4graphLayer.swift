@@ -1,15 +1,14 @@
 //
-//  jhType1graphLayer.swift
+//  jhType4graphLayer.swift
 //  com.hajunho.swift-graph
 //
-//  Created by Junho HA on 2018. 10. 25..
-//  Copyright © 2018년 hajunho.com. All rights reserved.
+//  Created by Junho HA on 31/10/2018.
+//  Copyright © 2018 hajunho.com. All rights reserved.
 //
 
 import UIKit
 
-class jhType1graphLayer<T> : jhCommonDataLayer<T> {
-    
+class jhType4graphLayer<T> : jhCommonDataLayer<T>, jhLayer_p {
     //TODO: escaping hardcoding later on
     private let xMargin : CGFloat = 45
     private let hhhWidth : CGFloat = 86400 //24h
@@ -41,6 +40,7 @@ class jhType1graphLayer<T> : jhCommonDataLayer<T> {
         let yRatio = self.bounds.height / maxY
         
         for man in 0..<jhDatas.d.count {
+            //            mValuesOfDatas.append(jhDatas.d[man].y)
             if(GS.shared.logLevel.contains(.graph2)) {
                 print(jhDatas.d[man].x)
                 print(jhDatas.d[man].y)
@@ -61,9 +61,19 @@ class jhType1graphLayer<T> : jhCommonDataLayer<T> {
             if x >= CGFloat(ctime.timeIntervalSince1970) || x <= CGFloat(etime.timeIntervalSince1970) {
                 continue
             } else {
-                drawPoint(ctx, fx, fy, 2, 2, thickness: 3, UIColor(red: 128, green: 128, blue: 128).cgColor)
+                let rectangle = CGRect(x: fx-1, y: fy-8, width: 2, height: 16) //TODO:
+                let clipPath = UIBezierPath(roundedRect: rectangle, cornerRadius: 3.0).cgPath
+                
+                ctx.addPath(clipPath)
+                ctx.setFillColor(UIColor(red: 188, green: 188, blue: 188).cgColor)
+                
+                ctx.closePath()
+                ctx.fillPath()
+                
+                drawPoint(ctx, fx, fy, 1, 1, thickness: 2, UIColor(red: 128, green: 128, blue: 128).cgColor)
             }
         }
+        //            jhDataCenter.mDatas[panelID]!
         if isTestMode {
             testModeDrawing(in: ctx)
         }
@@ -97,9 +107,11 @@ class jhType1graphLayer<T> : jhCommonDataLayer<T> {
     
     override func drawPoint(_ ctx: CGContext, _ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, thickness : CGFloat, _ color : CGColor){
         jhDraw.worldEllipse(context: ctx, x, y, width, height, thickness, color)
+        //        x++GV.s.ui_common_margin
     }
     
     func drawTestPoint(_ ctx: CGContext, _ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, thickness : CGFloat, _ color : CGColor){
+        //        worldEllipse(context: mContext, getX(x)!, getY(jhDraw.maxR - y)!, width, height, thickness, color)
         if GS.shared.logLevel.contains(.graph) {
             print("worldEllipse(context: mContext,", getXonVPanel(x+GV.s.ui_common_margin)!, getYonVPanel(jhDraw.ARQ-y)!, width, height, thickness, color)
         }

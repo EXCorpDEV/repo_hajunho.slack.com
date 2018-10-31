@@ -10,12 +10,16 @@ import UIKit
 
 //Where am I, exactly  ex) "".pwd(self)
 extension String {
-    
     func pwd(_ x: Any)  {
         if(!GS.shared.logLevel.contains(.none)) {
-            print("pwd_", String(describing: x.self))
+            if x is String {
+                print("pwd_\(x)")
+            } else {
+                print("pwd_", String(describing: x.self))
+            }
         }
     }
+    
     func pwdJustString(_ x: Any) -> String {
         return String(describing: x.self)
     }
@@ -48,9 +52,13 @@ struct _logLevel: OptionSet {
     static let graph2 = _logLevel(rawValue: 1 << 5)
     static let graphPanel = _logLevel(rawValue: 1 << 6)
     static let dashboard = _logLevel(rawValue: 1 << 7)
-    static let none = _logLevel(rawValue: 1 << 8)
-    static let network = _logLevel(rawValue: 1 << 9)
-    static let all: _logLevel = [.critical, .major, .minor, .just, .graph, .graph2, .graphPanel, .dashboard]
+    static let network = _logLevel(rawValue: 1 << 8)
+    static let network2 = _logLevel(rawValue: 1 << 9)
+    static let none = _logLevel(rawValue: 1 << 10)
+    static let layer = _logLevel(rawValue: 1 << 11)
+    static let json = _logLevel(rawValue: 1 << 12)
+    
+    static let all: _logLevel = [.critical, .major, .minor, .just, .graph, .graph2, .graphPanel, .dashboard, .network, network2, layer, json]
 }
 
 struct _plistV1 : Codable {
@@ -63,7 +71,6 @@ struct plistV1 : Codable {
     init(from decoder : Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         raw1 = try values.decodeIfPresent([_plistV1].self, forKey: .raw1)
-        
     }
 }
 
@@ -74,8 +81,9 @@ class GS {
     var sceneWidthByTime : CGFloat = 86400
     
     private init() {
-        //        logLevel = .all
-        logLevel = .network
+        //                logLevel = .all
+        logLevel = .json
+        //        logLevel = .layer
         //        logLevel = .none
         //        logLevel = .critical
         //        logLevel = .graphPanel
@@ -91,4 +99,9 @@ class GS {
     let current_eoGraphType : eoGraphType = eoGraphType.first
     
     static let shared = GS()
+    
+    
+    var testDataMaxValue : CGFloat = 0
+    var testDataMinValue : CGFloat = 0
+    var testDataVerticalRatioToDraw_view : CGFloat = 0
 }
