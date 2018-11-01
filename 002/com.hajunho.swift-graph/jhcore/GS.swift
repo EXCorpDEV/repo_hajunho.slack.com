@@ -43,7 +43,6 @@ extension String {
 
 struct _logLevel: OptionSet {
     let rawValue: Int
-    
     static let critical    = _logLevel(rawValue: 1 << 0)
     static let major  = _logLevel(rawValue: 1 << 1)
     static let minor   = _logLevel(rawValue: 1 << 2)
@@ -57,7 +56,6 @@ struct _logLevel: OptionSet {
     static let none = _logLevel(rawValue: 1 << 10)
     static let layer = _logLevel(rawValue: 1 << 11)
     static let json = _logLevel(rawValue: 1 << 12)
-    
     static let all: _logLevel = [.critical, .major, .minor, .just, .graph, .graph2, .graphPanel, .dashboard, .network, network2, layer, json]
 }
 
@@ -76,9 +74,7 @@ struct plistV1 : Codable {
 
 class GS {
     
-    var logLevel : _logLevel
-    var currentServerTime : Double = 0
-    var sceneWidthByTime : CGFloat = 86400
+    static let s = GS()
     
     private init() {
         //                logLevel = .all
@@ -91,15 +87,30 @@ class GS {
         //        logLevel = .just
     }
     
-    enum eoGraphType {
-        case general
-        case first
+    /// Margins
+    var jhLMarginCommon : CGFloat = 0 //layer's margin left, right, top, bottom
+    var jhLMarginLeft : CGFloat = 0
+    var jhLMarginRight : CGFloat = 0
+    var jhLMarginTop : CGFloat = 0
+    var jhLMarginBottom : CGFloat = 0
+    var jhLMarginX : CGFloat {
+        get {
+            return jhLMarginCommon + jhLMarginLeft
+        }
+    }
+    var jhLMarginY : CGFloat {
+        get {
+            return jhLMarginCommon + jhLMarginBottom
+        }
     }
     
-    let current_eoGraphType : eoGraphType = eoGraphType.first
+    var jhLBackgroundColor : UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     
-    static let s = GS()
     
+    
+    var logLevel : _logLevel
+    var currentServerTime : Double = 0
+    var sceneWidthByTime : CGFloat = 86400
     
     var testDataMaxValue : CGFloat = 0
     var testDataMinValue : CGFloat = 0

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
+class jhPanel<T> : jhDraw, observer_p {
     
     internal var superScene: T?
     //P/ Axes

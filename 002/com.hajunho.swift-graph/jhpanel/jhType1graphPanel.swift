@@ -8,20 +8,30 @@
 
 import UIKit
 
-class jhType1graphPanel<T> : jhPanel<T> {
-    override func drawDatas() {
+class jhType1graphPanel<T> : jhPanel<T>, jhPanel_p
+{
+    
+    func commonFirstNredraw() {
+        
+        jhPanelID = 0 //panel ID is matched to array id of the jhDatacenter
+        
         if(GS.s.logLevel.contains(.network2)) {
             print("ctime in jhType1graphPanel<T> = ", (self.superScene as? jhSceneTimeLine)?.currentTime)
         }
-        //        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
+        
         dataLayer = jhType1graphLayer<T>(self, 0)
         
-        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
+        dataLayer.frame = CGRect(x: GS.s.jhLMarginX, y: GS.s.jhLMarginY, width: self.bounds.width - GS.s.jhLMarginX, height: self.bounds.height - GS.s.jhLMarginY)
         dataLayer.zPosition=1
         dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
         self.layer.addSublayer(dataLayer)
         dataLayer.setNeedsDisplay()
         jhDataCenter.attachObserver(observer: self)
+    }
+    
+    override func drawDatas() {
+        //        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
+        commonFirstNredraw()
     }
     
     override func jhRedraw() {
@@ -34,18 +44,10 @@ class jhType1graphPanel<T> : jhPanel<T> {
         }
         
         jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
-        
-        dataLayer = jhType1graphLayer(self, 0)
-        
-        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
-        dataLayer.zPosition=1
-        dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
-        self.layer.addSublayer(dataLayer)
-        dataLayer.setNeedsDisplay()
-        jhDataCenter.attachObserver(observer: self)
-        //        drawAxes()
+        commonFirstNredraw()
     }
     
+    /// drawBackboard calls this!
     override func drawAxes() {
         axisLayer = jhDrawAxisLayer(self, layer: 0, panelID: 0, hGuide: true)
         

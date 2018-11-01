@@ -9,9 +9,13 @@
 import UIKit
 
 protocol jhPanel_p {
-    var jhPanelID : Int { get }
-    func initDatas()
-    func drawBackboard()
-    func drawPanel()
-//    func drawText(str : String, x : CGFloat, y : CGFloat, width : CGFloat, height : CGFloat) -> UIImageView
+    var jhEnforcingMode : Bool { get set }
+    var jhPanelID : Int { get set }
+    //    var jhSceneFrameWidth : CGFloat { get set }
+    //    var jhSceneFrameHeight : CGFloat { get set }
+    mutating func jhReSize(size : CGSize)
+    //    func getData() -> Array<CGFloat>
+    func drawDatas()
+    func jhRedraw()
+    func drawAxes()
 }

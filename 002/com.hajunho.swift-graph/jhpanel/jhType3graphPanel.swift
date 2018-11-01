@@ -8,25 +8,33 @@
 
 import UIKit
 
-class jhType3graphPanel<T> : jhPanel<T> {
-    override func drawDatas() {
+class jhType3graphPanel<T> : jhPanel<T>, jhPanel_p
+{
+    
+    func commonFirstNredraw() {
+        
+        jhPanelID = 2 //panel ID is matched to array id of the jhDatacenter
+        
         if(GS.s.logLevel.contains(.network2)) {
             print("ctime in jhType3graphPanel<T> = ", (self.superScene as? jhSceneTimeLine)?.currentTime)
         }
-        //        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
+        
         dataLayer = jhType3graphLayer<T>(self, 0)
         
-        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
+        dataLayer.frame = CGRect(x: GS.s.jhLMarginX, y: GS.s.jhLMarginY, width: self.bounds.width - GS.s.jhLMarginX, height: self.bounds.height - GS.s.jhLMarginY)
         dataLayer.zPosition=1
-        //        guideLine.isGeometryFlipped = true
         dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
         self.layer.addSublayer(dataLayer)
         dataLayer.setNeedsDisplay()
         jhDataCenter.attachObserver(observer: self)
     }
     
+    override func drawDatas() {
+        //        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
+        commonFirstNredraw()
+    }
+    
     override func jhRedraw() {
-        print("hjh", xDistance)
         drawAxes()
         
         if isFixedAxesCount {
@@ -36,20 +44,10 @@ class jhType3graphPanel<T> : jhPanel<T> {
         }
         
         jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
-        
-        dataLayer = jhType3graphLayer(self, 0)
-        
-        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
-        dataLayer.zPosition=1
-        //        guideLine.isGeometryFlipped = true
-        dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
-        self.layer.addSublayer(dataLayer)
-        dataLayer.setNeedsDisplay()
-        jhDataCenter.attachObserver(observer: self)
-        
-        //        drawAxes()
+        commonFirstNredraw()
     }
     
+    /// drawBackboard calls this!
     override func drawAxes() {
         axisLayer = jhDrawAxisLayer(self, layer: 0, panelID: 0, hGuide: false)
         
@@ -58,6 +56,6 @@ class jhType3graphPanel<T> : jhPanel<T> {
         axisLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
         self.layer.addSublayer(axisLayer)
         axisLayer.setNeedsDisplay()
-        //        jhDataCenter.attachObserver(observer: self)
     }
 }
+
