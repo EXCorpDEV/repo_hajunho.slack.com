@@ -62,24 +62,24 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     }
     
     override init(frame: CGRect) {
-        if GS.shared.logLevel.contains(.graphPanel) { print("jhPanel override init(\(frame.width), \(frame.height))")}
+        if GS.s.logLevel.contains(.graphPanel) { print("jhPanel override init(\(frame.width), \(frame.height))")}
         super.init(frame: frame)
         self.layer.isGeometryFlipped = true
         mContext = UIGraphicsGetCurrentContext()
-        if GS.shared.logLevel.contains(.graphPanel) { print("jhPanel init color", mLineWidth)}
+        if GS.s.logLevel.contains(.graphPanel) { print("jhPanel init color", mLineWidth)}
     }
     
     convenience init(frame: CGRect, scene: inout T?) {
         self.init(frame: frame)
         self.superScene = scene
-        if GS.shared.logLevel.contains(.network2) {
+        if GS.s.logLevel.contains(.network2) {
             print("ctime in jhPanel = ", (scene as? jhSceneTimeLine)?.currentTime)
             print("ctime in jhPanel = ", (self.superScene as? jhSceneTimeLine)?.currentTime)
         }
     }
     
     override func draw(_ rect: CGRect) {
-        if GS.shared.logLevel.contains(.graphPanel) {
+        if GS.s.logLevel.contains(.graphPanel) {
             print("jhPanel draw()")
         }
         
@@ -88,7 +88,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     }
     
     func drawPanel() {
-        if GS.shared.logLevel.contains(.graphPanel) { print("drawPanel()") }
+        if GS.s.logLevel.contains(.graphPanel) { print("drawPanel()") }
         
         initDatas()
         
@@ -113,7 +113,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     }
     
     func drawLine(_ x1 : CGFloat, _ y1 : CGFloat, _ x2 : CGFloat, _ y2 : CGFloat) {
-        if GS.shared.logLevel.contains(.graph) { print("panel_drawLine_\(x1), \(y1), \(x2), \(y2)")}
+        if GS.s.logLevel.contains(.graph) { print("panel_drawLine_\(x1), \(y1), \(x2), \(y2)")}
         jhDraw.worldLine(context: mContext, getX(x1)!, getY(y1)!, getX(x2)!, getY(y2)!, mLineWidth, mColor)
     }
     
@@ -182,7 +182,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
             let vDate = _element[0] as! CFDate
             let vNumber = _element[1] as! CGFloat
             
-            if GS.shared.logLevel.contains(.graph) {
+            if GS.s.logLevel.contains(.graph) {
                 print("datasrc2 \(vDate) \(vNumber)")
             }
             
@@ -192,10 +192,10 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
             jhDataCenter.nonNetworkData.append(vNumber)
         }
         
-        GS.shared.testDataMaxValue = maxValue
-        GS.shared.testDataMinValue = minValue
+        GS.s.testDataMaxValue = maxValue
+        GS.s.testDataMinValue = minValue
         
-        GS.shared.testDataVerticalRatioToDraw_view = (jhDraw.ARQ - (2*mMargin)) / GS.shared.testDataMaxValue
+        GS.s.testDataVerticalRatioToDraw_view = (jhDraw.ARQ - (2*mMargin)) / GS.s.testDataMaxValue
     }
     
     func jhReSize(size : CGSize) {
@@ -253,7 +253,7 @@ class jhPanel<T> : jhDraw, jhPanel_p, observer_p {
     
     func drawEllipse(_ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, thickness : CGFloat, _ color : CGColor){
         //        worldEllipse(context: mContext, getX(x)!, getY(jhDraw.maxR - y)!, width, height, thickness, color)
-        if GS.shared.logLevel.contains(.graph) {
+        if GS.s.logLevel.contains(.graph) {
             print("worldEllipse(context: mContext,", getX(x+mMargin)!, getY(jhDraw.ARQ-y)!, width, height, thickness, color)
         }
         jhDraw.worldEllipse(context: mContext, getX(x+mMargin)!, getY(y)!, width, height, thickness, color)

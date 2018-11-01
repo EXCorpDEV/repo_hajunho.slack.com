@@ -25,7 +25,7 @@ class jhType2graphLayer<T> : jhCommonDataLayer<T>, jhLayer_p {
             var etime = (self.superScene as? jhSceneTimeLine)?.endTime
             else { return }
         
-        if GS.shared.logLevel.contains(.network2) {
+        if GS.s.logLevel.contains(.network2) {
             print("ctime in jhType2graphLayer<T>\(ctime)")
             print("ctime oh no actually etime in jhType2graphLayer<T>", etime)
         }
@@ -57,7 +57,7 @@ class jhType2graphLayer<T> : jhCommonDataLayer<T>, jhLayer_p {
             var fx2 = ((CGFloat(x2) - CGFloat(etime.timeIntervalSince1970)) * xRatio)
             let fy2 = CGFloat(y2+0.75) * yRatio
             
-            if(GS.shared.logLevel.contains(.json)) {
+            if(GS.s.logLevel.contains(.json)) {
                 print("json values is changed to (fx,fy) (", fx, ")    (", fy, ") in Panel")
             }
             
@@ -145,7 +145,7 @@ class jhType2graphLayer<T> : jhCommonDataLayer<T>, jhLayer_p {
     
     func drawTestPoint(_ ctx: CGContext, _ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, thickness : CGFloat, _ color : CGColor){
         //        worldEllipse(context: mContext, getX(x)!, getY(jhDraw.maxR - y)!, width, height, thickness, color)
-        if GS.shared.logLevel.contains(.graph) {
+        if GS.s.logLevel.contains(.graph) {
             print("worldEllipse(context: mContext,", getXonVPanel(x+GV.s.ui_common_margin)!, getYonVPanel(jhDraw.ARQ-y)!, width, height, thickness, color)
         }
         jhDraw.worldEllipse(context: ctx, getXonVPanel(x+GV.s.ui_common_margin)!, getYonVPanel(y)!, width, height, thickness, color)

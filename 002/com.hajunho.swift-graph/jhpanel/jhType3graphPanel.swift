@@ -10,7 +10,7 @@ import UIKit
 
 class jhType3graphPanel<T> : jhPanel<T> {
     override func drawDatas() {
-        if(GS.shared.logLevel.contains(.network2)) {
+        if(GS.s.logLevel.contains(.network2)) {
             print("ctime in jhType3graphPanel<T> = ", (self.superScene as? jhSceneTimeLine)?.currentTime)
         }
         //        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas

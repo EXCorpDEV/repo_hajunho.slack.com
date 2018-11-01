@@ -73,7 +73,7 @@ class jhScene : UIScrollView, observer_p {
         "".pwd(self)
         
         for rnt in withHeightRatios {
-            if(GS.shared.logLevel.contains(.graphPanel)) { print("createPanels(withHeightRatios: CGFloat...)", rnt)}
+            if(GS.s.logLevel.contains(.graphPanel)) { print("createPanels(withHeightRatios: CGFloat...)", rnt)}
             
             assert(!(rnt.ratio < 0.1 || rnt.ratio > 10.0), "heightRation Range is 0.1~10.0")
             
@@ -85,7 +85,7 @@ class jhScene : UIScrollView, observer_p {
                 .build()
             y += vHeight
             
-            if GS.shared.logLevel.contains(.graphPanel) {
+            if GS.s.logLevel.contains(.graphPanel) {
                 print("jhScene_addPanel_mHeightStack =", vHeight, "\n y = \(y) heightRatio = \(rnt)")
             }
             panel!.backgroundColor = UIColor.white
@@ -96,7 +96,7 @@ class jhScene : UIScrollView, observer_p {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         tempCount += 1
-        if GS.shared.logLevel.contains(.graph2) { print("jhScene_touchesMoved", tempCount) }
+        if GS.s.logLevel.contains(.graph2) { print("jhScene_touchesMoved", tempCount) }
         
         let touch = (touches as NSSet).anyObject()!
         let current = (touch as AnyObject).location(in: self)
@@ -113,12 +113,12 @@ class jhScene : UIScrollView, observer_p {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         tempCount += 1
-        if GS.shared.logLevel.contains(.graph2) { print("jhScene_touchesBegan", tempCount) }
+        if GS.s.logLevel.contains(.graph2) { print("jhScene_touchesBegan", tempCount) }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         tempCount += 1
-        if GS.shared.logLevel.contains(.graph2) { print("jhScene_touchesEnded", tempCount) }
+        if GS.s.logLevel.contains(.graph2) { print("jhScene_touchesEnded", tempCount) }
     }
     
     

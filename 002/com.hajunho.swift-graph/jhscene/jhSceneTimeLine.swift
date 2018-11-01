@@ -16,7 +16,7 @@ class jhSceneTimeLine : jhScene {
     
     var endTime: Date {
         get {
-            return Date(timeIntervalSince1970: currentTime.timeIntervalSince1970 - Double(GS.shared.sceneWidthByTime))
+            return Date(timeIntervalSince1970: currentTime.timeIntervalSince1970 - Double(GS.s.sceneWidthByTime))
         }
     }
     
@@ -29,7 +29,7 @@ class jhSceneTimeLine : jhScene {
         "".pwd(self)
         
         for rnt in withHeightRatios {
-            if(GS.shared.logLevel.contains(.graphPanel)) { print("createPanels(withHeightRatios: CGFloat...)", rnt)}
+            if(GS.s.logLevel.contains(.graphPanel)) { print("createPanels(withHeightRatios: CGFloat...)", rnt)}
             
             assert(!(rnt.ratio < 0.1 || rnt.ratio > 10.0), "heightRation Range is 0.1~10.0")
             
@@ -41,7 +41,7 @@ class jhSceneTimeLine : jhScene {
                 .build()
             y += vHeight
             
-            if GS.shared.logLevel.contains(.graphPanel) {
+            if GS.s.logLevel.contains(.graphPanel) {
                 print("jhScene_addPanel_mHeightStack =", vHeight, "\n y = \(y) heightRatio = \(rnt)")
             }
             panel!.backgroundColor = UIColor.white
@@ -52,7 +52,7 @@ class jhSceneTimeLine : jhScene {
     
     var xRatioByTime : CGFloat {
         get {
-            return jhDraw.maxR / GS.shared.sceneWidthByTime
+            return jhDraw.maxR / GS.s.sceneWidthByTime
         }
     }
     

@@ -16,7 +16,7 @@ class jhGuideLine : CALayer {
     var lineWidth : CGFloat
     
     init?(x: CGFloat, y: CGFloat, lineWidth: CGFloat, layer:Any) {
-        if GS.shared.logLevel.contains(.graph2) { print("jhGuideLine_init") }
+        if GS.s.logLevel.contains(.graph2) { print("jhGuideLine_init") }
         self.lineX = x
         self.lineY = y
         self.lineWidth = lineWidth
@@ -32,7 +32,7 @@ class jhGuideLine : CALayer {
     
     override func draw(in ctx: CGContext) {
         
-        if GS.shared.logLevel.contains(.graph2) { print("jhGuideLine_draw, layer_size.width = \(layer_size.width), layer_size.height = \(layer_size.height), lineX = \(lineX), lineY = \(lineY)") }
+        if GS.s.logLevel.contains(.graph2) { print("jhGuideLine_draw, layer_size.width = \(layer_size.width), layer_size.height = \(layer_size.height), lineX = \(lineX), lineY = \(lineY)") }
         
         layer_size = self.bounds.size
         ctx.move(to : CGPoint(x : lineX, y : 0))

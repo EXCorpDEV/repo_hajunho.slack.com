@@ -24,7 +24,7 @@ class jhServerTest {
     var count: Int = 0
     
     init() {
-        if GS.shared.logLevel.contains(.network) { print(connectionTest(urlString, auth: false)) }
+        if GS.s.logLevel.contains(.network) { print(connectionTest(urlString, auth: false)) }
         
         let parameters: Parameters = [:]
 

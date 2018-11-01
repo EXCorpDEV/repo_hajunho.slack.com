@@ -64,7 +64,7 @@ class jhDraw : UIView {
     }
     
     static func worldLine(context : CGContext?, _ x1 : CGFloat, _ y1 : CGFloat, _ x2 : CGFloat, _ y2 : CGFloat, _ lineWidth : CGFloat, _ color : CGColor) {
-        if GS.shared.logLevel.contains(.graph) { print("draw_worldLine_\(x1), \(y1), \(x2), \(y2)")}
+        if GS.s.logLevel.contains(.graph) { print("draw_worldLine_\(x1), \(y1), \(x2), \(y2)")}
         context?.move(to: CGPoint(x: x1, y: y1))
         context?.addLine(to: CGPoint(x: x2, y: y2))
         context?.setStrokeColor(color)
@@ -73,7 +73,7 @@ class jhDraw : UIView {
     }
     
     static func worldEllipse(context : CGContext?, _ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, _ lineWidth : CGFloat, _ color : CGColor) {
-        if GS.shared.logLevel.contains(.graph) { print("draw_worldEllipse_\(x), \(y), \(width), \(height)")}
+        if GS.s.logLevel.contains(.graph) { print("draw_worldEllipse_\(x), \(y), \(width), \(height)")}
         context?.addEllipse(in: CGRect(x: x - width/2 , y: y - height/2, width: width, height: height))
         context?.setStrokeColor(color)
         context?.setLineWidth(lineWidth)

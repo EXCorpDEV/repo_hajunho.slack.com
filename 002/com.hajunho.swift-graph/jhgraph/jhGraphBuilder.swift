@@ -45,7 +45,7 @@ class jhGraphBuilder<T> {
     @discardableResult
     func scene(_ x: T) -> jhGraphBuilder<T> {
         self.superScene = x
-        if GS.shared.logLevel.contains(.network2) {
+        if GS.s.logLevel.contains(.network2) {
             print("ctime in jhGraphBuilder_scene = ", (x as? jhSceneTimeLine)?.currentTime)
             print("ctime in jhGraphBuilder_scene2 = ", (self.superScene as? jhSceneTimeLine)?.currentTime )
         }
@@ -69,7 +69,7 @@ class jhGraphBuilder<T> {
     
     @discardableResult
     func build() -> jhPanel<T> {
-        if GS.shared.logLevel.contains(.network2) {
+        if GS.s.logLevel.contains(.network2) {
             print("ctime in jhGraphBuilder_build = ", (self.superScene as? jhSceneTimeLine)?.currentTime)
         }
         switch mGtype {

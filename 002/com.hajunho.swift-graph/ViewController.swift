@@ -67,7 +67,7 @@ class ViewController: UIViewController {
             .frame(0, 0, UIScreen.main.bounds.width, 488)
             .build() //TODO: sum of Panel size
         
-        if GS.shared.logLevel.contains(.network2) {
+        if GS.s.logLevel.contains(.network2) {
             print("ctime in ViewController", scene?.currentTime)
         }
         

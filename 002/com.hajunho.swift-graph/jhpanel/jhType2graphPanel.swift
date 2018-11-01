@@ -10,7 +10,7 @@ import UIKit
 
 class jhType2graphPanel<T> : jhPanel<T> {
     override func drawDatas() {
-        if(GS.shared.logLevel.contains(.network2)) {
+        if(GS.s.logLevel.contains(.network2)) {
             print("ctime in jhType2graphPanel<T> = ", (self.superScene as? jhSceneTimeLine)?.currentTime)
         }
         dataLayer = jhType2graphLayer<T>(self, 0)

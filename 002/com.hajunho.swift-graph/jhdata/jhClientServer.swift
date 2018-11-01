@@ -12,7 +12,7 @@ class jhClientServer {
     
     public static var mValuesOfDatas : Array<CGFloat> = Array() {
         didSet {
-            if GS.shared.logLevel.contains(.graph) {
+            if GS.s.logLevel.contains(.graph) {
                 print("mValuesOfDatas.count has been changed to \(mValuesOfDatas.count) in jhPanel")
             }
         }

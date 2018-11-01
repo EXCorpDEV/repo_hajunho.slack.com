@@ -11,7 +11,7 @@ import UIKit
 //Where am I, exactly  ex) "".pwd(self)
 extension String {
     func pwd(_ x: Any)  {
-        if(!GS.shared.logLevel.contains(.none)) {
+        if(!GS.s.logLevel.contains(.none)) {
             if x is String {
                 print("pwd_\(x)")
             } else {
@@ -98,7 +98,7 @@ class GS {
     
     let current_eoGraphType : eoGraphType = eoGraphType.first
     
-    static let shared = GS()
+    static let s = GS()
     
     
     var testDataMaxValue : CGFloat = 0

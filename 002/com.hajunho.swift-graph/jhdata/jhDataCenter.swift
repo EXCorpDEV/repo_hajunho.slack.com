@@ -62,7 +62,7 @@ class jhDataCenter {
     
     public static var mValuesOfDatas2 : Array<CGFloat> = Array() {
         didSet {
-            if GS.shared.logLevel.contains(.graph) {
+            if GS.s.logLevel.contains(.graph) {
                 print("mValuesOfDatas.count has been changed to \(mValuesOfDatas2.count) in jhPanel")
             }
         }
@@ -70,7 +70,7 @@ class jhDataCenter {
     
     public static var mValuesOfDatas3 : Array<CGFloat> = Array() {
         didSet {
-            if GS.shared.logLevel.contains(.graph) {
+            if GS.s.logLevel.contains(.graph) {
                 print("mValuesOfDatas.count has been changed to \(mValuesOfDatas3.count) in jhPanel")
             }
         }

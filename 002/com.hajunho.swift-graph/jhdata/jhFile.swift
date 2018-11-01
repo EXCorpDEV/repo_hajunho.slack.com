@@ -37,13 +37,13 @@ class jhFile {
         let decoder = PropertyListDecoder()
         if T.self == Int.self {
             dataSource = try! decoder.decode(Array<Int>.self, from: lvArray) as! Array<T>
-            if GS.shared.logLevel.contains(.graph) { print("jhFile_Array<Int>dataSource => ", dataSource) }
+            if GS.s.logLevel.contains(.graph) { print("jhFile_Array<Int>dataSource => ", dataSource) }
         } else if T.self == plistV1.self {
             dataSource = try! decoder.decode(Array<plistV1>.self, from: lvArray) as! Array<T>
-            if GS.shared.logLevel.contains(.graph) { print("jhFile_Array<plistV1>dataSource count => ", (dataSource as! [plistV1]).count) }
+            if GS.s.logLevel.contains(.graph) { print("jhFile_Array<plistV1>dataSource count => ", (dataSource as! [plistV1]).count) }
         } else if T.self == String.self {
             dataSource = try! decoder.decode(Array<String>.self, from: lvArray) as! Array<T>
-            if GS.shared.logLevel.contains(.graph) { print("jhFile_Array<String>dataSource => ", dataSource) }
+            if GS.s.logLevel.contains(.graph) { print("jhFile_Array<String>dataSource => ", dataSource) }
         } else {
             dataSource = Array()
         }
