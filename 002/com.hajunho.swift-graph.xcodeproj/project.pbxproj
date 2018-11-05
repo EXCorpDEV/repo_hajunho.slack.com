@@ -29,6 +29,7 @@
 		D2720905217874C80037D092 /* jhClientServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2720904217874C80037D092 /* jhClientServer.swift */; };
 		D272090821798B4A0037D092 /* jhCommonDataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272090721798B4A0037D092 /* jhCommonDataLayer.swift */; };
 		D272090A21799DEA0037D092 /* jhDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272090921799DEA0037D092 /* jhDataCenter.swift */; };
+		D2AE9045219053F400DAE134 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE9044219053F400DAE134 /* ImageScrollView.swift */; };
 		D2CC0CBC21747AEC00DE1BB1 /* jhPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */; };
 		D2CC0CBE21747B4700DE1BB1 /* jhFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */; };
 		D2CC0CC82174804600DE1BB1 /* testdata.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2CC0CC72174804600DE1BB1 /* testdata.plist */; };
@@ -101,6 +102,7 @@
 		D2720904217874C80037D092 /* jhClientServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhClientServer.swift; sourceTree = "<group>"; };
 		D272090721798B4A0037D092 /* jhCommonDataLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhCommonDataLayer.swift; sourceTree = "<group>"; };
 		D272090921799DEA0037D092 /* jhDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhDataCenter.swift; sourceTree = "<group>"; };
+		D2AE9044219053F400DAE134 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		D2CC0CBB21747AEC00DE1BB1 /* jhPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhPanel.swift; sourceTree = "<group>"; };
 		D2CC0CBD21747B4700DE1BB1 /* jhFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jhFile.swift; sourceTree = "<group>"; };
 		D2CC0CC021747E5A00DE1BB1 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				D2CC0CC92174849800DE1BB1 /* jhScene.swift */,
 				D2CC0CCB217484CC00DE1BB1 /* jhGuideLine.swift */,
 				D2170255217FF777003031E4 /* jhSceneTimeLine.swift */,
+				D2AE9044219053F400DAE134 /* ImageScrollView.swift */,
 			);
 			path = jhscene;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				D2162C152170AAD200514441 /* jhPanel_p.swift in Sources */,
 				D2162C112170A6C100514441 /* jhData_p.swift in Sources */,
 				D26876F92189B580009C14E4 /* jhType2graphPanel.swift in Sources */,
+				D2AE9045219053F400DAE134 /* ImageScrollView.swift in Sources */,
 				D2CC0CD02174877C00DE1BB1 /* jhLineGraph.swift in Sources */,
 				D26876FB2189B589009C14E4 /* jhType3graphPanel.swift in Sources */,
 				D21BCA63216B3E3900099859 /* AppDelegate.swift in Sources */,
