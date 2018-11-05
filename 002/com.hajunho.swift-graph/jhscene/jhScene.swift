@@ -8,7 +8,7 @@
 
 import UIKit
 
-class jhScene : UIScrollView, observer_p {
+class jhScene : jhSceneScrollView, observer_p {
     
     func jhRedraw() {
         

@@ -87,6 +87,9 @@ class GS {
         //        logLevel = .just
     }
     
+    /// ViewController
+    var jhSceneHeight : CGFloat? = nil
+    
     /// Margins
     let jhAMarginCommonV : CGFloat = 300 //Axes Virtual Margin(10000,10000)
     
