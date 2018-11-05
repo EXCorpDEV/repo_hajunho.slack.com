@@ -11,14 +11,19 @@ import UIKit
 class jhPanel<T> : jhDraw, observer_p {
     
     internal var superScene: T?
+    internal var jhPanelID : Int = 0
+    internal var maxY: CGFloat = 0.0
+    
+    
     //P/ Axes
     let isFixedAxesCount: Bool = true
     let fixedAxesCount: Int = 24
-    let mMargin : CGFloat = GV.s.ui_common_margin
+    let mMargin : CGFloat = GS.s.jhAMarginCommonV
     let mLineWidth : CGFloat = GV.s.ui_common_graph_line_width
     
     var jhEnforcingMode: Bool = false
-    var jhPanelID: Int = 0
+    
+    
     var dataLayer : CALayer = CALayer(layer: 0)
     var axisLayer : CALayer = CALayer(layer: 0)
     
@@ -33,12 +38,10 @@ class jhPanel<T> : jhDraw, observer_p {
     var mUnitOfHorizontalAxes : CGFloat = 100
     var mcountOfHorizontalAxes : Int = 3
     
-    
-    
     //calculated property related with DATAs' View
     internal var mAllofCountOfDatas : Int {
         get {
-            return jhDataCenter.mDatas[0]?.d.count ?? 0
+            return jhDataCenter.mDatas[jhPanelID]?.d.count ?? 0
         }
     }
     
@@ -61,10 +64,16 @@ class jhPanel<T> : jhDraw, observer_p {
         }
     }
     
+    /// if you want to override this function
+    /// isGeometryFlipped have to be implemented by your own way
+    /// - Parameter frame: whatever :)
+    
     override init(frame: CGRect) {
         if GS.s.logLevel.contains(.graphPanel) { print("jhPanel override init(\(frame.width), \(frame.height))")}
         super.init(frame: frame)
+        
         self.layer.isGeometryFlipped = true
+        
         mContext = UIGraphicsGetCurrentContext()
         if GS.s.logLevel.contains(.graphPanel) { print("jhPanel init color", mLineWidth)}
     }
@@ -91,14 +100,20 @@ class jhPanel<T> : jhDraw, observer_p {
         if GS.s.logLevel.contains(.graphPanel) { print("drawPanel()") }
         
         initDatas()
-        
-        drawBackboard()
         drawDatas()
+        drawBackboard()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    
+    func drawAxes() {
+    }
+    
+    
     
     func getX(_ x: CGFloat) -> CGFloat? {
         var retX : CGFloat? = nil
@@ -163,9 +178,6 @@ class jhPanel<T> : jhDraw, observer_p {
         return imageView
     }
     
-    func drawAxes() {
-        
-    }
     
     func initDatas() {
         
@@ -210,44 +222,44 @@ class jhPanel<T> : jhDraw, observer_p {
     
     func drawDatas() {
         
-        print("xDistance", xDistance)
-        
-        dataLayer = jhCommonDataLayer(self, 0)
-        
-        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
-        dataLayer.zPosition=1
-        //        guideLine.isGeometryFlipped = true
-        dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
-        self.layer.addSublayer(dataLayer)
-        dataLayer.setNeedsDisplay()
-        jhDataCenter.attachObserver(observer: self)
+        //        print("xDistance", xDistance)
+        //
+        //        dataLayer = jhCommonDataLayer(self, 0)
+        //
+        //        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
+        //        dataLayer.zPosition=1
+        //        //        guideLine.isGeometryFlipped = true
+        //        dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
+        //        self.layer.addSublayer(dataLayer)
+        //        dataLayer.setNeedsDisplay()
+        //        jhDataCenter.attachObserver(observer: self)
     }
     
     func jhRedraw() {
         
-        print("xDistance", xDistance)
-        
-        dataLayer.removeFromSuperlayer()
-        
-        if isFixedAxesCount {
-            jhDataCenter.mCountOfaxes_view = fixedAxesCount
-        } else {
-            jhDataCenter.mCountOfaxes_view = mAllofCountOfDatas
-        }
-        
-        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
-        
-        print("hjh", xDistance)
-        dataLayer = jhCommonDataLayer(self, 0)
-        
-        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
-        dataLayer.zPosition=1
-        //        guideLine.isGeometryFlipped = true
-        dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
-        self.layer.addSublayer(dataLayer)
-        dataLayer.setNeedsDisplay()
-        
-        drawAxes()
+        //        print("xDistance", xDistance)
+        //
+        //        dataLayer.removeFromSuperlayer()
+        //
+        //        if isFixedAxesCount {
+        //            jhDataCenter.mCountOfaxes_view = fixedAxesCount
+        //        } else {
+        //            jhDataCenter.mCountOfaxes_view = mAllofCountOfDatas
+        //        }
+        //
+        //        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
+        //
+        //        print("hjh", xDistance)
+        //        dataLayer = jhCommonDataLayer(self, 0)
+        //
+        //        dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
+        //        dataLayer.zPosition=1
+        //        //        guideLine.isGeometryFlipped = true
+        //        dataLayer.backgroundColor = UIColor(white: 1, alpha:0.5).cgColor
+        //        self.layer.addSublayer(dataLayer)
+        //        dataLayer.setNeedsDisplay()
+        //
+        //        drawAxes()
         
     }
     

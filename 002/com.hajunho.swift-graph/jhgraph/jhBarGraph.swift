@@ -13,7 +13,7 @@ class jhBarGraph<T> : jhPanel<T> {
         print("hjh", xDistance)
         //        jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
         
-        dataLayer = jhBarGraphLayer<T>(self, 0)
+        dataLayer = jhBarGraphLayer<T>(self, 0, 400)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
         dataLayer.zPosition=1
@@ -37,7 +37,7 @@ class jhBarGraph<T> : jhPanel<T> {
         
         jhDataCenter.mCountOfdatas_view = mAllofCountOfDatas
         
-        dataLayer = jhBarGraphLayer(self, 0)
+        dataLayer = jhBarGraphLayer(self, 0, 400)
         
         dataLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height) //TODO: will be changed.
         dataLayer.zPosition=1

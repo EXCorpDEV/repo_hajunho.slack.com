@@ -88,6 +88,8 @@ class GS {
     }
     
     /// Margins
+    let jhAMarginCommonV : CGFloat = 300 //Axes Virtual Margin(10000,10000)
+    
     var jhLMarginCommon : CGFloat = 0 //layer's margin left, right, top, bottom
     var jhLMarginLeft : CGFloat = 0
     var jhLMarginRight : CGFloat = 0
@@ -104,9 +106,12 @@ class GS {
         }
     }
     
+    var jhPSpacing : CGFloat = 30//spacing between each panels
+    
+    /// Axis
+    let jhATextPanelSize : CGFloat = 14 //point
+    let jhATextSize : CGFloat = 12 //point
     var jhLBackgroundColor : UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    
-    
     
     var logLevel : _logLevel
     var currentServerTime : Double = 0

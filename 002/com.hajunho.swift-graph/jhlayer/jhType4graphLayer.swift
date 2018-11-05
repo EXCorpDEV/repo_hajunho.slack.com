@@ -12,12 +12,12 @@ class jhType4graphLayer<T> : jhCommonDataLayer<T>, jhLayer_p {
     //TODO: escaping hardcoding later on
     private let xMargin : CGFloat = 45
     private let hhhWidth : CGFloat = 86400 //24h
-    private let maxY : CGFloat = 400
+    //    private let maxY : CGFloat = 400
     
     override func draw(in ctx: CGContext) {
         "".pwd(self)
         
-        let isTestMode: Bool = true
+        let isTestMode: Bool = false
         let xRatio : CGFloat = self.bounds.width / hhhWidth
         
         guard
@@ -92,9 +92,9 @@ class jhType4graphLayer<T> : jhCommonDataLayer<T>, jhLayer_p {
             //ref:drawLine(CGFloat(x)*axisDistance + mMargin, mMargin, CGFloat(x) * axisDistance + mMargin, 10000-mMargin)
             x += 1
             fx = CGFloat(x) * xDistance
-            fy = CGFloat(y) * self.bounds.height / jhDraw.ARQ + GV.s.ui_common_margin
+            fy = CGFloat(y) * self.bounds.height / jhDraw.ARQ + GS.s.jhAMarginCommonV
             drawTestPoint(ctx, fx, fy, 2, 2, thickness: 2, UIColor.blue.cgColor)
-            pointCloud.append(CGPoint.init(x: getXonVPanel(fx+GV.s.ui_common_margin)!, y: getYonVPanel(fy)!))
+            pointCloud.append(CGPoint.init(x: getXonVPanel(fx+GS.s.jhAMarginCommonV)!, y: getYonVPanel(fy)!))
         }
         
         ctx.move(to: CGPoint.init(x: 0, y: 0))
@@ -107,15 +107,15 @@ class jhType4graphLayer<T> : jhCommonDataLayer<T>, jhLayer_p {
     
     override func drawPoint(_ ctx: CGContext, _ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, thickness : CGFloat, _ color : CGColor){
         jhDraw.worldEllipse(context: ctx, x, y, width, height, thickness, color)
-        //        x++GV.s.ui_common_margin
+        //        x++GS.s.jhAMarginCommonV
     }
     
     func drawTestPoint(_ ctx: CGContext, _ x : CGFloat, _ y : CGFloat, _ width : CGFloat, _ height : CGFloat, thickness : CGFloat, _ color : CGColor){
         //        worldEllipse(context: mContext, getX(x)!, getY(jhDraw.maxR - y)!, width, height, thickness, color)
         if GS.s.logLevel.contains(.graph) {
-            print("worldEllipse(context: mContext,", getXonVPanel(x+GV.s.ui_common_margin)!, getYonVPanel(jhDraw.ARQ-y)!, width, height, thickness, color)
+            print("worldEllipse(context: mContext,", getXonVPanel(x+GS.s.jhAMarginCommonV)!, getYonVPanel(jhDraw.ARQ-y)!, width, height, thickness, color)
         }
-        jhDraw.worldEllipse(context: ctx, getXonVPanel(x+GV.s.ui_common_margin)!, getYonVPanel(y)!, width, height, thickness, color)
+        jhDraw.worldEllipse(context: ctx, getXonVPanel(x+GS.s.jhAMarginCommonV)!, getYonVPanel(y)!, width, height, thickness, color)
     }
     
     func getXonVPanel(_ x: CGFloat) -> CGFloat? {
