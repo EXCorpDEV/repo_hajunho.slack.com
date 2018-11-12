@@ -1,0 +1,639 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D21169A62193075500A5B06D /* ratioNtype.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21169A52193075500A5B06D /* ratioNtype.swift */; };
+		D2C5A1C72192CF6A00488D5C /* eograph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C5A1BD2192CF6A00488D5C /* eograph.framework */; };
+		D2C5A1CE2192CF6A00488D5C /* eograph.h in Headers */ = {isa = PBXBuildFile; fileRef = D2C5A1C02192CF6A00488D5C /* eograph.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2C5A2122192D22B00488D5C /* jhDataCenter2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1E72192D22A00488D5C /* jhDataCenter2.swift */; };
+		D2C5A2132192D22B00488D5C /* graph3.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2C5A1E82192D22A00488D5C /* graph3.plist */; };
+		D2C5A2142192D22B00488D5C /* graph1.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2C5A1E92192D22A00488D5C /* graph1.plist */; };
+		D2C5A2152192D22B00488D5C /* jhFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1EA2192D22A00488D5C /* jhFile.swift */; };
+		D2C5A2162192D22B00488D5C /* testdata.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2C5A1EB2192D22A00488D5C /* testdata.plist */; };
+		D2C5A2182192D22B00488D5C /* jhDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1EE2192D22A00488D5C /* jhDraw.swift */; };
+		D2C5A2192192D22B00488D5C /* jhSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1EF2192D22A00488D5C /* jhSceneBuilder.swift */; };
+		D2C5A21A2192D22B00488D5C /* jhGraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1F02192D22A00488D5C /* jhGraphBuilder.swift */; };
+		D2C5A21B2192D22B00488D5C /* jhScene_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1F12192D22A00488D5C /* jhScene_p.swift */; };
+		D2C5A21C2192D22B00488D5C /* jhType4graphPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1F32192D22A00488D5C /* jhType4graphPanel.swift */; };
+		D2C5A21D2192D22B00488D5C /* jhType3graphPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1F42192D22A00488D5C /* jhType3graphPanel.swift */; };
+		D2C5A21E2192D22B00488D5C /* jhType2graphPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1F52192D22A00488D5C /* jhType2graphPanel.swift */; };
+		D2C5A21F2192D22B00488D5C /* jhBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1F62192D22A00488D5C /* jhBarGraph.swift */; };
+		D2C5A2202192D22B00488D5C /* jhGraphAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1F72192D22A00488D5C /* jhGraphAdapter.swift */; };
+		D2C5A2212192D22B00488D5C /* jhType1graphPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1F82192D22A00488D5C /* jhType1graphPanel.swift */; };
+		D2C5A2222192D22B00488D5C /* jhLineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1F92192D22A00488D5C /* jhLineGraph.swift */; };
+		D2C5A2252192D22B00488D5C /* jhPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1FE2192D22A00488D5C /* jhPanel.swift */; };
+		D2C5A2262192D22B00488D5C /* jhScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A1FF2192D22A00488D5C /* jhScene.swift */; };
+		D2C5A2272192D22B00488D5C /* jhSceneTimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2002192D22A00488D5C /* jhSceneTimeLine.swift */; };
+		D2C5A2282192D22B00488D5C /* jhGuideLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2012192D22A00488D5C /* jhGuideLine.swift */; };
+		D2C5A2292192D22B00488D5C /* jhPanel_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2022192D22A00488D5C /* jhPanel_p.swift */; };
+		D2C5A22A2192D22B00488D5C /* jhSceneScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2032192D22A00488D5C /* jhSceneScrollView.swift */; };
+		D2C5A22B2192D22B00488D5C /* observer_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2052192D22A00488D5C /* observer_p.swift */; };
+		D2C5A22C2192D22B00488D5C /* jhGS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2062192D22A00488D5C /* jhGS.swift */; };
+		D2C5A22D2192D22B00488D5C /* jhLayer_p.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2082192D22A00488D5C /* jhLayer_p.swift */; };
+		D2C5A22E2192D22B00488D5C /* jhColorRectangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2092192D22A00488D5C /* jhColorRectangleLayer.swift */; };
+		D2C5A22F2192D22B00488D5C /* jhType1graphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A20A2192D22A00488D5C /* jhType1graphLayer.swift */; };
+		D2C5A2302192D22B00488D5C /* jhDrawAxisLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A20B2192D22A00488D5C /* jhDrawAxisLayer.swift */; };
+		D2C5A2312192D22B00488D5C /* jhCommonDataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A20C2192D22A00488D5C /* jhCommonDataLayer.swift */; };
+		D2C5A2322192D22B00488D5C /* jhType3graphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A20D2192D22A00488D5C /* jhType3graphLayer.swift */; };
+		D2C5A2332192D22B00488D5C /* jhType4graphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A20E2192D22A00488D5C /* jhType4graphLayer.swift */; };
+		D2C5A2342192D22B00488D5C /* jhBarGraphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A20F2192D22A00488D5C /* jhBarGraphLayer.swift */; };
+		D2C5A2352192D22B00488D5C /* jhType2graphLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2102192D22A00488D5C /* jhType2graphLayer.swift */; };
+		D2C5A2382192D37400488D5C /* GV.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A2372192D37400488D5C /* GV.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2C5A1C82192CF6A00488D5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2C5A1B42192CF6A00488D5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2C5A1BC2192CF6A00488D5C;
+			remoteInfo = eograph;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D21169A52193075500A5B06D /* ratioNtype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ratioNtype.swift; sourceTree = "<group>"; };
+		D2C5A1BD2192CF6A00488D5C /* eograph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = eograph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C5A1C02192CF6A00488D5C /* eograph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eograph.h; sourceTree = "<group>"; };
+		D2C5A1C12192CF6A00488D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2C5A1C62192CF6A00488D5C /* eographTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eographTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C5A1E72192D22A00488D5C /* jhDataCenter2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhDataCenter2.swift; sourceTree = "<group>"; };
+		D2C5A1E82192D22A00488D5C /* graph3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = graph3.plist; sourceTree = "<group>"; };
+		D2C5A1E92192D22A00488D5C /* graph1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = graph1.plist; sourceTree = "<group>"; };
+		D2C5A1EA2192D22A00488D5C /* jhFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhFile.swift; sourceTree = "<group>"; };
+		D2C5A1EB2192D22A00488D5C /* testdata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testdata.plist; sourceTree = "<group>"; };
+		D2C5A1EE2192D22A00488D5C /* jhDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhDraw.swift; sourceTree = "<group>"; };
+		D2C5A1EF2192D22A00488D5C /* jhSceneBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhSceneBuilder.swift; sourceTree = "<group>"; };
+		D2C5A1F02192D22A00488D5C /* jhGraphBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhGraphBuilder.swift; sourceTree = "<group>"; };
+		D2C5A1F12192D22A00488D5C /* jhScene_p.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhScene_p.swift; sourceTree = "<group>"; };
+		D2C5A1F32192D22A00488D5C /* jhType4graphPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhType4graphPanel.swift; sourceTree = "<group>"; };
+		D2C5A1F42192D22A00488D5C /* jhType3graphPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhType3graphPanel.swift; sourceTree = "<group>"; };
+		D2C5A1F52192D22A00488D5C /* jhType2graphPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhType2graphPanel.swift; sourceTree = "<group>"; };
+		D2C5A1F62192D22A00488D5C /* jhBarGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhBarGraph.swift; sourceTree = "<group>"; };
+		D2C5A1F72192D22A00488D5C /* jhGraphAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhGraphAdapter.swift; sourceTree = "<group>"; };
+		D2C5A1F82192D22A00488D5C /* jhType1graphPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhType1graphPanel.swift; sourceTree = "<group>"; };
+		D2C5A1F92192D22A00488D5C /* jhLineGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhLineGraph.swift; sourceTree = "<group>"; };
+		D2C5A1FE2192D22A00488D5C /* jhPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhPanel.swift; sourceTree = "<group>"; };
+		D2C5A1FF2192D22A00488D5C /* jhScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhScene.swift; sourceTree = "<group>"; };
+		D2C5A2002192D22A00488D5C /* jhSceneTimeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhSceneTimeLine.swift; sourceTree = "<group>"; };
+		D2C5A2012192D22A00488D5C /* jhGuideLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhGuideLine.swift; sourceTree = "<group>"; };
+		D2C5A2022192D22A00488D5C /* jhPanel_p.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhPanel_p.swift; sourceTree = "<group>"; };
+		D2C5A2032192D22A00488D5C /* jhSceneScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhSceneScrollView.swift; sourceTree = "<group>"; };
+		D2C5A2052192D22A00488D5C /* observer_p.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = observer_p.swift; sourceTree = "<group>"; };
+		D2C5A2062192D22A00488D5C /* jhGS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhGS.swift; sourceTree = "<group>"; };
+		D2C5A2082192D22A00488D5C /* jhLayer_p.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhLayer_p.swift; sourceTree = "<group>"; };
+		D2C5A2092192D22A00488D5C /* jhColorRectangleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhColorRectangleLayer.swift; sourceTree = "<group>"; };
+		D2C5A20A2192D22A00488D5C /* jhType1graphLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhType1graphLayer.swift; sourceTree = "<group>"; };
+		D2C5A20B2192D22A00488D5C /* jhDrawAxisLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhDrawAxisLayer.swift; sourceTree = "<group>"; };
+		D2C5A20C2192D22A00488D5C /* jhCommonDataLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhCommonDataLayer.swift; sourceTree = "<group>"; };
+		D2C5A20D2192D22A00488D5C /* jhType3graphLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhType3graphLayer.swift; sourceTree = "<group>"; };
+		D2C5A20E2192D22A00488D5C /* jhType4graphLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhType4graphLayer.swift; sourceTree = "<group>"; };
+		D2C5A20F2192D22A00488D5C /* jhBarGraphLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhBarGraphLayer.swift; sourceTree = "<group>"; };
+		D2C5A2102192D22A00488D5C /* jhType2graphLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jhType2graphLayer.swift; sourceTree = "<group>"; };
+		D2C5A2372192D37400488D5C /* GV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GV.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2C5A1BA2192CF6A00488D5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2C5A1C32192CF6A00488D5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2C5A1C72192CF6A00488D5C /* eograph.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2C5A1B32192CF6A00488D5C = {
+			isa = PBXGroup;
+			children = (
+				D2C5A1BF2192CF6A00488D5C /* eograph */,
+				D2C5A1BE2192CF6A00488D5C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2C5A1BE2192CF6A00488D5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2C5A1BD2192CF6A00488D5C /* eograph.framework */,
+				D2C5A1C62192CF6A00488D5C /* eographTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2C5A1BF2192CF6A00488D5C /* eograph */ = {
+			isa = PBXGroup;
+			children = (
+				D2C5A1E62192D22A00488D5C /* jhdata */,
+				D2C5A1EC2192D22A00488D5C /* jhgraph */,
+				D2C5A1F22192D22A00488D5C /* jhPanel */,
+				D2C5A1FD2192D22A00488D5C /* jhscene */,
+				D2C5A2042192D22A00488D5C /* jhcore */,
+				D2C5A2072192D22A00488D5C /* jhlayer */,
+				D2C5A1C02192CF6A00488D5C /* eograph.h */,
+				D2C5A1C12192CF6A00488D5C /* Info.plist */,
+			);
+			path = eograph;
+			sourceTree = "<group>";
+		};
+		D2C5A1E62192D22A00488D5C /* jhdata */ = {
+			isa = PBXGroup;
+			children = (
+				D2C5A1E72192D22A00488D5C /* jhDataCenter2.swift */,
+				D2C5A1E82192D22A00488D5C /* graph3.plist */,
+				D2C5A1E92192D22A00488D5C /* graph1.plist */,
+				D2C5A1EA2192D22A00488D5C /* jhFile.swift */,
+				D2C5A1EB2192D22A00488D5C /* testdata.plist */,
+			);
+			path = jhdata;
+			sourceTree = "<group>";
+		};
+		D2C5A1EC2192D22A00488D5C /* jhgraph */ = {
+			isa = PBXGroup;
+			children = (
+				D2C5A1EE2192D22A00488D5C /* jhDraw.swift */,
+				D2C5A1EF2192D22A00488D5C /* jhSceneBuilder.swift */,
+				D2C5A1F02192D22A00488D5C /* jhGraphBuilder.swift */,
+				D2C5A1F12192D22A00488D5C /* jhScene_p.swift */,
+				D21169A52193075500A5B06D /* ratioNtype.swift */,
+			);
+			path = jhgraph;
+			sourceTree = "<group>";
+		};
+		D2C5A1F22192D22A00488D5C /* jhPanel */ = {
+			isa = PBXGroup;
+			children = (
+				D2C5A1F32192D22A00488D5C /* jhType4graphPanel.swift */,
+				D2C5A1F42192D22A00488D5C /* jhType3graphPanel.swift */,
+				D2C5A1F52192D22A00488D5C /* jhType2graphPanel.swift */,
+				D2C5A1F62192D22A00488D5C /* jhBarGraph.swift */,
+				D2C5A1F72192D22A00488D5C /* jhGraphAdapter.swift */,
+				D2C5A1F82192D22A00488D5C /* jhType1graphPanel.swift */,
+				D2C5A1F92192D22A00488D5C /* jhLineGraph.swift */,
+			);
+			path = jhPanel;
+			sourceTree = "<group>";
+		};
+		D2C5A1FD2192D22A00488D5C /* jhscene */ = {
+			isa = PBXGroup;
+			children = (
+				D2C5A1FE2192D22A00488D5C /* jhPanel.swift */,
+				D2C5A1FF2192D22A00488D5C /* jhScene.swift */,
+				D2C5A2002192D22A00488D5C /* jhSceneTimeLine.swift */,
+				D2C5A2012192D22A00488D5C /* jhGuideLine.swift */,
+				D2C5A2022192D22A00488D5C /* jhPanel_p.swift */,
+				D2C5A2032192D22A00488D5C /* jhSceneScrollView.swift */,
+			);
+			path = jhscene;
+			sourceTree = "<group>";
+		};
+		D2C5A2042192D22A00488D5C /* jhcore */ = {
+			isa = PBXGroup;
+			children = (
+				D2C5A2052192D22A00488D5C /* observer_p.swift */,
+				D2C5A2062192D22A00488D5C /* jhGS.swift */,
+				D2C5A2372192D37400488D5C /* GV.swift */,
+			);
+			path = jhcore;
+			sourceTree = "<group>";
+		};
+		D2C5A2072192D22A00488D5C /* jhlayer */ = {
+			isa = PBXGroup;
+			children = (
+				D2C5A2082192D22A00488D5C /* jhLayer_p.swift */,
+				D2C5A2092192D22A00488D5C /* jhColorRectangleLayer.swift */,
+				D2C5A20A2192D22A00488D5C /* jhType1graphLayer.swift */,
+				D2C5A20B2192D22A00488D5C /* jhDrawAxisLayer.swift */,
+				D2C5A20C2192D22A00488D5C /* jhCommonDataLayer.swift */,
+				D2C5A20D2192D22A00488D5C /* jhType3graphLayer.swift */,
+				D2C5A20E2192D22A00488D5C /* jhType4graphLayer.swift */,
+				D2C5A20F2192D22A00488D5C /* jhBarGraphLayer.swift */,
+				D2C5A2102192D22A00488D5C /* jhType2graphLayer.swift */,
+			);
+			path = jhlayer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2C5A1B82192CF6A00488D5C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2C5A1CE2192CF6A00488D5C /* eograph.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2C5A1BC2192CF6A00488D5C /* eograph */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2C5A1D12192CF6A00488D5C /* Build configuration list for PBXNativeTarget "eograph" */;
+			buildPhases = (
+				D2C5A1B82192CF6A00488D5C /* Headers */,
+				D2C5A1B92192CF6A00488D5C /* Sources */,
+				D2C5A1BA2192CF6A00488D5C /* Frameworks */,
+				D2C5A1BB2192CF6A00488D5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = eograph;
+			productName = eograph;
+			productReference = D2C5A1BD2192CF6A00488D5C /* eograph.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D2C5A1C52192CF6A00488D5C /* eographTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2C5A1D42192CF6A00488D5C /* Build configuration list for PBXNativeTarget "eographTests" */;
+			buildPhases = (
+				D2C5A1C22192CF6A00488D5C /* Sources */,
+				D2C5A1C32192CF6A00488D5C /* Frameworks */,
+				D2C5A1C42192CF6A00488D5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2C5A1C92192CF6A00488D5C /* PBXTargetDependency */,
+			);
+			name = eographTests;
+			productName = eographTests;
+			productReference = D2C5A1C62192CF6A00488D5C /* eographTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2C5A1B42192CF6A00488D5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = eoflow;
+				TargetAttributes = {
+					D2C5A1BC2192CF6A00488D5C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					D2C5A1C52192CF6A00488D5C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = D2C5A1B72192CF6A00488D5C /* Build configuration list for PBXProject "eograph" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D2C5A1B32192CF6A00488D5C;
+			productRefGroup = D2C5A1BE2192CF6A00488D5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2C5A1BC2192CF6A00488D5C /* eograph */,
+				D2C5A1C52192CF6A00488D5C /* eographTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D2C5A1BB2192CF6A00488D5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2C5A2162192D22B00488D5C /* testdata.plist in Resources */,
+				D2C5A2132192D22B00488D5C /* graph3.plist in Resources */,
+				D2C5A2142192D22B00488D5C /* graph1.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2C5A1C42192CF6A00488D5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2C5A1B92192CF6A00488D5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2C5A2202192D22B00488D5C /* jhGraphAdapter.swift in Sources */,
+				D2C5A21F2192D22B00488D5C /* jhBarGraph.swift in Sources */,
+				D2C5A2222192D22B00488D5C /* jhLineGraph.swift in Sources */,
+				D2C5A21B2192D22B00488D5C /* jhScene_p.swift in Sources */,
+				D2C5A2212192D22B00488D5C /* jhType1graphPanel.swift in Sources */,
+				D2C5A2322192D22B00488D5C /* jhType3graphLayer.swift in Sources */,
+				D2C5A2352192D22B00488D5C /* jhType2graphLayer.swift in Sources */,
+				D2C5A2332192D22B00488D5C /* jhType4graphLayer.swift in Sources */,
+				D2C5A2192192D22B00488D5C /* jhSceneBuilder.swift in Sources */,
+				D2C5A22C2192D22B00488D5C /* jhGS.swift in Sources */,
+				D2C5A22F2192D22B00488D5C /* jhType1graphLayer.swift in Sources */,
+				D2C5A22D2192D22B00488D5C /* jhLayer_p.swift in Sources */,
+				D2C5A2292192D22B00488D5C /* jhPanel_p.swift in Sources */,
+				D2C5A21D2192D22B00488D5C /* jhType3graphPanel.swift in Sources */,
+				D2C5A21E2192D22B00488D5C /* jhType2graphPanel.swift in Sources */,
+				D2C5A2122192D22B00488D5C /* jhDataCenter2.swift in Sources */,
+				D2C5A2252192D22B00488D5C /* jhPanel.swift in Sources */,
+				D2C5A2282192D22B00488D5C /* jhGuideLine.swift in Sources */,
+				D2C5A22A2192D22B00488D5C /* jhSceneScrollView.swift in Sources */,
+				D2C5A2382192D37400488D5C /* GV.swift in Sources */,
+				D2C5A22B2192D22B00488D5C /* observer_p.swift in Sources */,
+				D2C5A21C2192D22B00488D5C /* jhType4graphPanel.swift in Sources */,
+				D2C5A22E2192D22B00488D5C /* jhColorRectangleLayer.swift in Sources */,
+				D2C5A2312192D22B00488D5C /* jhCommonDataLayer.swift in Sources */,
+				D2C5A2152192D22B00488D5C /* jhFile.swift in Sources */,
+				D2C5A2272192D22B00488D5C /* jhSceneTimeLine.swift in Sources */,
+				D21169A62193075500A5B06D /* ratioNtype.swift in Sources */,
+				D2C5A21A2192D22B00488D5C /* jhGraphBuilder.swift in Sources */,
+				D2C5A2302192D22B00488D5C /* jhDrawAxisLayer.swift in Sources */,
+				D2C5A2182192D22B00488D5C /* jhDraw.swift in Sources */,
+				D2C5A2262192D22B00488D5C /* jhScene.swift in Sources */,
+				D2C5A2342192D22B00488D5C /* jhBarGraphLayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2C5A1C22192CF6A00488D5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2C5A1C92192CF6A00488D5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2C5A1BC2192CF6A00488D5C /* eograph */;
+			targetProxy = D2C5A1C82192CF6A00488D5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D2C5A1CF2192CF6A00488D5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D2C5A1D02192CF6A00488D5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D2C5A1D22192CF6A00488D5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = KNZJ7XQP77;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = eograph/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eoflow.eograph;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D2C5A1D32192CF6A00488D5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = KNZJ7XQP77;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = eograph/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eoflow.eograph;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		D2C5A1D52192CF6A00488D5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KNZJ7XQP77;
+				INFOPLIST_FILE = eographTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eoflow.eographTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2C5A1D62192CF6A00488D5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KNZJ7XQP77;
+				INFOPLIST_FILE = eographTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eoflow.eographTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2C5A1B72192CF6A00488D5C /* Build configuration list for PBXProject "eograph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2C5A1CF2192CF6A00488D5C /* Debug */,
+				D2C5A1D02192CF6A00488D5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2C5A1D12192CF6A00488D5C /* Build configuration list for PBXNativeTarget "eograph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2C5A1D22192CF6A00488D5C /* Debug */,
+				D2C5A1D32192CF6A00488D5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2C5A1D42192CF6A00488D5C /* Build configuration list for PBXNativeTarget "eographTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2C5A1D52192CF6A00488D5C /* Debug */,
+				D2C5A1D62192CF6A00488D5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D2C5A1B42192CF6A00488D5C /* Project object */;
+}
