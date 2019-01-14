@@ -3,5 +3,5 @@
 1. [x] **[001] iOS_swift_ Global Log Setting**
 3. [x] **[003] iOS_swift_ Restful API**
 
- **Tantamount [BLOG](https://swiospot.blogspot.com/)**
-
+I am shuttnig down github opened.
+All techniques are moved to https://ioswift.tistory.com  -Tantamount [BLOG] -
