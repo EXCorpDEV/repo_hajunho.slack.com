@@ -2,6 +2,8 @@
 
 1. [x] **[001] iOS_swift_ Global Log Setting**
 3. [x] **[003] iOS_swift_ Restful API**
+4. [x] **[004] wifi direct
+5. [x] **[005] URL calle to open another iOS app.
 
-I am shutting down github opened.
-All techniques are moved to https://ioswift.tistory.com  -Tantamount [BLOG] -
+
+All text of techniques are moved to https://ioswift.tistory.com  -Tantamount [BLOG] -
