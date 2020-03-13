@@ -7,5 +7,6 @@
 5. [x] **[005] iOS_swiftUI_ URL calle to open another iOS app.**
 6. [x] **[006] iOS_swift_ Object detection using TensorFlow Lite**
 7. [x] **[007] iOS_swift_ TODO app, for example, of Realm cloud.**
+8. [x] **[008] iOS_swift_ Tensorflow ImageClassification
 
 All text of techniques are moved to https://ioswift.tistory.com  -Tantamount [BLOG] -
