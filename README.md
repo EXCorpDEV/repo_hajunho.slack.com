@@ -9,9 +9,9 @@ These are what I've used for the project. It's hard to find useful open src in G
 5. [x] **[005] iOS_swiftUI_ URL calle to open another iOS app.**
 6. [x] **[006] iOS_swift_ Object detection using TensorFlow Lite**
 7. [x] **[007] iOS_swift_ TODO app, for example, of Realm cloud.**
-8. [x] **[008] iOS_swift_ Tensorflow ImageClassification **
-9. [x] **[009] iOS_swift_ Openning WebView(Safari, webview, WKWebview) **
-10. [x] **[010] iOS_objc_ DropDownMenu **
+8. [x] **[008] iOS_swift_ Tensorflow ImageClassification**
+9. [x] **[009] iOS_swift_ Openning WebView(Safari, webview, WKWebview)**
+10. [x] **[010] iOS_objc_ DropDownMenu**
 
 
 All text of techniques are moved to https://ioswift.tistory.com  -Tantamount [BLOG] -
