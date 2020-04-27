@@ -1,7 +1,7 @@
 # repo_hajunho.slack.com
 
 python
-1. [x] **[001] python_examples of https://datascienceschool.net **
+1. [x] **[001] python_examples of https://datascienceschool.net**
 
 iOS 
 
