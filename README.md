@@ -1,9 +1,7 @@
 # repo_hajunho.slack.com
 
-python
-1. [x] **[001] python_examples of https://datascienceschool.net**
 
-iOS 
+iOS codes for development.
 
 1. [x] **[001] iOS_swift_ Global Log Setting**
 2. [x] **[002] iOS_swift_ Graph library**
@@ -17,3 +15,12 @@ iOS
 10. [x] **[010] iOS_objc_ DropDownMenu**
 
 
+HTML, script & style categories WEB code pieces to click on the Github web page.
+Just copy the code to make your web pages.
+
+1. [x] **No needs to CLICK to Redirect URL automatically.**
+
+
+Useful links of python & data analysis
+
+1. [x] **[001] python_examples of https://datascienceschool.net**
