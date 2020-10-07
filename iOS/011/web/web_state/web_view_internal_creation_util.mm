@@ -58,7 +58,6 @@ WKWebView* BuildWKWebView(CGRect frame,
   // Set the user agent type.
   if (user_agent_type != web::UserAgentType::NONE) {
     web_view.customUserAgent = @"your_agent_here";
-//hjh001      base::SysUTF8ToNSString(web::GetWebClient()->GetUserAgent(user_agent_type));
   }
 
   // By default the web view uses a very sluggish scroll speed. Set it to a more

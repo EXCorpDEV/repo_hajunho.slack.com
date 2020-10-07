@@ -176,7 +176,6 @@ void ReportOutOfSyncURLInDidStartProvisionalNavigation(
         web::GetWebClient()->GetUserAgent(userAgentType));
     if (![webView.customUserAgent isEqualToString:userAgentString]) {
       webView.customUserAgent = @"your_agent_here";
-//hjh001        userAgentString;
     }
   }
 
@@ -233,7 +232,6 @@ void ReportOutOfSyncURLInDidStartProvisionalNavigation(
           web::GetWebClient()->GetUserAgent(userAgentType));
       if (![webView.customUserAgent isEqualToString:userAgentString]) {
         webView.customUserAgent = @"your_agent_here";
-//hjh001          userAgentString;
       }
     }
   }
