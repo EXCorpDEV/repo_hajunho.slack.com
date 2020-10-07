@@ -1,0 +1,16 @@
+PODS:
+  - MDFSpritedAnimationView (3.0.0)
+
+DEPENDENCIES:
+  - MDFSpritedAnimationView (from `../../`)
+
+EXTERNAL SOURCES:
+  MDFSpritedAnimationView:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  MDFSpritedAnimationView: 5a795ea4dd7a81658a852db59c9f4062ed1b20c1
+
+PODFILE CHECKSUM: 80195f268febc54d39de014ff5b21653bbb11547
+
+COCOAPODS: 1.5.0

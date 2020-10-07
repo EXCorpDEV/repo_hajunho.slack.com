@@ -1,0 +1,9 @@
+[submodule "scripts/external/clang-format-linter"]
+	path = scripts/external/clang-format-linter
+	url = https://github.com/vhbit/clang-format-linter.git
+[submodule "scripts/external/material-motion-apidiff"]
+	path = scripts/external/material-motion-apidiff
+	url = https://github.com/material-motion/material-motion-apidiff.git
+[submodule "scripts/external/github-comment"]
+	path = scripts/external/github-comment
+	url = https://github.com/material-foundation/github-comment

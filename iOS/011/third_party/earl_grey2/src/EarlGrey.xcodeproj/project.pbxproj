@@ -1,0 +1,2356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6F49FDBD22E69D4E00CCE813 /* GREYDiagnosable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F49FDBC22E69D4C00CCE813 /* GREYDiagnosable.m */; };
+		6F8818B222B86F530006932D /* GREYAssertionBlock+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8818B122B86F520006932D /* GREYAssertionBlock+Private.h */; };
+		6FDFAF5324A2D0B2008B59DF /* GREYFailureHandlerHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFAF5124A2D0B2008B59DF /* GREYFailureHandlerHelpers.m */; };
+		A20847B422BC095B00DD3983 /* GREYTraversalObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A20847B322BC095A00DD3983 /* GREYTraversalObject.m */; };
+		A277771E238FE215003E7373 /* GREYTraversalProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A277771C238FE215003E7373 /* GREYTraversalProperties.m */; };
+		FD1184D3212CEE72004CADC3 /* XCUIApplication+GREYEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1184D2212CEE72004CADC3 /* XCUIApplication+GREYEnvironment.m */; };
+		FD1B7E3A24A2806500400025 /* GREYErrorFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1B7E3924A2806400400025 /* GREYErrorFormatter.m */; };
+		FD2E76EC2149E4580063EF7E /* GREYAppConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2E76EA2149E4580063EF7E /* GREYAppConfiguration.m */; };
+		FD2E76ED2149E4580063EF7E /* GREYAppConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD2E76EB2149E4580063EF7E /* GREYAppConfiguration.h */; };
+		FD2E76F12149E4860063EF7E /* GREYTestConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2E76F02149E4860063EF7E /* GREYTestConfiguration.m */; };
+		FD3A825121F187C800CA3ADF /* GREYAssertionBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A825021F187C800CA3ADF /* GREYAssertionBlock.m */; };
+		FD3A825621F187FD00CA3ADF /* GREYBaseMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A825221F187FA00CA3ADF /* GREYBaseMatcher.m */; };
+		FD3A825721F187FD00CA3ADF /* GREYElementMatcherBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A825321F187FB00CA3ADF /* GREYElementMatcherBlock.m */; };
+		FD3A825B21F189BC00CA3ADF /* GREYActionsShorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A825921F189BB00CA3ADF /* GREYActionsShorthand.m */; };
+		FD3A825C21F189BC00CA3ADF /* GREYActionsShorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A825921F189BB00CA3ADF /* GREYActionsShorthand.m */; };
+		FD3A825D21F189BC00CA3ADF /* GREYActionsShorthand.h in Headers */ = {isa = PBXBuildFile; fileRef = FD3A825A21F189BC00CA3ADF /* GREYActionsShorthand.h */; };
+		FD3A826321F18A5900CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = FD3A826121F18A5800CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.h */; };
+		FD3A826421F18A5900CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A826221F18A5800CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.m */; };
+		FD3A826521F18A5900CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A826221F18A5800CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.m */; };
+		FD41291623D97C230042A585 /* GREYElementFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = FD41290C23D97C220042A585 /* GREYElementFilter.h */; };
+		FD41291723D97C230042A585 /* GREYElementFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD41291523D97C230042A585 /* GREYElementFilter.m */; };
+		FD44C48C22C679050044199E /* GREYTraversalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD44C48222C679050044199E /* GREYTraversalFunctions.m */; };
+		FD50490F20FB231A00261CBE /* XCTestCase+GREYSystemAlertHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50490E20FB231A00261CBE /* XCTestCase+GREYSystemAlertHandler.m */; };
+		FD50491A20FB237100261CBE /* GREYCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50491920FB237100261CBE /* GREYCondition.m */; };
+		FD50491E20FB238300261CBE /* GREYHostStub.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50491C20FB238300261CBE /* GREYHostStub.m */; };
+		FD50491F20FB238300261CBE /* GREYTestApplicationDistantObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50491D20FB238300261CBE /* GREYTestApplicationDistantObject.m */; };
+		FD50492A20FB239900261CBE /* GREYElementInteractionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50492220FB239800261CBE /* GREYElementInteractionProxy.m */; };
+		FD50492B20FB239900261CBE /* XCUIApplication+GREYTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50492420FB239800261CBE /* XCUIApplication+GREYTest.m */; };
+		FD50492C20FB239900261CBE /* EarlGreyImpl+XCUIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50492520FB239800261CBE /* EarlGreyImpl+XCUIApplication.m */; };
+		FD50492D20FB239900261CBE /* EarlGrey.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50492620FB239800261CBE /* EarlGrey.m */; };
+		FD50493420FB23AE00261CBE /* GREYDefaultFailureHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50493220FB23AE00261CBE /* GREYDefaultFailureHandler.m */; };
+		FD50493C20FB23E500261CBE /* GREYTestCaseInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50493820FB23E500261CBE /* GREYTestCaseInvocation.m */; };
+		FD50493D20FB23E500261CBE /* XCTestCase+GREYTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50493920FB23E500261CBE /* XCTestCase+GREYTest.m */; };
+		FD511E8B211E709000F19C8A /* libUILib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF9E03520F82D090005DCF2 /* libUILib.a */; };
+		FD62398A20F56B7600049E81 /* NSObject+GREYCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = FD62398420F56B7500049E81 /* NSObject+GREYCommon.m */; };
+		FD62398E20F56B7600049E81 /* UIView+GREYCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = FD62398820F56B7600049E81 /* UIView+GREYCommon.m */; };
+		FD6239A420F56BE700049E81 /* GREYConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FD62399A20F56BE700049E81 /* GREYConfiguration.m */; };
+		FD6239A620F56BE700049E81 /* GREYConfigKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FD62399F20F56BE700049E81 /* GREYConfigKey.m */; };
+		FD6239AE20F56C2500049E81 /* GREYValueType.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239A920F56C2500049E81 /* GREYValueType.m */; };
+		FD6239BB20F56C3E00049E81 /* GREYError.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239B020F56C3D00049E81 /* GREYError.m */; };
+		FD6239BC20F56C3E00049E81 /* NSError+GREYCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239B220F56C3D00049E81 /* NSError+GREYCommon.m */; };
+		FD6239BD20F56C3E00049E81 /* GREYErrorConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239B820F56C3D00049E81 /* GREYErrorConstants.m */; };
+		FD6239BE20F56C3E00049E81 /* GREYObjectFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239B920F56C3E00049E81 /* GREYObjectFormatter.m */; };
+		FD6239C420F56C4D00049E81 /* GREYTouchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239C320F56C4D00049E81 /* GREYTouchInfo.m */; };
+		FD6239C920F56C5E00049E81 /* GREYFrameworkException.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239C620F56C5E00049E81 /* GREYFrameworkException.m */; };
+		FD6239D120F56C7100049E81 /* GREYLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239CC20F56C7100049E81 /* GREYLayoutConstraint.m */; };
+		FD6239D220F56C7100049E81 /* GREYStringDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239CE20F56C7100049E81 /* GREYStringDescription.m */; };
+		FD6239E020F56C9500049E81 /* GREYStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239D620F56C9400049E81 /* GREYStopwatch.m */; };
+		FD6239E120F56C9500049E81 /* GREYSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239DA20F56C9400049E81 /* GREYSwizzler.m */; };
+		FD6239E220F56C9500049E81 /* GREYObjcRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239DB20F56C9400049E81 /* GREYObjcRuntime.m */; };
+		FD6239E320F56C9500049E81 /* GREYConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6239DE20F56C9400049E81 /* GREYConstants.m */; };
+		FD623A7120F958C200049E81 /* GREYTapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A5320F958C000049E81 /* GREYTapper.m */; };
+		FD623A7220F958C200049E81 /* GREYScrollAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A5420F958C000049E81 /* GREYScrollAction.h */; };
+		FD623A7320F958C200049E81 /* GREYActionBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A5520F958C000049E81 /* GREYActionBlock.m */; };
+		FD623A7420F958C200049E81 /* GREYAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A5620F958C000049E81 /* GREYAction.h */; };
+		FD623A7520F958C200049E81 /* GREYPathGestureUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A5720F958C000049E81 /* GREYPathGestureUtils.m */; };
+		FD623A7620F958C200049E81 /* GREYPinchAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A5820F958C000049E81 /* GREYPinchAction.h */; };
+		FD623A7720F958C200049E81 /* GREYScrollToContentEdgeAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A5920F958C000049E81 /* GREYScrollToContentEdgeAction.h */; };
+		FD623A7820F958C200049E81 /* GREYMultiFingerSwipeAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A5A20F958C000049E81 /* GREYMultiFingerSwipeAction.h */; };
+		FD623A7920F958C200049E81 /* GREYSwipeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A5B20F958C000049E81 /* GREYSwipeAction.m */; };
+		FD623A7A20F958C200049E81 /* GREYSlideAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A5C20F958C100049E81 /* GREYSlideAction.h */; };
+		FD623A7C20F958C200049E81 /* GREYPinchAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A5E20F958C100049E81 /* GREYPinchAction.m */; };
+		FD623A7D20F958C200049E81 /* GREYPickerAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A5F20F958C100049E81 /* GREYPickerAction.h */; };
+		FD623A7E20F958C200049E81 /* GREYActionBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A6020F958C100049E81 /* GREYActionBlock.h */; };
+		FD623A7F20F958C200049E81 /* GREYBaseAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A6120F958C100049E81 /* GREYBaseAction.m */; };
+		FD623A8020F958C200049E81 /* GREYSwipeAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A6220F958C100049E81 /* GREYSwipeAction.h */; };
+		FD623A8120F958C200049E81 /* GREYTapper.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A6320F958C100049E81 /* GREYTapper.h */; };
+		FD623A8220F958C200049E81 /* GREYChangeStepperAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A6420F958C100049E81 /* GREYChangeStepperAction.h */; };
+		FD623A8320F958C200049E81 /* GREYActions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A6520F958C100049E81 /* GREYActions.m */; };
+		FD623A8420F958C200049E81 /* GREYSlideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A6620F958C100049E81 /* GREYSlideAction.m */; };
+		FD623A8520F958C200049E81 /* GREYBaseAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A6720F958C100049E81 /* GREYBaseAction.h */; };
+		FD623A8620F958C200049E81 /* GREYScrollAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A6820F958C100049E81 /* GREYScrollAction.m */; };
+		FD623A8720F958C200049E81 /* GREYMultiFingerSwipeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A6920F958C100049E81 /* GREYMultiFingerSwipeAction.m */; };
+		FD623A8820F958C200049E81 /* GREYTapAction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A6A20F958C200049E81 /* GREYTapAction.h */; };
+		FD623A8920F958C200049E81 /* GREYActions.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A6B20F958C200049E81 /* GREYActions.h */; };
+		FD623A8A20F958C200049E81 /* GREYChangeStepperAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A6C20F958C200049E81 /* GREYChangeStepperAction.m */; };
+		FD623A8B20F958C200049E81 /* GREYTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A6D20F958C200049E81 /* GREYTapAction.m */; };
+		FD623A8C20F958C200049E81 /* GREYPickerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A6E20F958C200049E81 /* GREYPickerAction.m */; };
+		FD623A8D20F958C200049E81 /* GREYPathGestureUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A6F20F958C200049E81 /* GREYPathGestureUtils.h */; };
+		FD623A8E20F958C200049E81 /* GREYScrollToContentEdgeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A7020F958C200049E81 /* GREYScrollToContentEdgeAction.m */; };
+		FD623AB720F9590800049E81 /* CAAnimation+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A9120F9590500049E81 /* CAAnimation+GREYApp.h */; };
+		FD623AB820F9590800049E81 /* NSObject+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A9220F9590500049E81 /* NSObject+GREYApp.m */; };
+		FD623AB920F9590800049E81 /* NSTimer+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A9320F9590500049E81 /* NSTimer+GREYApp.m */; };
+		FD623ABA20F9590800049E81 /* NSURLConnection+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A9420F9590500049E81 /* NSURLConnection+GREYApp.m */; };
+		FD623ABB20F9590800049E81 /* UIGestureRecognizer+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A9520F9590500049E81 /* UIGestureRecognizer+GREYApp.h */; };
+		FD623ABC20F9590800049E81 /* UIView+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A9620F9590500049E81 /* UIView+GREYApp.m */; };
+		FD623ABD20F9590800049E81 /* UIViewController+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A9720F9590600049E81 /* UIViewController+GREYApp.m */; };
+		FD623ABF20F9590800049E81 /* UIView+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A9920F9590600049E81 /* UIView+GREYApp.h */; };
+		FD623AC020F9590800049E81 /* NSURLSession+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A9A20F9590600049E81 /* NSURLSession+GREYApp.h */; };
+		FD623AC120F9590800049E81 /* UIApplication+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A9B20F9590600049E81 /* UIApplication+GREYApp.h */; };
+		FD623AC220F9590800049E81 /* UIWindow+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A9C20F9590600049E81 /* UIWindow+GREYApp.m */; };
+		FD623AC420F9590800049E81 /* UISwitch+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623A9E20F9590600049E81 /* UISwitch+GREYApp.m */; };
+		FD623AC520F9590800049E81 /* UISwitch+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623A9F20F9590600049E81 /* UISwitch+GREYApp.h */; };
+		FD623AC620F9590800049E81 /* NSObject+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AA020F9590600049E81 /* NSObject+GREYApp.h */; };
+		FD623AC720F9590800049E81 /* UIWindow+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AA120F9590600049E81 /* UIWindow+GREYApp.h */; };
+		FD623AC820F9590800049E81 /* CALayer+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AA220F9590600049E81 /* CALayer+GREYApp.m */; };
+		FD623AC920F9590800049E81 /* CAAnimation+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AA320F9590700049E81 /* CAAnimation+GREYApp.m */; };
+		FD623ACB20F9590800049E81 /* NSRunLoop+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AA520F9590700049E81 /* NSRunLoop+GREYApp.m */; };
+		FD623ACC20F9590800049E81 /* NSURLConnection+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AA620F9590700049E81 /* NSURLConnection+GREYApp.h */; };
+		FD623ACD20F9590800049E81 /* NSURLSession+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AA720F9590700049E81 /* NSURLSession+GREYApp.m */; };
+		FD623ACE20F9590800049E81 /* UIScrollView+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AA820F9590700049E81 /* UIScrollView+GREYApp.m */; };
+		FD623ACF20F9590800049E81 /* CALayer+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AA920F9590700049E81 /* CALayer+GREYApp.h */; };
+		FD623AD020F9590800049E81 /* UIAnimation+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AAA20F9590700049E81 /* UIAnimation+GREYApp.h */; };
+		FD623AD120F9590800049E81 /* NSTimer+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AAB20F9590700049E81 /* NSTimer+GREYApp.h */; };
+		FD623AD220F9590800049E81 /* NSURL+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AAC20F9590700049E81 /* NSURL+GREYApp.h */; };
+		FD623AD420F9590800049E81 /* UIGestureRecognizer+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AAE20F9590700049E81 /* UIGestureRecognizer+GREYApp.m */; };
+		FD623AD520F9590800049E81 /* UIScrollView+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AAF20F9590800049E81 /* UIScrollView+GREYApp.h */; };
+		FD623AD620F9590800049E81 /* UIViewController+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AB020F9590800049E81 /* UIViewController+GREYApp.h */; };
+		FD623AD720F9590800049E81 /* NSURL+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AB120F9590800049E81 /* NSURL+GREYApp.m */; };
+		FD623AD820F9590800049E81 /* UIApplication+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AB220F9590800049E81 /* UIApplication+GREYApp.m */; };
+		FD623AD920F9590800049E81 /* __NSCFLocalDataTask_GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AB320F9590800049E81 /* __NSCFLocalDataTask_GREYApp.h */; };
+		FD623ADA20F9590800049E81 /* __NSCFLocalDataTask_GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AB420F9590800049E81 /* __NSCFLocalDataTask_GREYApp.m */; };
+		FD623ADB20F9590800049E81 /* NSRunLoop+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AB520F9590800049E81 /* NSRunLoop+GREYApp.h */; };
+		FD623ADC20F9590800049E81 /* UIAnimation+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AB620F9590800049E81 /* UIAnimation+GREYApp.m */; };
+		FD623AE320F9591600049E81 /* GREYAssertions.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623ADE20F9591600049E81 /* GREYAssertions.h */; };
+		FD623AE420F9591600049E81 /* GREYAssertions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623ADF20F9591600049E81 /* GREYAssertions.m */; };
+		FD623AEB20F9592B00049E81 /* GREYAutomationSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AE920F9592B00049E81 /* GREYAutomationSetup.h */; };
+		FD623AEC20F9592B00049E81 /* GREYAutomationSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AEA20F9592B00049E81 /* GREYAutomationSetup.m */; };
+		FD623AF520F9594200049E81 /* GREYElementInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AEE20F9594100049E81 /* GREYElementInteraction.h */; };
+		FD623AF620F9594200049E81 /* GREYElementFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AEF20F9594100049E81 /* GREYElementFinder.h */; };
+		FD623AF820F9594200049E81 /* GREYInteractionDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AF120F9594100049E81 /* GREYInteractionDataSource.h */; };
+		FD623AF920F9594200049E81 /* GREYElementFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AF220F9594100049E81 /* GREYElementFinder.m */; };
+		FD623AFA20F9594200049E81 /* GREYElementInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623AF320F9594100049E81 /* GREYElementInteraction.m */; };
+		FD623AFB20F9594200049E81 /* GREYInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AF420F9594100049E81 /* GREYInteraction.h */; };
+		FD623B0520F9595300049E81 /* GREYNSURLConnectionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623AFD20F9595200049E81 /* GREYNSURLConnectionDelegate.h */; };
+		FD623B0820F9595300049E81 /* GREYCAAnimationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B0020F9595300049E81 /* GREYCAAnimationDelegate.h */; };
+		FD623B0920F9595300049E81 /* GREYSurrogateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B0120F9595300049E81 /* GREYSurrogateDelegate.h */; };
+		FD623B0A20F9595300049E81 /* GREYSurrogateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B0220F9595300049E81 /* GREYSurrogateDelegate.m */; };
+		FD623B0B20F9595300049E81 /* GREYNSURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B0320F9595300049E81 /* GREYNSURLConnectionDelegate.m */; };
+		FD623B0C20F9595300049E81 /* GREYCAAnimationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B0420F9595300049E81 /* GREYCAAnimationDelegate.m */; };
+		FD623B1520F95A5400049E81 /* GREYHostApplicationDistantObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B0E20F95A5300049E81 /* GREYHostApplicationDistantObject.m */; };
+		FD623B1620F95A5400049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B0F20F95A5300049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.m */; };
+		FD623B1720F95A5400049E81 /* GREYHostBackgroundDistantObject+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B1020F95A5300049E81 /* GREYHostBackgroundDistantObject+GREYApp.h */; };
+		FD623B1820F95A5400049E81 /* GREYTestStub.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B1120F95A5300049E81 /* GREYTestStub.m */; };
+		FD623B1920F95A5400049E81 /* GREYHostBackgroundDistantObject+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B1220F95A5400049E81 /* GREYHostBackgroundDistantObject+GREYApp.m */; };
+		FD623B1A20F95A5400049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B1320F95A5400049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.h */; };
+		FD623B1B20F95A5400049E81 /* GREYHostBackgroundDistantObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B1420F95A5400049E81 /* GREYHostBackgroundDistantObject.m */; };
+		FD623B1E20F95A6300049E81 /* EarlGreyApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B1D20F95A6300049E81 /* EarlGreyApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD623B2620F95A7200049E81 /* GREYFailureScreenshotter.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B2120F95A7200049E81 /* GREYFailureScreenshotter.h */; };
+		FD623B2720F95A7200049E81 /* GREYFailureScreenshotter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B2220F95A7200049E81 /* GREYFailureScreenshotter.m */; };
+		FD623B3020F95A8600049E81 /* GREYTouchInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B2B20F95A8600049E81 /* GREYTouchInjector.m */; };
+		FD623B3120F95A8600049E81 /* GREYIOHIDEventTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B2C20F95A8600049E81 /* GREYIOHIDEventTypes.h */; };
+		FD623B3220F95A8600049E81 /* GREYSyntheticEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B2D20F95A8600049E81 /* GREYSyntheticEvents.m */; };
+		FD623B3320F95A8600049E81 /* GREYTouchInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B2E20F95A8600049E81 /* GREYTouchInjector.h */; };
+		FD623B3420F95A8600049E81 /* GREYSyntheticEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B2F20F95A8600049E81 /* GREYSyntheticEvents.h */; };
+		FD623B4320F95A9C00049E81 /* GREYTimedIdlingResource.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B3620F95A9B00049E81 /* GREYTimedIdlingResource.m */; };
+		FD623B4420F95A9C00049E81 /* GREYDispatchQueueIdlingResource.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B3720F95A9B00049E81 /* GREYDispatchQueueIdlingResource.m */; };
+		FD623B4520F95A9C00049E81 /* GREYManagedObjectContextIdlingResource.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B3820F95A9B00049E81 /* GREYManagedObjectContextIdlingResource.h */; };
+		FD623B4620F95A9C00049E81 /* GREYNSTimerIdlingResource.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B3920F95A9B00049E81 /* GREYNSTimerIdlingResource.h */; };
+		FD623B4720F95A9C00049E81 /* GREYNSTimerIdlingResource.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B3A20F95A9B00049E81 /* GREYNSTimerIdlingResource.m */; };
+		FD623B4920F95A9C00049E81 /* GREYOperationQueueIdlingResource.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B3C20F95A9B00049E81 /* GREYOperationQueueIdlingResource.m */; };
+		FD623B4A20F95A9C00049E81 /* GREYDispatchQueueIdlingResource.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B3D20F95A9B00049E81 /* GREYDispatchQueueIdlingResource.h */; };
+		FD623B4B20F95A9C00049E81 /* GREYIdlingResource.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B3E20F95A9C00049E81 /* GREYIdlingResource.h */; };
+		FD623B4C20F95A9C00049E81 /* GREYManagedObjectContextIdlingResource.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B3F20F95A9C00049E81 /* GREYManagedObjectContextIdlingResource.m */; };
+		FD623B4E20F95A9C00049E81 /* GREYTimedIdlingResource.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B4120F95A9C00049E81 /* GREYTimedIdlingResource.h */; };
+		FD623B4F20F95A9C00049E81 /* GREYOperationQueueIdlingResource.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B4220F95A9C00049E81 /* GREYOperationQueueIdlingResource.h */; };
+		FD623B5320F95AF400049E81 /* GREYKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B5120F95AF300049E81 /* GREYKeyboard.h */; };
+		FD623B5420F95AF400049E81 /* GREYKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B5220F95AF400049E81 /* GREYKeyboard.m */; };
+		FD623B6420F95B0300049E81 /* GREYMatchers.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B5620F95B0200049E81 /* GREYMatchers.h */; };
+		FD623B6820F95B0300049E81 /* GREYAllOf.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B5A20F95B0200049E81 /* GREYAllOf.m */; };
+		FD623B6920F95B0300049E81 /* GREYMatchers.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B5B20F95B0200049E81 /* GREYMatchers.m */; };
+		FD623B6D20F95B0300049E81 /* GREYAnyOf.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B5F20F95B0200049E81 /* GREYAnyOf.m */; };
+		FD623B6E20F95B0300049E81 /* GREYMatchersShorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B6020F95B0200049E81 /* GREYMatchersShorthand.m */; };
+		FD623B6F20F95B0300049E81 /* GREYMatchersShorthand.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B6120F95B0300049E81 /* GREYMatchersShorthand.h */; };
+		FD623B7020F95B0300049E81 /* GREYAllOf.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B6220F95B0300049E81 /* GREYAllOf.h */; };
+		FD623B7120F95B0300049E81 /* GREYAnyOf.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B6320F95B0300049E81 /* GREYAnyOf.h */; };
+		FD623B8220F95B1500049E81 /* GREYObjectDeallocationTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B7320F95B1400049E81 /* GREYObjectDeallocationTracker.m */; };
+		FD623B8320F95B1500049E81 /* GREYAppStateTrackerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B7420F95B1400049E81 /* GREYAppStateTrackerObject.m */; };
+		FD623B8420F95B1500049E81 /* GREYUIThreadExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B7520F95B1400049E81 /* GREYUIThreadExecutor.h */; };
+		FD623B8520F95B1500049E81 /* GREYSyncAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B7620F95B1400049E81 /* GREYSyncAPI.m */; };
+		FD623B8620F95B1500049E81 /* GREYObjectDeallocationTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B7720F95B1400049E81 /* GREYObjectDeallocationTracker.h */; };
+		FD623B8820F95B1500049E81 /* GREYAppStateTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B7920F95B1500049E81 /* GREYAppStateTracker.m */; };
+		FD623B8920F95B1500049E81 /* GREYAppStateTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B7A20F95B1500049E81 /* GREYAppStateTracker.h */; };
+		FD623B8A20F95B1500049E81 /* GREYSyncAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B7B20F95B1500049E81 /* GREYSyncAPI.h */; };
+		FD623B8B20F95B1500049E81 /* GREYRunLoopSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B7C20F95B1500049E81 /* GREYRunLoopSpinner.m */; };
+		FD623B8C20F95B1500049E81 /* GREYDispatchQueueTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B7D20F95B1500049E81 /* GREYDispatchQueueTracker.m */; };
+		FD623B8D20F95B1500049E81 /* GREYRunLoopSpinner.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B7E20F95B1500049E81 /* GREYRunLoopSpinner.h */; };
+		FD623B8E20F95B1500049E81 /* GREYAppStateTrackerObject.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B7F20F95B1500049E81 /* GREYAppStateTrackerObject.h */; };
+		FD623B8F20F95B1500049E81 /* GREYDispatchQueueTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = FD623B8020F95B1500049E81 /* GREYDispatchQueueTracker.h */; };
+		FD623B9020F95B1500049E81 /* GREYUIThreadExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B8120F95B1500049E81 /* GREYUIThreadExecutor.m */; };
+		FD623B9E20F95D8000049E81 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = FD623B9B20F95C8100049E81 /* fishhook.c */; };
+		FD623BA720F95E3900049E81 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD623BA620F95E3900049E81 /* IOKit.framework */; };
+		FD623DC220FD770F00049E81 /* GREYMatchersShorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = FD623B6020F95B0200049E81 /* GREYMatchersShorthand.m */; };
+		FD623DD920FD794500049E81 /* libCommonLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD62395120F56A9700049E81 /* libCommonLib.a */; };
+		FD76BE5722985566001E6DAA /* GREYUIThreadExecutor+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FD76BE5622985566001E6DAA /* GREYUIThreadExecutor+Private.h */; };
+		FD76BE5B229855A0001E6DAA /* GREYActions+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FD76BE5A229855A0001E6DAA /* GREYActions+Private.h */; };
+		FD795B9421192FEC00F9A9E3 /* libCommonLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD62395120F56A9700049E81 /* libCommonLib.a */; };
+		FD98C459226C2DD1006F8D68 /* GREYScreenshotter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD98C456226C2DCD006F8D68 /* GREYScreenshotter.m */; };
+		FD98C45C226C2E01006F8D68 /* NSFileManager+GREYCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = FD98C45A226C2DFF006F8D68 /* NSFileManager+GREYCommon.m */; };
+		FD98C45E226C2E65006F8D68 /* GREYAppError.h in Headers */ = {isa = PBXBuildFile; fileRef = FD98C45D226C2E64006F8D68 /* GREYAppError.h */; };
+		FD98C461226C32FC006F8D68 /* GREYElementInteractionErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FD98C460226C32FB006F8D68 /* GREYElementInteractionErrorHandler.m */; };
+		FD98C464226C330A006F8D68 /* GREYFailureScreenshotSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = FD98C462226C3309006F8D68 /* GREYFailureScreenshotSaver.m */; };
+		FDB4AB64237CD95F00E6847D /* GREYVisibilityCheckerTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB4AB5B237CD95F00E6847D /* GREYVisibilityCheckerTarget.m */; };
+		FDB4AB65237CD95F00E6847D /* GREYVisibilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB4AB5E237CD95F00E6847D /* GREYVisibilityChecker.m */; };
+		FDB4AB66237CD95F00E6847D /* GREYVisibilityCheckerCacheEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB4AB60237CD95F00E6847D /* GREYVisibilityCheckerCacheEntry.m */; };
+		FDB4AB67237CD95F00E6847D /* GREYQuickVisibilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB4AB61237CD95F00E6847D /* GREYQuickVisibilityChecker.m */; };
+		FDB4AB68237CD95F00E6847D /* GREYThoroughVisibilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB4AB62237CD95F00E6847D /* GREYThoroughVisibilityChecker.m */; };
+		FDBE851122A21FD50093062B /* libeDistantObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBE84FC22A21FBC0093062B /* libeDistantObject.a */; };
+		FDC5870724D0F710003BBE15 /* UITextSelectionView+GREYApp.h in Headers */ = {isa = PBXBuildFile; fileRef = FDC5870524D0F710003BBE15 /* UITextSelectionView+GREYApp.h */; };
+		FDC5870824D0F710003BBE15 /* UITextSelectionView+GREYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC5870624D0F710003BBE15 /* UITextSelectionView+GREYApp.m */; };
+		FDE6770924B2E7050058EA28 /* GREYDescribeVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE6770724B2E7050058EA28 /* GREYDescribeVariable.m */; };
+		FDE871982322D9F7007C5A5C /* GREYRemoteExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE871962322D9F6007C5A5C /* GREYRemoteExecutor.m */; };
+		FDE8719C23241567007C5A5C /* GREYWaitFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE8719A23241566007C5A5C /* GREYWaitFunctions.m */; };
+		FDF9E05720F82E200005DCF2 /* GREYTraversalDFS.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF9E05120F82E200005DCF2 /* GREYTraversalDFS.m */; };
+		FDF9E05820F82E200005DCF2 /* GREYTraversalBFS.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF9E05220F82E200005DCF2 /* GREYTraversalBFS.m */; };
+		FDF9E06120F82E340005DCF2 /* GREYElementProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF9E05B20F82E340005DCF2 /* GREYElementProvider.m */; };
+		FDF9E06220F82E340005DCF2 /* GREYUIWindowProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF9E05C20F82E340005DCF2 /* GREYUIWindowProvider.m */; };
+		FDF9E06320F82E340005DCF2 /* GREYDataEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF9E05E20F82E340005DCF2 /* GREYDataEnumerator.m */; };
+		FDF9E06920F82EF60005DCF2 /* CGGeometry+GREYUI.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF9E06520F82EF60005DCF2 /* CGGeometry+GREYUI.m */; };
+		FDF9E07720F82F030005DCF2 /* GREYElementHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF9E07120F82F030005DCF2 /* GREYElementHierarchy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		804D3FCC22B99039001D3F3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C88B8A6F21ADD3BE00DDE607;
+			remoteInfo = MeasureLib;
+		};
+		804D3FCE22B9903F001D3F3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C845026420DD9D2E00D7350F;
+			remoteInfo = ChannelLib;
+		};
+		804D3FD022B99055001D3F3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C52D858C2220C44300E86E60;
+			remoteInfo = DeviceLib;
+		};
+		FD623BD820F9726300049E81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD62390920F569D500049E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDF9E03420F82D090005DCF2;
+			remoteInfo = UILib;
+		};
+		FD623DC320FD780900049E81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD62390920F569D500049E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD62395020F56A9700049E81;
+			remoteInfo = CommonLib;
+		};
+		FD667829211FAE3A008EC4A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD62390920F569D500049E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD62395020F56A9700049E81;
+			remoteInfo = CommonLib;
+		};
+		FDBE84F722A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C845026520DD9D2E00D7350F;
+			remoteInfo = ChannelLib;
+		};
+		FDBE84F922A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C88B8A7B21ADD3BE00DDE607;
+			remoteInfo = MeasureLib;
+		};
+		FDBE84FB22A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C845027720DD9D5D00D7350F;
+			remoteInfo = eDistantObject;
+		};
+		FDBE84FD22A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C845033420DDA11D00D7350F;
+			remoteInfo = ChannelTests;
+		};
+		FDBE84FF22A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C88B8A8921ADD3FD00DDE607;
+			remoteInfo = MeasureTests;
+		};
+		FDBE850122A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C845034520DDA1E800D7350F;
+			remoteInfo = TestsHost;
+		};
+		FDBE850322A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C845037820DDA40A00D7350F;
+			remoteInfo = ServiceUITests;
+		};
+		FDBE850522A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C84503A220DDAEF500D7350F;
+			remoteInfo = ServiceTests;
+		};
+		FDBE850722A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C84503B620DDB03E00D7350F;
+			remoteInfo = ServicePerfTests;
+		};
+		FDBE850922A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C84503C620DDB07A00D7350F;
+			remoteInfo = TestsBundle;
+		};
+		FDBE850B22A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C52D85942220C44300E86E60;
+			remoteInfo = DeviceLib;
+		};
+		FDBE850D22A21FBC0093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C55B85F62241AEAC00B568FA;
+			remoteInfo = DeviceUnitTests;
+		};
+		FDBE850F22A21FC20093062B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C845026E20DD9D5D00D7350F;
+			remoteInfo = eDistantObject;
+		};
+		FDF9E07B20F82F290005DCF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD62390920F569D500049E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD62395020F56A9700049E81;
+			remoteInfo = CommonLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FD5048F620FB225100261CBE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD62394F20F56A9700049E81 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDF9E03320F82D090005DCF2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6F49FDBC22E69D4C00CCE813 /* GREYDiagnosable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYDiagnosable.m; path = CommonLib/GREYDiagnosable.m; sourceTree = "<group>"; };
+		6F8818B122B86F520006932D /* GREYAssertionBlock+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYAssertionBlock+Private.h"; path = "CommonLib/Assertion/GREYAssertionBlock+Private.h"; sourceTree = "<group>"; };
+		6F9B2C1E22B18F15003132B0 /* GREYDiagnosable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYDiagnosable.h; path = CommonLib/GREYDiagnosable.h; sourceTree = "<group>"; };
+		6FDFAF5124A2D0B2008B59DF /* GREYFailureHandlerHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYFailureHandlerHelpers.m; path = Exception/GREYFailureHandlerHelpers.m; sourceTree = "<group>"; };
+		6FDFAF5224A2D0B2008B59DF /* GREYFailureHandlerHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYFailureHandlerHelpers.h; path = Exception/GREYFailureHandlerHelpers.h; sourceTree = "<group>"; };
+		80E8CD4422AF097000CDE5C5 /* GREYElementMatcherBlock+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYElementMatcherBlock+Private.h"; path = "CommonLib/Matcher/GREYElementMatcherBlock+Private.h"; sourceTree = SOURCE_ROOT; };
+		A20847AA22BC095A00DD3983 /* GREYTraversalObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GREYTraversalObject.h; sourceTree = "<group>"; };
+		A20847B322BC095A00DD3983 /* GREYTraversalObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GREYTraversalObject.m; sourceTree = "<group>"; };
+		A277771C238FE215003E7373 /* GREYTraversalProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GREYTraversalProperties.m; sourceTree = "<group>"; };
+		A277771D238FE215003E7373 /* GREYTraversalProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GREYTraversalProperties.h; sourceTree = "<group>"; };
+		FD1184CB212CEE72004CADC3 /* XCUIApplication+GREYEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCUIApplication+GREYEnvironment.h"; path = "XCTestCase/XCUIApplication+GREYEnvironment.h"; sourceTree = "<group>"; };
+		FD1184D2212CEE72004CADC3 /* XCUIApplication+GREYEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCUIApplication+GREYEnvironment.m"; path = "XCTestCase/XCUIApplication+GREYEnvironment.m"; sourceTree = "<group>"; };
+		FD1B7E3824A2806400400025 /* GREYErrorFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYErrorFormatter.h; path = CommonLib/Error/GREYErrorFormatter.h; sourceTree = "<group>"; };
+		FD1B7E3924A2806400400025 /* GREYErrorFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYErrorFormatter.m; path = CommonLib/Error/GREYErrorFormatter.m; sourceTree = "<group>"; };
+		FD2E76EA2149E4580063EF7E /* GREYAppConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYAppConfiguration.m; path = Config/GREYAppConfiguration.m; sourceTree = "<group>"; };
+		FD2E76EB2149E4580063EF7E /* GREYAppConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAppConfiguration.h; path = Config/GREYAppConfiguration.h; sourceTree = "<group>"; };
+		FD2E76EF2149E4860063EF7E /* GREYTestConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTestConfiguration.h; path = Config/GREYTestConfiguration.h; sourceTree = "<group>"; };
+		FD2E76F02149E4860063EF7E /* GREYTestConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTestConfiguration.m; path = Config/GREYTestConfiguration.m; sourceTree = "<group>"; };
+		FD3A824E21F187C700CA3ADF /* GREYAssertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAssertion.h; path = CommonLib/Assertion/GREYAssertion.h; sourceTree = "<group>"; };
+		FD3A824F21F187C700CA3ADF /* GREYAssertionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAssertionBlock.h; path = CommonLib/Assertion/GREYAssertionBlock.h; sourceTree = "<group>"; };
+		FD3A825021F187C800CA3ADF /* GREYAssertionBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYAssertionBlock.m; path = CommonLib/Assertion/GREYAssertionBlock.m; sourceTree = "<group>"; };
+		FD3A825221F187FA00CA3ADF /* GREYBaseMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYBaseMatcher.m; path = CommonLib/Matcher/GREYBaseMatcher.m; sourceTree = "<group>"; };
+		FD3A825321F187FB00CA3ADF /* GREYElementMatcherBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYElementMatcherBlock.m; path = CommonLib/Matcher/GREYElementMatcherBlock.m; sourceTree = "<group>"; };
+		FD3A825421F187FB00CA3ADF /* GREYElementMatcherBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYElementMatcherBlock.h; path = CommonLib/Matcher/GREYElementMatcherBlock.h; sourceTree = "<group>"; };
+		FD3A825521F187FC00CA3ADF /* GREYBaseMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYBaseMatcher.h; path = CommonLib/Matcher/GREYBaseMatcher.h; sourceTree = "<group>"; };
+		FD3A825921F189BB00CA3ADF /* GREYActionsShorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYActionsShorthand.m; path = Action/GREYActionsShorthand.m; sourceTree = "<group>"; };
+		FD3A825A21F189BC00CA3ADF /* GREYActionsShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYActionsShorthand.h; path = Action/GREYActionsShorthand.h; sourceTree = "<group>"; };
+		FD3A826121F18A5800CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYTestApplicationDistantObject+GREYLogger.h"; path = "DistantObject/GREYTestApplicationDistantObject+GREYLogger.h"; sourceTree = "<group>"; };
+		FD3A826221F18A5800CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GREYTestApplicationDistantObject+GREYLogger.m"; path = "DistantObject/GREYTestApplicationDistantObject+GREYLogger.m"; sourceTree = "<group>"; };
+		FD41290C23D97C220042A585 /* GREYElementFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYElementFilter.h; path = Core/GREYElementFilter.h; sourceTree = "<group>"; };
+		FD41291523D97C230042A585 /* GREYElementFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYElementFilter.m; path = Core/GREYElementFilter.m; sourceTree = "<group>"; };
+		FD44C48222C679050044199E /* GREYTraversalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GREYTraversalFunctions.m; sourceTree = "<group>"; };
+		FD44C48B22C679050044199E /* GREYTraversalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GREYTraversalFunctions.h; sourceTree = "<group>"; };
+		FD5048F820FB225100261CBE /* libTestLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTestLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD50490D20FB231A00261CBE /* XCTestCase+GREYSystemAlertHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTestCase+GREYSystemAlertHandler.h"; path = "AlertHandling/XCTestCase+GREYSystemAlertHandler.h"; sourceTree = "<group>"; };
+		FD50490E20FB231A00261CBE /* XCTestCase+GREYSystemAlertHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCTestCase+GREYSystemAlertHandler.m"; path = "AlertHandling/XCTestCase+GREYSystemAlertHandler.m"; sourceTree = "<group>"; };
+		FD50491620FB235D00261CBE /* GREYAssertionDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAssertionDefines.h; path = Assertion/GREYAssertionDefines.h; sourceTree = "<group>"; };
+		FD50491820FB237100261CBE /* GREYCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYCondition.h; path = Condition/GREYCondition.h; sourceTree = "<group>"; };
+		FD50491920FB237100261CBE /* GREYCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYCondition.m; path = Condition/GREYCondition.m; sourceTree = "<group>"; };
+		FD50491C20FB238300261CBE /* GREYHostStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYHostStub.m; path = DistantObject/GREYHostStub.m; sourceTree = "<group>"; };
+		FD50491D20FB238300261CBE /* GREYTestApplicationDistantObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTestApplicationDistantObject.m; path = DistantObject/GREYTestApplicationDistantObject.m; sourceTree = "<group>"; };
+		FD50492120FB239800261CBE /* EarlGreyImpl+XCUIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EarlGreyImpl+XCUIApplication.h"; path = "EarlGreyImpl/EarlGreyImpl+XCUIApplication.h"; sourceTree = "<group>"; };
+		FD50492220FB239800261CBE /* GREYElementInteractionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYElementInteractionProxy.m; path = EarlGreyImpl/GREYElementInteractionProxy.m; sourceTree = "<group>"; };
+		FD50492320FB239800261CBE /* GREYXCTestAppleInternals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYXCTestAppleInternals.h; path = EarlGreyImpl/GREYXCTestAppleInternals.h; sourceTree = "<group>"; };
+		FD50492420FB239800261CBE /* XCUIApplication+GREYTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCUIApplication+GREYTest.m"; path = "EarlGreyImpl/XCUIApplication+GREYTest.m"; sourceTree = "<group>"; };
+		FD50492520FB239800261CBE /* EarlGreyImpl+XCUIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EarlGreyImpl+XCUIApplication.m"; path = "EarlGreyImpl/EarlGreyImpl+XCUIApplication.m"; sourceTree = "<group>"; };
+		FD50492620FB239800261CBE /* EarlGrey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EarlGrey.m; path = EarlGreyImpl/EarlGrey.m; sourceTree = "<group>"; };
+		FD50492720FB239800261CBE /* GREYElementInteractionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYElementInteractionProxy.h; path = EarlGreyImpl/GREYElementInteractionProxy.h; sourceTree = "<group>"; };
+		FD50492820FB239800261CBE /* XCUIApplication+GREYTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCUIApplication+GREYTest.h"; path = "EarlGreyImpl/XCUIApplication+GREYTest.h"; sourceTree = "<group>"; };
+		FD50492920FB239900261CBE /* EarlGrey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EarlGrey.h; path = EarlGreyImpl/EarlGrey.h; sourceTree = "<group>"; };
+		FD50493020FB23AE00261CBE /* GREYDefaultFailureHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYDefaultFailureHandler.h; path = Exception/GREYDefaultFailureHandler.h; sourceTree = "<group>"; };
+		FD50493220FB23AE00261CBE /* GREYDefaultFailureHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYDefaultFailureHandler.m; path = Exception/GREYDefaultFailureHandler.m; sourceTree = "<group>"; };
+		FD50493820FB23E500261CBE /* GREYTestCaseInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTestCaseInvocation.m; path = XCTestCase/GREYTestCaseInvocation.m; sourceTree = "<group>"; };
+		FD50493920FB23E500261CBE /* XCTestCase+GREYTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCTestCase+GREYTest.m"; path = "XCTestCase/XCTestCase+GREYTest.m"; sourceTree = "<group>"; };
+		FD50493A20FB23E500261CBE /* GREYTestCaseInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTestCaseInvocation.h; path = XCTestCase/GREYTestCaseInvocation.h; sourceTree = "<group>"; };
+		FD50493B20FB23E500261CBE /* XCTestCase+GREYTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTestCase+GREYTest.h"; path = "XCTestCase/XCTestCase+GREYTest.h"; sourceTree = "<group>"; };
+		FD50493E20FB25BC00261CBE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FD62395120F56A9700049E81 /* libCommonLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCommonLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD62398420F56B7500049E81 /* NSObject+GREYCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSObject+GREYCommon.m"; path = "CommonLib/Additions/NSObject+GREYCommon.m"; sourceTree = "<group>"; };
+		FD62398620F56B7600049E81 /* UIView+GREYCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+GREYCommon.h"; path = "CommonLib/Additions/UIView+GREYCommon.h"; sourceTree = "<group>"; };
+		FD62398720F56B7600049E81 /* NSObject+GREYCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSObject+GREYCommon.h"; path = "CommonLib/Additions/NSObject+GREYCommon.h"; sourceTree = "<group>"; };
+		FD62398820F56B7600049E81 /* UIView+GREYCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+GREYCommon.m"; path = "CommonLib/Additions/UIView+GREYCommon.m"; sourceTree = "<group>"; };
+		FD62399320F56BC200049E81 /* GREYFatalAsserts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GREYFatalAsserts.h; path = CommonLib/Assertion/GREYFatalAsserts.h; sourceTree = "<group>"; };
+		FD62399420F56BC200049E81 /* GREYThrowDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GREYThrowDefines.h; path = CommonLib/Assertion/GREYThrowDefines.h; sourceTree = "<group>"; };
+		FD62399520F56BC200049E81 /* GREYAssertionDefinesPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GREYAssertionDefinesPrivate.h; path = CommonLib/Assertion/GREYAssertionDefinesPrivate.h; sourceTree = "<group>"; };
+		FD62399A20F56BE700049E81 /* GREYConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYConfiguration.m; path = CommonLib/Config/GREYConfiguration.m; sourceTree = "<group>"; };
+		FD62399B20F56BE700049E81 /* GREYConfiguration+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYConfiguration+Private.h"; path = "CommonLib/Config/GREYConfiguration+Private.h"; sourceTree = "<group>"; };
+		FD62399C20F56BE700049E81 /* GREYConfigKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYConfigKey.h; path = CommonLib/Config/GREYConfigKey.h; sourceTree = "<group>"; };
+		FD62399F20F56BE700049E81 /* GREYConfigKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYConfigKey.m; path = CommonLib/Config/GREYConfigKey.m; sourceTree = "<group>"; };
+		FD6239A220F56BE700049E81 /* GREYConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYConfiguration.h; path = CommonLib/Config/GREYConfiguration.h; sourceTree = "<group>"; };
+		FD6239A320F56BE700049E81 /* GREYAppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAppState.h; path = CommonLib/Config/GREYAppState.h; sourceTree = "<group>"; };
+		FD6239A920F56C2500049E81 /* GREYValueType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYValueType.m; path = CommonLib/DistantObject/GREYValueType.m; sourceTree = "<group>"; };
+		FD6239AA20F56C2500049E81 /* GREYHostApplicationDistantObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYHostApplicationDistantObject.h; path = CommonLib/DistantObject/GREYHostApplicationDistantObject.h; sourceTree = "<group>"; };
+		FD6239AB20F56C2500049E81 /* GREYTestApplicationDistantObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTestApplicationDistantObject.h; path = CommonLib/DistantObject/GREYTestApplicationDistantObject.h; sourceTree = "<group>"; };
+		FD6239AC20F56C2500049E81 /* GREYHostBackgroundDistantObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYHostBackgroundDistantObject.h; path = CommonLib/DistantObject/GREYHostBackgroundDistantObject.h; sourceTree = "<group>"; };
+		FD6239AD20F56C2500049E81 /* GREYTestApplicationDistantObject+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYTestApplicationDistantObject+Private.h"; path = "CommonLib/DistantObject/GREYTestApplicationDistantObject+Private.h"; sourceTree = "<group>"; };
+		FD6239B020F56C3D00049E81 /* GREYError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYError.m; path = CommonLib/Error/GREYError.m; sourceTree = "<group>"; };
+		FD6239B120F56C3D00049E81 /* GREYErrorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYErrorConstants.h; path = CommonLib/Error/GREYErrorConstants.h; sourceTree = "<group>"; };
+		FD6239B220F56C3D00049E81 /* NSError+GREYCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+GREYCommon.m"; path = "CommonLib/Error/NSError+GREYCommon.m"; sourceTree = "<group>"; };
+		FD6239B320F56C3D00049E81 /* GREYObjectFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYObjectFormatter.h; path = CommonLib/Error/GREYObjectFormatter.h; sourceTree = "<group>"; };
+		FD6239B520F56C3D00049E81 /* GREYError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYError.h; path = CommonLib/Error/GREYError.h; sourceTree = "<group>"; };
+		FD6239B620F56C3D00049E81 /* NSError+GREYCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+GREYCommon.h"; path = "CommonLib/Error/NSError+GREYCommon.h"; sourceTree = "<group>"; };
+		FD6239B820F56C3D00049E81 /* GREYErrorConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYErrorConstants.m; path = CommonLib/Error/GREYErrorConstants.m; sourceTree = "<group>"; };
+		FD6239B920F56C3E00049E81 /* GREYObjectFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYObjectFormatter.m; path = CommonLib/Error/GREYObjectFormatter.m; sourceTree = "<group>"; };
+		FD6239C120F56C4D00049E81 /* GREYTouchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTouchInfo.h; path = CommonLib/Event/GREYTouchInfo.h; sourceTree = "<group>"; };
+		FD6239C220F56C4D00049E81 /* GREYTouchPathObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTouchPathObject.h; path = CommonLib/Event/GREYTouchPathObject.h; sourceTree = "<group>"; };
+		FD6239C320F56C4D00049E81 /* GREYTouchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTouchInfo.m; path = CommonLib/Event/GREYTouchInfo.m; sourceTree = "<group>"; };
+		FD6239C620F56C5E00049E81 /* GREYFrameworkException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYFrameworkException.m; path = CommonLib/Exceptions/GREYFrameworkException.m; sourceTree = "<group>"; };
+		FD6239C720F56C5E00049E81 /* GREYFrameworkException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYFrameworkException.h; path = CommonLib/Exceptions/GREYFrameworkException.h; sourceTree = "<group>"; };
+		FD6239C820F56C5E00049E81 /* GREYFailureHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYFailureHandler.h; path = CommonLib/Exceptions/GREYFailureHandler.h; sourceTree = "<group>"; };
+		FD6239CB20F56C7100049E81 /* GREYStringDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYStringDescription.h; path = CommonLib/Matcher/GREYStringDescription.h; sourceTree = "<group>"; };
+		FD6239CC20F56C7100049E81 /* GREYLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYLayoutConstraint.m; path = CommonLib/Matcher/GREYLayoutConstraint.m; sourceTree = "<group>"; };
+		FD6239CD20F56C7100049E81 /* GREYMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYMatcher.h; path = CommonLib/Matcher/GREYMatcher.h; sourceTree = "<group>"; };
+		FD6239CE20F56C7100049E81 /* GREYStringDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYStringDescription.m; path = CommonLib/Matcher/GREYStringDescription.m; sourceTree = "<group>"; };
+		FD6239CF20F56C7100049E81 /* GREYDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYDescription.h; path = CommonLib/Matcher/GREYDescription.h; sourceTree = "<group>"; };
+		FD6239D020F56C7100049E81 /* GREYLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYLayoutConstraint.h; path = CommonLib/Matcher/GREYLayoutConstraint.h; sourceTree = "<group>"; };
+		FD6239D420F56C8900049E81 /* GREYProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYProvider.h; path = CommonLib/Provider/GREYProvider.h; sourceTree = "<group>"; };
+		FD6239D520F56C9400049E81 /* GREYAppleInternals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAppleInternals.h; path = CommonLib/GREYAppleInternals.h; sourceTree = "<group>"; };
+		FD6239D620F56C9400049E81 /* GREYStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYStopwatch.m; path = CommonLib/GREYStopwatch.m; sourceTree = "<group>"; };
+		FD6239D720F56C9400049E81 /* GREYSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYSwizzler.h; path = CommonLib/GREYSwizzler.h; sourceTree = "<group>"; };
+		FD6239D820F56C9400049E81 /* GREYStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYStopwatch.h; path = CommonLib/GREYStopwatch.h; sourceTree = "<group>"; };
+		FD6239D920F56C9400049E81 /* GREYDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYDefines.h; path = CommonLib/GREYDefines.h; sourceTree = "<group>"; };
+		FD6239DA20F56C9400049E81 /* GREYSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYSwizzler.m; path = CommonLib/GREYSwizzler.m; sourceTree = "<group>"; };
+		FD6239DB20F56C9400049E81 /* GREYObjcRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYObjcRuntime.m; path = CommonLib/GREYObjcRuntime.m; sourceTree = "<group>"; };
+		FD6239DC20F56C9400049E81 /* GREYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYLogger.h; path = CommonLib/GREYLogger.h; sourceTree = "<group>"; };
+		FD6239DD20F56C9400049E81 /* GREYObjcRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYObjcRuntime.h; path = CommonLib/GREYObjcRuntime.h; sourceTree = "<group>"; };
+		FD6239DE20F56C9400049E81 /* GREYConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYConstants.m; path = CommonLib/GREYConstants.m; sourceTree = "<group>"; };
+		FD6239DF20F56C9500049E81 /* GREYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYConstants.h; path = CommonLib/GREYConstants.h; sourceTree = "<group>"; };
+		FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = eDistantObject.xcodeproj; path = Submodules/eDistantObject/eDistantObject.xcodeproj; sourceTree = "<group>"; };
+		FD623A4920F957BE00049E81 /* AppFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD623A4C20F957BE00049E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD623A5320F958C000049E81 /* GREYTapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTapper.m; path = Action/GREYTapper.m; sourceTree = "<group>"; };
+		FD623A5420F958C000049E81 /* GREYScrollAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYScrollAction.h; path = Action/GREYScrollAction.h; sourceTree = "<group>"; };
+		FD623A5520F958C000049E81 /* GREYActionBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYActionBlock.m; path = Action/GREYActionBlock.m; sourceTree = "<group>"; };
+		FD623A5620F958C000049E81 /* GREYAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAction.h; path = Action/GREYAction.h; sourceTree = "<group>"; };
+		FD623A5720F958C000049E81 /* GREYPathGestureUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYPathGestureUtils.m; path = Action/GREYPathGestureUtils.m; sourceTree = "<group>"; };
+		FD623A5820F958C000049E81 /* GREYPinchAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYPinchAction.h; path = Action/GREYPinchAction.h; sourceTree = "<group>"; };
+		FD623A5920F958C000049E81 /* GREYScrollToContentEdgeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYScrollToContentEdgeAction.h; path = Action/GREYScrollToContentEdgeAction.h; sourceTree = "<group>"; };
+		FD623A5A20F958C000049E81 /* GREYMultiFingerSwipeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYMultiFingerSwipeAction.h; path = Action/GREYMultiFingerSwipeAction.h; sourceTree = "<group>"; };
+		FD623A5B20F958C000049E81 /* GREYSwipeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYSwipeAction.m; path = Action/GREYSwipeAction.m; sourceTree = "<group>"; };
+		FD623A5C20F958C100049E81 /* GREYSlideAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYSlideAction.h; path = Action/GREYSlideAction.h; sourceTree = "<group>"; };
+		FD623A5E20F958C100049E81 /* GREYPinchAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYPinchAction.m; path = Action/GREYPinchAction.m; sourceTree = "<group>"; };
+		FD623A5F20F958C100049E81 /* GREYPickerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYPickerAction.h; path = Action/GREYPickerAction.h; sourceTree = "<group>"; };
+		FD623A6020F958C100049E81 /* GREYActionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYActionBlock.h; path = Action/GREYActionBlock.h; sourceTree = "<group>"; };
+		FD623A6120F958C100049E81 /* GREYBaseAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYBaseAction.m; path = Action/GREYBaseAction.m; sourceTree = "<group>"; };
+		FD623A6220F958C100049E81 /* GREYSwipeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYSwipeAction.h; path = Action/GREYSwipeAction.h; sourceTree = "<group>"; };
+		FD623A6320F958C100049E81 /* GREYTapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTapper.h; path = Action/GREYTapper.h; sourceTree = "<group>"; };
+		FD623A6420F958C100049E81 /* GREYChangeStepperAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYChangeStepperAction.h; path = Action/GREYChangeStepperAction.h; sourceTree = "<group>"; };
+		FD623A6520F958C100049E81 /* GREYActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYActions.m; path = Action/GREYActions.m; sourceTree = "<group>"; };
+		FD623A6620F958C100049E81 /* GREYSlideAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYSlideAction.m; path = Action/GREYSlideAction.m; sourceTree = "<group>"; };
+		FD623A6720F958C100049E81 /* GREYBaseAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYBaseAction.h; path = Action/GREYBaseAction.h; sourceTree = "<group>"; };
+		FD623A6820F958C100049E81 /* GREYScrollAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYScrollAction.m; path = Action/GREYScrollAction.m; sourceTree = "<group>"; };
+		FD623A6920F958C100049E81 /* GREYMultiFingerSwipeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYMultiFingerSwipeAction.m; path = Action/GREYMultiFingerSwipeAction.m; sourceTree = "<group>"; };
+		FD623A6A20F958C200049E81 /* GREYTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTapAction.h; path = Action/GREYTapAction.h; sourceTree = "<group>"; };
+		FD623A6B20F958C200049E81 /* GREYActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYActions.h; path = Action/GREYActions.h; sourceTree = "<group>"; };
+		FD623A6C20F958C200049E81 /* GREYChangeStepperAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYChangeStepperAction.m; path = Action/GREYChangeStepperAction.m; sourceTree = "<group>"; };
+		FD623A6D20F958C200049E81 /* GREYTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTapAction.m; path = Action/GREYTapAction.m; sourceTree = "<group>"; };
+		FD623A6E20F958C200049E81 /* GREYPickerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYPickerAction.m; path = Action/GREYPickerAction.m; sourceTree = "<group>"; };
+		FD623A6F20F958C200049E81 /* GREYPathGestureUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYPathGestureUtils.h; path = Action/GREYPathGestureUtils.h; sourceTree = "<group>"; };
+		FD623A7020F958C200049E81 /* GREYScrollToContentEdgeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYScrollToContentEdgeAction.m; path = Action/GREYScrollToContentEdgeAction.m; sourceTree = "<group>"; };
+		FD623A9120F9590500049E81 /* CAAnimation+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CAAnimation+GREYApp.h"; path = "Additions/CAAnimation+GREYApp.h"; sourceTree = "<group>"; };
+		FD623A9220F9590500049E81 /* NSObject+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+GREYApp.m"; path = "Additions/NSObject+GREYApp.m"; sourceTree = "<group>"; };
+		FD623A9320F9590500049E81 /* NSTimer+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+GREYApp.m"; path = "Additions/NSTimer+GREYApp.m"; sourceTree = "<group>"; };
+		FD623A9420F9590500049E81 /* NSURLConnection+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLConnection+GREYApp.m"; path = "Additions/NSURLConnection+GREYApp.m"; sourceTree = "<group>"; };
+		FD623A9520F9590500049E81 /* UIGestureRecognizer+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+GREYApp.h"; path = "Additions/UIGestureRecognizer+GREYApp.h"; sourceTree = "<group>"; };
+		FD623A9620F9590500049E81 /* UIView+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+GREYApp.m"; path = "Additions/UIView+GREYApp.m"; sourceTree = "<group>"; };
+		FD623A9720F9590600049E81 /* UIViewController+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+GREYApp.m"; path = "Additions/UIViewController+GREYApp.m"; sourceTree = "<group>"; };
+		FD623A9920F9590600049E81 /* UIView+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+GREYApp.h"; path = "Additions/UIView+GREYApp.h"; sourceTree = "<group>"; };
+		FD623A9A20F9590600049E81 /* NSURLSession+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURLSession+GREYApp.h"; path = "Additions/NSURLSession+GREYApp.h"; sourceTree = "<group>"; };
+		FD623A9B20F9590600049E81 /* UIApplication+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+GREYApp.h"; path = "Additions/UIApplication+GREYApp.h"; sourceTree = "<group>"; };
+		FD623A9C20F9590600049E81 /* UIWindow+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWindow+GREYApp.m"; path = "Additions/UIWindow+GREYApp.m"; sourceTree = "<group>"; };
+		FD623A9E20F9590600049E81 /* UISwitch+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISwitch+GREYApp.m"; path = "Additions/UISwitch+GREYApp.m"; sourceTree = "<group>"; };
+		FD623A9F20F9590600049E81 /* UISwitch+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISwitch+GREYApp.h"; path = "Additions/UISwitch+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AA020F9590600049E81 /* NSObject+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+GREYApp.h"; path = "Additions/NSObject+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AA120F9590600049E81 /* UIWindow+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWindow+GREYApp.h"; path = "Additions/UIWindow+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AA220F9590600049E81 /* CALayer+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CALayer+GREYApp.m"; path = "Additions/CALayer+GREYApp.m"; sourceTree = "<group>"; };
+		FD623AA320F9590700049E81 /* CAAnimation+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CAAnimation+GREYApp.m"; path = "Additions/CAAnimation+GREYApp.m"; sourceTree = "<group>"; };
+		FD623AA520F9590700049E81 /* NSRunLoop+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSRunLoop+GREYApp.m"; path = "Additions/NSRunLoop+GREYApp.m"; sourceTree = "<group>"; };
+		FD623AA620F9590700049E81 /* NSURLConnection+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURLConnection+GREYApp.h"; path = "Additions/NSURLConnection+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AA720F9590700049E81 /* NSURLSession+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLSession+GREYApp.m"; path = "Additions/NSURLSession+GREYApp.m"; sourceTree = "<group>"; };
+		FD623AA820F9590700049E81 /* UIScrollView+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+GREYApp.m"; path = "Additions/UIScrollView+GREYApp.m"; sourceTree = "<group>"; };
+		FD623AA920F9590700049E81 /* CALayer+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CALayer+GREYApp.h"; path = "Additions/CALayer+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AAA20F9590700049E81 /* UIAnimation+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAnimation+GREYApp.h"; path = "Additions/UIAnimation+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AAB20F9590700049E81 /* NSTimer+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+GREYApp.h"; path = "Additions/NSTimer+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AAC20F9590700049E81 /* NSURL+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+GREYApp.h"; path = "Additions/NSURL+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AAE20F9590700049E81 /* UIGestureRecognizer+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+GREYApp.m"; path = "Additions/UIGestureRecognizer+GREYApp.m"; sourceTree = "<group>"; };
+		FD623AAF20F9590800049E81 /* UIScrollView+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+GREYApp.h"; path = "Additions/UIScrollView+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AB020F9590800049E81 /* UIViewController+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+GREYApp.h"; path = "Additions/UIViewController+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AB120F9590800049E81 /* NSURL+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+GREYApp.m"; path = "Additions/NSURL+GREYApp.m"; sourceTree = "<group>"; };
+		FD623AB220F9590800049E81 /* UIApplication+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+GREYApp.m"; path = "Additions/UIApplication+GREYApp.m"; sourceTree = "<group>"; };
+		FD623AB320F9590800049E81 /* __NSCFLocalDataTask_GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = __NSCFLocalDataTask_GREYApp.h; path = Additions/__NSCFLocalDataTask_GREYApp.h; sourceTree = "<group>"; };
+		FD623AB420F9590800049E81 /* __NSCFLocalDataTask_GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = __NSCFLocalDataTask_GREYApp.m; path = Additions/__NSCFLocalDataTask_GREYApp.m; sourceTree = "<group>"; };
+		FD623AB520F9590800049E81 /* NSRunLoop+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSRunLoop+GREYApp.h"; path = "Additions/NSRunLoop+GREYApp.h"; sourceTree = "<group>"; };
+		FD623AB620F9590800049E81 /* UIAnimation+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAnimation+GREYApp.m"; path = "Additions/UIAnimation+GREYApp.m"; sourceTree = "<group>"; };
+		FD623ADE20F9591600049E81 /* GREYAssertions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAssertions.h; path = Assertion/GREYAssertions.h; sourceTree = "<group>"; };
+		FD623ADF20F9591600049E81 /* GREYAssertions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYAssertions.m; path = Assertion/GREYAssertions.m; sourceTree = "<group>"; };
+		FD623AE920F9592B00049E81 /* GREYAutomationSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAutomationSetup.h; path = AutomationSetup/GREYAutomationSetup.h; sourceTree = "<group>"; };
+		FD623AEA20F9592B00049E81 /* GREYAutomationSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYAutomationSetup.m; path = AutomationSetup/GREYAutomationSetup.m; sourceTree = "<group>"; };
+		FD623AEE20F9594100049E81 /* GREYElementInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYElementInteraction.h; path = Core/GREYElementInteraction.h; sourceTree = "<group>"; };
+		FD623AEF20F9594100049E81 /* GREYElementFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYElementFinder.h; path = Core/GREYElementFinder.h; sourceTree = "<group>"; };
+		FD623AF120F9594100049E81 /* GREYInteractionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYInteractionDataSource.h; path = Core/GREYInteractionDataSource.h; sourceTree = "<group>"; };
+		FD623AF220F9594100049E81 /* GREYElementFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYElementFinder.m; path = Core/GREYElementFinder.m; sourceTree = "<group>"; };
+		FD623AF320F9594100049E81 /* GREYElementInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYElementInteraction.m; path = Core/GREYElementInteraction.m; sourceTree = "<group>"; };
+		FD623AF420F9594100049E81 /* GREYInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYInteraction.h; path = Core/GREYInteraction.h; sourceTree = "<group>"; };
+		FD623AFD20F9595200049E81 /* GREYNSURLConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYNSURLConnectionDelegate.h; path = Delegate/GREYNSURLConnectionDelegate.h; sourceTree = "<group>"; };
+		FD623B0020F9595300049E81 /* GREYCAAnimationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYCAAnimationDelegate.h; path = Delegate/GREYCAAnimationDelegate.h; sourceTree = "<group>"; };
+		FD623B0120F9595300049E81 /* GREYSurrogateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYSurrogateDelegate.h; path = Delegate/GREYSurrogateDelegate.h; sourceTree = "<group>"; };
+		FD623B0220F9595300049E81 /* GREYSurrogateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYSurrogateDelegate.m; path = Delegate/GREYSurrogateDelegate.m; sourceTree = "<group>"; };
+		FD623B0320F9595300049E81 /* GREYNSURLConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYNSURLConnectionDelegate.m; path = Delegate/GREYNSURLConnectionDelegate.m; sourceTree = "<group>"; };
+		FD623B0420F9595300049E81 /* GREYCAAnimationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYCAAnimationDelegate.m; path = Delegate/GREYCAAnimationDelegate.m; sourceTree = "<group>"; };
+		FD623B0E20F95A5300049E81 /* GREYHostApplicationDistantObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYHostApplicationDistantObject.m; path = DistantObject/GREYHostApplicationDistantObject.m; sourceTree = "<group>"; };
+		FD623B0F20F95A5300049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GREYHostApplicationDistantObject+GREYTestHelper.m"; path = "DistantObject/GREYHostApplicationDistantObject+GREYTestHelper.m"; sourceTree = "<group>"; };
+		FD623B1020F95A5300049E81 /* GREYHostBackgroundDistantObject+GREYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYHostBackgroundDistantObject+GREYApp.h"; path = "DistantObject/GREYHostBackgroundDistantObject+GREYApp.h"; sourceTree = "<group>"; };
+		FD623B1120F95A5300049E81 /* GREYTestStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTestStub.m; path = DistantObject/GREYTestStub.m; sourceTree = "<group>"; };
+		FD623B1220F95A5400049E81 /* GREYHostBackgroundDistantObject+GREYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GREYHostBackgroundDistantObject+GREYApp.m"; path = "DistantObject/GREYHostBackgroundDistantObject+GREYApp.m"; sourceTree = "<group>"; };
+		FD623B1320F95A5400049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYHostApplicationDistantObject+GREYTestHelper.h"; path = "DistantObject/GREYHostApplicationDistantObject+GREYTestHelper.h"; sourceTree = "<group>"; };
+		FD623B1420F95A5400049E81 /* GREYHostBackgroundDistantObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYHostBackgroundDistantObject.m; path = DistantObject/GREYHostBackgroundDistantObject.m; sourceTree = "<group>"; };
+		FD623B1D20F95A6300049E81 /* EarlGreyApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EarlGreyApp.h; path = EarlGreyApp/EarlGreyApp.h; sourceTree = "<group>"; };
+		FD623B2120F95A7200049E81 /* GREYFailureScreenshotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYFailureScreenshotter.h; path = Error/GREYFailureScreenshotter.h; sourceTree = "<group>"; };
+		FD623B2220F95A7200049E81 /* GREYFailureScreenshotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYFailureScreenshotter.m; path = Error/GREYFailureScreenshotter.m; sourceTree = "<group>"; };
+		FD623B2B20F95A8600049E81 /* GREYTouchInjector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTouchInjector.m; path = Event/GREYTouchInjector.m; sourceTree = "<group>"; };
+		FD623B2C20F95A8600049E81 /* GREYIOHIDEventTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYIOHIDEventTypes.h; path = Event/GREYIOHIDEventTypes.h; sourceTree = "<group>"; };
+		FD623B2D20F95A8600049E81 /* GREYSyntheticEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYSyntheticEvents.m; path = Event/GREYSyntheticEvents.m; sourceTree = "<group>"; };
+		FD623B2E20F95A8600049E81 /* GREYTouchInjector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTouchInjector.h; path = Event/GREYTouchInjector.h; sourceTree = "<group>"; };
+		FD623B2F20F95A8600049E81 /* GREYSyntheticEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYSyntheticEvents.h; path = Event/GREYSyntheticEvents.h; sourceTree = "<group>"; };
+		FD623B3620F95A9B00049E81 /* GREYTimedIdlingResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTimedIdlingResource.m; path = IdlingResources/GREYTimedIdlingResource.m; sourceTree = "<group>"; };
+		FD623B3720F95A9B00049E81 /* GREYDispatchQueueIdlingResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYDispatchQueueIdlingResource.m; path = IdlingResources/GREYDispatchQueueIdlingResource.m; sourceTree = "<group>"; };
+		FD623B3820F95A9B00049E81 /* GREYManagedObjectContextIdlingResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYManagedObjectContextIdlingResource.h; path = IdlingResources/GREYManagedObjectContextIdlingResource.h; sourceTree = "<group>"; };
+		FD623B3920F95A9B00049E81 /* GREYNSTimerIdlingResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYNSTimerIdlingResource.h; path = IdlingResources/GREYNSTimerIdlingResource.h; sourceTree = "<group>"; };
+		FD623B3A20F95A9B00049E81 /* GREYNSTimerIdlingResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYNSTimerIdlingResource.m; path = IdlingResources/GREYNSTimerIdlingResource.m; sourceTree = "<group>"; };
+		FD623B3C20F95A9B00049E81 /* GREYOperationQueueIdlingResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYOperationQueueIdlingResource.m; path = IdlingResources/GREYOperationQueueIdlingResource.m; sourceTree = "<group>"; };
+		FD623B3D20F95A9B00049E81 /* GREYDispatchQueueIdlingResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYDispatchQueueIdlingResource.h; path = IdlingResources/GREYDispatchQueueIdlingResource.h; sourceTree = "<group>"; };
+		FD623B3E20F95A9C00049E81 /* GREYIdlingResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYIdlingResource.h; path = IdlingResources/GREYIdlingResource.h; sourceTree = "<group>"; };
+		FD623B3F20F95A9C00049E81 /* GREYManagedObjectContextIdlingResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYManagedObjectContextIdlingResource.m; path = IdlingResources/GREYManagedObjectContextIdlingResource.m; sourceTree = "<group>"; };
+		FD623B4120F95A9C00049E81 /* GREYTimedIdlingResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTimedIdlingResource.h; path = IdlingResources/GREYTimedIdlingResource.h; sourceTree = "<group>"; };
+		FD623B4220F95A9C00049E81 /* GREYOperationQueueIdlingResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYOperationQueueIdlingResource.h; path = IdlingResources/GREYOperationQueueIdlingResource.h; sourceTree = "<group>"; };
+		FD623B5120F95AF300049E81 /* GREYKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYKeyboard.h; path = Keyboard/GREYKeyboard.h; sourceTree = "<group>"; };
+		FD623B5220F95AF400049E81 /* GREYKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYKeyboard.m; path = Keyboard/GREYKeyboard.m; sourceTree = "<group>"; };
+		FD623B5620F95B0200049E81 /* GREYMatchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYMatchers.h; path = Matcher/GREYMatchers.h; sourceTree = "<group>"; };
+		FD623B5A20F95B0200049E81 /* GREYAllOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYAllOf.m; path = Matcher/GREYAllOf.m; sourceTree = "<group>"; };
+		FD623B5B20F95B0200049E81 /* GREYMatchers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYMatchers.m; path = Matcher/GREYMatchers.m; sourceTree = "<group>"; };
+		FD623B5F20F95B0200049E81 /* GREYAnyOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYAnyOf.m; path = Matcher/GREYAnyOf.m; sourceTree = "<group>"; };
+		FD623B6020F95B0200049E81 /* GREYMatchersShorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYMatchersShorthand.m; path = Matcher/GREYMatchersShorthand.m; sourceTree = "<group>"; };
+		FD623B6120F95B0300049E81 /* GREYMatchersShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYMatchersShorthand.h; path = Matcher/GREYMatchersShorthand.h; sourceTree = "<group>"; };
+		FD623B6220F95B0300049E81 /* GREYAllOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAllOf.h; path = Matcher/GREYAllOf.h; sourceTree = "<group>"; };
+		FD623B6320F95B0300049E81 /* GREYAnyOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAnyOf.h; path = Matcher/GREYAnyOf.h; sourceTree = "<group>"; };
+		FD623B7320F95B1400049E81 /* GREYObjectDeallocationTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYObjectDeallocationTracker.m; path = Synchronization/GREYObjectDeallocationTracker.m; sourceTree = "<group>"; };
+		FD623B7420F95B1400049E81 /* GREYAppStateTrackerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYAppStateTrackerObject.m; path = Synchronization/GREYAppStateTrackerObject.m; sourceTree = "<group>"; };
+		FD623B7520F95B1400049E81 /* GREYUIThreadExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYUIThreadExecutor.h; path = Synchronization/GREYUIThreadExecutor.h; sourceTree = "<group>"; };
+		FD623B7620F95B1400049E81 /* GREYSyncAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYSyncAPI.m; path = Synchronization/GREYSyncAPI.m; sourceTree = "<group>"; };
+		FD623B7720F95B1400049E81 /* GREYObjectDeallocationTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYObjectDeallocationTracker.h; path = Synchronization/GREYObjectDeallocationTracker.h; sourceTree = "<group>"; };
+		FD623B7920F95B1500049E81 /* GREYAppStateTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYAppStateTracker.m; path = Synchronization/GREYAppStateTracker.m; sourceTree = "<group>"; };
+		FD623B7A20F95B1500049E81 /* GREYAppStateTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAppStateTracker.h; path = Synchronization/GREYAppStateTracker.h; sourceTree = "<group>"; };
+		FD623B7B20F95B1500049E81 /* GREYSyncAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYSyncAPI.h; path = Synchronization/GREYSyncAPI.h; sourceTree = "<group>"; };
+		FD623B7C20F95B1500049E81 /* GREYRunLoopSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYRunLoopSpinner.m; path = Synchronization/GREYRunLoopSpinner.m; sourceTree = "<group>"; };
+		FD623B7D20F95B1500049E81 /* GREYDispatchQueueTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYDispatchQueueTracker.m; path = Synchronization/GREYDispatchQueueTracker.m; sourceTree = "<group>"; };
+		FD623B7E20F95B1500049E81 /* GREYRunLoopSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYRunLoopSpinner.h; path = Synchronization/GREYRunLoopSpinner.h; sourceTree = "<group>"; };
+		FD623B7F20F95B1500049E81 /* GREYAppStateTrackerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAppStateTrackerObject.h; path = Synchronization/GREYAppStateTrackerObject.h; sourceTree = "<group>"; };
+		FD623B8020F95B1500049E81 /* GREYDispatchQueueTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYDispatchQueueTracker.h; path = Synchronization/GREYDispatchQueueTracker.h; sourceTree = "<group>"; };
+		FD623B8120F95B1500049E81 /* GREYUIThreadExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYUIThreadExecutor.m; path = Synchronization/GREYUIThreadExecutor.m; sourceTree = "<group>"; };
+		FD623B9B20F95C8100049E81 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fishhook.c; path = Submodules/fishhook/fishhook.c; sourceTree = "<group>"; };
+		FD623B9C20F95C8100049E81 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fishhook.h; path = Submodules/fishhook/fishhook.h; sourceTree = "<group>"; };
+		FD623BA620F95E3900049E81 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = ../../../../../../../../System/Library/Frameworks/IOKit.framework; sourceTree = "<group>"; };
+		FD76BE542298551A001E6DAA /* GREYScreenshotter+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GREYScreenshotter+Private.h"; sourceTree = "<group>"; };
+		FD76BE5522985538001E6DAA /* GREYError+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYError+Private.h"; path = "CommonLib/Error/GREYError+Private.h"; sourceTree = "<group>"; };
+		FD76BE5622985566001E6DAA /* GREYUIThreadExecutor+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYUIThreadExecutor+Private.h"; path = "Synchronization/GREYUIThreadExecutor+Private.h"; sourceTree = "<group>"; };
+		FD76BE5A229855A0001E6DAA /* GREYActions+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYActions+Private.h"; path = "Action/GREYActions+Private.h"; sourceTree = "<group>"; };
+		FD98C456226C2DCD006F8D68 /* GREYScreenshotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GREYScreenshotter.m; sourceTree = "<group>"; };
+		FD98C457226C2DCE006F8D68 /* GREYScreenshotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GREYScreenshotter.h; sourceTree = "<group>"; };
+		FD98C45A226C2DFF006F8D68 /* NSFileManager+GREYCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+GREYCommon.m"; path = "CommonLib/Additions/NSFileManager+GREYCommon.m"; sourceTree = "<group>"; };
+		FD98C45B226C2E00006F8D68 /* NSFileManager+GREYCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+GREYCommon.h"; path = "CommonLib/Additions/NSFileManager+GREYCommon.h"; sourceTree = "<group>"; };
+		FD98C45D226C2E64006F8D68 /* GREYAppError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYAppError.h; path = Error/GREYAppError.h; sourceTree = "<group>"; };
+		FD98C45F226C32FA006F8D68 /* GREYElementInteractionErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYElementInteractionErrorHandler.h; path = EarlGreyImpl/GREYElementInteractionErrorHandler.h; sourceTree = "<group>"; };
+		FD98C460226C32FB006F8D68 /* GREYElementInteractionErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYElementInteractionErrorHandler.m; path = EarlGreyImpl/GREYElementInteractionErrorHandler.m; sourceTree = "<group>"; };
+		FD98C462226C3309006F8D68 /* GREYFailureScreenshotSaver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYFailureScreenshotSaver.m; path = Exception/GREYFailureScreenshotSaver.m; sourceTree = "<group>"; };
+		FD98C463226C3309006F8D68 /* GREYFailureScreenshotSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYFailureScreenshotSaver.h; path = Exception/GREYFailureScreenshotSaver.h; sourceTree = "<group>"; };
+		FD98C466226C331A006F8D68 /* GREYXCTestAppleInternals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYXCTestAppleInternals.h; path = AppleInternals/GREYXCTestAppleInternals.h; sourceTree = "<group>"; };
+		FDB4AB58237CD95F00E6847D /* GREYVisibilityCheckerCacheEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYVisibilityCheckerCacheEntry.h; path = Visibility/GREYVisibilityCheckerCacheEntry.h; sourceTree = "<group>"; };
+		FDB4AB59237CD95F00E6847D /* GREYQuickVisibilityChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYQuickVisibilityChecker.h; path = Visibility/GREYQuickVisibilityChecker.h; sourceTree = "<group>"; };
+		FDB4AB5A237CD95F00E6847D /* GREYVisibilityChecker+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GREYVisibilityChecker+Private.h"; path = "Visibility/GREYVisibilityChecker+Private.h"; sourceTree = "<group>"; };
+		FDB4AB5B237CD95F00E6847D /* GREYVisibilityCheckerTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYVisibilityCheckerTarget.m; path = Visibility/GREYVisibilityCheckerTarget.m; sourceTree = "<group>"; };
+		FDB4AB5C237CD95F00E6847D /* GREYThoroughVisibilityChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYThoroughVisibilityChecker.h; path = Visibility/GREYThoroughVisibilityChecker.h; sourceTree = "<group>"; };
+		FDB4AB5D237CD95F00E6847D /* GREYVisibilityChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYVisibilityChecker.h; path = Visibility/GREYVisibilityChecker.h; sourceTree = "<group>"; };
+		FDB4AB5E237CD95F00E6847D /* GREYVisibilityChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYVisibilityChecker.m; path = Visibility/GREYVisibilityChecker.m; sourceTree = "<group>"; };
+		FDB4AB5F237CD95F00E6847D /* GREYVisibilityCheckerDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYVisibilityCheckerDuration.h; path = Visibility/GREYVisibilityCheckerDuration.h; sourceTree = "<group>"; };
+		FDB4AB60237CD95F00E6847D /* GREYVisibilityCheckerCacheEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYVisibilityCheckerCacheEntry.m; path = Visibility/GREYVisibilityCheckerCacheEntry.m; sourceTree = "<group>"; };
+		FDB4AB61237CD95F00E6847D /* GREYQuickVisibilityChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYQuickVisibilityChecker.m; path = Visibility/GREYQuickVisibilityChecker.m; sourceTree = "<group>"; };
+		FDB4AB62237CD95F00E6847D /* GREYThoroughVisibilityChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYThoroughVisibilityChecker.m; path = Visibility/GREYThoroughVisibilityChecker.m; sourceTree = "<group>"; };
+		FDB4AB63237CD95F00E6847D /* GREYVisibilityCheckerTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYVisibilityCheckerTarget.h; path = Visibility/GREYVisibilityCheckerTarget.h; sourceTree = "<group>"; };
+		FDC5870524D0F710003BBE15 /* UITextSelectionView+GREYApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextSelectionView+GREYApp.h"; sourceTree = "<group>"; };
+		FDC5870624D0F710003BBE15 /* UITextSelectionView+GREYApp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextSelectionView+GREYApp.m"; sourceTree = "<group>"; };
+		FDE6770724B2E7050058EA28 /* GREYDescribeVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYDescribeVariable.m; path = Assertion/GREYDescribeVariable.m; sourceTree = "<group>"; };
+		FDE6770824B2E7050058EA28 /* GREYDescribeVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYDescribeVariable.h; path = Assertion/GREYDescribeVariable.h; sourceTree = "<group>"; };
+		FDE871962322D9F6007C5A5C /* GREYRemoteExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYRemoteExecutor.m; path = Execution/GREYRemoteExecutor.m; sourceTree = "<group>"; };
+		FDE871972322D9F7007C5A5C /* GREYRemoteExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYRemoteExecutor.h; path = Execution/GREYRemoteExecutor.h; sourceTree = "<group>"; };
+		FDE8719A23241566007C5A5C /* GREYWaitFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYWaitFunctions.m; path = Assertion/GREYWaitFunctions.m; sourceTree = "<group>"; };
+		FDE8719B23241567007C5A5C /* GREYWaitFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYWaitFunctions.h; path = Assertion/GREYWaitFunctions.h; sourceTree = "<group>"; };
+		FDF9E03520F82D090005DCF2 /* libUILib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUILib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDF9E05120F82E200005DCF2 /* GREYTraversalDFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTraversalDFS.m; path = UILib/Traversal/GREYTraversalDFS.m; sourceTree = SOURCE_ROOT; };
+		FDF9E05220F82E200005DCF2 /* GREYTraversalBFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYTraversalBFS.m; path = UILib/Traversal/GREYTraversalBFS.m; sourceTree = SOURCE_ROOT; };
+		FDF9E05320F82E200005DCF2 /* GREYTraversalDFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTraversalDFS.h; path = UILib/Traversal/GREYTraversalDFS.h; sourceTree = SOURCE_ROOT; };
+		FDF9E05520F82E200005DCF2 /* GREYTraversalBFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYTraversalBFS.h; path = UILib/Traversal/GREYTraversalBFS.h; sourceTree = SOURCE_ROOT; };
+		FDF9E05A20F82E340005DCF2 /* GREYDataEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYDataEnumerator.h; path = UILib/Provider/GREYDataEnumerator.h; sourceTree = SOURCE_ROOT; };
+		FDF9E05B20F82E340005DCF2 /* GREYElementProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYElementProvider.m; path = UILib/Provider/GREYElementProvider.m; sourceTree = SOURCE_ROOT; };
+		FDF9E05C20F82E340005DCF2 /* GREYUIWindowProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYUIWindowProvider.m; path = UILib/Provider/GREYUIWindowProvider.m; sourceTree = SOURCE_ROOT; };
+		FDF9E05D20F82E340005DCF2 /* GREYUIWindowProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYUIWindowProvider.h; path = UILib/Provider/GREYUIWindowProvider.h; sourceTree = SOURCE_ROOT; };
+		FDF9E05E20F82E340005DCF2 /* GREYDataEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GREYDataEnumerator.m; path = UILib/Provider/GREYDataEnumerator.m; sourceTree = SOURCE_ROOT; };
+		FDF9E05F20F82E340005DCF2 /* GREYElementProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GREYElementProvider.h; path = UILib/Provider/GREYElementProvider.h; sourceTree = SOURCE_ROOT; };
+		FDF9E06520F82EF60005DCF2 /* CGGeometry+GREYUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CGGeometry+GREYUI.m"; path = "UILib/Additions/CGGeometry+GREYUI.m"; sourceTree = SOURCE_ROOT; };
+		FDF9E06720F82EF60005DCF2 /* CGGeometry+GREYUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CGGeometry+GREYUI.h"; path = "UILib/Additions/CGGeometry+GREYUI.h"; sourceTree = SOURCE_ROOT; };
+		FDF9E06D20F82F020005DCF2 /* GREYElementHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GREYElementHierarchy.h; sourceTree = "<group>"; };
+		FDF9E07120F82F030005DCF2 /* GREYElementHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GREYElementHierarchy.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD5048F520FB225100261CBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD795B9421192FEC00F9A9E3 /* libCommonLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD62394E20F56A9700049E81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDBE851122A21FD50093062B /* libeDistantObject.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD623A4520F957BE00049E81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD511E8B211E709000F19C8A /* libUILib.a in Frameworks */,
+				FD623BA720F95E3900049E81 /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDF9E03220F82D090005DCF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD623DD920FD794500049E81 /* libCommonLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD2E76E92149E4450063EF7E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				FD2E76EB2149E4580063EF7E /* GREYAppConfiguration.h */,
+				FD2E76EA2149E4580063EF7E /* GREYAppConfiguration.m */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		FD2E76EE2149E4620063EF7E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				FD2E76EF2149E4860063EF7E /* GREYTestConfiguration.h */,
+				FD2E76F02149E4860063EF7E /* GREYTestConfiguration.m */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		FD3A824121F187B600CA3ADF /* Assertion */ = {
+			isa = PBXGroup;
+			children = (
+				6F8818B122B86F520006932D /* GREYAssertionBlock+Private.h */,
+				FD3A824E21F187C700CA3ADF /* GREYAssertion.h */,
+				FD3A824F21F187C700CA3ADF /* GREYAssertionBlock.h */,
+				FD3A825021F187C800CA3ADF /* GREYAssertionBlock.m */,
+			);
+			name = Assertion;
+			sourceTree = "<group>";
+		};
+		FD5048F920FB225100261CBE /* TestLib */ = {
+			isa = PBXGroup;
+			children = (
+				FDE871952322D9DD007C5A5C /* Execution */,
+				FD98C465226C330E006F8D68 /* AppleInternals */,
+				FD2E76EE2149E4620063EF7E /* Config */,
+				FD50493620FB23CF00261CBE /* XCTestCase */,
+				FD50492E20FB239C00261CBE /* Exception */,
+				FD50492020FB238800261CBE /* EarlGreyImpl */,
+				FD50491B20FB237700261CBE /* DistantObject */,
+				FD50491720FB236300261CBE /* Condition */,
+				FD50491520FB234E00261CBE /* Assertion */,
+				FD50490C20FB230700261CBE /* AlertHandling */,
+			);
+			path = TestLib;
+			sourceTree = "<group>";
+		};
+		FD50490C20FB230700261CBE /* AlertHandling */ = {
+			isa = PBXGroup;
+			children = (
+				FD50490D20FB231A00261CBE /* XCTestCase+GREYSystemAlertHandler.h */,
+				FD50490E20FB231A00261CBE /* XCTestCase+GREYSystemAlertHandler.m */,
+			);
+			name = AlertHandling;
+			sourceTree = "<group>";
+		};
+		FD50491520FB234E00261CBE /* Assertion */ = {
+			isa = PBXGroup;
+			children = (
+				FDE6770824B2E7050058EA28 /* GREYDescribeVariable.h */,
+				FDE6770724B2E7050058EA28 /* GREYDescribeVariable.m */,
+				FDE8719B23241567007C5A5C /* GREYWaitFunctions.h */,
+				FDE8719A23241566007C5A5C /* GREYWaitFunctions.m */,
+				FD50491620FB235D00261CBE /* GREYAssertionDefines.h */,
+			);
+			name = Assertion;
+			sourceTree = "<group>";
+		};
+		FD50491720FB236300261CBE /* Condition */ = {
+			isa = PBXGroup;
+			children = (
+				FD50491820FB237100261CBE /* GREYCondition.h */,
+				FD50491920FB237100261CBE /* GREYCondition.m */,
+			);
+			name = Condition;
+			sourceTree = "<group>";
+		};
+		FD50491B20FB237700261CBE /* DistantObject */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A826121F18A5800CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.h */,
+				FD3A826221F18A5800CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.m */,
+				FD50491C20FB238300261CBE /* GREYHostStub.m */,
+				FD50491D20FB238300261CBE /* GREYTestApplicationDistantObject.m */,
+			);
+			name = DistantObject;
+			sourceTree = "<group>";
+		};
+		FD50492020FB238800261CBE /* EarlGreyImpl */ = {
+			isa = PBXGroup;
+			children = (
+				FD98C45F226C32FA006F8D68 /* GREYElementInteractionErrorHandler.h */,
+				FD98C460226C32FB006F8D68 /* GREYElementInteractionErrorHandler.m */,
+				FD50492920FB239900261CBE /* EarlGrey.h */,
+				FD50492620FB239800261CBE /* EarlGrey.m */,
+				FD50492120FB239800261CBE /* EarlGreyImpl+XCUIApplication.h */,
+				FD50492520FB239800261CBE /* EarlGreyImpl+XCUIApplication.m */,
+				FD50492720FB239800261CBE /* GREYElementInteractionProxy.h */,
+				FD50492220FB239800261CBE /* GREYElementInteractionProxy.m */,
+				FD50492320FB239800261CBE /* GREYXCTestAppleInternals.h */,
+				FD50492820FB239800261CBE /* XCUIApplication+GREYTest.h */,
+				FD50492420FB239800261CBE /* XCUIApplication+GREYTest.m */,
+			);
+			name = EarlGreyImpl;
+			sourceTree = "<group>";
+		};
+		FD50492E20FB239C00261CBE /* Exception */ = {
+			isa = PBXGroup;
+			children = (
+				FD98C463226C3309006F8D68 /* GREYFailureScreenshotSaver.h */,
+				6FDFAF5224A2D0B2008B59DF /* GREYFailureHandlerHelpers.h */,
+				6FDFAF5124A2D0B2008B59DF /* GREYFailureHandlerHelpers.m */,
+				FD98C462226C3309006F8D68 /* GREYFailureScreenshotSaver.m */,
+				FD50493020FB23AE00261CBE /* GREYDefaultFailureHandler.h */,
+				FD50493220FB23AE00261CBE /* GREYDefaultFailureHandler.m */,
+			);
+			name = Exception;
+			sourceTree = "<group>";
+		};
+		FD50493620FB23CF00261CBE /* XCTestCase */ = {
+			isa = PBXGroup;
+			children = (
+				FD1184CB212CEE72004CADC3 /* XCUIApplication+GREYEnvironment.h */,
+				FD1184D2212CEE72004CADC3 /* XCUIApplication+GREYEnvironment.m */,
+				FD50493A20FB23E500261CBE /* GREYTestCaseInvocation.h */,
+				FD50493820FB23E500261CBE /* GREYTestCaseInvocation.m */,
+				FD50493B20FB23E500261CBE /* XCTestCase+GREYTest.h */,
+				FD50493920FB23E500261CBE /* XCTestCase+GREYTest.m */,
+			);
+			name = XCTestCase;
+			sourceTree = "<group>";
+		};
+		FD62390820F569D500049E81 = {
+			isa = PBXGroup;
+			children = (
+				FD623B9A20F95C7700049E81 /* fishhook */,
+				FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */,
+				FD62399020F56B7D00049E81 /* CommonLib */,
+				FDF9E03620F82D090005DCF2 /* UILib */,
+				FD623A4A20F957BE00049E81 /* AppFramework */,
+				FD5048F920FB225100261CBE /* TestLib */,
+				FD62391220F569D500049E81 /* Products */,
+				FD623BA520F95E3900049E81 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FD62391220F569D500049E81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD62395120F56A9700049E81 /* libCommonLib.a */,
+				FDF9E03520F82D090005DCF2 /* libUILib.a */,
+				FD623A4920F957BE00049E81 /* AppFramework.framework */,
+				FD5048F820FB225100261CBE /* libTestLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD62399020F56B7D00049E81 /* CommonLib */ = {
+			isa = PBXGroup;
+			children = (
+				6F9B2C1E22B18F15003132B0 /* GREYDiagnosable.h */,
+				6F49FDBC22E69D4C00CCE813 /* GREYDiagnosable.m */,
+				FD6239D520F56C9400049E81 /* GREYAppleInternals.h */,
+				FD6239DF20F56C9500049E81 /* GREYConstants.h */,
+				FD6239DE20F56C9400049E81 /* GREYConstants.m */,
+				FD6239D920F56C9400049E81 /* GREYDefines.h */,
+				FD6239DC20F56C9400049E81 /* GREYLogger.h */,
+				FD6239DD20F56C9400049E81 /* GREYObjcRuntime.h */,
+				FD6239DB20F56C9400049E81 /* GREYObjcRuntime.m */,
+				FD6239D820F56C9400049E81 /* GREYStopwatch.h */,
+				FD6239D620F56C9400049E81 /* GREYStopwatch.m */,
+				FD6239D720F56C9400049E81 /* GREYSwizzler.h */,
+				FD6239DA20F56C9400049E81 /* GREYSwizzler.m */,
+				FD3A824121F187B600CA3ADF /* Assertion */,
+				FD6239D320F56C7C00049E81 /* Provider */,
+				FD6239CA20F56C6500049E81 /* Matcher */,
+				FD6239C520F56C5300049E81 /* Exceptions */,
+				FD6239C020F56C4100049E81 /* Event */,
+				FD6239AF20F56C3000049E81 /* Error */,
+				FD6239A820F56C1600049E81 /* DistantObject */,
+				FD62399220F56BAA00049E81 /* AssertionDefines */,
+				FD62399120F56B8800049E81 /* Additions */,
+				FD62399920F56BD500049E81 /* Config */,
+			);
+			name = CommonLib;
+			sourceTree = "<group>";
+		};
+		FD62399120F56B8800049E81 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				FD98C45B226C2E00006F8D68 /* NSFileManager+GREYCommon.h */,
+				FD98C45A226C2DFF006F8D68 /* NSFileManager+GREYCommon.m */,
+				FD62398720F56B7600049E81 /* NSObject+GREYCommon.h */,
+				FD62398420F56B7500049E81 /* NSObject+GREYCommon.m */,
+				FD62398620F56B7600049E81 /* UIView+GREYCommon.h */,
+				FD62398820F56B7600049E81 /* UIView+GREYCommon.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
+		FD62399220F56BAA00049E81 /* AssertionDefines */ = {
+			isa = PBXGroup;
+			children = (
+				FD62399520F56BC200049E81 /* GREYAssertionDefinesPrivate.h */,
+				FD62399320F56BC200049E81 /* GREYFatalAsserts.h */,
+				FD62399420F56BC200049E81 /* GREYThrowDefines.h */,
+			);
+			name = AssertionDefines;
+			sourceTree = "<group>";
+		};
+		FD62399920F56BD500049E81 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				FD6239A320F56BE700049E81 /* GREYAppState.h */,
+				FD62399C20F56BE700049E81 /* GREYConfigKey.h */,
+				FD62399F20F56BE700049E81 /* GREYConfigKey.m */,
+				FD6239A220F56BE700049E81 /* GREYConfiguration.h */,
+				FD62399A20F56BE700049E81 /* GREYConfiguration.m */,
+				FD62399B20F56BE700049E81 /* GREYConfiguration+Private.h */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		FD6239A820F56C1600049E81 /* DistantObject */ = {
+			isa = PBXGroup;
+			children = (
+				FD6239AA20F56C2500049E81 /* GREYHostApplicationDistantObject.h */,
+				FD6239AC20F56C2500049E81 /* GREYHostBackgroundDistantObject.h */,
+				FD6239AB20F56C2500049E81 /* GREYTestApplicationDistantObject.h */,
+				FD6239AD20F56C2500049E81 /* GREYTestApplicationDistantObject+Private.h */,
+				FD6239A920F56C2500049E81 /* GREYValueType.m */,
+			);
+			name = DistantObject;
+			sourceTree = "<group>";
+		};
+		FD6239AF20F56C3000049E81 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				FD1B7E3824A2806400400025 /* GREYErrorFormatter.h */,
+				FD1B7E3924A2806400400025 /* GREYErrorFormatter.m */,
+				FD76BE5522985538001E6DAA /* GREYError+Private.h */,
+				FD6239B520F56C3D00049E81 /* GREYError.h */,
+				FD6239B020F56C3D00049E81 /* GREYError.m */,
+				FD6239B120F56C3D00049E81 /* GREYErrorConstants.h */,
+				FD6239B820F56C3D00049E81 /* GREYErrorConstants.m */,
+				FD6239B320F56C3D00049E81 /* GREYObjectFormatter.h */,
+				FD6239B920F56C3E00049E81 /* GREYObjectFormatter.m */,
+				FD6239B620F56C3D00049E81 /* NSError+GREYCommon.h */,
+				FD6239B220F56C3D00049E81 /* NSError+GREYCommon.m */,
+			);
+			name = Error;
+			sourceTree = "<group>";
+		};
+		FD6239C020F56C4100049E81 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				FD6239C120F56C4D00049E81 /* GREYTouchInfo.h */,
+				FD6239C320F56C4D00049E81 /* GREYTouchInfo.m */,
+				FD6239C220F56C4D00049E81 /* GREYTouchPathObject.h */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
+		FD6239C520F56C5300049E81 /* Exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				FD6239C820F56C5E00049E81 /* GREYFailureHandler.h */,
+				FD6239C720F56C5E00049E81 /* GREYFrameworkException.h */,
+				FD6239C620F56C5E00049E81 /* GREYFrameworkException.m */,
+			);
+			name = Exceptions;
+			sourceTree = "<group>";
+		};
+		FD6239CA20F56C6500049E81 /* Matcher */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A825521F187FC00CA3ADF /* GREYBaseMatcher.h */,
+				FD3A825221F187FA00CA3ADF /* GREYBaseMatcher.m */,
+				FD3A825421F187FB00CA3ADF /* GREYElementMatcherBlock.h */,
+				FD3A825321F187FB00CA3ADF /* GREYElementMatcherBlock.m */,
+				FD6239CF20F56C7100049E81 /* GREYDescription.h */,
+				FD6239D020F56C7100049E81 /* GREYLayoutConstraint.h */,
+				FD6239CC20F56C7100049E81 /* GREYLayoutConstraint.m */,
+				FD6239CD20F56C7100049E81 /* GREYMatcher.h */,
+				FD6239CB20F56C7100049E81 /* GREYStringDescription.h */,
+				FD6239CE20F56C7100049E81 /* GREYStringDescription.m */,
+			);
+			name = Matcher;
+			sourceTree = "<group>";
+		};
+		FD6239D320F56C7C00049E81 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				FD6239D420F56C8900049E81 /* GREYProvider.h */,
+			);
+			name = Provider;
+			sourceTree = "<group>";
+		};
+		FD623A4A20F957BE00049E81 /* AppFramework */ = {
+			isa = PBXGroup;
+			children = (
+				FD2E76E92149E4450063EF7E /* Config */,
+				FD623B7220F95B0800049E81 /* Synchronization */,
+				FD623B5520F95AF800049E81 /* Matcher */,
+				FD623B5020F95AE300049E81 /* Keyboard */,
+				FD623B3520F95A8D00049E81 /* IdlingResources */,
+				FD623B2A20F95A7500049E81 /* Event */,
+				FD623B1F20F95A6700049E81 /* Error */,
+				FD623B1C20F95A5800049E81 /* EarlGreyApp */,
+				FD623B0D20F95A4500049E81 /* DistantObject */,
+				FD623AFC20F9594800049E81 /* Delegate */,
+				FD623AED20F9593300049E81 /* Core */,
+				FD623AE820F9591F00049E81 /* AutomationSetup */,
+				FD623ADD20F9590C00049E81 /* Assertion */,
+				FD623A9020F958F300049E81 /* Additions */,
+				FD623A5220F958B100049E81 /* Action */,
+				FD623A4C20F957BE00049E81 /* Info.plist */,
+			);
+			path = AppFramework;
+			sourceTree = "<group>";
+		};
+		FD623A5220F958B100049E81 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BE5A229855A0001E6DAA /* GREYActions+Private.h */,
+				FD3A825A21F189BC00CA3ADF /* GREYActionsShorthand.h */,
+				FD3A825921F189BB00CA3ADF /* GREYActionsShorthand.m */,
+				FD623A5620F958C000049E81 /* GREYAction.h */,
+				FD623A6020F958C100049E81 /* GREYActionBlock.h */,
+				FD623A5520F958C000049E81 /* GREYActionBlock.m */,
+				FD623A6B20F958C200049E81 /* GREYActions.h */,
+				FD623A6520F958C100049E81 /* GREYActions.m */,
+				FD623A6720F958C100049E81 /* GREYBaseAction.h */,
+				FD623A6120F958C100049E81 /* GREYBaseAction.m */,
+				FD623A6420F958C100049E81 /* GREYChangeStepperAction.h */,
+				FD623A6C20F958C200049E81 /* GREYChangeStepperAction.m */,
+				FD623A5A20F958C000049E81 /* GREYMultiFingerSwipeAction.h */,
+				FD623A6920F958C100049E81 /* GREYMultiFingerSwipeAction.m */,
+				FD623A6F20F958C200049E81 /* GREYPathGestureUtils.h */,
+				FD623A5720F958C000049E81 /* GREYPathGestureUtils.m */,
+				FD623A5F20F958C100049E81 /* GREYPickerAction.h */,
+				FD623A6E20F958C200049E81 /* GREYPickerAction.m */,
+				FD623A5820F958C000049E81 /* GREYPinchAction.h */,
+				FD623A5E20F958C100049E81 /* GREYPinchAction.m */,
+				FD623A5420F958C000049E81 /* GREYScrollAction.h */,
+				FD623A6820F958C100049E81 /* GREYScrollAction.m */,
+				FD623A5920F958C000049E81 /* GREYScrollToContentEdgeAction.h */,
+				FD623A7020F958C200049E81 /* GREYScrollToContentEdgeAction.m */,
+				FD623A5C20F958C100049E81 /* GREYSlideAction.h */,
+				FD623A6620F958C100049E81 /* GREYSlideAction.m */,
+				FD623A6220F958C100049E81 /* GREYSwipeAction.h */,
+				FD623A5B20F958C000049E81 /* GREYSwipeAction.m */,
+				FD623A6A20F958C200049E81 /* GREYTapAction.h */,
+				FD623A6D20F958C200049E81 /* GREYTapAction.m */,
+				FD623A6320F958C100049E81 /* GREYTapper.h */,
+				FD623A5320F958C000049E81 /* GREYTapper.m */,
+			);
+			name = Action;
+			sourceTree = "<group>";
+		};
+		FD623A9020F958F300049E81 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				FD623AB320F9590800049E81 /* __NSCFLocalDataTask_GREYApp.h */,
+				FD623AB420F9590800049E81 /* __NSCFLocalDataTask_GREYApp.m */,
+				FD623A9120F9590500049E81 /* CAAnimation+GREYApp.h */,
+				FD623AA320F9590700049E81 /* CAAnimation+GREYApp.m */,
+				FD623AA920F9590700049E81 /* CALayer+GREYApp.h */,
+				FD623AA220F9590600049E81 /* CALayer+GREYApp.m */,
+				FD623AA020F9590600049E81 /* NSObject+GREYApp.h */,
+				FD623A9220F9590500049E81 /* NSObject+GREYApp.m */,
+				FD623AB520F9590800049E81 /* NSRunLoop+GREYApp.h */,
+				FD623AA520F9590700049E81 /* NSRunLoop+GREYApp.m */,
+				FD623AAB20F9590700049E81 /* NSTimer+GREYApp.h */,
+				FD623A9320F9590500049E81 /* NSTimer+GREYApp.m */,
+				FD623AAC20F9590700049E81 /* NSURL+GREYApp.h */,
+				FD623AB120F9590800049E81 /* NSURL+GREYApp.m */,
+				FD623AA620F9590700049E81 /* NSURLConnection+GREYApp.h */,
+				FD623A9420F9590500049E81 /* NSURLConnection+GREYApp.m */,
+				FD623A9A20F9590600049E81 /* NSURLSession+GREYApp.h */,
+				FD623AA720F9590700049E81 /* NSURLSession+GREYApp.m */,
+				FD623AAA20F9590700049E81 /* UIAnimation+GREYApp.h */,
+				FD623AB620F9590800049E81 /* UIAnimation+GREYApp.m */,
+				FD623A9B20F9590600049E81 /* UIApplication+GREYApp.h */,
+				FD623AB220F9590800049E81 /* UIApplication+GREYApp.m */,
+				FD623A9520F9590500049E81 /* UIGestureRecognizer+GREYApp.h */,
+				FD623AAE20F9590700049E81 /* UIGestureRecognizer+GREYApp.m */,
+				FD623AAF20F9590800049E81 /* UIScrollView+GREYApp.h */,
+				FD623AA820F9590700049E81 /* UIScrollView+GREYApp.m */,
+				FD623A9F20F9590600049E81 /* UISwitch+GREYApp.h */,
+				FD623A9E20F9590600049E81 /* UISwitch+GREYApp.m */,
+				FD623A9920F9590600049E81 /* UIView+GREYApp.h */,
+				FD623A9620F9590500049E81 /* UIView+GREYApp.m */,
+				FD623AB020F9590800049E81 /* UIViewController+GREYApp.h */,
+				FD623A9720F9590600049E81 /* UIViewController+GREYApp.m */,
+				FD623AA120F9590600049E81 /* UIWindow+GREYApp.h */,
+				FD623A9C20F9590600049E81 /* UIWindow+GREYApp.m */,
+				FDC5870524D0F710003BBE15 /* UITextSelectionView+GREYApp.h */,
+				FDC5870624D0F710003BBE15 /* UITextSelectionView+GREYApp.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
+		FD623ADD20F9590C00049E81 /* Assertion */ = {
+			isa = PBXGroup;
+			children = (
+				FD623ADE20F9591600049E81 /* GREYAssertions.h */,
+				FD623ADF20F9591600049E81 /* GREYAssertions.m */,
+			);
+			name = Assertion;
+			sourceTree = "<group>";
+		};
+		FD623AE820F9591F00049E81 /* AutomationSetup */ = {
+			isa = PBXGroup;
+			children = (
+				FD623AE920F9592B00049E81 /* GREYAutomationSetup.h */,
+				FD623AEA20F9592B00049E81 /* GREYAutomationSetup.m */,
+			);
+			name = AutomationSetup;
+			sourceTree = "<group>";
+		};
+		FD623AED20F9593300049E81 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FD41290C23D97C220042A585 /* GREYElementFilter.h */,
+				FD41291523D97C230042A585 /* GREYElementFilter.m */,
+				FD623AEF20F9594100049E81 /* GREYElementFinder.h */,
+				FD623AF220F9594100049E81 /* GREYElementFinder.m */,
+				FD623AEE20F9594100049E81 /* GREYElementInteraction.h */,
+				FD623AF320F9594100049E81 /* GREYElementInteraction.m */,
+				FD623AF420F9594100049E81 /* GREYInteraction.h */,
+				FD623AF120F9594100049E81 /* GREYInteractionDataSource.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		FD623AFC20F9594800049E81 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				FD623B0020F9595300049E81 /* GREYCAAnimationDelegate.h */,
+				FD623B0420F9595300049E81 /* GREYCAAnimationDelegate.m */,
+				FD623AFD20F9595200049E81 /* GREYNSURLConnectionDelegate.h */,
+				FD623B0320F9595300049E81 /* GREYNSURLConnectionDelegate.m */,
+				FD623B0120F9595300049E81 /* GREYSurrogateDelegate.h */,
+				FD623B0220F9595300049E81 /* GREYSurrogateDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		FD623B0D20F95A4500049E81 /* DistantObject */ = {
+			isa = PBXGroup;
+			children = (
+				FD623B0E20F95A5300049E81 /* GREYHostApplicationDistantObject.m */,
+				FD623B1320F95A5400049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.h */,
+				FD623B0F20F95A5300049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.m */,
+				FD623B1420F95A5400049E81 /* GREYHostBackgroundDistantObject.m */,
+				FD623B1020F95A5300049E81 /* GREYHostBackgroundDistantObject+GREYApp.h */,
+				FD623B1220F95A5400049E81 /* GREYHostBackgroundDistantObject+GREYApp.m */,
+				FD623B1120F95A5300049E81 /* GREYTestStub.m */,
+			);
+			name = DistantObject;
+			sourceTree = "<group>";
+		};
+		FD623B1C20F95A5800049E81 /* EarlGreyApp */ = {
+			isa = PBXGroup;
+			children = (
+				FD623B1D20F95A6300049E81 /* EarlGreyApp.h */,
+			);
+			name = EarlGreyApp;
+			sourceTree = "<group>";
+		};
+		FD623B1F20F95A6700049E81 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				FD98C45D226C2E64006F8D68 /* GREYAppError.h */,
+				FD623B2120F95A7200049E81 /* GREYFailureScreenshotter.h */,
+				FD623B2220F95A7200049E81 /* GREYFailureScreenshotter.m */,
+			);
+			name = Error;
+			sourceTree = "<group>";
+		};
+		FD623B2A20F95A7500049E81 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				FD623B2C20F95A8600049E81 /* GREYIOHIDEventTypes.h */,
+				FD623B2F20F95A8600049E81 /* GREYSyntheticEvents.h */,
+				FD623B2D20F95A8600049E81 /* GREYSyntheticEvents.m */,
+				FD623B2E20F95A8600049E81 /* GREYTouchInjector.h */,
+				FD623B2B20F95A8600049E81 /* GREYTouchInjector.m */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
+		FD623B3520F95A8D00049E81 /* IdlingResources */ = {
+			isa = PBXGroup;
+			children = (
+				FD623B3D20F95A9B00049E81 /* GREYDispatchQueueIdlingResource.h */,
+				FD623B3720F95A9B00049E81 /* GREYDispatchQueueIdlingResource.m */,
+				FD623B3E20F95A9C00049E81 /* GREYIdlingResource.h */,
+				FD623B3820F95A9B00049E81 /* GREYManagedObjectContextIdlingResource.h */,
+				FD623B3F20F95A9C00049E81 /* GREYManagedObjectContextIdlingResource.m */,
+				FD623B3920F95A9B00049E81 /* GREYNSTimerIdlingResource.h */,
+				FD623B3A20F95A9B00049E81 /* GREYNSTimerIdlingResource.m */,
+				FD623B4220F95A9C00049E81 /* GREYOperationQueueIdlingResource.h */,
+				FD623B3C20F95A9B00049E81 /* GREYOperationQueueIdlingResource.m */,
+				FD623B4120F95A9C00049E81 /* GREYTimedIdlingResource.h */,
+				FD623B3620F95A9B00049E81 /* GREYTimedIdlingResource.m */,
+			);
+			name = IdlingResources;
+			sourceTree = "<group>";
+		};
+		FD623B5020F95AE300049E81 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FD623B5120F95AF300049E81 /* GREYKeyboard.h */,
+				FD623B5220F95AF400049E81 /* GREYKeyboard.m */,
+			);
+			name = Keyboard;
+			sourceTree = "<group>";
+		};
+		FD623B5520F95AF800049E81 /* Matcher */ = {
+			isa = PBXGroup;
+			children = (
+				FD623B6220F95B0300049E81 /* GREYAllOf.h */,
+				FD623B5A20F95B0200049E81 /* GREYAllOf.m */,
+				FD623B6320F95B0300049E81 /* GREYAnyOf.h */,
+				FD623B5F20F95B0200049E81 /* GREYAnyOf.m */,
+				FD623B5620F95B0200049E81 /* GREYMatchers.h */,
+				FD623B5B20F95B0200049E81 /* GREYMatchers.m */,
+				FD623B6120F95B0300049E81 /* GREYMatchersShorthand.h */,
+				FD623B6020F95B0200049E81 /* GREYMatchersShorthand.m */,
+			);
+			name = Matcher;
+			sourceTree = "<group>";
+		};
+		FD623B7220F95B0800049E81 /* Synchronization */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BE5622985566001E6DAA /* GREYUIThreadExecutor+Private.h */,
+				FD623B7A20F95B1500049E81 /* GREYAppStateTracker.h */,
+				FD623B7920F95B1500049E81 /* GREYAppStateTracker.m */,
+				FD623B7F20F95B1500049E81 /* GREYAppStateTrackerObject.h */,
+				FD623B7420F95B1400049E81 /* GREYAppStateTrackerObject.m */,
+				FD623B8020F95B1500049E81 /* GREYDispatchQueueTracker.h */,
+				FD623B7D20F95B1500049E81 /* GREYDispatchQueueTracker.m */,
+				FD623B7720F95B1400049E81 /* GREYObjectDeallocationTracker.h */,
+				FD623B7320F95B1400049E81 /* GREYObjectDeallocationTracker.m */,
+				FD623B7E20F95B1500049E81 /* GREYRunLoopSpinner.h */,
+				FD623B7C20F95B1500049E81 /* GREYRunLoopSpinner.m */,
+				FD623B7B20F95B1500049E81 /* GREYSyncAPI.h */,
+				FD623B7620F95B1400049E81 /* GREYSyncAPI.m */,
+				FD623B7520F95B1400049E81 /* GREYUIThreadExecutor.h */,
+				FD623B8120F95B1500049E81 /* GREYUIThreadExecutor.m */,
+			);
+			name = Synchronization;
+			sourceTree = "<group>";
+		};
+		FD623B9A20F95C7700049E81 /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				FD623B9B20F95C8100049E81 /* fishhook.c */,
+				FD623B9C20F95C8100049E81 /* fishhook.h */,
+			);
+			name = fishhook;
+			sourceTree = "<group>";
+		};
+		FD623BA520F95E3900049E81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD50493E20FB25BC00261CBE /* XCTest.framework */,
+				FD623BA620F95E3900049E81 /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD98C465226C330E006F8D68 /* AppleInternals */ = {
+			isa = PBXGroup;
+			children = (
+				FD98C466226C331A006F8D68 /* GREYXCTestAppleInternals.h */,
+			);
+			name = AppleInternals;
+			sourceTree = "<group>";
+		};
+		FDB4AB57237CD95300E6847D /* Visibility */ = {
+			isa = PBXGroup;
+			children = (
+				FDB4AB59237CD95F00E6847D /* GREYQuickVisibilityChecker.h */,
+				FDB4AB61237CD95F00E6847D /* GREYQuickVisibilityChecker.m */,
+				FDB4AB5C237CD95F00E6847D /* GREYThoroughVisibilityChecker.h */,
+				FDB4AB62237CD95F00E6847D /* GREYThoroughVisibilityChecker.m */,
+				FDB4AB5D237CD95F00E6847D /* GREYVisibilityChecker.h */,
+				FDB4AB5E237CD95F00E6847D /* GREYVisibilityChecker.m */,
+				FDB4AB5A237CD95F00E6847D /* GREYVisibilityChecker+Private.h */,
+				FDB4AB58237CD95F00E6847D /* GREYVisibilityCheckerCacheEntry.h */,
+				FDB4AB60237CD95F00E6847D /* GREYVisibilityCheckerCacheEntry.m */,
+				FDB4AB5F237CD95F00E6847D /* GREYVisibilityCheckerDuration.h */,
+				FDB4AB63237CD95F00E6847D /* GREYVisibilityCheckerTarget.h */,
+				FDB4AB5B237CD95F00E6847D /* GREYVisibilityCheckerTarget.m */,
+			);
+			name = Visibility;
+			sourceTree = "<group>";
+		};
+		FDBE84E922A21FBC0093062B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDBE84F822A21FBC0093062B /* libChannelLib.a */,
+				FDBE84FA22A21FBC0093062B /* libMeasureLib.a */,
+				FDBE84FC22A21FBC0093062B /* libeDistantObject.a */,
+				FDBE84FE22A21FBC0093062B /* ChannelTests.xctest */,
+				FDBE850022A21FBC0093062B /* MeasureTests.xctest */,
+				FDBE850222A21FBC0093062B /* TestsHost.app */,
+				FDBE850422A21FBC0093062B /* ServiceUITests.xctest */,
+				FDBE850622A21FBC0093062B /* ServiceTests.xctest */,
+				FDBE850822A21FBC0093062B /* ServicePerfTests.xctest */,
+				FDBE850A22A21FBC0093062B /* libTestsBundle.a */,
+				FDBE850C22A21FBC0093062B /* libDeviceLib.a */,
+				FDBE850E22A21FBC0093062B /* DeviceUnitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDE871952322D9DD007C5A5C /* Execution */ = {
+			isa = PBXGroup;
+			children = (
+				FDE871972322D9F7007C5A5C /* GREYRemoteExecutor.h */,
+				FDE871962322D9F6007C5A5C /* GREYRemoteExecutor.m */,
+			);
+			name = Execution;
+			sourceTree = "<group>";
+		};
+		FDF9E03620F82D090005DCF2 /* UILib */ = {
+			isa = PBXGroup;
+			children = (
+				FD76BE542298551A001E6DAA /* GREYScreenshotter+Private.h */,
+				80E8CD4422AF097000CDE5C5 /* GREYElementMatcherBlock+Private.h */,
+				FD98C457226C2DCE006F8D68 /* GREYScreenshotter.h */,
+				FD98C456226C2DCD006F8D68 /* GREYScreenshotter.m */,
+				FDF9E06D20F82F020005DCF2 /* GREYElementHierarchy.h */,
+				FDF9E07120F82F030005DCF2 /* GREYElementHierarchy.m */,
+				FDB4AB57237CD95300E6847D /* Visibility */,
+				FDF9E04720F82DCA0005DCF2 /* Traversal */,
+				FDF9E04620F82DC00005DCF2 /* Provider */,
+				FDF9E04520F82DA80005DCF2 /* Additions */,
+			);
+			path = UILib;
+			sourceTree = "<group>";
+		};
+		FDF9E04520F82DA80005DCF2 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				FDF9E06720F82EF60005DCF2 /* CGGeometry+GREYUI.h */,
+				FDF9E06520F82EF60005DCF2 /* CGGeometry+GREYUI.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		FDF9E04620F82DC00005DCF2 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				FDF9E05A20F82E340005DCF2 /* GREYDataEnumerator.h */,
+				FDF9E05E20F82E340005DCF2 /* GREYDataEnumerator.m */,
+				FDF9E05F20F82E340005DCF2 /* GREYElementProvider.h */,
+				FDF9E05B20F82E340005DCF2 /* GREYElementProvider.m */,
+				FDF9E05D20F82E340005DCF2 /* GREYUIWindowProvider.h */,
+				FDF9E05C20F82E340005DCF2 /* GREYUIWindowProvider.m */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		FDF9E04720F82DCA0005DCF2 /* Traversal */ = {
+			isa = PBXGroup;
+			children = (
+				A277771D238FE215003E7373 /* GREYTraversalProperties.h */,
+				A277771C238FE215003E7373 /* GREYTraversalProperties.m */,
+				FD44C48B22C679050044199E /* GREYTraversalFunctions.h */,
+				FD44C48222C679050044199E /* GREYTraversalFunctions.m */,
+				FDF9E05520F82E200005DCF2 /* GREYTraversalBFS.h */,
+				FDF9E05220F82E200005DCF2 /* GREYTraversalBFS.m */,
+				A20847AA22BC095A00DD3983 /* GREYTraversalObject.h */,
+				A20847B322BC095A00DD3983 /* GREYTraversalObject.m */,
+				FDF9E05320F82E200005DCF2 /* GREYTraversalDFS.h */,
+				FDF9E05120F82E200005DCF2 /* GREYTraversalDFS.m */,
+			);
+			path = Traversal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FD623A4620F957BE00049E81 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD623B1E20F95A6300049E81 /* EarlGreyApp.h in Headers */,
+				FD623AE320F9591600049E81 /* GREYAssertions.h in Headers */,
+				FD623AFB20F9594200049E81 /* GREYInteraction.h in Headers */,
+				FD623B4620F95A9C00049E81 /* GREYNSTimerIdlingResource.h in Headers */,
+				FD623AD920F9590800049E81 /* __NSCFLocalDataTask_GREYApp.h in Headers */,
+				FD623B8F20F95B1500049E81 /* GREYDispatchQueueTracker.h in Headers */,
+				FD41291623D97C230042A585 /* GREYElementFilter.h in Headers */,
+				FD623B4E20F95A9C00049E81 /* GREYTimedIdlingResource.h in Headers */,
+				FD2E76ED2149E4580063EF7E /* GREYAppConfiguration.h in Headers */,
+				FD623B4520F95A9C00049E81 /* GREYManagedObjectContextIdlingResource.h in Headers */,
+				FD623A8D20F958C200049E81 /* GREYPathGestureUtils.h in Headers */,
+				FD623B8E20F95B1500049E81 /* GREYAppStateTrackerObject.h in Headers */,
+				FD623ABB20F9590800049E81 /* UIGestureRecognizer+GREYApp.h in Headers */,
+				6F8818B222B86F530006932D /* GREYAssertionBlock+Private.h in Headers */,
+				FD623B5320F95AF400049E81 /* GREYKeyboard.h in Headers */,
+				FD623B0820F9595300049E81 /* GREYCAAnimationDelegate.h in Headers */,
+				FD76BE5722985566001E6DAA /* GREYUIThreadExecutor+Private.h in Headers */,
+				FD76BE5B229855A0001E6DAA /* GREYActions+Private.h in Headers */,
+				FD623B6F20F95B0300049E81 /* GREYMatchersShorthand.h in Headers */,
+				FD623AC720F9590800049E81 /* UIWindow+GREYApp.h in Headers */,
+				FD623B0920F9595300049E81 /* GREYSurrogateDelegate.h in Headers */,
+				FD623B4B20F95A9C00049E81 /* GREYIdlingResource.h in Headers */,
+				FD623AD620F9590800049E81 /* UIViewController+GREYApp.h in Headers */,
+				FD623B1720F95A5400049E81 /* GREYHostBackgroundDistantObject+GREYApp.h in Headers */,
+				FD623A7720F958C200049E81 /* GREYScrollToContentEdgeAction.h in Headers */,
+				FD623AC020F9590800049E81 /* NSURLSession+GREYApp.h in Headers */,
+				FD623A8220F958C200049E81 /* GREYChangeStepperAction.h in Headers */,
+				FD623A7A20F958C200049E81 /* GREYSlideAction.h in Headers */,
+				FD623ABF20F9590800049E81 /* UIView+GREYApp.h in Headers */,
+				FD623B4A20F95A9C00049E81 /* GREYDispatchQueueIdlingResource.h in Headers */,
+				FD623B8A20F95B1500049E81 /* GREYSyncAPI.h in Headers */,
+				FD623B7120F95B0300049E81 /* GREYAnyOf.h in Headers */,
+				FD623AD220F9590800049E81 /* NSURL+GREYApp.h in Headers */,
+				FD623ACF20F9590800049E81 /* CALayer+GREYApp.h in Headers */,
+				FD623B0520F9595300049E81 /* GREYNSURLConnectionDelegate.h in Headers */,
+				FD623AD120F9590800049E81 /* NSTimer+GREYApp.h in Headers */,
+				FD623AB720F9590800049E81 /* CAAnimation+GREYApp.h in Headers */,
+				FD623B2620F95A7200049E81 /* GREYFailureScreenshotter.h in Headers */,
+				FD623B6420F95B0300049E81 /* GREYMatchers.h in Headers */,
+				FD3A825D21F189BC00CA3ADF /* GREYActionsShorthand.h in Headers */,
+				FD623A7220F958C200049E81 /* GREYScrollAction.h in Headers */,
+				FD623AC120F9590800049E81 /* UIApplication+GREYApp.h in Headers */,
+				FD623A7D20F958C200049E81 /* GREYPickerAction.h in Headers */,
+				FD623B8D20F95B1500049E81 /* GREYRunLoopSpinner.h in Headers */,
+				FD623B7020F95B0300049E81 /* GREYAllOf.h in Headers */,
+				FD623B8620F95B1500049E81 /* GREYObjectDeallocationTracker.h in Headers */,
+				FD623A7620F958C200049E81 /* GREYPinchAction.h in Headers */,
+				FDC5870724D0F710003BBE15 /* UITextSelectionView+GREYApp.h in Headers */,
+				FD623AF820F9594200049E81 /* GREYInteractionDataSource.h in Headers */,
+				FD623A8120F958C200049E81 /* GREYTapper.h in Headers */,
+				FD623B4F20F95A9C00049E81 /* GREYOperationQueueIdlingResource.h in Headers */,
+				FD3A826321F18A5900CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.h in Headers */,
+				FD623A8920F958C200049E81 /* GREYActions.h in Headers */,
+				FD623AEB20F9592B00049E81 /* GREYAutomationSetup.h in Headers */,
+				FD623B3120F95A8600049E81 /* GREYIOHIDEventTypes.h in Headers */,
+				FD623AC520F9590800049E81 /* UISwitch+GREYApp.h in Headers */,
+				FD623B1A20F95A5400049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.h in Headers */,
+				FD623A7E20F958C200049E81 /* GREYActionBlock.h in Headers */,
+				FD623AF620F9594200049E81 /* GREYElementFinder.h in Headers */,
+				FD623A8520F958C200049E81 /* GREYBaseAction.h in Headers */,
+				FD623A7820F958C200049E81 /* GREYMultiFingerSwipeAction.h in Headers */,
+				FD623AD520F9590800049E81 /* UIScrollView+GREYApp.h in Headers */,
+				FD623B3320F95A8600049E81 /* GREYTouchInjector.h in Headers */,
+				FD623ACC20F9590800049E81 /* NSURLConnection+GREYApp.h in Headers */,
+				FD623AF520F9594200049E81 /* GREYElementInteraction.h in Headers */,
+				FD623AC620F9590800049E81 /* NSObject+GREYApp.h in Headers */,
+				FD623A7420F958C200049E81 /* GREYAction.h in Headers */,
+				FD623B8420F95B1500049E81 /* GREYUIThreadExecutor.h in Headers */,
+				FD623B8920F95B1500049E81 /* GREYAppStateTracker.h in Headers */,
+				FD623AD020F9590800049E81 /* UIAnimation+GREYApp.h in Headers */,
+				FD623B3420F95A8600049E81 /* GREYSyntheticEvents.h in Headers */,
+				FD623A8020F958C200049E81 /* GREYSwipeAction.h in Headers */,
+				FD98C45E226C2E65006F8D68 /* GREYAppError.h in Headers */,
+				FD623ADB20F9590800049E81 /* NSRunLoop+GREYApp.h in Headers */,
+				FD623A8820F958C200049E81 /* GREYTapAction.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FD5048F720FB225100261CBE /* TestLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD50490720FB225100261CBE /* Build configuration list for PBXNativeTarget "TestLib" */;
+			buildPhases = (
+				FD5048F420FB225100261CBE /* Sources */,
+				FD5048F520FB225100261CBE /* Frameworks */,
+				FD5048F620FB225100261CBE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD623DC420FD780900049E81 /* PBXTargetDependency */,
+			);
+			name = TestLib;
+			productName = TestLib;
+			productReference = FD5048F820FB225100261CBE /* libTestLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FD62395020F56A9700049E81 /* CommonLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD62395720F56A9700049E81 /* Build configuration list for PBXNativeTarget "CommonLib" */;
+			buildPhases = (
+				FD62394D20F56A9700049E81 /* Sources */,
+				FD62394E20F56A9700049E81 /* Frameworks */,
+				FD62394F20F56A9700049E81 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDBE851022A21FC20093062B /* PBXTargetDependency */,
+			);
+			name = CommonLib;
+			productName = CommonLib;
+			productReference = FD62395120F56A9700049E81 /* libCommonLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FD623A4820F957BE00049E81 /* AppFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD623A4E20F957BE00049E81 /* Build configuration list for PBXNativeTarget "AppFramework" */;
+			buildPhases = (
+				FD623A4420F957BE00049E81 /* Sources */,
+				FD623A4520F957BE00049E81 /* Frameworks */,
+				FD623A4620F957BE00049E81 /* Headers */,
+				FD623A4720F957BE00049E81 /* Resources */,
+				804D3FD322B99188001D3F3A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				804D3FD122B99055001D3F3A /* PBXTargetDependency */,
+				804D3FCF22B9903F001D3F3A /* PBXTargetDependency */,
+				804D3FCD22B99039001D3F3A /* PBXTargetDependency */,
+				FD66782A211FAE3A008EC4A7 /* PBXTargetDependency */,
+				FD623BD920F9726300049E81 /* PBXTargetDependency */,
+			);
+			name = AppFramework;
+			productName = AppFramework;
+			productReference = FD623A4920F957BE00049E81 /* AppFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FDF9E03420F82D090005DCF2 /* UILib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDF9E04420F82D090005DCF2 /* Build configuration list for PBXNativeTarget "UILib" */;
+			buildPhases = (
+				FDF9E03120F82D090005DCF2 /* Sources */,
+				FDF9E03220F82D090005DCF2 /* Frameworks */,
+				FDF9E03320F82D090005DCF2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDF9E07C20F82F290005DCF2 /* PBXTargetDependency */,
+			);
+			name = UILib;
+			productName = UILib;
+			productReference = FDF9E03520F82D090005DCF2 /* libUILib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD62390920F569D500049E81 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				TargetAttributes = {
+					FD5048F720FB225100261CBE = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+					FD62395020F56A9700049E81 = {
+						CreatedOnToolsVersion = 9.4;
+						ProvisioningStyle = Automatic;
+					};
+					FD623A4820F957BE00049E81 = {
+						CreatedOnToolsVersion = 9.4;
+						ProvisioningStyle = Automatic;
+					};
+					FDF9E03420F82D090005DCF2 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FD62390C20F569D500049E81 /* Build configuration list for PBXProject "EarlGrey" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FD62390820F569D500049E81;
+			productRefGroup = FD62391220F569D500049E81 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FDBE84E922A21FBC0093062B /* Products */;
+					ProjectRef = FD6239E420F56E6A00049E81 /* eDistantObject.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				FD62395020F56A9700049E81 /* CommonLib */,
+				FDF9E03420F82D090005DCF2 /* UILib */,
+				FD623A4820F957BE00049E81 /* AppFramework */,
+				FD5048F720FB225100261CBE /* TestLib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FDBE84F822A21FBC0093062B /* libChannelLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libChannelLib.a;
+			remoteRef = FDBE84F722A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE84FA22A21FBC0093062B /* libMeasureLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMeasureLib.a;
+			remoteRef = FDBE84F922A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE84FC22A21FBC0093062B /* libeDistantObject.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libeDistantObject.a;
+			remoteRef = FDBE84FB22A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE84FE22A21FBC0093062B /* ChannelTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChannelTests.xctest;
+			remoteRef = FDBE84FD22A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE850022A21FBC0093062B /* MeasureTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MeasureTests.xctest;
+			remoteRef = FDBE84FF22A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE850222A21FBC0093062B /* TestsHost.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestsHost.app;
+			remoteRef = FDBE850122A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE850422A21FBC0093062B /* ServiceUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ServiceUITests.xctest;
+			remoteRef = FDBE850322A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE850622A21FBC0093062B /* ServiceTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ServiceTests.xctest;
+			remoteRef = FDBE850522A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE850822A21FBC0093062B /* ServicePerfTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ServicePerfTests.xctest;
+			remoteRef = FDBE850722A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE850A22A21FBC0093062B /* libTestsBundle.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTestsBundle.a;
+			remoteRef = FDBE850922A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE850C22A21FBC0093062B /* libDeviceLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDeviceLib.a;
+			remoteRef = FDBE850B22A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDBE850E22A21FBC0093062B /* DeviceUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DeviceUnitTests.xctest;
+			remoteRef = FDBE850D22A21FBC0093062B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD623A4720F957BE00049E81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		804D3FD322B99188001D3F3A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "sh Scripts/build_universal_framework.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD5048F420FB225100261CBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD50492C20FB239900261CBE /* EarlGreyImpl+XCUIApplication.m in Sources */,
+				FDE8719C23241567007C5A5C /* GREYWaitFunctions.m in Sources */,
+				FD50491E20FB238300261CBE /* GREYHostStub.m in Sources */,
+				FD50491A20FB237100261CBE /* GREYCondition.m in Sources */,
+				FD98C461226C32FC006F8D68 /* GREYElementInteractionErrorHandler.m in Sources */,
+				FD1184D3212CEE72004CADC3 /* XCUIApplication+GREYEnvironment.m in Sources */,
+				FD3A825C21F189BC00CA3ADF /* GREYActionsShorthand.m in Sources */,
+				FD98C464226C330A006F8D68 /* GREYFailureScreenshotSaver.m in Sources */,
+				FD3A826521F18A5900CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.m in Sources */,
+				FDE871982322D9F7007C5A5C /* GREYRemoteExecutor.m in Sources */,
+				FD50493D20FB23E500261CBE /* XCTestCase+GREYTest.m in Sources */,
+				FD623DC220FD770F00049E81 /* GREYMatchersShorthand.m in Sources */,
+				FD50491F20FB238300261CBE /* GREYTestApplicationDistantObject.m in Sources */,
+				FD50493420FB23AE00261CBE /* GREYDefaultFailureHandler.m in Sources */,
+				FD50490F20FB231A00261CBE /* XCTestCase+GREYSystemAlertHandler.m in Sources */,
+				6FDFAF5324A2D0B2008B59DF /* GREYFailureHandlerHelpers.m in Sources */,
+				FD50492B20FB239900261CBE /* XCUIApplication+GREYTest.m in Sources */,
+				FD50493C20FB23E500261CBE /* GREYTestCaseInvocation.m in Sources */,
+				FDE6770924B2E7050058EA28 /* GREYDescribeVariable.m in Sources */,
+				FD50492D20FB239900261CBE /* EarlGrey.m in Sources */,
+				FD2E76F12149E4860063EF7E /* GREYTestConfiguration.m in Sources */,
+				FD50492A20FB239900261CBE /* GREYElementInteractionProxy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD62394D20F56A9700049E81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD98C45C226C2E01006F8D68 /* NSFileManager+GREYCommon.m in Sources */,
+				FD6239C420F56C4D00049E81 /* GREYTouchInfo.m in Sources */,
+				FD6239D120F56C7100049E81 /* GREYLayoutConstraint.m in Sources */,
+				FD6239E120F56C9500049E81 /* GREYSwizzler.m in Sources */,
+				FD62398A20F56B7600049E81 /* NSObject+GREYCommon.m in Sources */,
+				FD6239E220F56C9500049E81 /* GREYObjcRuntime.m in Sources */,
+				FD3A825121F187C800CA3ADF /* GREYAssertionBlock.m in Sources */,
+				FD3A825621F187FD00CA3ADF /* GREYBaseMatcher.m in Sources */,
+				FD6239BC20F56C3E00049E81 /* NSError+GREYCommon.m in Sources */,
+				FD3A825721F187FD00CA3ADF /* GREYElementMatcherBlock.m in Sources */,
+				FD6239A420F56BE700049E81 /* GREYConfiguration.m in Sources */,
+				FD6239BB20F56C3E00049E81 /* GREYError.m in Sources */,
+				FD1B7E3A24A2806500400025 /* GREYErrorFormatter.m in Sources */,
+				FD6239D220F56C7100049E81 /* GREYStringDescription.m in Sources */,
+				FD6239E020F56C9500049E81 /* GREYStopwatch.m in Sources */,
+				FD6239A620F56BE700049E81 /* GREYConfigKey.m in Sources */,
+				FD6239BE20F56C3E00049E81 /* GREYObjectFormatter.m in Sources */,
+				FD6239AE20F56C2500049E81 /* GREYValueType.m in Sources */,
+				FD62398E20F56B7600049E81 /* UIView+GREYCommon.m in Sources */,
+				FD6239C920F56C5E00049E81 /* GREYFrameworkException.m in Sources */,
+				FD6239BD20F56C3E00049E81 /* GREYErrorConstants.m in Sources */,
+				6F49FDBD22E69D4E00CCE813 /* GREYDiagnosable.m in Sources */,
+				FD6239E320F56C9500049E81 /* GREYConstants.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD623A4420F957BE00049E81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD623ABA20F9590800049E81 /* NSURLConnection+GREYApp.m in Sources */,
+				FD623ACB20F9590800049E81 /* NSRunLoop+GREYApp.m in Sources */,
+				FD623B6D20F95B0300049E81 /* GREYAnyOf.m in Sources */,
+				FD623B8220F95B1500049E81 /* GREYObjectDeallocationTracker.m in Sources */,
+				FD623B0C20F9595300049E81 /* GREYCAAnimationDelegate.m in Sources */,
+				FD623B1820F95A5400049E81 /* GREYTestStub.m in Sources */,
+				FD623A8B20F958C200049E81 /* GREYTapAction.m in Sources */,
+				FD623AB920F9590800049E81 /* NSTimer+GREYApp.m in Sources */,
+				FD623B4720F95A9C00049E81 /* GREYNSTimerIdlingResource.m in Sources */,
+				FD41291723D97C230042A585 /* GREYElementFilter.m in Sources */,
+				FD623B8B20F95B1500049E81 /* GREYRunLoopSpinner.m in Sources */,
+				FD623A7C20F958C200049E81 /* GREYPinchAction.m in Sources */,
+				FD623B4320F95A9C00049E81 /* GREYTimedIdlingResource.m in Sources */,
+				FD623B0B20F9595300049E81 /* GREYNSURLConnectionDelegate.m in Sources */,
+				FD623AC420F9590800049E81 /* UISwitch+GREYApp.m in Sources */,
+				FD623B1920F95A5400049E81 /* GREYHostBackgroundDistantObject+GREYApp.m in Sources */,
+				FD623B4420F95A9C00049E81 /* GREYDispatchQueueIdlingResource.m in Sources */,
+				FDC5870824D0F710003BBE15 /* UITextSelectionView+GREYApp.m in Sources */,
+				FD623AB820F9590800049E81 /* NSObject+GREYApp.m in Sources */,
+				FD623A8320F958C200049E81 /* GREYActions.m in Sources */,
+				FD623AEC20F9592B00049E81 /* GREYAutomationSetup.m in Sources */,
+				FD623A8E20F958C200049E81 /* GREYScrollToContentEdgeAction.m in Sources */,
+				FD623B9020F95B1500049E81 /* GREYUIThreadExecutor.m in Sources */,
+				FD623B3020F95A8600049E81 /* GREYTouchInjector.m in Sources */,
+				FD623ABD20F9590800049E81 /* UIViewController+GREYApp.m in Sources */,
+				FD623B5420F95AF400049E81 /* GREYKeyboard.m in Sources */,
+				FD3A825B21F189BC00CA3ADF /* GREYActionsShorthand.m in Sources */,
+				FD623ADC20F9590800049E81 /* UIAnimation+GREYApp.m in Sources */,
+				FD623B8520F95B1500049E81 /* GREYSyncAPI.m in Sources */,
+				FD623A8420F958C200049E81 /* GREYSlideAction.m in Sources */,
+				FD623AD420F9590800049E81 /* UIGestureRecognizer+GREYApp.m in Sources */,
+				FD623B8820F95B1500049E81 /* GREYAppStateTracker.m in Sources */,
+				FD623A8620F958C200049E81 /* GREYScrollAction.m in Sources */,
+				FD623ACE20F9590800049E81 /* UIScrollView+GREYApp.m in Sources */,
+				FD623A7320F958C200049E81 /* GREYActionBlock.m in Sources */,
+				FD623B8C20F95B1500049E81 /* GREYDispatchQueueTracker.m in Sources */,
+				FD623ADA20F9590800049E81 /* __NSCFLocalDataTask_GREYApp.m in Sources */,
+				FD623B9E20F95D8000049E81 /* fishhook.c in Sources */,
+				FD623A8C20F958C200049E81 /* GREYPickerAction.m in Sources */,
+				FD623B6E20F95B0300049E81 /* GREYMatchersShorthand.m in Sources */,
+				FD623B1520F95A5400049E81 /* GREYHostApplicationDistantObject.m in Sources */,
+				FD623A7920F958C200049E81 /* GREYSwipeAction.m in Sources */,
+				FD623AC220F9590800049E81 /* UIWindow+GREYApp.m in Sources */,
+				FD623A8A20F958C200049E81 /* GREYChangeStepperAction.m in Sources */,
+				FD623B8320F95B1500049E81 /* GREYAppStateTrackerObject.m in Sources */,
+				FD3A826421F18A5900CA3ADF /* GREYTestApplicationDistantObject+GREYLogger.m in Sources */,
+				FD2E76EC2149E4580063EF7E /* GREYAppConfiguration.m in Sources */,
+				FD623A7F20F958C200049E81 /* GREYBaseAction.m in Sources */,
+				FD623B4920F95A9C00049E81 /* GREYOperationQueueIdlingResource.m in Sources */,
+				FD623B4C20F95A9C00049E81 /* GREYManagedObjectContextIdlingResource.m in Sources */,
+				FD623A7520F958C200049E81 /* GREYPathGestureUtils.m in Sources */,
+				FD623ACD20F9590800049E81 /* NSURLSession+GREYApp.m in Sources */,
+				FD623AD720F9590800049E81 /* NSURL+GREYApp.m in Sources */,
+				FD623AC820F9590800049E81 /* CALayer+GREYApp.m in Sources */,
+				FD623B6920F95B0300049E81 /* GREYMatchers.m in Sources */,
+				FD623A8720F958C200049E81 /* GREYMultiFingerSwipeAction.m in Sources */,
+				FD623B2720F95A7200049E81 /* GREYFailureScreenshotter.m in Sources */,
+				FD623B6820F95B0300049E81 /* GREYAllOf.m in Sources */,
+				FD623B0A20F9595300049E81 /* GREYSurrogateDelegate.m in Sources */,
+				FD623B1B20F95A5400049E81 /* GREYHostBackgroundDistantObject.m in Sources */,
+				FD623A7120F958C200049E81 /* GREYTapper.m in Sources */,
+				FD623ABC20F9590800049E81 /* UIView+GREYApp.m in Sources */,
+				FD623AF920F9594200049E81 /* GREYElementFinder.m in Sources */,
+				FD623AD820F9590800049E81 /* UIApplication+GREYApp.m in Sources */,
+				FD623AC920F9590800049E81 /* CAAnimation+GREYApp.m in Sources */,
+				FD623B1620F95A5400049E81 /* GREYHostApplicationDistantObject+GREYTestHelper.m in Sources */,
+				FD623AFA20F9594200049E81 /* GREYElementInteraction.m in Sources */,
+				FD623AE420F9591600049E81 /* GREYAssertions.m in Sources */,
+				FD623B3220F95A8600049E81 /* GREYSyntheticEvents.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDF9E03120F82D090005DCF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDF9E06320F82E340005DCF2 /* GREYDataEnumerator.m in Sources */,
+				FDF9E06120F82E340005DCF2 /* GREYElementProvider.m in Sources */,
+				FD98C459226C2DD1006F8D68 /* GREYScreenshotter.m in Sources */,
+				FDB4AB64237CD95F00E6847D /* GREYVisibilityCheckerTarget.m in Sources */,
+				FD44C48C22C679050044199E /* GREYTraversalFunctions.m in Sources */,
+				FDF9E06920F82EF60005DCF2 /* CGGeometry+GREYUI.m in Sources */,
+				FDB4AB65237CD95F00E6847D /* GREYVisibilityChecker.m in Sources */,
+				FDB4AB66237CD95F00E6847D /* GREYVisibilityCheckerCacheEntry.m in Sources */,
+				FDF9E05720F82E200005DCF2 /* GREYTraversalDFS.m in Sources */,
+				FDF9E07720F82F030005DCF2 /* GREYElementHierarchy.m in Sources */,
+				A277771E238FE215003E7373 /* GREYTraversalProperties.m in Sources */,
+				FDF9E06220F82E340005DCF2 /* GREYUIWindowProvider.m in Sources */,
+				A20847B422BC095B00DD3983 /* GREYTraversalObject.m in Sources */,
+				FDB4AB67237CD95F00E6847D /* GREYQuickVisibilityChecker.m in Sources */,
+				FDB4AB68237CD95F00E6847D /* GREYThoroughVisibilityChecker.m in Sources */,
+				FDF9E05820F82E200005DCF2 /* GREYTraversalBFS.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		804D3FCD22B99039001D3F3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MeasureLib;
+			targetProxy = 804D3FCC22B99039001D3F3A /* PBXContainerItemProxy */;
+		};
+		804D3FCF22B9903F001D3F3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ChannelLib;
+			targetProxy = 804D3FCE22B9903F001D3F3A /* PBXContainerItemProxy */;
+		};
+		804D3FD122B99055001D3F3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DeviceLib;
+			targetProxy = 804D3FD022B99055001D3F3A /* PBXContainerItemProxy */;
+		};
+		FD623BD920F9726300049E81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDF9E03420F82D090005DCF2 /* UILib */;
+			targetProxy = FD623BD820F9726300049E81 /* PBXContainerItemProxy */;
+		};
+		FD623DC420FD780900049E81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD62395020F56A9700049E81 /* CommonLib */;
+			targetProxy = FD623DC320FD780900049E81 /* PBXContainerItemProxy */;
+		};
+		FD66782A211FAE3A008EC4A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD62395020F56A9700049E81 /* CommonLib */;
+			targetProxy = FD667829211FAE3A008EC4A7 /* PBXContainerItemProxy */;
+		};
+		FDBE851022A21FC20093062B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = eDistantObject;
+			targetProxy = FDBE850F22A21FC20093062B /* PBXContainerItemProxy */;
+		};
+		FDF9E07C20F82F290005DCF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD62395020F56A9700049E81 /* CommonLib */;
+			targetProxy = FDF9E07B20F82F290005DCF2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FD5048FE20FB225100261CBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				HEADER_SEARCH_PATHS = (
+					"Submodules/eDistantObject/**",
+					.,
+					../../../,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					XCTest,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		FD5048FF20FB225100261CBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				HEADER_SEARCH_PATHS = (
+					"Submodules/eDistantObject/**",
+					.,
+					../../../,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					XCTest,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+		FD62391820F569D500049E81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = (
+					"-fobjc-arc",
+					"-fobjc-arc-exceptions",
+				);
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+				WARNING_CFLAGS = (
+					"-Werror",
+					"-Wall",
+					"-Wextra",
+					"-Wconstant-conversion",
+					"-Wconversion",
+					"-Wdocumentation",
+					"-Wenum-conversion",
+					"-Wint-conversion",
+					"-Wmissing-prototypes",
+					"-Wno-unused-parameter",
+					"-Wnull-dereference",
+					"-Wshorten-64-to-32",
+					"-Wsign-conversion",
+					"-Wundeclared-selector",
+				);
+			};
+			name = Debug;
+		};
+		FD62391920F569D500049E81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = NS_BLOCK_ASSERTIONS;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = (
+					"-fobjc-arc",
+					"-fobjc-arc-exceptions",
+				);
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+				WARNING_CFLAGS = (
+					"-Werror",
+					"-Wall",
+					"-Wextra",
+					"-Wconstant-conversion",
+					"-Wconversion",
+					"-Wdocumentation",
+					"-Wenum-conversion",
+					"-Wint-conversion",
+					"-Wmissing-prototypes",
+					"-Wno-unused-parameter",
+					"-Wnull-dereference",
+					"-Wshorten-64-to-32",
+					"-Wsign-conversion",
+					"-Wundeclared-selector",
+				);
+			};
+			name = Release;
+		};
+		FD62395820F56A9700049E81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"Submodules/eDistantObject/**",
+					.,
+					../../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		FD62395920F56A9700049E81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"Submodules/eDistantObject/**",
+					.,
+					../../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+		FD623A4F20F957BE00049E81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"Submodules/eDistantObject/**",
+					Submodules/fishhook/,
+					.,
+					../../..,
+				);
+				INFOPLIST_FILE = AppFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = AppFramework/AppFramework.modulemap;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-framework",
+					IOKit,
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.earlgrey.AppFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD623A5020F957BE00049E81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"Submodules/eDistantObject/**",
+					Submodules/fishhook/,
+					.,
+					../../..,
+				);
+				INFOPLIST_FILE = AppFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = AppFramework/AppFramework.modulemap;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-framework",
+					IOKit,
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.earlgrey.AppFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDF9E03B20F82D090005DCF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"Submodules/eDistantObject/**",
+					.,
+					../../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		FDF9E03C20F82D090005DCF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"Submodules/eDistantObject/**",
+					.,
+					../../..,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD50490720FB225100261CBE /* Build configuration list for PBXNativeTarget "TestLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD5048FE20FB225100261CBE /* Debug */,
+				FD5048FF20FB225100261CBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD62390C20F569D500049E81 /* Build configuration list for PBXProject "EarlGrey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD62391820F569D500049E81 /* Debug */,
+				FD62391920F569D500049E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD62395720F56A9700049E81 /* Build configuration list for PBXNativeTarget "CommonLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD62395820F56A9700049E81 /* Debug */,
+				FD62395920F56A9700049E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD623A4E20F957BE00049E81 /* Build configuration list for PBXNativeTarget "AppFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD623A4F20F957BE00049E81 /* Debug */,
+				FD623A5020F957BE00049E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDF9E04420F82D090005DCF2 /* Build configuration list for PBXNativeTarget "UILib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDF9E03B20F82D090005DCF2 /* Debug */,
+				FDF9E03C20F82D090005DCF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD62390920F569D500049E81 /* Project object */;
+}

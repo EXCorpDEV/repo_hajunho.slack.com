@@ -1,0 +1,43 @@
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in the repo.
+**       @material-components/core-ios-team
+
+# Order is important. The last matching pattern has the most precedence.
+# So if a pull request only touches javascript files, only these owners
+# will be requested to review.
+# *.js    @octocat @github/js
+
+# You can also use email addresses if you prefer.
+/components/ActionSheet/          @codeman7
+/components/AnimationTiming/      @yarneo
+/components/AppBar/               @jverkoey
+/components/BottomAppBar/         @wenyuzhang666
+/components/BottomSheet/          @yarneo
+/components/Buttons/              @randallli
+/components/Cards/                @yarneo
+/components/CollectionCells/      @yarneo
+/components/CollectionLayoutAttributes/ @jverkoey
+/components/Collections/          @jverkoey
+/components/Dialogs/              @galiak11 @iberezan
+/components/FeatureHighlight/     @codeman7
+/components/FlexibleHeader/       @jverkoey
+/components/HeaderStackView/      @jverkoey
+/components/Ink/                  @yarneo
+/components/LibraryInfo/          @jverkoey
+/components/List                  @andrewoverton
+/components/MaskedTransition/     @jverkoey
+/components/NavigationBar/        @yarneo @jverkoey
+/components/NavigationDrawer/     @yarneo @jakerockland
+/components/OverlayWindow/        @yarneo
+/components/PageControl/          @randallli
+/components/Palettes/             @jverkoey
+/components/Ripple                @yarneo
+/components/ShadowElevations/     @jverkoey
+/components/ShadowLayer/          @jverkoey
+/components/Snackbar/             @yarneo
+/components/TextFields/           @andrewoverton
+/components/Themes/               @jverkoey
+
+

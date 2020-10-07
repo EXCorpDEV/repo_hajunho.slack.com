@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B70BDC21CF6541C00C78D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B70BDC11CF6541C00C78D36 /* AppDelegate.swift */; };
+		0B70BDC71CF6541C00C78D36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B70BDC51CF6541C00C78D36 /* Main.storyboard */; };
+		0B70BDC91CF6541C00C78D36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B70BDC81CF6541C00C78D36 /* Assets.xcassets */; };
+		0B70BDCC1CF6541C00C78D36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B70BDCA1CF6541C00C78D36 /* LaunchScreen.storyboard */; };
+		0B70BDD61CF65B3400C78D36 /* ColorsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B70BDD51CF65B3400C78D36 /* ColorsCollectionViewController.swift */; };
+		0B70BDD81CF663B100C78D36 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B70BDD71CF663B100C78D36 /* ColorCollectionViewCell.swift */; };
+		0BFC043A1CF7830C00567F1C /* ColorCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC04391CF7830C00567F1C /* ColorCollectionViewHeader.swift */; };
+		F849D7387CAE64E85D55003B /* Pods_MDFTextAccessibilitySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEDF7C81A76FAF311AB1A07 /* Pods_MDFTextAccessibilitySample.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0B70BDBE1CF6541C00C78D36 /* MDFTextAccessibilitySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDFTextAccessibilitySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B70BDC11CF6541C00C78D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0B70BDC61CF6541C00C78D36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0B70BDC81CF6541C00C78D36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0B70BDCB1CF6541C00C78D36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0B70BDCD1CF6541C00C78D36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B70BDD51CF65B3400C78D36 /* ColorsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsCollectionViewController.swift; sourceTree = "<group>"; };
+		0B70BDD71CF663B100C78D36 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		0BFC04391CF7830C00567F1C /* ColorCollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewHeader.swift; sourceTree = "<group>"; };
+		1AE1DC46C109323BE9E1BC97 /* Pods-MDFTextAccessibilitySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDFTextAccessibilitySample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MDFTextAccessibilitySample/Pods-MDFTextAccessibilitySample.release.xcconfig"; sourceTree = "<group>"; };
+		837EE15AAD1298DCA1BF2E20 /* Pods-MDFTextAccessibilitySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDFTextAccessibilitySample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MDFTextAccessibilitySample/Pods-MDFTextAccessibilitySample.debug.xcconfig"; sourceTree = "<group>"; };
+		AAEDF7C81A76FAF311AB1A07 /* Pods_MDFTextAccessibilitySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDFTextAccessibilitySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B70BDBB1CF6541C00C78D36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F849D7387CAE64E85D55003B /* Pods_MDFTextAccessibilitySample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B70BDB51CF6541C00C78D36 = {
+			isa = PBXGroup;
+			children = (
+				0B70BDC01CF6541C00C78D36 /* MDFTextAccessibilitySample */,
+				0B70BDBF1CF6541C00C78D36 /* Products */,
+				E4FEF74BCDEE18EC2ECE4B38 /* Pods */,
+				EADA35B2A12AD4F156D27B04 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0B70BDBF1CF6541C00C78D36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B70BDBE1CF6541C00C78D36 /* MDFTextAccessibilitySample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B70BDC01CF6541C00C78D36 /* MDFTextAccessibilitySample */ = {
+			isa = PBXGroup;
+			children = (
+				0B70BDC11CF6541C00C78D36 /* AppDelegate.swift */,
+				0B70BDC81CF6541C00C78D36 /* Assets.xcassets */,
+				0B70BDD71CF663B100C78D36 /* ColorCollectionViewCell.swift */,
+				0BFC04391CF7830C00567F1C /* ColorCollectionViewHeader.swift */,
+				0B70BDD51CF65B3400C78D36 /* ColorsCollectionViewController.swift */,
+				0B70BDCD1CF6541C00C78D36 /* Info.plist */,
+				0B70BDCA1CF6541C00C78D36 /* LaunchScreen.storyboard */,
+				0B70BDC51CF6541C00C78D36 /* Main.storyboard */,
+			);
+			path = MDFTextAccessibilitySample;
+			sourceTree = "<group>";
+		};
+		E4FEF74BCDEE18EC2ECE4B38 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				837EE15AAD1298DCA1BF2E20 /* Pods-MDFTextAccessibilitySample.debug.xcconfig */,
+				1AE1DC46C109323BE9E1BC97 /* Pods-MDFTextAccessibilitySample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EADA35B2A12AD4F156D27B04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAEDF7C81A76FAF311AB1A07 /* Pods_MDFTextAccessibilitySample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B70BDBD1CF6541C00C78D36 /* MDFTextAccessibilitySample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B70BDD01CF6541C00C78D36 /* Build configuration list for PBXNativeTarget "MDFTextAccessibilitySample" */;
+			buildPhases = (
+				77EB4CAE2CC44758B3B78076 /* [CP] Check Pods Manifest.lock */,
+				31699BC6ECD347A75696EFB0 /* [CP] Check Pods Manifest.lock */,
+				C412B6C87BDE4D2B6B1CF19A /* [CP] Check Pods Manifest.lock */,
+				0B70BDBA1CF6541C00C78D36 /* Sources */,
+				0B70BDBB1CF6541C00C78D36 /* Frameworks */,
+				0B70BDBC1CF6541C00C78D36 /* Resources */,
+				457B8C81531E0FA57A7339DF /* [CP] Embed Pods Frameworks */,
+				AC61D42B0C3BEBF8E7C70D21 /* [CP] Copy Pods Resources */,
+				74063B709EA7196D10BF7470 /* 📦 Embed Pods Frameworks */,
+				BD0CDD49D379D3CA0F88B59D /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MDFTextAccessibilitySample;
+			productName = MDFTextAccessibilitySample;
+			productReference = 0B70BDBE1CF6541C00C78D36 /* MDFTextAccessibilitySample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B70BDB61CF6541C00C78D36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Google;
+				TargetAttributes = {
+					0B70BDBD1CF6541C00C78D36 = {
+						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = 0B70BDB91CF6541C00C78D36 /* Build configuration list for PBXProject "MDFTextAccessibilitySample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0B70BDB51CF6541C00C78D36;
+			productRefGroup = 0B70BDBF1CF6541C00C78D36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B70BDBD1CF6541C00C78D36 /* MDFTextAccessibilitySample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B70BDBC1CF6541C00C78D36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B70BDCC1CF6541C00C78D36 /* LaunchScreen.storyboard in Resources */,
+				0B70BDC91CF6541C00C78D36 /* Assets.xcassets in Resources */,
+				0B70BDC71CF6541C00C78D36 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31699BC6ECD347A75696EFB0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		457B8C81531E0FA57A7339DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MDFTextAccessibilitySample/Pods-MDFTextAccessibilitySample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MDFTextAccessibilitySample/Pods-MDFTextAccessibilitySample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74063B709EA7196D10BF7470 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MDFTextAccessibilitySample/Pods-MDFTextAccessibilitySample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77EB4CAE2CC44758B3B78076 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MDFTextAccessibilitySample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC61D42B0C3BEBF8E7C70D21 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MDFTextAccessibilitySample/Pods-MDFTextAccessibilitySample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD0CDD49D379D3CA0F88B59D /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MDFTextAccessibilitySample/Pods-MDFTextAccessibilitySample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C412B6C87BDE4D2B6B1CF19A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B70BDBA1CF6541C00C78D36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B70BDD81CF663B100C78D36 /* ColorCollectionViewCell.swift in Sources */,
+				0B70BDD61CF65B3400C78D36 /* ColorsCollectionViewController.swift in Sources */,
+				0B70BDC21CF6541C00C78D36 /* AppDelegate.swift in Sources */,
+				0BFC043A1CF7830C00567F1C /* ColorCollectionViewHeader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0B70BDC51CF6541C00C78D36 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B70BDC61CF6541C00C78D36 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0B70BDCA1CF6541C00C78D36 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B70BDCB1CF6541C00C78D36 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0B70BDCE1CF6541C00C78D36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0B70BDCF1CF6541C00C78D36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B70BDD11CF6541C00C78D36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 837EE15AAD1298DCA1BF2E20 /* Pods-MDFTextAccessibilitySample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MDFTextAccessibilitySample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.MDFTextAccessibilitySample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0B70BDD21CF6541C00C78D36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AE1DC46C109323BE9E1BC97 /* Pods-MDFTextAccessibilitySample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MDFTextAccessibilitySample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.MDFTextAccessibilitySample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B70BDB91CF6541C00C78D36 /* Build configuration list for PBXProject "MDFTextAccessibilitySample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B70BDCE1CF6541C00C78D36 /* Debug */,
+				0B70BDCF1CF6541C00C78D36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B70BDD01CF6541C00C78D36 /* Build configuration list for PBXNativeTarget "MDFTextAccessibilitySample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B70BDD11CF6541C00C78D36 /* Debug */,
+				0B70BDD21CF6541C00C78D36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B70BDB61CF6541C00C78D36 /* Project object */;
+}

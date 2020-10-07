@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# Copyright 2016-present the Material Components for iOS authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Install clang-format.
+#
+# This is not required for anyone but core team members.
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+"$DIR/install_brew"
+
+set -o errexit
+
+# Respect existing installs first.
+if ! git clang-format -h >/dev/null 2>&1; then
+  echo "git clang-format not available..."
+
+  git_clang_format_path="/usr/local/bin/git-clang-format"
+
+  if [ ! -f "$git_clang_format_path" ]; then
+    TMP_PATH=$(mktemp -d)
+    TMP_FILE="$TMP_PATH/git-clang-format"
+    echo "Downloading..."
+    curl -s https://raw.githubusercontent.com/llvm-mirror/clang/master/tools/clang-format/git-clang-format -o "$TMP_FILE"
+
+    echo "Requesting sudo to move $TMP_FILE to $git_clang_format_path"
+    sudo mv "$TMP_FILE" "$git_clang_format_path"
+  fi
+
+  # Ensure permissions are set correctly.
+  echo "Setting executable permissions on $git_clang_format_path..."
+  chmod +x "$git_clang_format_path"
+fi

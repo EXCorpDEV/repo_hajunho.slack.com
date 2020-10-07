@@ -1,0 +1,5 @@
+module: TypographyScheme
+umbrella_header: src/MaterialTypographyScheme.h
+objc: true
+sdk: iphonesimulator
+framework_root: ../../

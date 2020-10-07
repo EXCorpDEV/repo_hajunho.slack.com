@@ -1,0 +1,348 @@
+#!/bin/bash
+#
+# Copyright 2017-present The Material Components for iOS Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Fail on any error
+set -e
+COCOAPODS_VERSION="1.6.0"
+
+# Fix permissions issue with Ruby Gems (b/128326105)
+if [ -n "$KOKORO_BUILD_NUMBER" ]; then
+  sudo chown -Rh $(whoami) /Library/Ruby/Gems
+fi
+
+if [ -n "$KOKORO_BUILD_NUMBER" ]; then
+  repo_dir='github/repo'
+else
+  repo_dir="$(dirname $0)"
+fi
+
+repo_dir="$(cd $repo_dir; pwd)"
+scripts_dir="${repo_dir}/scripts/lib"
+
+source "${scripts_dir}/github_comments.sh"
+source "${scripts_dir}/select_xcode.sh"
+source "${scripts_dir}/package_managers.sh"
+
+# To install homebrew formulas at specific versions we need to point directly
+# to the desired sha in the homebrew formula repository.
+# See https://danepowell.com/blog/homebrew-formula-versions for more details.
+# This currently points to version 0.21.3, the last version that supports Xcode 9
+SOURCEKITTEN_FORMULA="https://raw.githubusercontent.com/Homebrew/homebrew-core/c5a8a094f9e1dd8e41ed24785acef07ef7092d0d/Formula/sourcekitten.rb"
+
+move_derived_data_to_tmp() {
+  targetDir="${HOME}/Library/Developer/Xcode/DerivedData"
+  if [[ -d "$targetDir" ]]; then
+    mv "$targetDir" /tmpfs/
+    ln -sf /tmpfs/DerivedData "$targetDir"
+  fi
+}
+
+run_cocoapods() {
+  echo "Running cocoapods builds..."
+
+  if [ -n "$KOKORO_BUILD_NUMBER" ]; then
+    move_derived_data_to_tmp
+  fi
+
+  if [ -n "$KOKORO_BUILD_NUMBER" ]; then
+    select_xcode "$XCODE_VERSION"
+
+    # Move into our cloned repo
+    cd github/repo
+
+    gem_install xcpretty 
+    # TODO(https://github.com/material-components/material-components-ios/issues/6356 ): Move to 1.6
+    gem install cocoapods -v "$COCOAPODS_VERSION"
+    pod --version
+
+    # Install git-lfs
+    brew_install git-lfs
+    git lfs install
+    git lfs pull
+  fi
+
+  if [ "$DEPENDENCY_SYSTEM" = "cocoapods" ]; then
+    bash scripts/prep_all
+    bash scripts/build_all --verbose
+    if [ -n "$IS_RELEASE" ]; then
+      bash scripts/test_all
+    else
+      bash scripts/test_all catalog/MDCCatalog.xcworkspace:MDCCatalog
+    fi
+  elif [ "$DEPENDENCY_SYSTEM" = "cocoapods-podspec" ]; then
+    pod lib lint MaterialComponents.podspec --skip-tests
+  fi
+
+  if [ -n "$CODECOV_TOKEN" ]; then
+    bash <(curl -s https://codecov.io/bash)
+  fi
+}
+
+# For local runs, you must set the following environment variables:
+#
+#   DANGER_GITHUB_API_TOKEN -> Create a token here: https://github.com/settings/tokens.
+#                              Must have public_repo scope.
+#   DANGER_TEST_PR="###"    -> The PR # you want to test danger against.
+#
+# And you'll likely have to install danger:
+#
+#   yarn add danger
+#
+run_danger() {
+  if [ -n "$KOKORO_BUILD_NUMBER" ]; then
+    # Move into our cloned repo
+    cd github/repo
+
+    export DANGER_TEST_PR="$KOKORO_GITHUB_PULL_REQUEST_NUMBER"
+
+    # Install danger
+    yarn add danger
+  fi
+
+  # We're not a supported CI, so we have to pretend to be one.
+  export DANGER_FAKE_CI="YEP"
+  export DANGER_TEST_REPO="material-components/material-components-ios"
+
+  # Run Danger
+  yarn danger ci
+}
+
+generate_website() {
+  if [ -n "$KOKORO_BUILD_NUMBER" ]; then
+    # Move into our cloned repo
+    cd github/repo
+
+    ./scripts/build_site.sh
+
+    gem_install bundler
+    brew_install yarn --ignore-dependencies
+    
+    # The above installations update node to v10, but the docsite generator
+    # relies on v8.
+    brew unlink node
+    brew_install node@8
+    # Required because node@8 is keg-only, meaning it isn't linked automatically.
+    brew link --force --overwrite node@8
+  fi
+
+  cd docsite-generator
+  bundle install
+  yarn install
+  cd ../
+
+  TMP_PATH=$(mktemp -d)
+  ./scripts/build_site.sh 2>&1 | tee "$TMP_PATH/output"
+
+  if [[ $(grep "^Error:" "$TMP_PATH/output") ]]; then
+    # Make site generation errors be script failures. build_site.sh always exits with 0
+    # unfortunately.
+    exit 1
+  fi
+}
+
+# Will generate an API diff between the current branch and the merge-base from develop.
+# The result will be posted to GitHub as a comment.
+#
+# For local runs, you must set the following environment variables:
+#
+#   GITHUB_API_TOKEN -> Create a token here: https://github.com/settings/tokens.
+#                       Must have public_repo scope.
+#   KOKORO_GITHUB_PULL_REQUEST_NUMBER="###" -> The PR # you want to post the API diff results to.
+#
+# And you'll likely have to install sourcekitten:
+#
+#   brew install sourcekitten
+#
+generate_apidiff() {
+  if [ -n "$KOKORO_BUILD_NUMBER" ]; then
+    select_xcode "$XCODE_VERSION"
+
+    # Move into our cloned repo
+    cd github/repo
+
+    # Install sourcekitten, a dependency of the apidiff tool
+    brew_install "$SOURCEKITTEN_FORMULA"
+
+    sourcekitten version
+  fi
+
+  usage() {
+    echo "Usage: $0 -d apidiff"
+    echo
+    echo "Will generate an API diff between the current branch and the merge-base from develop."
+    echo "The result will be posted to GitHub as a comment."
+    echo
+    echo "Must set the following environment variables to run locally:"
+    echo
+    echo "GITHUB_API_TOKEN -> Create a token here: https://github.com/settings/tokens."
+    echo "                    Must have public_repo scope."
+    echo "KOKORO_GITHUB_PULL_REQUEST_NUMBER=\"###\" -> The PR # you want to post the API diff results to."
+  }
+
+  if [ -z "$GITHUB_API_TOKEN" ]; then
+    echo "GITHUB_API_TOKEN must be set to a github token with public_repo scope."
+    usage
+    exit 1
+  fi
+
+  if [ -z "$KOKORO_GITHUB_PULL_REQUEST_NUMBER" ]; then
+    echo "KOKORO_GITHUB_PULL_REQUEST_NUMBER must be set to a github pull request number."
+    usage
+    exit 1
+  fi
+
+  BUILDS_TMP_PATH=$(mktemp -d)
+  base_sha=$(git merge-base origin/develop HEAD)
+
+  ./scripts/release apidiff "$base_sha" | tee "$BUILDS_TMP_PATH/api_diff"
+  changelog_path=$(cat "$BUILDS_TMP_PATH/api_diff" | grep "Changelog=" | cut -d'=' -f2)
+  error_path=$(cat "$BUILDS_TMP_PATH/api_diff" | grep "Errors=" | cut -d'=' -f2)
+
+  if [ ! -f scripts/external/github-comment/.git ]; then
+    git submodule update --init --recursive scripts/external/github-comment
+  fi
+
+  pushd scripts/external/github-comment >> /dev/null
+
+  if [ -f "$changelog_path" ]; then
+    echo "## API diff detected the following changes" > "$changelog_path.tmp"
+    cat "$changelog_path" >> "$changelog_path.tmp"
+
+    swift run github-comment \
+      --repo=material-components/material-components-ios \
+      --github_token="$GITHUB_API_TOKEN" \
+      --pull_request_number="$KOKORO_GITHUB_PULL_REQUEST_NUMBER" \
+      --identifier=apidiff \
+      --comment_body="$changelog_path.tmp"
+
+  else
+    # No changelog, so delete any existing comment
+    swift run github-comment \
+      --repo=material-components/material-components-ios \
+      --github_token="$GITHUB_API_TOKEN" \
+      --pull_request_number="$KOKORO_GITHUB_PULL_REQUEST_NUMBER" \
+      --identifier=apidiff \
+      --delete
+  fi
+
+  popd >> /dev/null
+
+  if [ -f "$error_path" ]; then
+    nested_error_path=$(cat "$error_path" | grep "stderr output is available in" | cut -d' ' -f6)
+    if [ -f "$nested_error_path" ]; then
+      echo
+      echo "Potential build errors:"
+      cat "$nested_error_path"
+    fi
+  fi
+}
+
+# This command can be used when a pull request should always be put into a failure state.
+# For example, we do not want to allow pull requests to be merged into stable.
+fail_immediately() {
+  exit 1
+}
+
+# This command protects the stable branch from being merged with anything other than
+# release-candidate branches.
+protect_stable_from_undesired_merges() {
+  if [ -z "$KOKORO_GITHUB_PULL_REQUEST_NUMBER" ]; then
+    echo "KOKORO_GITHUB_PULL_REQUEST_NUMBER has not been defined."
+    echo "Please set this variable to a valid GitHub pull request number."
+    exit 1
+  fi
+
+  pull_request_api_url="https://api.github.com/repos/material-components/material-components-ios/pulls/$KOKORO_GITHUB_PULL_REQUEST_NUMBER"
+
+  tmp_path=$(mktemp -d)
+  pull_request_metadata_file="$tmp_path/output"
+
+  curl -s "$pull_request_api_url" > "$pull_request_metadata_file"
+
+  if ! grep --quiet '^    "label": "material-components:stable",$' "$pull_request_metadata_file"; then
+    echo "This job should only be used to validate pull requests to stable."
+    exit 1;
+  fi
+
+  if ! grep --quiet '^    "label": "material-components:release-candidate",$' "$pull_request_metadata_file"; then
+    echo "Only release-candidate branches can be merged into stable."
+    exit 1;
+  fi
+
+  echo "Validated that this branch is a release-candidate being merged in to stable."
+}
+
+# The fall-through case for unknown jobs.
+unknown_job() {
+  if [ -n "$DEPENDENCY_SYSTEM" ]; then
+    echo "The following job is unknown and will not be run: $DEPENDENCY_SYSTEM"
+  else
+    echo "You must provide a depenency system with '-d' or the environment "
+    echo "variable 'DEPENDENCY_SYSTEM'."
+  fi
+  exit 1
+}
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]; do
+  key="$1"
+
+  case $key in
+  -v|--verbose)
+    VERBOSE_OUTPUT="1"
+    shift
+    ;;
+  -d|--dependency_system)
+    DEPENDENCY_SYSTEM="$2"
+    shift
+    shift
+    ;;
+  -c|--command)
+    COMMAND="$2"
+    shift
+    shift
+    ;;
+  -t|--target)
+    TARGET="$2"
+    shift
+    shift
+    ;;
+  *)
+    POSITIONAL+=("$1")
+    shift
+    ;;
+  esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
+if [ -n "$VERBOSE_OUTPUT" ]; then
+  # Display commands to stderr.
+  set -x
+fi
+
+case "$DEPENDENCY_SYSTEM" in
+  "cocoapods")  run_cocoapods ;;
+  "cocoapods-podspec")  run_cocoapods ;;
+  "website")    generate_website ;;
+  "danger")     run_danger ;;
+  "apidiff")    generate_apidiff ;;
+  "fail")       fail_immediately ;;
+  "protect-stable-from-undesired-merges") protect_stable_from_undesired_merges ;;
+
+  *)            unknown_job ;;
+esac
+
+echo "Success!"

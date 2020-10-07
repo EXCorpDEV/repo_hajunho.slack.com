@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: xcode8.3
+
+before_install:
+  - sudo easy_install cpp-coveralls
+  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+
+script:
+  - set -o pipefail;
+  - xcodebuild test -project Source/OCHamcrest.xcodeproj -scheme OCHamcrest -sdk macosx | xcpretty
+  - xcodebuild test -project Source/OCHamcrest.xcodeproj -scheme libochamcrest -sdk iphonesimulator -destination "platform=iOS Simulator,OS=latest,name=iPhone 5" | xcpretty
+  - xcodebuild test -project Source/OCHamcrest.xcodeproj -scheme libochamcrest -sdk iphonesimulator -destination "platform=iOS Simulator,OS=latest,name=iPhone 5s" | xcpretty
+  - pod spec lint --quick
+
+after_success:
+  - ./Cocoanetics-Ruby/coveralls.rb --exclude-folder Source/Tests --exclude-folder Examples
