@@ -1,0 +1,14 @@
+git config --global core.editor "vim"
+sudo apt update
+sudo apt -y upgrade
+sudo apt autoremove -y
+sudo apt-get check
+sudo apt install -y python3-pip
+sudo apt install build-essential libssl-dev libffi-dev python3-dev
+sudo apt install -y python3-venv
+python3 -m pip install --upgrade pip
+python3 -m venv python3_env
+source my_env/bin/activate
+pip install django
+deactivate
+apt list
