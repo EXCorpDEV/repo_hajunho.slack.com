@@ -27,6 +27,6 @@
     ]
   },
   "dependencies": {
-  "xmldom": ">=0.5.0"
+    "xmldom": ">=0.5.0"
   }
 }
