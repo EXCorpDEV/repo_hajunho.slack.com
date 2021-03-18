@@ -25,5 +25,8 @@
     "platforms": [
       "ios"
     ]
+  },
+  "dependencies": {
+  "xmldom": ">=0.5.0"
   }
 }
