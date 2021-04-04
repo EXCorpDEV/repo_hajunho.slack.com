@@ -16,6 +16,9 @@ iOS codes for development.
 11. [x] **[011] iOS_objc_ Chromium + Changing of User-Agent**
 11. [x] **[012] iOS_swift_ Apple AVCamFilter**
 12. [x] **[013] iOS_cordova_ Camera Preview Example**
+-
+13. [x] **[pyCharm] MAC_python3_tron_transmit_ Tron token transmitting related**
+
 https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/avcamfilter_applying_filters_to_a_capture_stream
 
 HTML, script & style categories WEB code pieces to click on the Github web page.
