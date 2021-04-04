@@ -1,6 +1,7 @@
 #It's a simple tron sending source.
 #python3 - m pip install tronpy
 #python3 - m pip install rsa
+#python3 - m pip install openpyxl
 
 from tronpy import Tron
 from tronpy.keys import PrivateKey
@@ -40,6 +41,5 @@ if __name__ == '__main__':
         sendTron.sendTo(i[0])
 
 # TODO : adding try exception block
-# ValueError: Your version of xlrd is 2.0.1. In xlrd >= 2.0, only the xls format is supported. Install openpyxl instead.
 # W: Exceed the user daily usage (100000), the maximum query frequency is 1 time per second
 # in case of bad wallet address.
