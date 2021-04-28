@@ -1,4 +1,5 @@
 # repo_hajunho.slack.com
+I'm dreaming all the personal developers are getting happy more than now.
 
 
 iOS codes for development.
