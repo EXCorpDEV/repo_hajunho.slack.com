@@ -1,8 +1,11 @@
 # repo_hajunho.slack.com
 I'm dreaming all the personal developers are getting happy more than now.
 
-
 iOS codes for development.
+
+2021-05-26 : The Repo will be changed to a recognizable folder structure.
+
+
 
 1. [x] **[001] iOS_swift_ Global Log Setting**
 2. [x] **[002] iOS_swift_ Graph library**
