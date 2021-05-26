@@ -61,6 +61,14 @@
     NSLog(@"databasePathFromApp %@ To %@", databasePathFromApp, databasePath);
 }
 
+
+//sql3hjh *vSQL = [[sql3hjh alloc] init];
+//DDTBT_ATCH_FILE_DTIL *dataImgs = [vSQL SelectImageFileInformation:self.mDfct.cd_tppg];
+//NSLog(@":self.mDfct.cd_tppg %@ %@", self.mDfct.cd_tppg, dataImgs.pth_file);
+//NSString *strToast = [NSString stringWithFormat:@"개수 %@", dataImgs.nm_phys_file];
+//[self.view makeToast:strToast
+//                       duration:3.0
+//                       position:CSToastPositionTop];
 -(DDTBT_ATCH_FILE_DTIL *) SelectImageFileInformation:(NSString *) param
 {
     
