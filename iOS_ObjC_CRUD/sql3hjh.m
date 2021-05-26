@@ -61,17 +61,6 @@
     NSLog(@"databasePathFromApp %@ To %@", databasePathFromApp, databasePath);
 }
 
-/* Usage :
-    sql3hjh *vSQL = [[sql3hjh alloc] init];
-    NSMutableArray *vArray= [vSQL SelectImageFileInformation:self.mDfct.cd_tppg];
-
-    for(DDTBT_ATCH_FILE_DTIL* dataImgs in vArray) {
-        NSLog(@":self.mDfct.cd_tppg %@ %@", self.mDfct.cd_tppg, dataImgs.pth_file);
-        NSString *strToast = [NSString stringWithFormat:@"개수 %@", dataImgs.nm_phys_file];
-        [self.view makeToast:strToast
-                               duration:3.0
-                               position:CSToastPositionTop];
-    } */
 -(NSMutableArray *) SelectImageFileInformation:(NSString *) param
 {
     NSMutableArray *array = [[NSMutableArray alloc] init];
