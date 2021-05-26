@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong, readwrite) NSString *databasePath;
 
--(DDTBT_ATCH_FILE_DTIL *) SelectImageFileInformation:(NSString *) param;
+-(NSMutableArray *) SelectImageFileInformation:(NSString *) param;
 
 - (id) init;
 - (void) checkBackDB;

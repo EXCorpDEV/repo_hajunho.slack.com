@@ -61,16 +61,20 @@
     NSLog(@"databasePathFromApp %@ To %@", databasePathFromApp, databasePath);
 }
 
+/* Usage :
+    sql3hjh *vSQL = [[sql3hjh alloc] init];
+    NSMutableArray *vArray= [vSQL SelectImageFileInformation:self.mDfct.cd_tppg];
 
-//sql3hjh *vSQL = [[sql3hjh alloc] init];
-//DDTBT_ATCH_FILE_DTIL *dataImgs = [vSQL SelectImageFileInformation:self.mDfct.cd_tppg];
-//NSLog(@":self.mDfct.cd_tppg %@ %@", self.mDfct.cd_tppg, dataImgs.pth_file);
-//NSString *strToast = [NSString stringWithFormat:@"개수 %@", dataImgs.nm_phys_file];
-//[self.view makeToast:strToast
-//                       duration:3.0
-//                       position:CSToastPositionTop];
--(DDTBT_ATCH_FILE_DTIL *) SelectImageFileInformation:(NSString *) param
+    for(DDTBT_ATCH_FILE_DTIL* dataImgs in vArray) {
+        NSLog(@":self.mDfct.cd_tppg %@ %@", self.mDfct.cd_tppg, dataImgs.pth_file);
+        NSString *strToast = [NSString stringWithFormat:@"개수 %@", dataImgs.nm_phys_file];
+        [self.view makeToast:strToast
+                               duration:3.0
+                               position:CSToastPositionTop];
+    } */
+-(NSMutableArray *) SelectImageFileInformation:(NSString *) param
 {
+    NSMutableArray *array = [[NSMutableArray alloc] init];
     
     NSString *query = [NSString stringWithFormat:@"select a.seq, a.nm_logi_file, a.nm_phys_file, a.yn_mbil_add from ddtbt_atch_file_dtil2 a \
                        inner join ddtbt_tppg b on a.id_atch_file=b.id_dwg_atch_file \
@@ -94,9 +98,10 @@
                 atch.nm_phys_file = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
                 atch.yn_mbil_add = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
                 NSLog(@"SelectImageFileInformation %@ %ld %@ %@", atch.nm_logi_file, (long)atch.seq, atch.nm_phys_file, atch.yn_mbil_add);
-                sqlite3_finalize(compiledStatement);
-                [self checkBackDB];
-                return atch;
+//                sqlite3_finalize(compiledStatement);
+//                [self checkBackDB];
+//                return atch;
+                [array addObject:atch];
             }
         }
         sqlite3_finalize(compiledStatement);
@@ -104,7 +109,8 @@
     } else {
         [self checkBackDB];
     }
-    return nil;
+//    return nil;
+    return array;
 }
 
 @end
