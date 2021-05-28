@@ -35,9 +35,64 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="69.642857142857139"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="9sY-bc-n9U">
+            <objects>
+                <viewController id="7Ny-JE-VHv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wvO-an-R36">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eworld" translatesAutoresizingMaskIntoConstraints="NO" id="JAr-eu-GXf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gmJ-PN-PzA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JAr-eu-GXf" firstAttribute="top" secondItem="gmJ-PN-PzA" secondAttribute="top" id="IBi-fO-ThT"/>
+                            <constraint firstItem="gmJ-PN-PzA" firstAttribute="trailing" secondItem="JAr-eu-GXf" secondAttribute="trailing" id="Xwd-Wb-LI6"/>
+                            <constraint firstItem="JAr-eu-GXf" firstAttribute="leading" secondItem="gmJ-PN-PzA" secondAttribute="leading" id="g03-lV-eiX"/>
+                            <constraint firstItem="gmJ-PN-PzA" firstAttribute="bottom" secondItem="JAr-eu-GXf" secondAttribute="bottom" id="yJM-is-uws"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Chn-2D-gvB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ga-K9-Er9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="351"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="db9-Rm-Egu">
+            <objects>
+                <viewController id="UCj-1V-gmg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mrh-5Y-yKi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dlenc" translatesAutoresizingMaskIntoConstraints="NO" id="GPb-N0-kvu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dek-A9-oz3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dek-A9-oz3" firstAttribute="bottom" secondItem="GPb-N0-kvu" secondAttribute="bottom" id="13b-wn-NbP"/>
+                            <constraint firstItem="dek-A9-oz3" firstAttribute="trailing" secondItem="GPb-N0-kvu" secondAttribute="trailing" id="DJI-QN-MsC"/>
+                            <constraint firstItem="GPb-N0-kvu" firstAttribute="leading" secondItem="dek-A9-oz3" secondAttribute="leading" id="P8C-Jm-yQF"/>
+                            <constraint firstItem="GPb-N0-kvu" firstAttribute="top" secondItem="dek-A9-oz3" secondAttribute="top" id="P8D-lZ-DZJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t15-oz-Y59" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010" y="-312"/>
+        </scene>
     </scenes>
     <resources>
         <image name="daelimlogo" width="200" height="52"/>
+        <image name="dlenc" width="500" height="140"/>
+        <image name="eworld" width="3508" height="2481"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
