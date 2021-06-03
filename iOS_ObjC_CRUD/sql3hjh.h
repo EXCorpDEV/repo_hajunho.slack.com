@@ -23,6 +23,9 @@
 - (id) init;
 - (void) checkBackDB;
 + (void) checkAndCreateDatabase:(BOOL)flag;
+- (void) selectAtch_Common:(NSMutableArray *)array withMode:(NSString *)mode maxLimit:(NSInteger)count;
+- (BOOL) updateAtchYnSvrTrsm_common:(NSString *)atchId seq:(NSInteger)seq;
+- (void) selectAtchCommon:(NSMutableArray *)array withMode:(NSString *)mode maxLimit:(NSInteger)count;
 
 @end
 
