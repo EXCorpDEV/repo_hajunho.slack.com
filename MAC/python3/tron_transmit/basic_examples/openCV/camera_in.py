@@ -1,7 +1,7 @@
 import sys
 import cv2
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0) #camera number or video file
 
 if not cap.isOpened():
     print("Camera open failed!")
