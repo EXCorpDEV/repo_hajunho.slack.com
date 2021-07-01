@@ -13,6 +13,10 @@
 		D212EF182660AB8A00FAEA25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D212EF162660AB8A00FAEA25 /* Main.storyboard */; };
 		D212EF1A2660AB8B00FAEA25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D212EF192660AB8B00FAEA25 /* Assets.xcassets */; };
 		D212EF1D2660AB8B00FAEA25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D212EF1B2660AB8B00FAEA25 /* LaunchScreen.storyboard */; };
+		D22B3041268D55C400E68F5E /* sampleBridge.html in Resources */ = {isa = PBXBuildFile; fileRef = D22B303F268D55C400E68F5E /* sampleBridge.html */; };
+		D22B3042268D55C400E68F5E /* WebViewBridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B3040268D55C400E68F5E /* WebViewBridgeViewController.swift */; };
+		D22B3045268D55ED00E68F5E /* bridge.js  in Resources */ = {isa = PBXBuildFile; fileRef = D22B3043268D55ED00E68F5E /* bridge.js  */; };
+		D22B3046268D55ED00E68F5E /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = D22B3044268D55ED00E68F5E /* test.html */; };
 		D281A6782668BEA300921DE0 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = D281A6772668BEA300921DE0 /* View.xib */; };
 		D281A67A2668BEB400921DE0 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D281A6792668BEB400921DE0 /* SwiftUIView.swift */; };
 		D281A67D2668BEDF00921DE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D281A67B2668BEDF00921DE0 /* ViewController.swift */; };
@@ -28,6 +32,10 @@
 		D212EF192660AB8B00FAEA25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D212EF1C2660AB8B00FAEA25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D212EF1E2660AB8B00FAEA25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D22B303F268D55C400E68F5E /* sampleBridge.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sampleBridge.html; sourceTree = "<group>"; };
+		D22B3040268D55C400E68F5E /* WebViewBridgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewBridgeViewController.swift; sourceTree = "<group>"; };
+		D22B3043268D55ED00E68F5E /* bridge.js  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bridge.js "; sourceTree = "<group>"; };
+		D22B3044268D55ED00E68F5E /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		D281A6772668BEA300921DE0 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		D281A6792668BEB400921DE0 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D281A67B2668BEDF00921DE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +72,7 @@
 		D212EF0F2660AB8A00FAEA25 /* SQLiteCRUD */ = {
 			isa = PBXGroup;
 			children = (
+				D22B303E268D559500E68F5E /* WebKitExample */,
 				D200E0FB2660B2190018C06B /* ViewControllerACRO.swift */,
 				D281A6772668BEA300921DE0 /* View.xib */,
 				D281A6792668BEB400921DE0 /* SwiftUIView.swift */,
@@ -77,6 +86,17 @@
 				D212EF1E2660AB8B00FAEA25 /* Info.plist */,
 			);
 			path = SQLiteCRUD;
+			sourceTree = "<group>";
+		};
+		D22B303E268D559500E68F5E /* WebKitExample */ = {
+			isa = PBXGroup;
+			children = (
+				D22B3043268D55ED00E68F5E /* bridge.js  */,
+				D22B3044268D55ED00E68F5E /* test.html */,
+				D22B303F268D55C400E68F5E /* sampleBridge.html */,
+				D22B3040268D55C400E68F5E /* WebViewBridgeViewController.swift */,
+			);
+			path = WebKitExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +160,10 @@
 				D281A6782668BEA300921DE0 /* View.xib in Resources */,
 				D212EF1D2660AB8B00FAEA25 /* LaunchScreen.storyboard in Resources */,
 				D212EF1A2660AB8B00FAEA25 /* Assets.xcassets in Resources */,
+				D22B3046268D55ED00E68F5E /* test.html in Resources */,
 				D212EF182660AB8A00FAEA25 /* Main.storyboard in Resources */,
+				D22B3041268D55C400E68F5E /* sampleBridge.html in Resources */,
+				D22B3045268D55ED00E68F5E /* bridge.js  in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +177,7 @@
 				D281A67D2668BEDF00921DE0 /* ViewController.swift in Sources */,
 				D212EF112660AB8A00FAEA25 /* AppDelegate.swift in Sources */,
 				D200E0FC2660B2190018C06B /* ViewControllerACRO.swift in Sources */,
+				D22B3042268D55C400E68F5E /* WebViewBridgeViewController.swift in Sources */,
 				D212EF132660AB8A00FAEA25 /* SceneDelegate.swift in Sources */,
 				D281A67A2668BEB400921DE0 /* SwiftUIView.swift in Sources */,
 			);
