@@ -12,7 +12,29 @@ import CoreLocation
 import ARKit
 
 final class StartViewController: UIViewController, Controller {
+    
     @IBOutlet weak var mapView: MKMapView!
+    
+    
+    @IBAction func onClickMyLocation(_ sender: Any) {
+        
+        let manager = CLLocationManager()
+        if #available(iOS 14.0, *) {
+            switch manager.authorizationStatus {
+            case .denied:
+                break
+            default:
+                if let center = manager.location?.coordinate {
+                    let region = MKCoordinateRegionMakeWithDistance(center, 200, 200)
+                    mapView.setRegion(region, animated: false)
+                }
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        
+    }
+    
     private var annotationColor = UIColor.blue
     internal var annotations: [POIAnnotation] = []
     private var currentTripLegs: [[CLLocationCoordinate2D]] = []

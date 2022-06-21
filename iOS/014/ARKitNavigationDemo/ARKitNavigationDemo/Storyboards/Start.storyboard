@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,15 +19,25 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Emw-Cr-LBC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="677"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSI-vC-wO6">
+                                <rect key="frame" x="256.5" y="616" width="102.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="my Location"/>
+                                <connections>
+                                    <action selector="onClickMyLocation:" destination="cls-4U-gzR" eventType="touchUpInside" id="B9c-b1-zZ1"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="g6A-h6-PJs"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="g6A-h6-PJs" firstAttribute="bottom" secondItem="vSI-vC-wO6" secondAttribute="bottom" constant="20" id="5Lb-2M-YDg"/>
                             <constraint firstItem="Emw-Cr-LBC" firstAttribute="height" secondItem="010-K8-ou6" secondAttribute="height" constant="10" id="AUz-ow-rgC"/>
+                            <constraint firstItem="g6A-h6-PJs" firstAttribute="trailing" secondItem="vSI-vC-wO6" secondAttribute="trailing" constant="16" id="FvZ-Vd-Y9z"/>
                             <constraint firstItem="Emw-Cr-LBC" firstAttribute="centerX" secondItem="g6A-h6-PJs" secondAttribute="centerX" id="PiR-pC-9ua"/>
                             <constraint firstItem="Emw-Cr-LBC" firstAttribute="width" secondItem="010-K8-ou6" secondAttribute="width" id="YPx-CE-Q37"/>
                             <constraint firstItem="Emw-Cr-LBC" firstAttribute="centerY" secondItem="g6A-h6-PJs" secondAttribute="centerY" id="kmP-pU-cxu"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="g6A-h6-PJs"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Emw-Cr-LBC" id="ctV-0T-YoG"/>
