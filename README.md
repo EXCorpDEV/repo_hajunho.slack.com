@@ -24,7 +24,7 @@ iOS_Swift_CRUD : for daelim(DL, DL E&C) lecture
 11. [x] **[011] iOS_objc_ Chromium + Changing of User-Agent**
 11. [x] **[012] iOS_swift_ Apple AVCamFilter**
 12. [x] **[013] iOS_cordova_ Camera Preview Example**
-13. [x] **[014] iOS_ARKitNavigationDemo(https://github.com/chriswebb09/ARKitNavigationDemo)
+13. [x] **[014] iOS_ARKitNavigationDemo(https://github.com/chriswebb09/ARKitNavigationDemo)**
 -
 13. [x] **[pyCharm] MAC_python3_tron_transmit_ Tron token transmitting related**
 
