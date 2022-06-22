@@ -197,7 +197,7 @@ final class StartViewController: UIViewController, Controller {
     // Calculates intermediary coordinates for first route step
     private func getInitialLeg(for tripStep: MKRouteStep) {
         let nextLocation = CLLocation(latitude: tripStep.polyline.coordinate.latitude, longitude: tripStep.polyline.coordinate.longitude)
-        let intermediaries = CLLocationCoordinate2D.getIntermediaryLocations(currentLocation: startingLocation, destinationLocation: nextLocation)
+        let intermediaries = CLLocationCoordinate2D.getIntermediaryLocations(currentLocation: startingLocation ?? CLLocation.init(), destinationLocation: nextLocation)
         currentTripLegs.append(intermediaries)
     }
     
