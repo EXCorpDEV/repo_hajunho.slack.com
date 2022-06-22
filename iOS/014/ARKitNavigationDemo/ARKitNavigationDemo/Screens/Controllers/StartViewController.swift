@@ -61,6 +61,7 @@ final class StartViewController: UIViewController, Controller {
             press.minimumPressDuration = 0.35
             mapView.addGestureRecognizer(press)
             mapView.delegate = self
+            mapView.showsUserLocation = true
         } else {
             presentMessage(title: "Not Compatible", message: "ARKit is not compatible with this phone.")
             return
@@ -202,9 +203,7 @@ final class StartViewController: UIViewController, Controller {
     
     // Prefix N is just a way to grab step annotations, could definitely get refactored
     private func addMapAnnotations() {
-        
         annotations.forEach { annotation in
-            
             // Step annotations are green, intermediary are blue
             DispatchQueue.main.async {
                 if let title = annotation.title, title.hasPrefix("N") {
@@ -220,7 +219,6 @@ final class StartViewController: UIViewController, Controller {
 }
 
 extension StartViewController: LocationServiceDelegate, MessagePresenting, Mapable {
-    
     // Once location is tracking - zoom in and center map
     func trackingLocation(for currentLocation: CLLocation) {
         startingLocation = currentLocation
@@ -236,9 +234,20 @@ extension StartViewController: LocationServiceDelegate, MessagePresenting, Mapab
 extension StartViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        debugPrint("㆟ viewFor annotation: MKAnnotation")
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
-        annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        annotationView.canShowCallout = true
+        if annotation is MKUserLocation {
+            annotationView.image = UIImage(named: "hjhladar")
+        } else {
+            annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView.canShowCallout = true
+        }
+        
+        var frame = annotationView.frame
+        frame.size.height = 50
+        frame.size.width = 50
+        annotationView.frame = frame
+                
         return annotationView
     }
     
