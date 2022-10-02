@@ -1,4 +1,7 @@
 // webpack.config.js
+
+const port = process.env.PORT || 3000;
+
 module.exports = {
     mode: 'development', // 1
     entry: './src/index.js', // 2
@@ -32,4 +35,9 @@ module.exports = {
             template: 'public/index.html',
         })
     ],
+    devServer: {
+        host: 'localhost',
+        port: port,
+        open: true,
+    },
 };
