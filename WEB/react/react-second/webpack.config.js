@@ -1,43 +1,53 @@
-// webpack.config.js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 
 module.exports = {
-    mode: 'development', // 1
-    entry: './src/index.js', // 2
-    output: { // 3
-        filename: 'bundle.[hash].js' // 4
-    },
-    module: {
-        rules: [
-            { // 1
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                },
+  // 개발환경
+  mode: 'development',
+
+  // 애플리케이션 시작 경로
+  entry: './src/index.js',
+
+  // 번들된 파일 경로
+  output: {
+    filename: 'bundle.[hash].js',
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: {
+              minimize: true,
             },
-            { // 2
-                test: /\.html$/,
-                use: [
-                    {
-                        loader: 'html-loader',
-                        options: {
-                            minimize: true,
-                        },
-                    },
-                ],
-            },
+          },
         ],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'public/index.html',
-        })
+      },
     ],
-    devServer: {
-        host: 'localhost',
-        port: port,
-        open: true,
-    },
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+    }),
+  ],
+
+  // 개발 서버 설정
+  devServer: {
+    host: 'localhost',
+    port: port,
+    open: true, // open page when start
+  },
 };
