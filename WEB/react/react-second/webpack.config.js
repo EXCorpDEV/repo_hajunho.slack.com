@@ -5,4 +5,26 @@ module.exports = {
   output: { // 3
     filename: 'bundle.[hash].js' // 4
   },
+  module: {
+    rules: [
+      { // 1
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      { // 2
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: {
+              minimize: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
