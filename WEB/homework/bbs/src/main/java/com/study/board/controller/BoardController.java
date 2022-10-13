@@ -15,13 +15,11 @@ public class BoardController {
 
     @GetMapping("/board/write") //local:8090/board/write
     public String boardWrite(){
-        return"boardwrite";
+        return"boardwrite"; //자신이 설정하고싶은 html을 써준다.
     }
-    @PostMapping("/board/writepro")
+    @PostMapping("/board/writepro") //local:8090/board/writepro
     public String boardWritePro(Board board){
-
         boardService.write(board);
-
         return "";
     }
 }

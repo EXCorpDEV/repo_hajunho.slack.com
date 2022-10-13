@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BoardService {
-    @Autowired
+    @Autowired //이걸 넣으면 = new BoardRepository이걸 안 해줘도된다.
     private BoardRepository boardRepository;
 
     public void write(Board board){
