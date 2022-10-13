@@ -26,7 +26,9 @@
 <!--            each는 반복문이다 그래서 DB에 가지고있는 n개를 모두 호출해준다.-->
             <tr th:each="board : ${list}">
                 <td th:text="${board.id}">1</td>
-                <td th:text="${board.title}">제목입니다.</td>
+                <td>
+                    <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+                </td>
             </tr>
             </tbody>
         </table>

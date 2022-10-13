@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>게시물 상세 페이지</title>
 </head>
 <body>
-<h1>제목입니다.</h1>
-<p>내용이 들어갈 부분입니다.</p>
+<h1 th:text="${board.title}">제목입니다.</h1>
+<p th:text="${board.content}">내용이 들어갈 부분입니다.</p>
 
 </body>
 </html>
