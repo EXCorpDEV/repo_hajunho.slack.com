@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 리스트</title>
+</head>
+<style>
+
+    .layout{
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+</style>
+
+<body>
+    <div class="layout">
+        <table>
+            <thead>
+            <tr>
+                <th>글번호</th>
+                <th>글제목</th>
+            </tr>
+            </thead>
+            <tbody>
+<!--            each는 반복문이다 그래서 DB에 가지고있는 n개를 모두 호출해준다.-->
+            <tr th:each="board : ${list}">
+                <td th:text="${board.id}">1</td>
+                <td th:text="${board.title}">제목입니다.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
