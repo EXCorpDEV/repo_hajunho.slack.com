@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class BoardController {
 
-    @GetMapping("/") //여기다가 이동 경로를 써주면 된다
-    @ResponseBody
-    public String main(){
-        return "Hello World";
+    @GetMapping("/board/write") //local:8090/board/write
+    public String boardWrite(){
+        return"boardwrite";
     }
 }
