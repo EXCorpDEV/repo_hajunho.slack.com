@@ -12,12 +12,12 @@
     margin-top: 40px;
     }
 
-    .layout > input {
+    .layout input {
         width : 100%;
         box-sizing : border-box
 
     }
-    .layout > textarea {
+    .layout textarea {
         width:100%;
         margin-top:10px;
         min-height:300px;
@@ -27,9 +27,11 @@
 
 <body>
     <div class="layout">
-        <input type="text">
-        <textarea></textarea>
-        <button>작성</button>
+        <form action="/board/writedo" method="post">
+        <input name="title" type="text">
+        <textarea name="content"></textarea>
+        <button type="submit">작성</button>
+        </form>
     </div>
 </body>
 </html>
