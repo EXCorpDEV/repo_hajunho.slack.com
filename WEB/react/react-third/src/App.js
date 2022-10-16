@@ -1,30 +1,26 @@
 import React from 'react';
-import { ReactDOM } from 'react';
-import { useEffect } from 'react';
 
-const UseEffectApp = () => {
-  const sayHello = () => console.log("hello");
+class ShoppingList extends React.Component {
+  render() {
+    return (
+      <div className="shopping-list">
+        <h1>Shopping List for {this.props.name}</h1>
+        <ul>
+          <li>Instagram</li>
+          <li>WhatsApp</li>
+          <li>Oculus</li>
+        </ul>
+      </div>
+    );
+  }
+}
 
-  const [number, setNumber] = useState(0);
-  const [aNumber, setAnumber] = useState(0);
-
-  useEffect(sayHello, [number]);
-
+const App = () => {
   return (
-    <>
-    <div className="UseEffectApp">
-      <div>Hi</div>
-      <button onClick={() => setNumber(number + 1)}>{number}</button>
-      <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
+    <div>
+      <ShoppingList/>
     </div>
-    </>
   );
 };
-
-const App = () => (
-  <div>
-    <UseEffectApp>Hello, Webpack!</UseEffectApp>
-  </div>
-);
 
 export default App;

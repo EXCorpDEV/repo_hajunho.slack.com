@@ -19,21 +19,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
+        resolve: {
+          extensions: [".js", ".jsx"]
         },
-      },
-
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: {
-              minimize: true,
-            },
-          },
-        ],
+        use: {
+          loader: "babel-loader"
+        }
       },
     ],
   },
