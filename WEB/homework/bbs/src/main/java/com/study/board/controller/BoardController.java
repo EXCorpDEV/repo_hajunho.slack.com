@@ -3,10 +3,14 @@ package com.study.board.controller;
 import com.study.board.entity.Board;
 import com.study.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
 
 @Controller
 public class BoardController {
@@ -28,13 +32,12 @@ public class BoardController {
         System.out.println("testPost");
         return "boardList";
     }
-
     @GetMapping("/board/list")
-    public String boardList(Model model){
-        System.out.println("/board/list/");
-        model.addAttribute("list",boardService.boardList());
+    public String boardList(Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        model.addAttribute("list", boardService.boardList(pageable));
         return "boardList";
     }
+
     @GetMapping("/board/view") // localhost:8070/board/view?id=1
     public String boardView(Model model, Integer id) {
         model.addAttribute("board",boardService.boardView(id));
@@ -54,7 +57,7 @@ public class BoardController {
         return "boardmodify";
     }
     @PostMapping("/board/update/{id}")
-    public String boardUpdate(@PathVariable("id") Integer id, Board board, MultipartFile file) throws Exception{
+    public String boardUpdate(@PathVariable("id") Integer id, Board board){
         System.out.println("/board/update/");
         Board boardTemp = boardService.boardView(id);
         boardTemp.setTitle(board.getTitle()); //board에 타이틀을 가져와라
