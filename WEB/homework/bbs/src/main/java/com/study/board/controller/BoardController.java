@@ -34,7 +34,17 @@ public class BoardController {
     }
     @GetMapping("/board/list")
     public String boardList(Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
-        model.addAttribute("list", boardService.boardList(pageable));
+
+        Page<Board> list = boardService.boardList(pageable);
+
+        int nowPage = list.getPageable().getPageNumber() + 1; //페이지가 0에서 부터 시작하기 때문에 1을 추가 해줘야한다.
+        int startPage = Math.max(nowPage - 4,1); //1 - 4 면 마이너스니깐 그때 1을 선택하게 만들어준다.
+        int endPage = Math.min(nowPage + 5,list.getTotalPages());
+
+        model.addAttribute("list", list);
+        model.addAttribute("nowPage",nowPage);
+        model.addAttribute("startPage",startPage);
+        model.addAttribute("endPage",endPage);
         return "boardList";
     }
 

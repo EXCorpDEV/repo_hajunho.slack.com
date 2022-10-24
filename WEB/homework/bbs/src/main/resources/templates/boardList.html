@@ -25,6 +25,7 @@
             <tbody>
 <!--            each는 반복문이다 그래서 DB에 가지고있는 n개를 모두 호출해준다.-->
             <tr th:each="board : ${list}">
+<!--                th는 태그 안에 데이터를 출력-->
                 <td th:text="${board.id}">1</td>
                 <td>
                     <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
@@ -32,7 +33,11 @@
             </tr>
             </tbody>
         </table>
+        <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1})}" th:text="${page}"></a>
+            <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+        </th:block>
     </div>
-
+<!--시작 번호에서 끝번호까지 반복-->
 </body>
 </html>
