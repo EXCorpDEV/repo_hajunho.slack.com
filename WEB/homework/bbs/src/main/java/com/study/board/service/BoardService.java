@@ -15,19 +15,7 @@ public class BoardService {
     @Autowired //이걸 넣으면 = new BoardRepository이걸 안 해줘도된다.
     private BoardRepository boardRepository;
     // 글작성
-    public void write(Board board, MultipartFile file) throws Exception{
-
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-        UUID uuid = UUID.randomUUID();
-
-//        String fileName = uuid + "_" + file.getOriginalFilename();
-        String fileName = "abcd";
-
-        File saveFile = new File(projectPath, fileName);
-
-//        file.transferTo(saveFile);
-
+    public void write(Board board){
         boardRepository.save(board);
     }
     // 게시글 리스트 처리
@@ -40,6 +28,4 @@ public class BoardService {
     }
     //특정 게시글 삭제
     public void boardDelete(Integer id){boardRepository.deleteById(id);}
-
-
 }

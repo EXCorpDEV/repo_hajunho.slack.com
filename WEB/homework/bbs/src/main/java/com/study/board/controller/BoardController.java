@@ -13,20 +13,16 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping("/board/write") //local:8090/board/write
+    @GetMapping("/board/write") //local:8070/board/write
     public String boardWrite(){
         return"boardwrite"; //자신이 설정하고싶은 html을 써준다.
     }
     @PostMapping("/board/writepro") //local:8090/board/writepro
-    public String boardWritePro(Board board, Model model, MultipartFile file) throws Exception{
-        System.out.println("writepro");
-        boardService.write(board, file);
-        model.addAttribute("message","글 작성이 완료되었습니다.");
-        model.addAttribute("searchUrl","/board/list");
-        return "message";
+    public String boardWritePro(Board board){
+        boardService.write(board);
+        return "redirect:/board/list";
     }
 
-//    @RequestMapping(method = RequestMethod.POST, path="/board/testpost")
     @PostMapping("/board/testpost")
     public String testPost(Model model) {
         System.out.println("testPost");
@@ -65,7 +61,7 @@ public class BoardController {
         boardTemp.setContent(board.getContent());
         System.out.println(boardTemp.getTitle());
         System.out.println(boardTemp.getContent());
-        boardService.write(boardTemp, file);
+        boardService.write(boardTemp);
         return "redirect:/board/list";
     }
 }
