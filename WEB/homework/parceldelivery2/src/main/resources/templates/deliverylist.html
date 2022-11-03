@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SODOC 온라인 택배 접수 시스템</title>
+</head>
+<style>
+  .layout {
+    width: 100%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+    text-align:center
+  }
+  .layout th, td {
+    border: 1px solid #444444;
+    padding: 10px;
+  }
+
+</style>
+<h1 style="text-align:center">SODOC 온라인 택배 접수 시스템</h1>
+<body>
+  <div class="layout">
+    <table>
+      <thead>
+        <tr>
+          <th>글번호</th>
+          <th>보내는분</th>
+          <th>받는분</th>
+          <th>요금납부</th>
+          <th>보관장소</th>
+          <th>주소</th>
+          <th>현관비밀번호</th>
+          <th>연락처</th>
+          <th>이메일</th>
+          <th>날짜</th>
+          <th>희망방문날짜</th>
+          <th>세금계산서</th>
+          <th>모바일영수증</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="delivery : ${list}">
+          <td >
+            <a th:text="${delivery.id}" th:href="@{/delivery/view(id=${delivery.id})}"></a>
+          </td>
+
+          <td th:text="${delivery.sender}">보내는분</td>
+          <td th:text="${delivery.recipient}">받는분</td>
+          <td th:text="${delivery.payment}">요금납부</td>
+          <td th:text="${delivery.storages}">보관장소</td>
+          <td th:text="${delivery.address}">주소</td>
+          <td th:text="${delivery.entrancepassword}">현관비밀번호</td>
+          <td th:text="${delivery.phone}">연락처</td>
+          <td th:text="${delivery.email}">이메일</td>
+          <td th:text="${delivery.dates}">날짜</td>
+          <td th:text="${delivery.visit}">희망방문날짜</td>
+          <td th:text="${delivery.tax}">세금계산서</td>
+          <td th:text="${delivery.receipt}">모바일영수증</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

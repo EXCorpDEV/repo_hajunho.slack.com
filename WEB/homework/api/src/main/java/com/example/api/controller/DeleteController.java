@@ -13,7 +13,7 @@ public class DeleteController {
 
     @DeleteMapping("/request1")
     public String getRequesParam1(@RequestParam String email){
-        return  "email :" + email;
+        return  "e-mail :" + email;
     }
 
 }

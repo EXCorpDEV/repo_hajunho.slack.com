@@ -22,9 +22,13 @@ public class BoardController {
         return"boardwrite"; //자신이 설정하고싶은 html을 써준다.
     }
     @PostMapping("/board/writepro") //local:8090/board/writepro
-    public String boardWritePro(Board board){
+    public String boardWritePro(Board board, Model model){
+//        System.out.println(board.getTitle()); -> board테이블 @Data를 넣었기 때문에 특정값을 얻을 수 있다.
         boardService.write(board);
-        return "redirect:/board/list";
+        model.addAttribute("message","글 작성이 완료되었습니다.");
+        model.addAttribute("searchUrl","/board/list");
+
+        return "message";
     }
 
     @PostMapping("/board/testpost")
@@ -34,7 +38,7 @@ public class BoardController {
     }
     @GetMapping("/board/list")
     public String boardList(Model model,
-                            @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                            @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
                             String searchKeyword) {
 
         Page<Board> list = null;
@@ -75,14 +79,21 @@ public class BoardController {
         return "boardmodify";
     }
     @PostMapping("/board/update/{id}")
-    public String boardUpdate(@PathVariable("id") Integer id, Board board){
+    public String boardUpdate(@PathVariable("id") Integer id, Board board,Model model){
         System.out.println("/board/update/");
+//        boardView에 있는걸 boardTemp에 넘겨라
         Board boardTemp = boardService.boardView(id);
+//        boardTemp에서 수정한것을 가져와라
         boardTemp.setTitle(board.getTitle()); //board에 타이틀을 가져와라
         boardTemp.setContent(board.getContent());
+
         System.out.println(boardTemp.getTitle());
         System.out.println(boardTemp.getContent());
+//        저장을 하는것이다.
         boardService.write(boardTemp);
-        return "redirect:/board/list";
+
+        model.addAttribute("message","글이 수정되었습니다.");
+        model.addAttribute("searchUrl","/board/list");
+        return "message";
     }
 }

@@ -16,7 +16,7 @@
 <body>
     <div class="layout" style="text-align:center;">
         <h1 >SODOC 게시판</h1>
-        <table style="width:500px; margin-left:80px;">
+        <table style="width:500px;">
             <thead style="text-align:center;">
             <tr >
                 <th>글번호</th>
@@ -36,7 +36,7 @@
         </table>
         <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
             <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
-            <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+            <strong th:if="${page == nowPage}" th:text="${page}" style="color : black"></strong>
         </th:block>
         <form th:action="@{/board/list}" method="get">
             <input type="text" name="searchKeyword">

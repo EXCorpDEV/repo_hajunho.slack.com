@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+        .layout{
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 40px;
+    }
+
+    .layout input {
+    width : 100%;
+    box-sizing : border-box
+    }
+</style>
+
+<body>
+  <div class="layout">
+      <form action="/delivery/writepro" method="post">
+          <input name="sender" type="text" placeholder="보내는분">
+          <input  name="recipient" type="text" placeholder="받는분">
+          <input  name="payment" type="text" placeholder="요금">
+          <input  name="storages" type="text" placeholder="보관장소">
+          <input  name="address" type="text" placeholder="주소">
+          <input  name="entrancepassword" type="text" placeholder="현관비밀번호">
+          <input  name="phone" type="text" placeholder="연락처">
+          <input  name="email" type="text" placeholder="이메일을 입력해 주세요.">
+          <input  name="dates" type="date" placeholder="날짜">
+          <input  name="visit" type="date" placeholder="방문날짜">
+          <input  name="tax" type="text" placeholder="세금계산서">
+          <input  name="receipt" type=" text" placeholder="모바일영수증">
+          <button type="submit">작성</button>
+      </form>
+  </div>
+
+</body>
+</html>
