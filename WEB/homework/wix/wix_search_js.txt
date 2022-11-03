@@ -1,0 +1,66 @@
+// Velo API 레퍼런스: https://www.wix.com/velo/reference/api-overview/introduction
+
+import {local} from 'wix-storage';
+import wixData from 'wix-data';
+import wixLocation from 'wix-location';
+
+// ...
+
+
+
+$w.onReady(function () {
+
+	// Velo 프레임워크 API를 사용하여 자바스크립트 코드를 입력하세요.
+
+	// Hello world 출력:
+	// console.log("Hello world!");
+
+	// 페이지 요소에 함수를 요청하세요. 예:
+	// $w("#button1").label = "Click me!";
+	$w("#dropdown2").placeholder = "선택하세요";
+	
+	$w("#dropdown2").options = [
+    {"label": "Who's on first!", "value": "덱시"},
+    {"label": "What's on second", "value": "덱시"},
+    {"label": "I Don't Know is on third", "value": "덱시"}
+	];
+
+	$w("#dropdown3").options = [
+    {"label": "Who's on first!", "value": "부정"},
+    {"label": "What's on second", "value": "부정"},
+    {"label": "I Don't Know is on third", "value": "부정"}
+	];
+
+
+
+});
+
+
+/**
+*	Adds an event handler that runs when the element is clicked.
+	[Read more](https://www.wix.com/corvid/reference/$w.ClickableMixin.html#onClick)
+*	 @param {$w.MouseEvent} event
+*/
+export function section2_click(event) {
+	// This function was added from the Properties & Events panel. To learn more, visit http://wix.to/UcBnC-4
+	// Add your code for this event here: 
+}
+
+/**
+*	Adds an event handler that runs when the element is clicked.
+	[Read more](https://www.wix.com/corvid/reference/$w.ClickableMixin.html#onClick)
+*	 @param {$w.MouseEvent} event
+*/
+export function button27_click(event) {
+	// This function was added from the Properties & Events panel. To learn more, visit http://wix.to/UcBnC-4
+	// Add your code for this event here: 
+		// "실행"을 클릭하거나 사이트를 미리보기하여 코드를 실행하세요.
+// 	wixData.query('Zoekwoorden1')
+//    .contains('keywordsProbleem', $w("#dropdown2").value)
+//       .find()
+//        .then(res => {
+// //   $w('#dropdown3').data = res.items;
+//     });
+    var x = "https://www.sodn.info/search?q=" + $w('#dropdown2').value + $w('#dropdown3').value
+	wixLocation.to(x);
+}
