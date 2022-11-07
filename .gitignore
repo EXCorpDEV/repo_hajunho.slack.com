@@ -154,5 +154,6 @@ playground.xcworkspace
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 
-
+*.bin
+*.class
 # End of https://www.gitignore.io/api/swift,xcode,cocoapods,objective-c

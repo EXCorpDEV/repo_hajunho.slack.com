@@ -4,7 +4,11 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+<<<<<<< .merge_file_zaT7gv
         <option name="delegatedBuild" value="false" />
+=======
+        <option name="delegatedBuild" value="true" />
+>>>>>>> .merge_file_e7s3Nw
         <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />

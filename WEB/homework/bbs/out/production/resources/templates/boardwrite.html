@@ -27,9 +27,16 @@
 
 <body>
     <div class="layout">
+<<<<<<< .merge_file_5dZbVa
         <form action="/board/writepro" method="post">
         <input name="title" type="text">
         <textarea name="content"></textarea>
+=======
+        <form action="/board/writepro" method="post" enctype="multipart/form-data">
+        <input name="title" type="text">
+        <textarea name="content"></textarea>
+        <input type="file" name="file">
+>>>>>>> .merge_file_6vvsr7
         <button type="submit">작성</button>
         </form>
     </div>

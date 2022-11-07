@@ -14,10 +14,18 @@
 </style>
 
 <body>
+<<<<<<< .merge_file_QhE89L
     <div class="layout">
         <table>
             <thead>
             <tr>
+=======
+    <div class="layout" style="text-align:center;">
+        <h1 >SODOC 게시판</h1>
+        <table style="width:500px;">
+            <thead style="text-align:center;">
+            <tr >
+>>>>>>> .merge_file_zxt4Zn
                 <th>글번호</th>
                 <th>글제목</th>
             </tr>
@@ -25,6 +33,10 @@
             <tbody>
 <!--            each는 반복문이다 그래서 DB에 가지고있는 n개를 모두 호출해준다.-->
             <tr th:each="board : ${list}">
+<<<<<<< .merge_file_QhE89L
+=======
+<!--                th는 태그 안에 데이터를 출력-->
+>>>>>>> .merge_file_zxt4Zn
                 <td th:text="${board.id}">1</td>
                 <td>
                     <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
@@ -32,7 +44,20 @@
             </tr>
             </tbody>
         </table>
+<<<<<<< .merge_file_QhE89L
     </div>
 
+=======
+        <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+            <strong th:if="${page == nowPage}" th:text="${page}" style="color : black"></strong>
+        </th:block>
+        <form th:action="@{/board/list}" method="get">
+            <input type="text" name="searchKeyword">
+            <button type="submit">검색</button>
+        </form>
+    </div>
+<!--시작 번호에서 끝번호까지 반복-->
+>>>>>>> .merge_file_zxt4Zn
 </body>
 </html>
