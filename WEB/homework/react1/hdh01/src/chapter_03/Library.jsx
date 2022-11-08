@@ -7,7 +7,6 @@ function Library(props) {
       <Book name="처음 만난 파이썬" numOPage={300} />
       <Book name="처음 만난 AWS" numOPage={400} />
       <Book name="처음 만난 리액트" numOPage={500} />
-      
     </div>
   );
 }
