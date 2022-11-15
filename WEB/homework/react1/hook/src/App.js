@@ -1,38 +1,32 @@
-import {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
-const heavyWork = () => {
-  console.log("엄청 무거운 작업!!!");
-  return ["한덕현", "김민수"]
-}
+function App() {
+  const [count, setCount] = useState(1);
+  const [name, setName] = useState('')
 
-function App () {
-  const [names, setNames] = useState(() => {
-    return heavyWork();
-  });
-  const [input, setInput] = useState('');
-
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
+  const handleCountUpdate = () => {
+    setCount(count + 1);
   };
 
-const handleUpload = () => {
-  setNames((prevState) => {
-    console.log('이전 state: ', prevState);
-    return [input, ...prevState];
-  });
-};
+  // 마운트 + [ item ] 변경될때만 실행
+  useEffect(() => {
+    console.log('count 변화');
+  }, [count]);
+
+  const handleInputChange = (e) => {
+    setName(e.target.value);
+  };
 
 
-  return (
-    <div>
-      <input type="text" value={input} onChange={handleInputChange}/>
-      <button onClick={handleUpload}>Upload</button>
-      {names.map((name, idx) => {
-        return <p key={idx}>{name}</p>;
-      })}
-    </div>
+
+return (
+  <div>
+    <button onClick={handleCountUpdate}>Update</button>
+    <span>count: {count}</span>
+    <input type="text" value={name} onChange={handleInputChange} />
+    <span>name : {name}</span>
+  </div>
   );
 }
 
 export default App;
-
