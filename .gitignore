@@ -18,6 +18,7 @@ build/
 DerivedData/
 dist/
 node_modules/.bin/
+WEB/homework/react1/mini-blog2/node_modules
 
 ## Various settings
 *.pbxuser
