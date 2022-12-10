@@ -3,14 +3,14 @@ package com.study.board.controller;
 import com.study.board.entity.Board;
 import com.study.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< .merge_file_RFbyrG
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-=======
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -19,23 +19,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
->>>>>>> .merge_file_XcDi42
+
 
 @Controller
 public class BoardController {
     @Autowired
     private BoardService boardService;
 
-<<<<<<< .merge_file_RFbyrG
     @GetMapping("/board/write") //local:8090/board/write
-=======
-    @GetMapping("/board/write") //local:8070/board/write
->>>>>>> .merge_file_XcDi42
     public String boardWrite(){
         return"boardwrite"; //자신이 설정하고싶은 html을 써준다.
     }
     @PostMapping("/board/writepro") //local:8090/board/writepro
-<<<<<<< .merge_file_RFbyrG
     public String boardWritePro(Board board,Model model){
         boardService.write(board);
 
@@ -51,8 +46,6 @@ public class BoardController {
     }
     @GetMapping("/board/view") // localhost:8070/board/view?id=1
     public String boardView(Model model, Integer id){
-=======
-    public String boardWritePro(Board board, Model model){
 //        System.out.println(board.getTitle()); -> board테이블 @Data를 넣었기 때문에 특정값을 얻을 수 있다.
         boardService.write(board);
         model.addAttribute("message","글 작성이 완료되었습니다.");
@@ -92,7 +85,6 @@ public class BoardController {
 
     @GetMapping("/board/view") // localhost:8070/board/view?id=1
     public String boardView(Model model, Integer id) {
->>>>>>> .merge_file_XcDi42
         model.addAttribute("board",boardService.boardView(id));
         return "boardview";
     }
@@ -105,15 +97,11 @@ public class BoardController {
 
     @GetMapping("/board/modify/{id}")
     public String boardModify(@PathVariable("id") Integer id,Model model){
-<<<<<<< .merge_file_RFbyrG
-=======
         System.out.println("/board/modifi/");
->>>>>>> .merge_file_XcDi42
         model.addAttribute("board",boardService.boardView(id));
         return "boardmodify";
     }
     @PostMapping("/board/update/{id}")
-<<<<<<< .merge_file_RFbyrG
     public String boardUpdate(@PathVariable("id") Integer id, Board board){
 
         Board boardTemp = boardService.boardView(id);
@@ -124,7 +112,6 @@ public class BoardController {
 
         return "redirect:/board/list";
 
-=======
     public String boardUpdate(@PathVariable("id") Integer id, Board board,Model model){
         System.out.println("/board/update/");
 //        boardView에 있는걸 boardTemp에 넘겨라
@@ -141,6 +128,5 @@ public class BoardController {
         model.addAttribute("message","글이 수정되었습니다.");
         model.addAttribute("searchUrl","/board/list");
         return "message";
->>>>>>> .merge_file_XcDi42
     }
 }
