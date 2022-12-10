@@ -22,29 +22,30 @@ async def post_test():
     req_data={
         "auth_info": {
             "partner_code": "sodn",
-            "partner_auth": "7d003a"
+            "partner_auth": "ecc97c7a30f7d003a"
         },
         "request_info": {
             "priceInfo": {
                 "delivery_code": "korex",
                 "rsv_gbn": "G",
                 "p_div": "G",
-                "s_zipcode": "123-822",
-                "r_zipcode": "456-903",
+                "s_zipcode": "16680",
+                "r_zipcode": "75082",
                 "p_amt": "1"
             }
         }
     }
     print(json.dumps(req_data))
     req_response = requests.post(
-        url="https://sodoc.net/packages",
-        headers={"Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+        url="https://sodoc.net/jsondumpstest",
+        headers={"Content-Type": "application/json;charset=utf-8",
                  "User-Agent":"PostmanRuntime/7.29.2", "Accept-Encoding":"gzip, deflate, br"},
-        json=json.dumps(req_data)
+        # json=json.dumps(req_data)
+        data=json.dumps(req_data)
     )
     print("==req_response==")
     print(req_response)
     print("==req_response.content==")
     print(req_response.content, req_response.text, req_response.content)
     print("======================")
-    return req_response
+    return req_response.text
