@@ -27,6 +27,9 @@ iOS_Swift_CRUD : for daelim(DL, DL E&C) lecture
 13. [x] **[014] iOS_ARKitNavigationDemo(https://github.com/chriswebb09/ARKitNavigationDemo)**
 14. [x] **[pyCharm] MAC_python3_tron_transmit_ Tron token transmitting related**
 15. [x] **[AI] ubuntu_python3_tensorflow2_keras_mnist example**
+
+<img width="1563" alt="스크린샷 2024-03-04 오전 7 43 09" src="https://github.com/hajunho/repo_hajunho.slack.com/assets/840303/1b2e6aad-4803-47b6-b74f-154175ba6c2b">
+
     
 
 https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/avcamfilter_applying_filters_to_a_capture_stream
