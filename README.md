@@ -4,29 +4,32 @@ I'm dreaming all the personal developers are getting happy more than now.
 iOS codes for development.
 
 2021-05-26 : The Repo will be changed to a recognizable folder structure.
+2024-03-11 : Projects that are no longer updated are listed and managed here.
 
-iOS_ObjC_CRUD : If you are doing a database CRUD Project with Objective-C, then this folder will help you at the source level.
+== Abandoned Projects ==
+1. [x] **[001] iOS_ObjC_CRUD : sqlite3 examples**
+
+
 iOS_Swift_CRUD : for daelim(DL, DL E&C) lecture
-
 
 == Compile available projects for lecturing below==
 
-1. [x] **[001] iOS_swift_ Global Log Setting**
-2. [x] **[002] iOS_swift_ Graph library**
-3. [x] **[003] iOS_swift_ Restful API**
-4. [x] **[004] iOS_swift_ wifi direct**
-5. [x] **[005] iOS_swiftUI_ URL calle to open another iOS app.**
-6. [x] **[006] iOS_swift_ Object detection using TensorFlow Lite**
-7. [x] **[007] iOS_swift_ TODO app, for example, of Realm cloud.**
-8. [x] **[008] iOS_swift_ Tensorflow ImageClassification**
-9. [x] **[009] iOS_swift_ Openning WebView(Safari, webview, WKWebview)**
-10. [x] **[010] iOS_objc_ DropDownMenu**
-11. [x] **[011] iOS_objc_ Chromium + Changing of User-Agent**
-11. [x] **[012] iOS_swift_ Apple AVCamFilter**
-12. [x] **[013] iOS_cordova_ Camera Preview Example**
-13. [x] **[014] iOS_ARKitNavigationDemo(https://github.com/chriswebb09/ARKitNavigationDemo)**
-14. [x] **[pyCharm] MAC_python3_tron_transmit_ Tron token transmitting related**
-15. [x] **[AI] ubuntu_python3_tensorflow2_keras_mnist example**
+1. [ ] **[002] iOS_swift_ Global Log Setting**
+2. [ ] **[003] iOS_swift_ Graph library**
+3. [ ] **[004] iOS_swift_ Restful API**
+4. [ ] **[005] iOS_swift_ wifi direct**
+5. [ ] **[006] iOS_swiftUI_ URL calle to open another iOS app.**
+6. [ ] **[007] iOS_swift_ Object detection using TensorFlow Lite**
+7. [ ] **[008] iOS_swift_ TODO app, for example, of Realm cloud.**
+8. [ ] **[009] iOS_swift_ Tensorflow ImageClassification**
+9. [ ] **[010] iOS_swift_ Openning WebView(Safari, webview, WKWebview)**
+10. [ ] **[011] iOS_objc_ DropDownMenu**
+11. [ ] **[012] iOS_objc_ Chromium + Changing of User-Agent**
+11. [ ] **[013] iOS_swift_ Apple AVCamFilter**
+12. [ ] **[014] iOS_cordova_ Camera Preview Example**
+13. [ ] **[015] iOS_ARKitNavigationDemo(https://github.com/chriswebb09/ARKitNavigationDemo)**
+14. [ ] **[pyCharm] MAC_python3_tron_transmit_ Tron token transmitting related**
+15. [ ] **[AI] ubuntu_python3_tensorflow2_keras_mnist example**
 
 <img width="1563" alt="스크린샷 2024-03-04 오전 7 43 09" src="https://github.com/hajunho/repo_hajunho.slack.com/assets/840303/1b2e6aad-4803-47b6-b74f-154175ba6c2b">
 
