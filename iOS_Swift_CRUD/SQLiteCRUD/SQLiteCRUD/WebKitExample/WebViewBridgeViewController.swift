@@ -88,12 +88,26 @@ extension WebViewBridgeViewController : WKScriptMessageHandler {
                     popupPrintString += "\(key):\(value) "
                 }
                 // call back!
-                self.webView.stringByEvaluatingJavaScript(script: "javascript:testCallBack('\(popupPrintString)');")
+                self.webView.evaluateJavaScript("javascript:testCallBack('\(popupPrintString)');") { (result, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    if let result = result {
+                        print(result)
+                    }
+                }
             } else {
                 // call back!
-                self.webView.stringByEvaluatingJavaScript(script: "javascript:testCallBack('\(String(describing:message.body))');")
+                self.webView.evaluateJavaScript("javascript:testCallBack('\(String(describing: message.body))');") { (result, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    if let result = result {
+                        print(result)
+                    }
+                }
             }
-            
+
             // popup!
 //            self.webView.stringByEvaluatingJavaScript(script: "javascript:test01();")
             
@@ -106,7 +120,7 @@ extension WebViewBridgeViewController : WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         print("\(#function)")
         
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertController.Style.alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
             completionHandler()
@@ -118,7 +132,7 @@ extension WebViewBridgeViewController : WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         print("\(#function)")
         
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertController.Style.alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
             completionHandler(true)
@@ -134,7 +148,7 @@ extension WebViewBridgeViewController : WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
         print("\(#function)")
         
-        let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: UIAlertController.Style.alert)
         
         alertController.addTextField { (textField) in
             textField.text = defaultText
