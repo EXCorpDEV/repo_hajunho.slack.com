@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D200E0FC2660B2190018C06B /* ViewControllerACRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200E0FB2660B2190018C06B /* ViewControllerACRO.swift */; };
 		D212EF112660AB8A00FAEA25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212EF102660AB8A00FAEA25 /* AppDelegate.swift */; };
 		D212EF132660AB8A00FAEA25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212EF122660AB8A00FAEA25 /* SceneDelegate.swift */; };
 		D212EF182660AB8A00FAEA25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D212EF162660AB8A00FAEA25 /* Main.storyboard */; };
@@ -24,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D200E0FB2660B2190018C06B /* ViewControllerACRO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerACRO.swift; sourceTree = "<group>"; };
 		D212EF0D2660AB8A00FAEA25 /* SQLiteCRUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLiteCRUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D212EF102660AB8A00FAEA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D212EF122660AB8A00FAEA25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				D22B303E268D559500E68F5E /* WebKitExample */,
-				D200E0FB2660B2190018C06B /* ViewControllerACRO.swift */,
 				D281A6772668BEA300921DE0 /* View.xib */,
 				D281A6792668BEB400921DE0 /* SwiftUIView.swift */,
 				D281A67B2668BEDF00921DE0 /* ViewController.swift */,
@@ -176,7 +173,6 @@
 			files = (
 				D281A67D2668BEDF00921DE0 /* ViewController.swift in Sources */,
 				D212EF112660AB8A00FAEA25 /* AppDelegate.swift in Sources */,
-				D200E0FC2660B2190018C06B /* ViewControllerACRO.swift in Sources */,
 				D22B3042268D55C400E68F5E /* WebViewBridgeViewController.swift in Sources */,
 				D212EF132660AB8A00FAEA25 /* SceneDelegate.swift in Sources */,
 				D281A67A2668BEB400921DE0 /* SwiftUIView.swift in Sources */,
