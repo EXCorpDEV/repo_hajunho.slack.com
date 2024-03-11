@@ -1,14 +1,11 @@
 # repo_hajunho.slack.com
-I'm dreaming all the personal developers are getting happy more than now.
-
-iOS codes for development.
+Envisioning a future where every individual developer finds greater joy than ever before in the art of coding. The Codes for Development.
 
 2021-05-26 : The Repo will be changed to a recognizable folder structure.
 2024-03-11 : Projects that are no longer updated are listed and managed here.
 
 == Abandoned Projects ==
 1. [x] **[001] iOS_ObjC_CRUD : sqlite3 examples**
-
 
 iOS_Swift_CRUD : for daelim(DL, DL E&C) lecture
 
