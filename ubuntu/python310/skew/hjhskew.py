@@ -58,10 +58,10 @@ def deskew_image(input_path, output_path):
                 else:
                     raise ValueError(f"Unsupported image shape: {image.shape}")
 
+
                 angle = determine_skew(image)
-                corrected_angle = -np.rad2deg(np.median(angle))
+                corrected_angle = -angle
                 rotated_image = Image.fromarray(image).rotate(corrected_angle, expand=True)
-                # rotated_image = Image.fromarray(image).rotate(angle, expand=True)
 
                 relative_path = os.path.relpath(root, input_path)
                 output_subfolder = os.path.join(output_path, relative_path)
