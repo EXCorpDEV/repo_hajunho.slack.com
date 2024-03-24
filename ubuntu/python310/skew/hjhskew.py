@@ -6,6 +6,10 @@ from skimage.feature import canny
 from skimage.transform import hough_line, hough_line_peaks
 
 def determine_skew(image):
+    if len(image.shape) == 2:
+        image = np.stack((image,) * 3, axis=-1)
+    elif len(image.shape) == 3 and image.shape[2] == 4:
+        image = image[:, :, :3]
     edges = canny(image, sigma=3.0)
     h, theta, d = hough_line(edges)
     angles = []
