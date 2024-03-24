@@ -18,9 +18,13 @@ def determine_skew(image):
     return median_angle
 
 def deskew_and_save_image(image_path, output_path):
-    image = io.imread(image_path)
-    angle = determine_skew(image)
-    rotated_image = Image.fromarray(image).rotate(-angle, expand=True)
+    image = Image.open(image_path)
+    if image.mode == 'RGBA':
+        image = image.convert('RGB')
+    image_array = np.array(image)
+
+    angle = determine_skew(image_array)
+    rotated_image = Image.fromarray(image_array).rotate(-angle, expand=True)
     rotated_image.save(output_path)
 
 def process_folder(input_folder, output_folder):
