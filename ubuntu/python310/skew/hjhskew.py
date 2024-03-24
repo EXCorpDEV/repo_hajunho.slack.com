@@ -7,9 +7,17 @@ from skimage.transform import hough_line, hough_line_peaks
 
 def determine_skew(image):
     if len(image.shape) == 2:
-        image = np.stack((image,) * 3, axis=-1)
-    elif len(image.shape) == 3 and image.shape[2] == 4:
-        image = image[:, :, :3]
+        pass
+    elif len(image.shape) == 3:
+        if image.shape[2] == 3:
+            image = np.mean(image, axis=2).astype(np.uint8)
+        elif image.shape[2] == 4:
+            image = np.mean(image[:, :, :3], axis=2).astype(np.uint8)
+        else:
+            raise ValueError(f"Unsupported number of channels: {image.shape[2]}")
+    else:
+        raise ValueError(f"Unsupported image shape: {image.shape}")
+
     edges = canny(image, sigma=3.0)
     h, theta, d = hough_line(edges)
     angles = []
@@ -39,9 +47,16 @@ def deskew_image(input_path, output_path):
                 image = io.imread(image_path)
 
                 if len(image.shape) == 2:
-                    image = np.stack((image,) * 3, axis=-1)
-                elif len(image.shape) == 3 and image.shape[2] == 4:
-                    image = image[:, :, :3]  # Remove alpha channel if present
+                    pass
+                elif len(image.shape) == 3:
+                    if image.shape[2] == 3:
+                        image = np.mean(image, axis=2).astype(np.uint8)
+                    elif image.shape[2] == 4:
+                        image = np.mean(image[:, :, :3], axis=2).astype(np.uint8)
+                    else:
+                        raise ValueError(f"Unsupported number of channels: {image.shape[2]}")
+                else:
+                    raise ValueError(f"Unsupported image shape: {image.shape}")
 
                 angle = determine_skew(image)
                 rotated_image = Image.fromarray(image).rotate(angle, expand=True)
@@ -57,7 +72,7 @@ def deskew_image(input_path, output_path):
 
         for dir in dirs:
             deskew_image(os.path.join(root, dir), os.path.join(output_path, dir))
-# 사용 예시
+
 input_folder = '/home/soai/skewinput'
 output_folder = '/home/soai/skewoutput'
 
