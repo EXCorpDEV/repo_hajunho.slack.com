@@ -4,6 +4,7 @@ from PIL import Image
 from skimage import io
 from skimage.feature import canny
 from skimage.transform import hough_line, hough_line_peaks
+from concurrent.futures import ThreadPoolExecutor
 
 def determine_skew(image):
     if len(image.shape) == 2:
@@ -30,6 +31,31 @@ def determine_skew(image):
 
     return np.rad2deg(np.median(angles))
 
+def deskew_single_image(image_path, output_subfolder):
+    print(f"Processing file: {image_path}")
+    image = io.imread(image_path)
+
+    if len(image.shape) == 2:
+        pass
+    elif len(image.shape) == 3:
+        if image.shape[2] == 3:
+            image = np.mean(image, axis=2).astype(np.uint8)
+        elif image.shape[2] == 4:
+            image = np.mean(image[:, :, :3], axis=2).astype(np.uint8)
+        else:
+            raise ValueError(f"Unsupported number of channels: {image.shape[2]}")
+    else:
+        raise ValueError(f"Unsupported image shape: {image.shape}")
+
+    angle = determine_skew(image)
+    rotated_image = Image.fromarray(image).rotate(angle, expand=True)
+
+    if not os.path.exists(output_subfolder):
+        os.makedirs(output_subfolder)
+
+    output_image_path = os.path.join(output_subfolder, os.path.basename(image_path))
+    rotated_image.save(output_image_path)
+
 def deskew_image(input_path, output_path):
     # 인풋 폴더가 없으면 생성
     if not os.path.exists(input_path):
@@ -39,41 +65,20 @@ def deskew_image(input_path, output_path):
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
+    image_paths = []
+    output_subfolders = []
+
     for root, dirs, files in os.walk(input_path):
         for file in files:
             if file.lower().endswith(('.png', '.jpg', '.jpeg')):
                 image_path = os.path.join(root, file)
-                print(f"Processing file: {image_path}")
-                image = io.imread(image_path)
-
-                if len(image.shape) == 2:
-                    pass
-                elif len(image.shape) == 3:
-                    if image.shape[2] == 3:
-                        image = np.mean(image, axis=2).astype(np.uint8)
-                    elif image.shape[2] == 4:
-                        image = np.mean(image[:, :, :3], axis=2).astype(np.uint8)
-                    else:
-                        raise ValueError(f"Unsupported number of channels: {image.shape[2]}")
-                else:
-                    raise ValueError(f"Unsupported image shape: {image.shape}")
-
-                angle = determine_skew(image)
-                corrected_angle = -np.rad2deg(np.median(angle))
-                rotated_image = Image.fromarray(image).rotate(corrected_angle, expand=True)
-                # rotated_image = Image.fromarray(image).rotate(angle, expand=True)
-
                 relative_path = os.path.relpath(root, input_path)
                 output_subfolder = os.path.join(output_path, relative_path)
-p
-                if not os.path.exists(output_subfolder):
-                    os.makedirs(output_subfolder)
+                image_paths.append(image_path)
+                output_subfolders.append(output_subfolder)
 
-                output_image_path = os.path.join(output_subfolder, file)
-                rotated_image.save(output_image_path)
-
-        for dir in dirs:
-            deskew_image(os.path.join(root, dir), os.path.join(output_path, dir))
+    with ThreadPoolExecutor(max_workers=1000) as executor:
+        executor.map(deskew_single_image, image_paths, output_subfolders)
 
 input_folder = '/home/soai/skewinput'
 output_folder = '/home/soai/skewoutput'
