@@ -5,6 +5,7 @@ from skimage import io
 from skimage.feature import canny
 from skimage.transform import hough_line, hough_line_peaks
 from skimage.color import rgb2gray
+from io import BytesIO
 
 def determine_skew(image):
     if image.ndim == 3:
@@ -18,14 +19,14 @@ def determine_skew(image):
     return median_angle
 
 def deskew_and_save_image(image_path, output_path):
-    image = Image.open(image_path)
+    # image = Image.open(image_path)
+    image = Image.open(BytesIO(image_path)).convert('RGB')
     if image.mode == 'RGBA':
         image = image.convert('RGB')
     image_array = np.array(image)
 
     angle = determine_skew(image_array)
-    corrected_angle = angle
-    rotated_image = image.rotate(-corrected_angle, expand=True)  # FastAPI 예제와 동일하게 적용
+    rotated_image = image.rotate(angle, expand=True)
     rotated_image.save(output_path)
 
 def process_folder(input_folder, output_folder):
