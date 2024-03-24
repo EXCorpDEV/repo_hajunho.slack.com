@@ -65,7 +65,7 @@ def deskew_image(input_path, output_path):
 
                 relative_path = os.path.relpath(root, input_path)
                 output_subfolder = os.path.join(output_path, relative_path)
-p
+
                 if not os.path.exists(output_subfolder):
                     os.makedirs(output_subfolder)
 
