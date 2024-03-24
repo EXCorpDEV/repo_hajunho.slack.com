@@ -24,7 +24,8 @@ def deskew_and_save_image(image_path, output_path):
     image_array = np.array(image)
 
     angle = determine_skew(image_array)
-    rotated_image = Image.fromarray(image_array).rotate(-angle, expand=True)
+    corrected_angle = angle
+    rotated_image = image.rotate(-corrected_angle, expand=True)  # FastAPI 예제와 동일하게 적용
     rotated_image.save(output_path)
 
 def process_folder(input_folder, output_folder):
