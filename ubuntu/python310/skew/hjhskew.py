@@ -35,10 +35,13 @@ def deskew_image(input_path, output_path):
         for file in files:
             if file.lower().endswith(('.png', '.jpg', '.jpeg')):
                 image_path = os.path.join(root, file)
+                print(f"Processing file: {image_path}")
                 image = io.imread(image_path)
 
                 if len(image.shape) == 2:
                     image = np.stack((image,) * 3, axis=-1)
+                elif len(image.shape) == 3 and image.shape[2] == 4:
+                    image = image[:, :, :3]  # Remove alpha channel if present
 
                 angle = determine_skew(image)
                 rotated_image = Image.fromarray(image).rotate(angle, expand=True)
@@ -54,7 +57,6 @@ def deskew_image(input_path, output_path):
 
         for dir in dirs:
             deskew_image(os.path.join(root, dir), os.path.join(output_path, dir))
-
 # 사용 예시
 input_folder = '/home/soai/skewinput'
 output_folder = '/home/soai/skewoutput'
