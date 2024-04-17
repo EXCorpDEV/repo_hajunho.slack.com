@@ -8,8 +8,10 @@ model = load_model('image_classification_model.h5')
 
 # Set the data directory path
 data_dir = '/mnt/splitter/datas'
-class1_dir = os.path.join(data_dir, 'class1')
-class2_dir = os.path.join(data_dir, 'class2')
+data1_dir = os.path.join(data_dir, 'data1')
+data2_dir = os.path.join(data_dir, 'data2')
+class1_dir = os.path.join(data1_dir, 'class1')
+class2_dir = os.path.join(data2_dir, 'class2')
 
 # Set the image size
 img_width, img_height = 224, 224
@@ -18,9 +20,10 @@ img_width, img_height = 224, 224
 class_dirs = [class1_dir, class2_dir]
 
 # Perform predictions for each class
-for class_idx, class_dir in enumerate(class_dirs):
+for class_dir in class_dirs:
     class_name = os.path.basename(class_dir)
-    print(f"Predictions for {class_name}:")
+    data_name = os.path.basename(os.path.dirname(class_dir))
+    print(f"Predictions for {data_name}/{class_name}:")
 
     # Get the list of image files in the class directory
     image_files = [f for f in os.listdir(class_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
@@ -39,6 +42,6 @@ for class_idx, class_dir in enumerate(class_dirs):
         prediction = model.predict(img_array)
         predicted_class = 'class1' if prediction[0][0] < 0.5 else 'class2'
 
-        print(f"Image: {image_file}, Actual Class: {class_name}, Predicted Class: {predicted_class}")
+        print(f"Image: {image_file}, Actual Class: {data_name}/{class_name}, Predicted Class: {predicted_class}")
 
     print("---")
