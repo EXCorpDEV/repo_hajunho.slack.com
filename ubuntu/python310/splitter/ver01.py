@@ -6,6 +6,8 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from tensorflow.keras.optimizers import Adam
 
 os.environ['TF_XLA_FLAGS'] = '--tf_xla_auto_jit=0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+#export CUDA_VISIBLE_DEVICES=""
 
 # 데이터 경로 설정
 data_dir = '/mnt/splitter/datas'
