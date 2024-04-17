@@ -43,10 +43,12 @@ model = Sequential([
 ])
 
 # 모델 컴파일
-model.compile(optimizer=Adam(lr=0.001),
+#model.compile(optimizer=Adam(lr=0.001),
+#             loss='binary_crossentropy',
+#              metrics=['accuracy'])
+model.compile(optimizer=Adam(learning_rate=0.001),
               loss='binary_crossentropy',
               metrics=['accuracy'])
-
 # 모델 학습
 epochs = 10
 history = model.fit(
