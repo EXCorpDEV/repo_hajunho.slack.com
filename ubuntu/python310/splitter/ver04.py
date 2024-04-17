@@ -4,6 +4,10 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from concurrent.futures import ThreadPoolExecutor
 
+os.environ['TF_XLA_FLAGS'] = '--tf_xla_auto_jit=0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+#export CUDA_VISIBLE_DEVICES=""
+
 # 모델 로드
 model = load_model('image_classification_model.h5')
 
