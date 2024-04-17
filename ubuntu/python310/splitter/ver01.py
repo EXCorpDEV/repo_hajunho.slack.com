@@ -10,6 +10,12 @@ data_dir = '/mnt/splitter/datas'
 train_dir = os.path.join(data_dir, 'data1')
 test_dir = os.path.join(data_dir, 'data2')
 
+# 데이터 경로 확인
+if not os.path.exists(train_dir):
+    raise ValueError(f"Training data directory does not exist: {train_dir}")
+if not os.path.exists(test_dir):
+    raise ValueError(f"Testing data directory does not exist: {test_dir}")
+
 # 이미지 크기 설정
 img_width, img_height = 224, 224
 input_shape = (img_width, img_height, 3)
