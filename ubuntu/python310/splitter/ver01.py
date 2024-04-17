@@ -5,6 +5,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from tensorflow.keras.optimizers import Adam
 
+os.environ['TF_XLA_FLAGS'] = '--tf_xla_auto_jit=0'
+
 # 데이터 경로 설정
 data_dir = '/mnt/splitter/datas'
 train_dir = os.path.join(data_dir, 'data1')
@@ -70,3 +72,15 @@ print(f'Test Accuracy: {accuracy:.2f}')
 
 # 모델 저장
 model.save('image_classification_model.h5')
+
+
+# data structures
+# data1/
+#     class1/
+#         image1.jpg
+#         image2.jpg
+#         ...
+#     class2/
+#         image1.jpg
+#         image2.jpg
+#         ...
