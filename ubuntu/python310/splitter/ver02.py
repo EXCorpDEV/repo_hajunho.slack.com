@@ -19,6 +19,10 @@ img_width, img_height = 224, 224
 # List of class directories
 class_dirs = [class1_dir, class2_dir]
 
+# Initialize variables for accuracy calculation
+total_images = 0
+correct_predictions = 0
+
 # Perform predictions for each class
 for class_dir in class_dirs:
     class_name = os.path.basename(class_dir)
@@ -44,4 +48,13 @@ for class_dir in class_dirs:
 
         print(f"Image: {image_file}, Actual Class: {data_name}/{class_name}, Predicted Class: {predicted_class}")
 
+        # Update accuracy variables
+        total_images += 1
+        if predicted_class == class_name:
+            correct_predictions += 1
+
     print("---")
+
+# Calculate and print accuracy
+accuracy = correct_predictions / total_images * 100
+print(f"Accuracy: {accuracy:.2f}%")
