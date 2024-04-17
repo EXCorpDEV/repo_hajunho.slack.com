@@ -42,6 +42,15 @@ model = Sequential([
     Dense(1, activation='sigmoid')
 ])
 
+# 모델 학습
+epochs = 10
+history = model.fit(
+    train_generator,
+    steps_per_epoch=train_generator.samples // train_generator.batch_size,
+    epochs=epochs,
+    validation_data=test_generator,
+    validation_steps=test_generator.samples // test_generator.batch_size)
+
 # 모델 컴파일
 #model.compile(optimizer=Adam(lr=0.001),
 #             loss='binary_crossentropy',
