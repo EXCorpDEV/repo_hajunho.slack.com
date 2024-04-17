@@ -1,3 +1,5 @@
+#tensorboard --logdir=logs --bind_all
+
 import os
 import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
