@@ -18,7 +18,8 @@ class1_dir = os.path.join(data1_dir, 'class1')
 class2_dir = os.path.join(data2_dir, 'class2')
 
 # 이미지 크기 설정
-img_width, img_height = 224, 224
+# img_width, img_height = 224, 224
+img_width, img_height = 299, 299
 
 # 클래스 디렉토리 리스트
 class_dirs = [class1_dir, class2_dir]
