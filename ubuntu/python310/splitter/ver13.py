@@ -9,6 +9,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import TensorBoard
 from scipy import ndimage
 import threading
+import time
 
 os.environ['TF_XLA_FLAGS'] = '--tf_xla_auto_jit=0'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
@@ -94,26 +95,41 @@ def evaluate_model(model):
 
 # 모델 저장
 def save_model(model):
-    model.save('image_classification_model_transfer_learning.h5')
-
-# 쓰레드 생성 및 실행
-def run_threads():
-    model = build_model()
-    compile_model(model)
-
-    train_thread = threading.Thread(target=train_model, args=(model,))
-    train_thread.start()
-    train_thread.join()
-
-    evaluate_thread = threading.Thread(target=evaluate_model, args=(model,))
-    save_thread = threading.Thread(target=save_model, args=(model,))
-
-    evaluate_thread.start()
-    save_thread.start()
-
-    evaluate_thread.join()
-    save_thread.join()
+    timestamp = time.strftime("%Y%m%d_%H%M%S")
+    model_path = f'image_classification_model_transfer_learning_{timestamp}.h5'
+    model.save(model_path)
+    print(f"Model saved as {model_path}")
 
 # 메인 함수
 if __name__ == '__main__':
-    run_threads()
+    model = build_model()
+    compile_model(model)
+    train_model(model)
+    evaluate_model(model)
+    save_model(model)
+
+# 모델 저장
+# def save_model(model):
+#     model.save('image_classification_model_transfer_learning.h5')
+
+# 쓰레드 생성 및 실행
+# def run_threads():
+#     model = build_model()
+#     compile_model(model)
+#
+#     train_thread = threading.Thread(target=train_model, args=(model,))
+#     train_thread.start()
+#     train_thread.join()
+#
+#     evaluate_thread = threading.Thread(target=evaluate_model, args=(model,))
+#     save_thread = threading.Thread(target=save_model, args=(model,))
+#
+#     evaluate_thread.start()
+#     save_thread.start()
+#
+#     evaluate_thread.join()
+#     save_thread.join()
+
+# 메인 함수
+# if __name__ == '__main__':
+#     run_threads()
