@@ -7,7 +7,7 @@ from tensorflow.keras.preprocessing import image
 model = load_model('image_classification_model.h5')
 
 # Set the data directory path
-data_dir = '/mnt/splitter/datas'
+data_dir = '/mnt/splitter/datas/fortest'
 data1_dir = os.path.join(data_dir, 'data1')
 data2_dir = os.path.join(data_dir, 'data2')
 class1_dir = os.path.join(data1_dir, 'class1')
