@@ -50,7 +50,7 @@ def classify_image(image_path, class_name, data_name):
     return f"Image: {os.path.basename(image_path)}, Actual Class: {data_name}/{class_name}, Predicted Class: {predicted_class}"
 
 # 쓰레드 풀 생성
-with ThreadPoolExecutor() as executor:
+with ThreadPoolExecutor(max_workers=60) as executor:
     futures = []
 
     # 각 클래스에 대한 예측 수행
