@@ -4,7 +4,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
 # Load the trained model
-model = load_model('m_monitor_print.h5')
+model = load_model('m_monitor_print.h5', compile=False)
 
 # Load class labels from file
 with open('labels_monitor_print.txt', 'r', encoding='UTF8') as f:
