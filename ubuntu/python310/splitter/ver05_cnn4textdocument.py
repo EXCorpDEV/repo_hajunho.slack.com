@@ -43,14 +43,14 @@ train_generator = train_datagen.flow_from_directory(
     train_dir,
     target_size=(img_width, img_height),
     batch_size=64,
-    class_mode='categorical',
+    class_mode='binary',
     color_mode='grayscale'
 )
 test_generator = test_datagen.flow_from_directory(
     test_dir,
     target_size=(img_width, img_height),
     batch_size=64,
-    class_mode='categorical',
+    class_mode='binary',
     color_mode='grayscale'
 )
 
