@@ -1,7 +1,7 @@
 #export CUDA_VISIBLE_DEVICES=""
 #tensorboard --logdir=logs --bind_all
 
-import os
+import os, json
 import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.models import Sequential
@@ -74,7 +74,6 @@ def compile_model(model):
                   loss='binary_crossentropy',
                   metrics=['accuracy'])
 
-# 모델 학습
 def train_model(model):
     epochs = 30
     history = model.fit(
@@ -84,6 +83,12 @@ def train_model(model):
         validation_data=test_generator,
         validation_steps=test_generator.samples // test_generator.batch_size
     )
+
+    class_indices = train_generator.class_indices
+    print(f'Class indices: {class_indices}')
+    with open('class_indices.json', 'w') as file:
+        json.dump(class_indices, file)
+
 
 # 모델 평가
 def evaluate_model(model):
