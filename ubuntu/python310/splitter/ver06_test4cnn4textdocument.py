@@ -36,7 +36,7 @@ def classify_image(image_path):
         prediction = model.predict(img_array)
         predicted_prob = prediction[0][0]
         # predicted_class = 'data1/class_1' if predicted_prob < 0.5 else 'data2/class_2'
-        predicted_class = 'class1' if predicted_prob < 0.5 else 'class2'
+        predicted_class = 'class1' if predicted_prob < 0.1 else 'class2'
 
         return predicted_class, predicted_prob
     except (UnidentifiedImageError, OSError):
