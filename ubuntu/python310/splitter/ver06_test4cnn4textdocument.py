@@ -34,15 +34,14 @@ def classify_image(image_path):
 
         # 이미지 예측
         prediction = model.predict(img_array)
-        predicted_class = 'data1/class_1' if prediction[0][0] < 0.5 else 'data2/class_2'
+        predicted_prob = prediction[0][0]
+        predicted_class = 'data1/class_1' if predicted_prob < 0.5 else 'data2/class_2'
 
-        return predicted_class
+        return predicted_class, predicted_prob
     except (UnidentifiedImageError, OSError):
         print(f"Skipping problematic image: {image_path}")
-        return None
+        return None, None
 
-
-# 쓰레드 풀 생성
 with ThreadPoolExecutor() as executor:
     futures = []
 
@@ -56,11 +55,11 @@ with ThreadPoolExecutor() as executor:
 
     # 모든 분류 작업이 완료될 때까지 대기
     for future, image_path in futures:
-        predicted_class = future.result()
+        predicted_class, predicted_prob = future.result()
 
         if predicted_class == 'data1/class_1':
             # 파일을 결과 디렉토리로 복사
             shutil.copy(image_path, result_dir)
-            print(f"Image: {image_path} copied to {result_dir}🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻")
+            print(f"Image: {image_path} copied to {result_dir} (Probability: {predicted_prob:.4f})🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻")
         elif predicted_class is not None:
-            print(f"Image: {image_path} not copied")
+            print(f"Image: {image_path} not copied (Probability: {predicted_prob:.4f})")
