@@ -61,6 +61,6 @@ with ThreadPoolExecutor() as executor:
         if predicted_class == 'data1/class_1':
             # 파일을 결과 디렉토리로 복사
             shutil.copy(image_path, result_dir)
-            print(f"Image: {image_path} copied to {result_dir}")
+            print(f"Image: {image_path} copied to {result_dir}🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻")
         elif predicted_class is not None:
             print(f"Image: {image_path} not copied")
