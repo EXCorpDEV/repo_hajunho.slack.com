@@ -88,8 +88,10 @@ def evaluate_model(model):
     print(f'Test Accuracy: {accuracy:.2f}')
 
 # 모델 저장
+# def save_model(model):
+#     model.save('document_classification_model.h5')
 def save_model(model):
-    model.save('document_classification_model.h5')
+    model.save('document_classification_model', save_format='tf')
 
 # 쓰레드 생성 및 실행
 def run_threads():
