@@ -66,9 +66,13 @@ def build_model():
     return model
 
 # 모델 컴파일
+# def compile_model(model):
+#     model.compile(optimizer=Adam(learning_rate=0.0001),
+#                   loss='categorical_crossentropy',
+#                   metrics=['accuracy'])
 def compile_model(model):
     model.compile(optimizer=Adam(learning_rate=0.0001),
-                  loss='categorical_crossentropy',
+                  loss='binary_crossentropy',
                   metrics=['accuracy'])
 
 # 모델 학습
