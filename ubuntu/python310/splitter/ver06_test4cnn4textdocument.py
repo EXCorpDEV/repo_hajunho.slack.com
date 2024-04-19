@@ -11,7 +11,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # export CUDA_VISIBLE_DEVICES=""
 
 # 모델 로드
-model = load_model('document_classification_model.keras')
+model = load_model('document_classification_model.h5')
 
 # 데이터 경로 설정
 data_dir = '/mnt/splitter/datas/24.02'
