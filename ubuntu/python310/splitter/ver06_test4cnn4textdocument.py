@@ -4,6 +4,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from concurrent.futures import ThreadPoolExecutor
+from PIL import UnidentifiedImageError
 
 os.environ['TF_XLA_FLAGS'] = '--tf_xla_auto_jit=0'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
@@ -22,20 +23,23 @@ os.makedirs(result_dir, exist_ok=True)
 # 이미지 크기 설정
 img_width, img_height = 128, 128
 
-
 # 이미지 분류 함수
 def classify_image(image_path):
-    # 이미지 로드 및 전처리
-    img = image.load_img(image_path, target_size=(img_width, img_height), color_mode='grayscale')
-    img_array = image.img_to_array(img)
-    img_array = np.expand_dims(img_array, axis=0)
-    img_array /= 255.
+    try:
+        # 이미지 로드 및 전처리
+        img = image.load_img(image_path, target_size=(img_width, img_height), color_mode='grayscale')
+        img_array = image.img_to_array(img)
+        img_array = np.expand_dims(img_array, axis=0)
+        img_array /= 255.
 
-    # 이미지 예측
-    prediction = model.predict(img_array)
-    predicted_class = 'data1/class_1' if prediction[0][0] < 0.5 else 'data2/class_2'
+        # 이미지 예측
+        prediction = model.predict(img_array)
+        predicted_class = 'data1/class_1' if prediction[0][0] < 0.5 else 'data2/class_2'
 
-    return predicted_class
+        return predicted_class
+    except UnidentifiedImageError:
+        print(f"Skipping unidentified image: {image_path}")
+        return None
 
 
 # 쓰레드 풀 생성
@@ -58,5 +62,5 @@ with ThreadPoolExecutor() as executor:
             # 파일을 결과 디렉토리로 복사
             shutil.copy(image_path, result_dir)
             print(f"Image: {image_path} copied to {result_dir}")
-        else:
+        elif predicted_class is not None:
             print(f"Image: {image_path} not copied")
