@@ -24,7 +24,7 @@ if not os.path.exists(test_dir):
     raise ValueError(f"Testing data directory does not exist: {test_dir}")
 
 # 이미지 크기 설정
-img_width, img_height = 128, 128
+img_width, img_height = 299, 299
 input_shape = (img_width, img_height, 1)
 
 # 데이터 제너레이터 설정
@@ -37,6 +37,7 @@ train_datagen = ImageDataGenerator(
     zoom_range=0.1,
     horizontal_flip=True
 )
+
 test_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_directory(
@@ -46,6 +47,7 @@ train_generator = train_datagen.flow_from_directory(
     class_mode='binary',
     color_mode='grayscale'
 )
+
 test_generator = test_datagen.flow_from_directory(
     test_dir,
     target_size=(img_width, img_height),
@@ -88,7 +90,6 @@ def train_model(model):
     print(f'Class indices: {class_indices}')
     with open('class_indices.json', 'w') as file:
         json.dump(class_indices, file)
-
 
 # 모델 평가
 def evaluate_model(model):
