@@ -35,7 +35,8 @@ def classify_image(image_path):
         # 이미지 예측
         prediction = model.predict(img_array)
         predicted_prob = prediction[0][0]
-        predicted_class = 'data1/class_1' if predicted_prob < 0.5 else 'data2/class_2'
+        # predicted_class = 'data1/class_1' if predicted_prob < 0.5 else 'data2/class_2'
+        predicted_class = 'class1' if predicted_prob < 0.5 else 'class2'
 
         return predicted_class, predicted_prob
     except (UnidentifiedImageError, OSError):
@@ -57,7 +58,7 @@ with ThreadPoolExecutor() as executor:
     for future, image_path in futures:
         predicted_class, predicted_prob = future.result()
 
-        if predicted_class == 'data1/class_1':
+        if predicted_class == 'class1':
             # 파일을 결과 디렉토리로 복사
             shutil.copy(image_path, result_dir)
             print(f"Image: {image_path} copied to {result_dir} (Probability: {predicted_prob:.4f})🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻")
