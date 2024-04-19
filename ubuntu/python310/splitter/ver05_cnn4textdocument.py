@@ -44,14 +44,18 @@ train_generator = train_datagen.flow_from_directory(
     target_size=(img_width, img_height),
     batch_size=64,
     class_mode='binary',
-    color_mode='grayscale'
+    color_mode='grayscale',
+    classes=['data1', 'data2'],
+    subdirectories=True  # 하위 디렉토리 포함
 )
 test_generator = test_datagen.flow_from_directory(
     test_dir,
     target_size=(img_width, img_height),
     batch_size=64,
     class_mode='binary',
-    color_mode='grayscale'
+    color_mode='grayscale',
+    classes=['data1', 'data2'],
+    subdirectories=True  # 하위 디렉토리 포함
 )
 
 # 모델 구성
@@ -69,10 +73,6 @@ def build_model():
     return model
 
 # 모델 컴파일
-# def compile_model(model):
-#     model.compile(optimizer=Adam(learning_rate=0.0001),
-#                   loss='categorical_crossentropy',
-#                   metrics=['accuracy'])
 def compile_model(model):
     model.compile(optimizer=Adam(learning_rate=0.0001),
                   loss='binary_crossentropy',
@@ -121,12 +121,6 @@ if __name__ == '__main__':
     run_threads()
 
 # data1/
-#      class_1/
-#          image1.jpg
-#          image2.jpg
-#          ...
+#      ...
 #  data2/
-#      class_1/
-#          image3.jpg
-#          image4.jpg
-#          ...
+#      ...
