@@ -21,7 +21,7 @@ result_dir = '/mnt/splitter/result'
 os.makedirs(result_dir, exist_ok=True)
 
 # 이미지 크기 설정
-img_width, img_height = 128, 128
+img_width, img_height = 299, 299
 
 # 이미지 분류 함수
 def classify_image(image_path):
