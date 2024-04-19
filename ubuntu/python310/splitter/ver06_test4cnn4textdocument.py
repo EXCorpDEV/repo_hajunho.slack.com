@@ -13,7 +13,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 model = load_model('document_classification_model.keras')
 
 # 데이터 경로 설정
-data_dir = '/mnt/splitter/alldatas'
+data_dir = '/mnt/splitter/datas/24.02'
 result_dir = '/mnt/splitter/result'
 
 # 결과 디렉토리 생성 (없는 경우)
