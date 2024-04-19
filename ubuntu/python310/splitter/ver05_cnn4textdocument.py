@@ -88,10 +88,8 @@ def evaluate_model(model):
     print(f'Test Accuracy: {accuracy:.2f}')
 
 # 모델 저장
-# def save_model(model):
-#     model.save('document_classification_model.h5')
 def save_model(model):
-    model.save('document_classification_model', save_format='tf')
+    model.save('document_classification_model.h5')
 
 # 쓰레드 생성 및 실행
 def run_threads():
@@ -114,3 +112,14 @@ def run_threads():
 # 메인 함수
 if __name__ == '__main__':
     run_threads()
+
+# data1/
+#      class_1/
+#          image1.jpg
+#          image2.jpg
+#          ...
+#  data2/
+#      class_1/
+#          image3.jpg
+#          image4.jpg
+#          ...
