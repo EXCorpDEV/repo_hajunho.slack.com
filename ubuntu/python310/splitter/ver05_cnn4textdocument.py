@@ -1,3 +1,6 @@
+#export CUDA_VISIBLE_DEVICES=""
+#tensorboard --logdir=logs --bind_all
+
 import os
 import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -93,7 +96,7 @@ def evaluate_model(model):
 
 # 모델 저장
 def save_model(model):
-    model.save('document_classification_model.h5')
+    model.save('document_classification_model.keras')
 
 # 쓰레드 생성 및 실행
 def run_threads():
