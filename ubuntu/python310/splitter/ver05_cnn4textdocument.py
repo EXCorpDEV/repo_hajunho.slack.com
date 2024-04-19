@@ -61,7 +61,7 @@ def build_model():
         Conv2D(64, (3, 3), activation='relu'),
         Flatten(),
         Dense(64, activation='relu'),
-        Dense(len(train_generator.class_indices), activation='softmax')
+        Dense(1, activation='sigmoid')
     ])
     return model
 
