@@ -75,7 +75,7 @@ def compile_model(model):
                   metrics=['accuracy'])
 
 def train_model(model):
-    epochs = 30
+    epochs = 50
     history = model.fit(
         train_generator,
         steps_per_epoch=train_generator.samples // train_generator.batch_size,
