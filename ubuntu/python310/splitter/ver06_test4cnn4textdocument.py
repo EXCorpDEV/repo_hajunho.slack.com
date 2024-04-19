@@ -37,8 +37,8 @@ def classify_image(image_path):
         predicted_class = 'data1/class_1' if prediction[0][0] < 0.5 else 'data2/class_2'
 
         return predicted_class
-    except UnidentifiedImageError:
-        print(f"Skipping unidentified image: {image_path}")
+    except (UnidentifiedImageError, OSError):
+        print(f"Skipping problematic image: {image_path}")
         return None
 
 
