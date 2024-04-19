@@ -43,17 +43,15 @@ train_generator = train_datagen.flow_from_directory(
     train_dir,
     target_size=(img_width, img_height),
     batch_size=64,
-    class_mode='categorical',
-    color_mode='grayscale',
-    classes=['data1', 'data2'],
+    class_mode='binary',
+    color_mode='grayscale'
 )
 test_generator = test_datagen.flow_from_directory(
     test_dir,
     target_size=(img_width, img_height),
     batch_size=64,
-    class_mode='categorical',
-    color_mode='grayscale',
-    classes=['data1', 'data2'],
+    class_mode='binary',
+    color_mode='grayscale'
 )
 
 # 모델 구성
@@ -94,7 +92,7 @@ def evaluate_model(model):
 
 # 모델 저장
 def save_model(model):
-    model.save('document_classification_model.keras')
+    model.save('document_classification_model.h5')
 
 # 쓰레드 생성 및 실행
 def run_threads():
@@ -117,8 +115,3 @@ def run_threads():
 # 메인 함수
 if __name__ == '__main__':
     run_threads()
-
-# data1/
-#      ...
-#  data2/
-#      ...
