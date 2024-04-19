@@ -40,14 +40,14 @@ train_generator = train_datagen.flow_from_directory(
     train_dir,
     target_size=(img_width, img_height),
     batch_size=64,
-    class_mode='binary',
+    class_mode='categorical',
     color_mode='grayscale'
 )
 test_generator = test_datagen.flow_from_directory(
     test_dir,
     target_size=(img_width, img_height),
     batch_size=64,
-    class_mode='binary',
+    class_mode='categorical',
     color_mode='grayscale'
 )
 
@@ -61,14 +61,14 @@ def build_model():
         Conv2D(64, (3, 3), activation='relu'),
         Flatten(),
         Dense(64, activation='relu'),
-        Dense(1, activation='sigmoid')
+        Dense(len(train_generator.class_indices), activation='softmax')
     ])
     return model
 
 # 모델 컴파일
 def compile_model(model):
     model.compile(optimizer=Adam(learning_rate=0.0001),
-                  loss='binary_crossentropy',
+                  loss='categorical_crossentropy',
                   metrics=['accuracy'])
 
 # 모델 학습
