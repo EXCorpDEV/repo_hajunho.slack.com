@@ -43,19 +43,17 @@ train_generator = train_datagen.flow_from_directory(
     train_dir,
     target_size=(img_width, img_height),
     batch_size=64,
-    class_mode='binary',
+    class_mode='categorical',
     color_mode='grayscale',
     classes=['data1', 'data2'],
-    subdirectories=True  # 하위 디렉토리 포함
 )
 test_generator = test_datagen.flow_from_directory(
     test_dir,
     target_size=(img_width, img_height),
     batch_size=64,
-    class_mode='binary',
+    class_mode='categorical',
     color_mode='grayscale',
     classes=['data1', 'data2'],
-    subdirectories=True  # 하위 디렉토리 포함
 )
 
 # 모델 구성
