@@ -49,6 +49,7 @@ for root, dirs, files in os.walk(input_dir):
             # Print prediction and confidence score
             print(f"File: {image_path}")
             print(f"Class: {class_name}, Confidence Score: {confidence_score}")
+            print()
 
             # Create the output directory for the predicted class if it doesn't exist
             class_output_dir = os.path.join(output_dir, class_name)
