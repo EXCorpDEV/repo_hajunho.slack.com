@@ -1,4 +1,6 @@
-#86.31%
+#This project is moved to commercial and private project.
+#Please contact to admin@sodn.io / +82 1644 2447
+
 import os
 import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
