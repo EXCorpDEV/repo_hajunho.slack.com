@@ -9,3 +9,8 @@ for package in $packages; do
 done
 
 echo "CUDA 관련 패키지 삭제가 완료되었습니다."
+#sudo apt-cache madison cuda
+#sudo apt remove --purge ^cuda-12.*
+#sudo apt remove --purge -s ^cuda-12.*
+#sudo apt autoremove
+#sudo apt clean
