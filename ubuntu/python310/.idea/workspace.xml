@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="commit msg style has been changed to log for easy reading. /usr/local/bin/python3.9 /Users/junhoha/github/repo_hajunho.slack.com/ubuntu/python310/hugging_face/test02.py &#10;Loading checkpoint shards: 100%|██████████| 5/5 [00:19&lt;00:00,  3.91s/it]&#10;Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.&#10;Hello, how are you? I hope you are well.&#10;I am writing to you because I have a problem.&#10;I have been working for your company for 10 years. I have always been a good worker. I have never&#10;&#10;종료 코드 0(으)로 완료된 프로세스">
-      <change afterPath="$PROJECT_DIR$/hugging_face/download_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="download_models.py">
+      <change afterPath="$PROJECT_DIR$/hugging_face/download_models2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,15 +166,7 @@
       <workItem from="1714095205553" duration="599000" />
       <workItem from="1714117173008" duration="756000" />
       <workItem from="1714324061379" duration="1180000" />
-      <workItem from="1717875380215" duration="2621000" />
-    </task>
-    <task id="LOCAL-00030" summary="codes checking is okay til ver05">
-      <option name="closed" value="true" />
-      <created>1713341146808</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1713341146808</updated>
+      <workItem from="1717875380215" duration="2784000" />
     </task>
     <task id="LOCAL-00031" summary="VGG16">
       <option name="closed" value="true" />
@@ -561,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717876419072</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="download_models.py">
+      <option name="closed" value="true" />
+      <created>1717892820971</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1717892820971</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +578,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dense 1 sigmoid" />
     <MESSAGE value="When using the categorical cross-entropy loss function, the number of output classes should be 2 or more. Currently, the output dimension is 1, so it is recommended to use the binary cross-entropy loss function." />
     <MESSAGE value="print(scipy.__version__)" />
     <MESSAGE value="test &amp; copy files" />
@@ -604,7 +602,8 @@
     <MESSAGE value="[2024/04/25 18:46:54] ppocr DEBUG: Namespace(help='==SUPPRESS==', use_gpu=False, use_xpu=False, use_npu=False, ir_optim=True, use_tensorrt=False, min_subgraph_size=15, precision='fp32', gpu_mem=500, gpu_id=0, image_dir=None, page_num=0, det_algorithm='DB', det_model_dir='/root/.paddleocr/whl/det/ml/Multilingual_PP-OCRv3_det_infer', det_limit_side_len=960, det_limit_type='max', det_box_type='quad', det_db_thresh=0.3, det_db_box_thresh=0.6, det_db_unclip_ratio=1.5, max_batch_size=10, use_dilation=False, det_db_score_mode='fast', det_east_score_thresh=0.8, det_east_cover_thresh=0.1, det_east_nms_thresh=0.2, det_sast_score_thresh=0.5, det_sast_nms_thresh=0.2, det_pse_thresh=0, det_pse_box_thresh=0.85, det_pse_min_area=16, det_pse_scale=1, scales=[8, 16, 32], alpha=1.0, beta=1.0, fourier_degree=5, rec_algorithm='SVTR_LCNet', rec_model_dir='/root/.paddleocr/whl/rec/korean/korean_PP-OCRv4_rec_infer', rec_image_inverse=True, rec_image_shape='3, 48, 320', rec_batch_num=6, max_text_length=25, rec_char_dict_path='/usr/local/lib/python3.10/dist-packages/paddleocr/ppocr/utils/dict/korean_dict.txt', use_space_char=True, vis_font_path='./doc/fonts/simfang.ttf', drop_score=0.5, e2e_algorithm='PGNet', e2e_model_dir=None, e2e_limit_side_len=768, e2e_limit_type='max', e2e_pgnet_score_thresh=0.5, e2e_char_dict_path='./ppocr/utils/ic15_dict.txt', e2e_pgnet_valid_set='totaltext', e2e_pgnet_mode='fast', use_angle_cls=False, cls_model_dir='/root/.paddleocr/whl/cls/ch_ppocr_mobile_v2.0_cls_infer', cls_image_shape='3, 48, 192', label_list=['0', '180'], cls_batch_num=6, cls_thresh=0.9, enable_mkldnn=False, cpu_threads=10, use_pdserving=False, warmup=False, sr_model_dir=None, sr_image_shape='3, 32, 128', sr_batch_num=1, draw_img_save_dir='./inference_results', save_crop_res=False, crop_res_save_dir='./output', use_mp=False, total_process_num=1, process_id=0, benchmark=False, save_log_path='./log_output/', show_log=True, use_onnx=False, output='./output', table_max_len=488, table_algorithm='TableAttn', table_model_dir=None, merge_no_span_structure=True, table_char_dict_path=None, layout_model_dir=None, layout_dict_path=None, layout_score_threshold=0.5, layout_nms_threshold=0.5, kie_algorithm='LayoutXLM', ser_model_dir=None, re_model_dir=None, use_visual_backbone=True, ser_dict_path='../train_data/XFUND/class_list_xfun.txt', ocr_order_method=None, mode='structure', image_orientation=False, layout=True, table=True, ocr=True, recovery=False, use_pdf2docx_api=False, invert=False, binarize=False, alphacolor=(255, 255, 255), lang='korean', det=True, rec=True, type='ocr', ocr_version='PP-OCRv4', structure_version='PP-StructureV2')&#10;[2024/04/25 18:46:56] ppocr DEBUG: dt_boxes num : 60, elapsed : 0.2725210189819336&#10;[2024/04/25 18:47:02] ppocr DEBUG: rec_res num  : 60, elapsed : 6.230990886688232&#10;사업자등록증 글자가 있습니다.&#10;Extracted Text:&#10;주소이전변경후최종주소국세청사업자등록증일반과세자등록번호힘찬나아라정형외과의원장근종외명생년월일년월일개업연월년월일사업장소재지서물특별지양천구목동서로호호호호신정동라벨라신정동사업의송류업태보건업정형외과서비스업피부비만관리발급사유공동사업자ㅂ이성곤사업자단위과세적용사업자여부여부전자세금계산서전용전자우편주소년월일양천세무서장국세청" />
     <MESSAGE value="paddle ocr samples" />
     <MESSAGE value="commit msg style has been changed to log for easy reading. /usr/local/bin/python3.9 /Users/junhoha/github/repo_hajunho.slack.com/ubuntu/python310/hugging_face/test02.py &#10;Loading checkpoint shards: 100%|██████████| 5/5 [00:19&lt;00:00,  3.91s/it]&#10;Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.&#10;Hello, how are you? I hope you are well.&#10;I am writing to you because I have a problem.&#10;I have been working for your company for 10 years. I have always been a good worker. I have never&#10;&#10;종료 코드 0(으)로 완료된 프로세스" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit msg style has been changed to log for easy reading. /usr/local/bin/python3.9 /Users/junhoha/github/repo_hajunho.slack.com/ubuntu/python310/hugging_face/test02.py &#10;Loading checkpoint shards: 100%|██████████| 5/5 [00:19&lt;00:00,  3.91s/it]&#10;Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.&#10;Hello, how are you? I hope you are well.&#10;I am writing to you because I have a problem.&#10;I have been working for your company for 10 years. I have always been a good worker. I have never&#10;&#10;종료 코드 0(으)로 완료된 프로세스" />
+    <MESSAGE value="download_models.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="download_models.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python310$versionInfo.coverage" NAME="versionInfo 커버리지 결과" MODIFIED="1713492001951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hjh_tensorflow" />
