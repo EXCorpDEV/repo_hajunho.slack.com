@@ -9,13 +9,24 @@ tokenizer = AutoTokenizer.from_pretrained('bert-base-multilingual-cased')
 
 # 토크나이징 함수 정의
 def tokenize_function(examples):
-    return tokenizer(
+    tokenized_examples = tokenizer(
         examples['context'],
         examples['question'],
         truncation=True,
         padding="max_length",
         max_length=512
     )
+
+    # 정답이 없는 경우 start_positions와 end_positions을 -1로 설정
+    tokenized_examples['start_positions'] = [-1] * len(examples['context'])
+    tokenized_examples['end_positions'] = [-1] * len(examples['context'])
+
+    for i, answer in enumerate(examples['answers']):
+        if len(answer['text']) > 0:
+            tokenized_examples['start_positions'][i] = answer['answer_start'][0]
+            tokenized_examples['end_positions'][i] = answer['answer_start'][0] + len(answer['text'][0])
+
+    return tokenized_examples
 
 # 데이터셋 토크나이징
 tokenized_datasets = dataset.map(tokenize_function, batched=True)
@@ -34,6 +45,14 @@ training_args = TrainingArguments(
     weight_decay=0.01,
 )
 
+# trainer = Trainer(
+#     model=model,
+#     args=training_args,
+#     train_dataset=tokenized_datasets['train'],
+#     eval_dataset=tokenized_datasets['validation'],
+#     tokenizer=tokenizer,
+#     label_names=['start_positions', 'end_positions']
+# )
 # 트레이너 설정 및 학습
 trainer = Trainer(
     model=model,
