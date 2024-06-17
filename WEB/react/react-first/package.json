@@ -53,7 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@webpack-cli/generators": "^2.5.0",
+    "@webpack-cli/generators": "^3.0.7",
     "autoprefixer": "^10.4.12",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
