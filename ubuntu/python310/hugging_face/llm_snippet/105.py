@@ -53,7 +53,15 @@ def compute_metrics(eval_pred):
     logits, labels = eval_pred
     predictions = np.argmax(logits, axis=-1)
 
-    return metric.compute(predictions=predictions, references=labels)
+    # 레이블 및 예측값을 적절한 형식으로 변환
+    true_labels = []
+    true_predictions = []
+
+    for i in range(len(labels)):
+        true_labels.append({"id": str(i), "answers": {"answer_start": [labels[i][0]], "text": [tokenizer.decode(labels[i][0:labels[i][1]+1])]}})
+        true_predictions.append({"id": str(i), "prediction_text": tokenizer.decode(predictions[i][0:predictions[i][1]+1])})
+
+    return metric.compute(predictions=true_predictions, references=true_labels)
 
 # 학습 인자 설정
 training_args = TrainingArguments(

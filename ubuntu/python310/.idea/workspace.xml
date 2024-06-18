@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="from mac">
+    <list default="true" id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="Training a BERT-based Question Answering Model using the KLUE MRC Dataset">
+      <change afterPath="$PROJECT_DIR$/hugging_face/llm_snippet/results/runs/Jun17_22-47-26_Junhoui-MacBookPro-3.local/events.out.tfevents.1718632047.Junhoui-MacBookPro-3.local.74559.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hugging_face/llm_snippet/results/runs/Jun17_22-51-58_Junhoui-MacBookPro-3.local/events.out.tfevents.1718632319.Junhoui-MacBookPro-3.local.74775.0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hugging_face/llm_snippet/001.py" beforeDir="false" afterPath="$PROJECT_DIR$/hugging_face/llm_snippet/001.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hugging_face/llm_snippet/105.py" beforeDir="false" afterPath="$PROJECT_DIR$/hugging_face/llm_snippet/105.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,15 +175,7 @@
       <workItem from="1718263974174" duration="13000" />
       <workItem from="1718604644831" duration="3838000" />
       <workItem from="1718610735575" duration="1199000" />
-      <workItem from="1718631922841" duration="596000" />
-    </task>
-    <task id="LOCAL-00034" summary="Finding the area of a cube">
-      <option name="closed" value="true" />
-      <created>1713384623304</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1713384623304</updated>
+      <workItem from="1718631922841" duration="3813000" />
     </task>
     <task id="LOCAL-00035" summary="Changing to EfficientNetB0">
       <option name="closed" value="true" />
@@ -566,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718611953436</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Training a BERT-based Question Answering Model using the KLUE MRC Dataset">
+      <option name="closed" value="true" />
+      <created>1718632597146</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1718632597146</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,7 +588,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="exception handling" />
     <MESSAGE value="exception handling + UnidentifiedImageError" />
     <MESSAGE value="logs for human " />
     <MESSAGE value="Adding a predicted_prob" />
@@ -610,7 +612,8 @@
     <MESSAGE value="download_models2.py" />
     <MESSAGE value="using local llm models" />
     <MESSAGE value="making a folder titled llm_snippet and push the init src." />
-    <option name="LAST_COMMIT_MESSAGE" value="making a folder titled llm_snippet and push the init src." />
+    <MESSAGE value="Training a BERT-based Question Answering Model using the KLUE MRC Dataset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Training a BERT-based Question Answering Model using the KLUE MRC Dataset" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python310$versionInfo.coverage" NAME="versionInfo 커버리지 결과" MODIFIED="1713492001951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hjh_tensorflow" />

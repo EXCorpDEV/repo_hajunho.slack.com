@@ -45,14 +45,6 @@ training_args = TrainingArguments(
     weight_decay=0.01,
 )
 
-# trainer = Trainer(
-#     model=model,
-#     args=training_args,
-#     train_dataset=tokenized_datasets['train'],
-#     eval_dataset=tokenized_datasets['validation'],
-#     tokenizer=tokenizer,
-#     label_names=['start_positions', 'end_positions']
-# )
 # 트레이너 설정 및 학습
 trainer = Trainer(
     model=model,
