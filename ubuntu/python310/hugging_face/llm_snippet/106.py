@@ -69,16 +69,23 @@ def compute_metrics(eval_pred):
     predictions = np.argmax(logits, axis=-1)
 
     # 예측값과 레이블을 적절한 형식으로 변환
-    true_predictions = [{"id": str(i), "prediction_text": tokenizer.decode(
-        tokenized_datasets['validation'][i]['input_ids'][predictions[i]:labels[i][1]])} for i in
-                        range(len(predictions))]
-    true_labels = [{"id": str(i), "answers": {
-        "text": [tokenizer.decode(tokenized_datasets['validation'][i]['input_ids'][labels[i][0]:labels[i][1]])],
-        "answer_start": [tokenized_datasets['validation'][i]['token_to_chars'](labels[i][0])[0]]}} for i in
-                   range(len(labels))]
+    true_predictions = []
+    true_labels = []
+
+    for i in range(len(predictions)):
+        pred_start = predictions[i][0]
+        pred_end = predictions[i][1] + 1
+        label_start = labels[i][0]
+        label_end = labels[i][1] + 1
+
+        pred_text = tokenizer.decode(tokenized_datasets['validation'][i]['input_ids'][pred_start:pred_end])
+        label_text = tokenizer.decode(tokenized_datasets['validation'][i]['input_ids'][label_start:label_end])
+
+        true_predictions.append({"id": str(i), "prediction_text": pred_text})
+        true_labels.append({"id": str(i), "answers": {"text": [label_text], "answer_start": [
+            tokenized_datasets['validation'][i]['token_to_chars'](label_start)[0]]}})
 
     return metric.compute(predictions=true_predictions, references=true_labels)
-
 
 # 학습 인자 설정
 training_args = TrainingArguments(
