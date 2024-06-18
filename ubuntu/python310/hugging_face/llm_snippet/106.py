@@ -82,8 +82,7 @@ def compute_metrics(eval_pred):
         label_text = tokenizer.decode(tokenized_datasets['validation'][i]['input_ids'][label_start:label_end])
 
         true_predictions.append({"id": str(i), "prediction_text": pred_text})
-        true_labels.append({"id": str(i), "answers": {"text": [label_text], "answer_start": [
-            tokenized_datasets['validation'][i]['token_to_chars'](label_start)[0]]}})
+        true_labels.append({"id": str(i), "answers": {"text": [label_text], "answer_start": [label_start]}})
 
     return metric.compute(predictions=true_predictions, references=true_labels)
 
