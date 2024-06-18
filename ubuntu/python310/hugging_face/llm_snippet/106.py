@@ -36,9 +36,17 @@ def tokenize_function(examples):
                 end_position = start_position + len(answer['text'])
                 break
 
-        # 토큰 레벨로 start_position과 end_position 변환
-        token_start_position = tokenized_examples.char_to_token(i, start_position)
-        token_end_position = tokenized_examples.char_to_token(i, end_position - 1)
+        # Handle negative start_position
+        if start_position < 0:
+            token_start_position = 0
+        else:
+            token_start_position = tokenized_examples.char_to_token(i, start_position)
+
+        # Handle negative end_position
+        if end_position < 0:
+            token_end_position = 0
+        else:
+            token_end_position = tokenized_examples.char_to_token(i, end_position - 1)
 
         tokenized_examples['start_positions'].append(token_start_position)
         tokenized_examples['end_positions'].append(token_end_position)
