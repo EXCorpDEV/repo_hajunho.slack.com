@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37149e40-167a-4cb2-94ee-ca372a7a6b98" name="변경" comment="" />
+    <list default="true" id="37149e40-167a-4cb2-94ee-ca372a7a6b98" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.repo_hajunho.slack.com.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.repo_hajunho.slack.com.dir/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +75,7 @@
       <workItem from="1714324292939" duration="100000" />
       <workItem from="1714324402434" duration="1329000" />
       <workItem from="1715032219241" duration="123000" />
+      <workItem from="1725785571262" duration="526000" />
     </task>
     <task id="LOCAL-00001" summary="abnormal file Name is the critical bug in my System.">
       <option name="closed" value="true" />
