@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="37149e40-167a-4cb2-94ee-ca372a7a6b98" name="변경" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ubuntu/shellScripts/create_sessions.sh" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="PerforceDirect.Settings">
+    <option name="CHARSET" value="none" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2f47vZ8bCrB0RHglQM1MHIX5NJ5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/junhoha/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/junhoha/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/junhoha/Library/Application Support/Symbols/src&quot;
+    ]
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="37149e40-167a-4cb2-94ee-ca372a7a6b98" name="변경" comment="" />
+      <created>1713048727207</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713048727207</updated>
+      <workItem from="1713048728194" duration="2618000" />
+      <workItem from="1713240968399" duration="754000" />
+      <workItem from="1713267054956" duration="158000" />
+      <workItem from="1713324094555" duration="404000" />
+      <workItem from="1713385284538" duration="240000" />
+      <workItem from="1713655904695" duration="1855000" />
+      <workItem from="1714095223101" duration="1663000" />
+      <workItem from="1714324292939" duration="100000" />
+      <workItem from="1714324402434" duration="1329000" />
+      <workItem from="1715032219241" duration="123000" />
+    </task>
+    <task id="LOCAL-00001" summary="abnormal file Name is the critical bug in my System.">
+      <option name="closed" value="true" />
+      <created>1713241122648</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713241122648</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Files count of a list of sub directories.">
+      <option name="closed" value="true" />
+      <created>1713267203073</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713267203073</updated>
+    </task>
+    <task id="LOCAL-00003" summary="making models for splitter ver01">
+      <option name="closed" value="true" />
+      <created>1713324252188</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713324252188</updated>
+    </task>
+    <task id="LOCAL-00004" summary="for tensorflow 2.x">
+      <option name="closed" value="true" />
+      <created>1713324432594</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713324432594</updated>
+    </task>
+    <task id="LOCAL-00005" summary="deleting MAC folder that I want to use as the Server.">
+      <option name="closed" value="true" />
+      <created>1713385487732</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713385487732</updated>
+    </task>
+    <task id="LOCAL-00006" summary="$PROJECT_DIR$/ubuntu/shellScripts/countImageFiles.sh">
+      <option name="closed" value="true" />
+      <created>1713656038217</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713656038218</updated>
+    </task>
+    <task id="LOCAL-00007" summary="When the command &quot;apt --fix-broken install &quot;  is not working">
+      <option name="closed" value="true" />
+      <created>1714095304096</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714095304096</updated>
+    </task>
+    <task id="LOCAL-00008" summary="sudo apt remove --purge -s ^cuda-12.*">
+      <option name="closed" value="true" />
+      <created>1714095610320</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714095610320</updated>
+    </task>
+    <task id="LOCAL-00009" summary=" python3 -m pip list --outdated | grep -v '\[' | awk '{print $1}' | xargs -n1 python3 -m pip install --upgrade">
+      <option name="closed" value="true" />
+      <created>1714324357772</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714324357772</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="abnormal file Name is the critical bug in my System." />
+    <MESSAGE value="Files count of a list of sub directories." />
+    <MESSAGE value="making models for splitter ver01" />
+    <MESSAGE value="for tensorflow 2.x" />
+    <MESSAGE value="deleting MAC folder that I want to use as the Server." />
+    <MESSAGE value="/Users/junhoha/github/repo_hajunho.slack.com/ubuntu/shellScripts/countImageFiles.sh" />
+    <MESSAGE value="When the command &quot;apt --fix-broken install &quot;  is not working" />
+    <MESSAGE value="sudo apt remove --purge -s ^cuda-12.*" />
+    <MESSAGE value=" python3 -m pip list --outdated | grep -v '\[' | awk '{print $1}' | xargs -n1 python3 -m pip install --upgrade" />
+    <option name="LAST_COMMIT_MESSAGE" value=" python3 -m pip list --outdated | grep -v '\[' | awk '{print $1}' | xargs -n1 python3 -m pip install --upgrade" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

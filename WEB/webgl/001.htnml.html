@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Background with Three.js and Simplex Noise</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+        .cover-container {
+            max-width: 42em;
+        }
+        .masthead-brand {
+            margin-bottom: 0;
+        }
+        .nav-masthead .nav-link {
+            padding: .25rem 0;
+            font-weight: 700;
+            color: #212529;
+            background-color: transparent;
+            border-bottom: .25rem solid transparent;
+        }
+        .nav-masthead .nav-link:hover,
+        .nav-masthead .nav-link:focus {
+            border-bottom-color: rgba(0, 0, 0, .25);
+        }
+        .nav-masthead .nav-link+.nav-link {
+            margin-left: 1rem;
+        }
+        #background {
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="text-center">
+<div id="page">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">Background #1</h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link" href="https://codepen.io/soju22/" target="_blank">Codepen Profile</a>
+                    <a class="nav-link" href="https://codepen.io/collection/AGZywR" target="_blank">ThreeJS Collection</a>
+                </nav>
+            </div>
+        </header>
+        <main role="main" class="inner cover">
+            <h2>Interactive Background</h2>
+            <p class="lead">This simple interactive background is made with <a href="https://threejs.org"
+                                                                               target="_blank">ThreeJS</a> and a <a
+                    href="https://threejs.org/docs/#api/en/geometries/PlaneBufferGeometry"
+                    target="_blank">PlaneBufferGeometry</a> animated with Simplex noise.</p>
+            <form style="width: 80%; margin: 0 auto;">
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label for="noiseInput" class="form-label">Noise Coef</label>
+                        <input type="range" min="1" max="100" class="custom-range" id="noiseInput">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="heightInput" class="form-label">Height Coef</label>
+                        <input type="range" min="1" max="100" class="custom-range" id="heightInput">
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <a href="#" id="trigger" class="btn btn-sm btn-secondary">Random Colors</a>
+                </div>
+            </form>
+        </main>
+        <footer class="mastfoot mt-auto">
+        </footer>
+    </div>
+</div>
+<canvas id="background"></canvas>
+
+<!-- Three.js 라이브러리 로드 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Simplex Noise 라이브러리 로드 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+<!-- Chroma.js 라이브러리 로드 (색상 관련 기능 제공) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js"></script>
+
+<script src="webgl01.js"></script>
+
+</body>
+</html>

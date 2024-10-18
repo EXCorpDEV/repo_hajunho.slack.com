@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hajunho&quot;
+  }
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:hajunho/repo_hajunho.slack.com.git&quot;,
+    &quot;accountId&quot;: &quot;a9af45df-272d-412c-a960-d1952b3aa9aa&quot;
+  }
+}</component>
+  <component name="PerforceDirect.Settings">
+    <option name="CHARSET" value="없음" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2e8GfwADmdgBmxgngLUsTl4BdIQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Python.001.executor&quot;: &quot;Run&quot;,
+    &quot;Python.FindingArea_cube.executor&quot;: &quot;Run&quot;,
+    &quot;Python.a.executor&quot;: &quot;Run&quot;,
+    &quot;Python.d.executor&quot;: &quot;Run&quot;,
+    &quot;Python.download_models2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.examCoin.executor&quot;: &quot;Run&quot;,
+    &quot;Python.examHashMine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hjhskew.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.paddleocr.executor&quot;: &quot;Run&quot;,
+    &quot;Python.predict_system.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test01.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test02.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ver08.executor&quot;: &quot;Run&quot;,
+    &quot;Python.versionInfo.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/junhoha/github/repo_hajunho.slack.com/ubuntu/python310/paddle_examples&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/PyCharm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/paddle_examples" />
+      <recent name="$PROJECT_DIR$/paddle" />
+      <recent name="$PROJECT_DIR$/splitter" />
+      <recent name="$PROJECT_DIR$/skew" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/paddle_examples" />
+      <recent name="$PROJECT_DIR$/splitter/hjh_models" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="python310" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PY-241.15989.155" />
+        <option value="bundled-python-sdk-babbdf50b680-7c6932dee5e4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.15989.155" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="" />
+      <created>1711278898984</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711278898984</updated>
+      <workItem from="1711278900012" duration="3785000" />
+      <workItem from="1711283140314" duration="1872000" />
+      <workItem from="1711287878149" duration="1133000" />
+      <workItem from="1713324542309" duration="39636000" />
+      <workItem from="1713570357449" duration="5300000" />
+      <workItem from="1713655888370" duration="311000" />
+      <workItem from="1713686843650" duration="602000" />
+      <workItem from="1713739244638" duration="356000" />
+      <workItem from="1713746287630" duration="597000" />
+      <workItem from="1713857161991" duration="597000" />
+      <workItem from="1713917600377" duration="597000" />
+      <workItem from="1713966303726" duration="597000" />
+      <workItem from="1714007277829" duration="6087000" />
+      <workItem from="1714095205553" duration="599000" />
+      <workItem from="1714117173008" duration="756000" />
+      <workItem from="1714324061379" duration="1180000" />
+      <workItem from="1717875380215" duration="15216000" />
+      <workItem from="1718263974174" duration="13000" />
+      <workItem from="1718604644831" duration="3838000" />
+      <workItem from="1718610735575" duration="1199000" />
+      <workItem from="1718631922841" duration="6296000" />
+      <workItem from="1718708320171" duration="609000" />
+      <workItem from="1718780023082" duration="599000" />
+    </task>
+    <task id="LOCAL-00040" summary="removing thread cause of model error.">
+      <option name="closed" value="true" />
+      <created>1713447031328</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1713447031328</updated>
+    </task>
+    <task id="LOCAL-00041" summary="img_width, img_height = 299, 299">
+      <option name="closed" value="true" />
+      <created>1713447107178</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1713447107178</updated>
+    </task>
+    <task id="LOCAL-00042" summary="data_dir = '/mnt/splitter/datas/fortest'">
+      <option name="closed" value="true" />
+      <created>1713451105684</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1713451105684</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Adding label Names to the ver02">
+      <option name="closed" value="true" />
+      <created>1713479187566</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1713479187566</updated>
+    </task>
+    <task id="LOCAL-00044" summary="An option when the model is pre-compiled.">
+      <option name="closed" value="true" />
+      <created>1713479544463</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1713479544463</updated>
+    </task>
+    <task id="LOCAL-00045" summary="print(tf.__version__)">
+      <option name="closed" value="true" />
+      <created>1713492014170</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1713492014170</updated>
+    </task>
+    <task id="LOCAL-00046" summary="cnn based textdocument splitter">
+      <option name="closed" value="true" />
+      <created>1713494430756</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1713494430756</updated>
+    </task>
+    <task id="LOCAL-00047" summary="CNN based textdocument splitter">
+      <option name="closed" value="true" />
+      <created>1713494643454</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1713494643454</updated>
+    </task>
+    <task id="LOCAL-00048" summary="h5 -&gt; tf type">
+      <option name="closed" value="true" />
+      <created>1713494706479</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1713494706479</updated>
+    </task>
+    <task id="LOCAL-00049" summary="tf type error in tensorflow 2.16.1">
+      <option name="closed" value="true" />
+      <created>1713495468868</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1713495468868</updated>
+    </task>
+    <task id="LOCAL-00050" summary="dense 1 sigmoid">
+      <option name="closed" value="true" />
+      <created>1713495530468</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1713495530469</updated>
+    </task>
+    <task id="LOCAL-00051" summary="When using the categorical cross-entropy loss function, the number of output classes should be 2 or more. Currently, the output dimension is 1, so it is recommended to use the binary cross-entropy loss function.">
+      <option name="closed" value="true" />
+      <created>1713495602604</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1713495602604</updated>
+    </task>
+    <task id="LOCAL-00052" summary="...">
+      <option name="closed" value="true" />
+      <created>1713495953410</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1713495953410</updated>
+    </task>
+    <task id="LOCAL-00053" summary="print(scipy.__version__)">
+      <option name="closed" value="true" />
+      <created>1713496362233</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1713496362233</updated>
+    </task>
+    <task id="LOCAL-00054" summary="test &amp; copy files">
+      <option name="closed" value="true" />
+      <created>1713497316215</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1713497316215</updated>
+    </task>
+    <task id="LOCAL-00055" summary="...">
+      <option name="closed" value="true" />
+      <created>1713497388319</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1713497388319</updated>
+    </task>
+    <task id="LOCAL-00056" summary="exception handling">
+      <option name="closed" value="true" />
+      <created>1713497574460</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1713497574460</updated>
+    </task>
+    <task id="LOCAL-00057" summary="exception handling + UnidentifiedImageError">
+      <option name="closed" value="true" />
+      <created>1713500650879</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1713500650879</updated>
+    </task>
+    <task id="LOCAL-00058" summary="logs for human 🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻">
+      <option name="closed" value="true" />
+      <created>1713503874870</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1713503874870</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Adding a predicted_prob">
+      <option name="closed" value="true" />
+      <created>1713504043072</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1713504043072</updated>
+    </task>
+    <task id="LOCAL-00060" summary="bug fix for binary splitting">
+      <option name="closed" value="true" />
+      <created>1713504642431</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1713504642431</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Making it simple to [data1, data2]">
+      <option name="closed" value="true" />
+      <created>1713504932459</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1713504932459</updated>
+    </task>
+    <task id="LOCAL-00062" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1713505079061</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1713505079061</updated>
+    </task>
+    <task id="LOCAL-00063" summary=".h5 model generating">
+      <option name="closed" value="true" />
+      <created>1713505356917</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1713505356917</updated>
+    </task>
+    <task id="LOCAL-00064" summary="...">
+      <option name="closed" value="true" />
+      <created>1713506703643</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1713506703643</updated>
+    </task>
+    <task id="LOCAL-00065" summary="class indexing information">
+      <option name="closed" value="true" />
+      <created>1713507367263</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1713507367263</updated>
+    </task>
+    <task id="LOCAL-00066" summary="+ epochs">
+      <option name="closed" value="true" />
+      <created>1713507465096</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1713507465096</updated>
+    </task>
+    <task id="LOCAL-00067" summary="following class_indicies">
+      <option name="closed" value="true" />
+      <created>1713537876077</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1713537876077</updated>
+    </task>
+    <task id="LOCAL-00068" summary="128x128 to 299x299">
+      <option name="closed" value="true" />
+      <created>1713538800317</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1713538800318</updated>
+    </task>
+    <task id="LOCAL-00069" summary="0.5 -&gt; 0.1 weight">
+      <option name="closed" value="true" />
+      <created>1713542210701</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1713542210701</updated>
+    </task>
+    <task id="LOCAL-00070" summary="img_width, img_height = 299, 299">
+      <option name="closed" value="true" />
+      <created>1713542313031</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1713542313031</updated>
+    </task>
+    <task id="LOCAL-00071" summary="tensorflow saved model, test">
+      <option name="closed" value="true" />
+      <created>1713581983997</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1713581983997</updated>
+    </task>
+    <task id="LOCAL-00072" summary="handling UnidentifiedImageError">
+      <option name="closed" value="true" />
+      <created>1713582502542</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1713582502542</updated>
+    </task>
+    <task id="LOCAL-00073" summary="...">
+      <option name="closed" value="true" />
+      <created>1713582913283</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1713582913283</updated>
+    </task>
+    <task id="LOCAL-00074" summary="...">
+      <option name="closed" value="true" />
+      <created>1713587682978</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1713587682978</updated>
+    </task>
+    <task id="LOCAL-00075" summary="#This project is moved to commercial and private project.&#10;#Please contact to admin@sodn.io / +82 1644 2447">
+      <option name="closed" value="true" />
+      <created>1713587713694</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1713587713694</updated>
+    </task>
+    <task id="LOCAL-00076" summary="[2024/04/25 18:46:54] ppocr DEBUG: Namespace(help='==SUPPRESS==', use_gpu=False, use_xpu=False, use_npu=False, ir_optim=True, use_tensorrt=False, min_subgraph_size=15, precision='fp32', gpu_mem=500, gpu_id=0, image_dir=None, page_num=0, det_algorithm='DB', det_model_dir='/root/.paddleocr/whl/det/ml/Multilingual_PP-OCRv3_det_infer', det_limit_side_len=960, det_limit_type='max', det_box_type='quad', det_db_thresh=0.3, det_db_box_thresh=0.6, det_db_unclip_ratio=1.5, max_batch_size=10, use_dilation=False, det_db_score_mode='fast', det_east_score_thresh=0.8, det_east_cover_thresh=0.1, det_east_nms_thresh=0.2, det_sast_score_thresh=0.5, det_sast_nms_thresh=0.2, det_pse_thresh=0, det_pse_box_thresh=0.85, det_pse_min_area=16, det_pse_scale=1, scales=[8, 16, 32], alpha=1.0, beta=1.0, fourier_degree=5, rec_algorithm='SVTR_LCNet', rec_model_dir='/root/.paddleocr/whl/rec/korean/korean_PP-OCRv4_rec_infer', rec_image_inverse=True, rec_image_shape='3, 48, 320', rec_batch_num=6, max_text_length=25, rec_char_dict_path='/usr/local/lib/python3.10/dist-packages/paddleocr/ppocr/utils/dict/korean_dict.txt', use_space_char=True, vis_font_path='./doc/fonts/simfang.ttf', drop_score=0.5, e2e_algorithm='PGNet', e2e_model_dir=None, e2e_limit_side_len=768, e2e_limit_type='max', e2e_pgnet_score_thresh=0.5, e2e_char_dict_path='./ppocr/utils/ic15_dict.txt', e2e_pgnet_valid_set='totaltext', e2e_pgnet_mode='fast', use_angle_cls=False, cls_model_dir='/root/.paddleocr/whl/cls/ch_ppocr_mobile_v2.0_cls_infer', cls_image_shape='3, 48, 192', label_list=['0', '180'], cls_batch_num=6, cls_thresh=0.9, enable_mkldnn=False, cpu_threads=10, use_pdserving=False, warmup=False, sr_model_dir=None, sr_image_shape='3, 32, 128', sr_batch_num=1, draw_img_save_dir='./inference_results', save_crop_res=False, crop_res_save_dir='./output', use_mp=False, total_process_num=1, process_id=0, benchmark=False, save_log_path='./log_output/', show_log=True, use_onnx=False, output='./output', table_max_len=488, table_algorithm='TableAttn', table_model_dir=None, merge_no_span_structure=True, table_char_dict_path=None, layout_model_dir=None, layout_dict_path=None, layout_score_threshold=0.5, layout_nms_threshold=0.5, kie_algorithm='LayoutXLM', ser_model_dir=None, re_model_dir=None, use_visual_backbone=True, ser_dict_path='../train_data/XFUND/class_list_xfun.txt', ocr_order_method=None, mode='structure', image_orientation=False, layout=True, table=True, ocr=True, recovery=False, use_pdf2docx_api=False, invert=False, binarize=False, alphacolor=(255, 255, 255), lang='korean', det=True, rec=True, type='ocr', ocr_version='PP-OCRv4', structure_version='PP-StructureV2')&#10;[2024/04/25 18:46:56] ppocr DEBUG: dt_boxes num : 60, elapsed : 0.2725210189819336&#10;[2024/04/25 18:47:02] ppocr DEBUG: rec_res num  : 60, elapsed : 6.230990886688232&#10;사업자등록증 글자가 있습니다.&#10;Extracted Text:&#10;주소이전변경후최종주소국세청사업자등록증일반과세자등록번호힘찬나아라정형외과의원장근종외명생년월일년월일개업연월년월일사업장소재지서물특별지양천구목동서로호호호호신정동라벨라신정동사업의송류업태보건업정형외과서비스업피부비만관리발급사유공동사업자ㅂ이성곤사업자단위과세적용사업자여부여부전자세금계산서전용전자우편주소년월일양천세무서장국세청">
+      <option name="closed" value="true" />
+      <created>1714038612774</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1714038612774</updated>
+    </task>
+    <task id="LOCAL-00077" summary="paddle ocr samples">
+      <option name="closed" value="true" />
+      <created>1714080403004</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1714080403004</updated>
+    </task>
+    <task id="LOCAL-00078" summary="commit msg style has been changed to log for easy reading. /usr/local/bin/python3.9 /Users/junhoha/github/repo_hajunho.slack.com/ubuntu/python310/hugging_face/test02.py &#10;Loading checkpoint shards: 100%|██████████| 5/5 [00:19&lt;00:00,  3.91s/it]&#10;Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.&#10;Hello, how are you? I hope you are well.&#10;I am writing to you because I have a problem.&#10;I have been working for your company for 10 years. I have always been a good worker. I have never&#10;&#10;종료 코드 0(으)로 완료된 프로세스">
+      <option name="closed" value="true" />
+      <created>1717876419072</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1717876419072</updated>
+    </task>
+    <task id="LOCAL-00079" summary="download_models.py">
+      <option name="closed" value="true" />
+      <created>1717892820971</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1717892820971</updated>
+    </task>
+    <task id="LOCAL-00080" summary="download_models2.py">
+      <option name="closed" value="true" />
+      <created>1717893085512</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1717893085512</updated>
+    </task>
+    <task id="LOCAL-00081" summary="using local llm models">
+      <option name="closed" value="true" />
+      <created>1717893147047</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1717893147047</updated>
+    </task>
+    <task id="LOCAL-00082" summary="making a folder titled llm_snippet and push the init src.">
+      <option name="closed" value="true" />
+      <created>1718611953436</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1718611953436</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Training a BERT-based Question Answering Model using the KLUE MRC Dataset">
+      <option name="closed" value="true" />
+      <created>1718632597146</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1718632597146</updated>
+    </task>
+    <task id="LOCAL-00084" summary="try to fix a bug.">
+      <option name="closed" value="true" />
+      <created>1718697366552</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1718697366552</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Enhance the tokenize_function to convert start_position and end_position to token-level using char_to_token method">
+      <option name="closed" value="true" />
+      <created>1718704787571</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1718704787571</updated>
+    </task>
+    <task id="LOCAL-00086" summary="OverflowError when trying to convert it to an unsigned integer.">
+      <option name="closed" value="true" />
+      <created>1718704896902</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1718704896902</updated>
+    </task>
+    <task id="LOCAL-00087" summary="predictions[i] or labels[i][1] is not a valid integer index">
+      <option name="closed" value="true" />
+      <created>1718705613219</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1718705613219</updated>
+    </task>
+    <task id="LOCAL-00088" summary="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions">
+      <option name="closed" value="true" />
+      <created>1718707783775</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1718707783776</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="bug fix" />
+    <MESSAGE value=".h5 model generating" />
+    <MESSAGE value="class indexing information" />
+    <MESSAGE value="+ epochs" />
+    <MESSAGE value="following class_indicies" />
+    <MESSAGE value="128x128 to 299x299" />
+    <MESSAGE value="0.5 -&gt; 0.1 weight" />
+    <MESSAGE value="img_width, img_height = 299, 299" />
+    <MESSAGE value="tensorflow saved model, test" />
+    <MESSAGE value="handling UnidentifiedImageError" />
+    <MESSAGE value="..." />
+    <MESSAGE value="#This project is moved to commercial and private project.&#10;#Please contact to admin@sodn.io / +82 1644 2447" />
+    <MESSAGE value="[2024/04/25 18:46:54] ppocr DEBUG: Namespace(help='==SUPPRESS==', use_gpu=False, use_xpu=False, use_npu=False, ir_optim=True, use_tensorrt=False, min_subgraph_size=15, precision='fp32', gpu_mem=500, gpu_id=0, image_dir=None, page_num=0, det_algorithm='DB', det_model_dir='/root/.paddleocr/whl/det/ml/Multilingual_PP-OCRv3_det_infer', det_limit_side_len=960, det_limit_type='max', det_box_type='quad', det_db_thresh=0.3, det_db_box_thresh=0.6, det_db_unclip_ratio=1.5, max_batch_size=10, use_dilation=False, det_db_score_mode='fast', det_east_score_thresh=0.8, det_east_cover_thresh=0.1, det_east_nms_thresh=0.2, det_sast_score_thresh=0.5, det_sast_nms_thresh=0.2, det_pse_thresh=0, det_pse_box_thresh=0.85, det_pse_min_area=16, det_pse_scale=1, scales=[8, 16, 32], alpha=1.0, beta=1.0, fourier_degree=5, rec_algorithm='SVTR_LCNet', rec_model_dir='/root/.paddleocr/whl/rec/korean/korean_PP-OCRv4_rec_infer', rec_image_inverse=True, rec_image_shape='3, 48, 320', rec_batch_num=6, max_text_length=25, rec_char_dict_path='/usr/local/lib/python3.10/dist-packages/paddleocr/ppocr/utils/dict/korean_dict.txt', use_space_char=True, vis_font_path='./doc/fonts/simfang.ttf', drop_score=0.5, e2e_algorithm='PGNet', e2e_model_dir=None, e2e_limit_side_len=768, e2e_limit_type='max', e2e_pgnet_score_thresh=0.5, e2e_char_dict_path='./ppocr/utils/ic15_dict.txt', e2e_pgnet_valid_set='totaltext', e2e_pgnet_mode='fast', use_angle_cls=False, cls_model_dir='/root/.paddleocr/whl/cls/ch_ppocr_mobile_v2.0_cls_infer', cls_image_shape='3, 48, 192', label_list=['0', '180'], cls_batch_num=6, cls_thresh=0.9, enable_mkldnn=False, cpu_threads=10, use_pdserving=False, warmup=False, sr_model_dir=None, sr_image_shape='3, 32, 128', sr_batch_num=1, draw_img_save_dir='./inference_results', save_crop_res=False, crop_res_save_dir='./output', use_mp=False, total_process_num=1, process_id=0, benchmark=False, save_log_path='./log_output/', show_log=True, use_onnx=False, output='./output', table_max_len=488, table_algorithm='TableAttn', table_model_dir=None, merge_no_span_structure=True, table_char_dict_path=None, layout_model_dir=None, layout_dict_path=None, layout_score_threshold=0.5, layout_nms_threshold=0.5, kie_algorithm='LayoutXLM', ser_model_dir=None, re_model_dir=None, use_visual_backbone=True, ser_dict_path='../train_data/XFUND/class_list_xfun.txt', ocr_order_method=None, mode='structure', image_orientation=False, layout=True, table=True, ocr=True, recovery=False, use_pdf2docx_api=False, invert=False, binarize=False, alphacolor=(255, 255, 255), lang='korean', det=True, rec=True, type='ocr', ocr_version='PP-OCRv4', structure_version='PP-StructureV2')&#10;[2024/04/25 18:46:56] ppocr DEBUG: dt_boxes num : 60, elapsed : 0.2725210189819336&#10;[2024/04/25 18:47:02] ppocr DEBUG: rec_res num  : 60, elapsed : 6.230990886688232&#10;사업자등록증 글자가 있습니다.&#10;Extracted Text:&#10;주소이전변경후최종주소국세청사업자등록증일반과세자등록번호힘찬나아라정형외과의원장근종외명생년월일년월일개업연월년월일사업장소재지서물특별지양천구목동서로호호호호신정동라벨라신정동사업의송류업태보건업정형외과서비스업피부비만관리발급사유공동사업자ㅂ이성곤사업자단위과세적용사업자여부여부전자세금계산서전용전자우편주소년월일양천세무서장국세청" />
+    <MESSAGE value="paddle ocr samples" />
+    <MESSAGE value="commit msg style has been changed to log for easy reading. /usr/local/bin/python3.9 /Users/junhoha/github/repo_hajunho.slack.com/ubuntu/python310/hugging_face/test02.py &#10;Loading checkpoint shards: 100%|██████████| 5/5 [00:19&lt;00:00,  3.91s/it]&#10;Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.&#10;Hello, how are you? I hope you are well.&#10;I am writing to you because I have a problem.&#10;I have been working for your company for 10 years. I have always been a good worker. I have never&#10;&#10;종료 코드 0(으)로 완료된 프로세스" />
+    <MESSAGE value="download_models.py" />
+    <MESSAGE value="download_models2.py" />
+    <MESSAGE value="using local llm models" />
+    <MESSAGE value="making a folder titled llm_snippet and push the init src." />
+    <MESSAGE value="Training a BERT-based Question Answering Model using the KLUE MRC Dataset" />
+    <MESSAGE value="try to fix a bug." />
+    <MESSAGE value="Enhance the tokenize_function to convert start_position and end_position to token-level using char_to_token method" />
+    <MESSAGE value="OverflowError when trying to convert it to an unsigned integer." />
+    <MESSAGE value="predictions[i] or labels[i][1] is not a valid integer index" />
+    <MESSAGE value="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions" />
+    <option name="LAST_COMMIT_MESSAGE" value="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/python310$versionInfo.coverage" NAME="versionInfo 커버리지 결과" MODIFIED="1713492001951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hjh_tensorflow" />
+    <SUITE FILE_PATH="coverage/python310$d.coverage" NAME="d 커버리지 결과" MODIFIED="1714039527707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paddle_examples" />
+    <SUITE FILE_PATH="coverage/python310$ver08.coverage" NAME="ver08 커버리지 결과" MODIFIED="1713444678739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/splitter" />
+    <SUITE FILE_PATH="coverage/python310$test02.coverage" NAME="test02 커버리지 결과" MODIFIED="1717876176912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face" />
+    <SUITE FILE_PATH="coverage/python310$examCoin.coverage" NAME="examCoin 커버리지 결과" MODIFIED="1713395083880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
+    <SUITE FILE_PATH="coverage/python310$download_models2.coverage" NAME="download_models2 커버리지 결과" MODIFIED="1717919819672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face" />
+    <SUITE FILE_PATH="coverage/python310$main.coverage" NAME="main 커버리지 결과" MODIFIED="1713324674905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python310$examHashMine.coverage" NAME="examHashMine 커버리지 결과" MODIFIED="1713395125854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
+    <SUITE FILE_PATH="coverage/python310$hjhskew.coverage" NAME="hjhskew 커버리지 결과" MODIFIED="1711279483776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/skew" />
+    <SUITE FILE_PATH="coverage/python310$FindingArea_cube.coverage" NAME="FindingArea_cube 커버리지 결과" MODIFIED="1713384568844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
+    <SUITE FILE_PATH="coverage/python310$a.coverage" NAME="a 커버리지 결과" MODIFIED="1714080432260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paddle_examples" />
+    <SUITE FILE_PATH="coverage/python310$paddleocr.coverage" NAME="paddleocr 커버리지 결과" MODIFIED="1714082360439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/paddleocr" />
+    <SUITE FILE_PATH="coverage/python310$001.coverage" NAME="001 커버리지 결과" MODIFIED="1718632305823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face/llm_snippet" />
+    <SUITE FILE_PATH="coverage/python310$predict_system.coverage" NAME="predict_system 커버리지 결과" MODIFIED="1714039522020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/paddleocr/tools/infer" />
+    <SUITE FILE_PATH="coverage/python310$test01.coverage" NAME="test01 커버리지 결과" MODIFIED="1717875648083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face" />
+  </component>
+</project>
