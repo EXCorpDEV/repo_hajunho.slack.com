@@ -1,4 +1,4 @@
-// 현재 호출한 디바이스가 어떤 것인지 체크합니다.
+// device check.
 var isMobile = {
     Android: function () {
         return navigator.userAgent.match(/Android/i) == null ? false : true;
@@ -11,7 +11,7 @@ var isMobile = {
     }
 };
 
-// 입력 된 링크를 전달하는 Bridge 함수
+// link Bridge
 function outLink(link) {
     if (isMobile.any()) {
         if (isMobile.Android()) {
