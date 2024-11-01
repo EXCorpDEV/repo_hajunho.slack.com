@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXCorp QR 코드 생성</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.6.10/firebase-app-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.6.10/firebase-storage-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        #fileInput { margin-bottom: 10px; }
+        #uploadBtn { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        #uploadBtn:hover { background-color: #45a049; }
+        #status, #debugInfo { margin-top: 20px; word-break: break-all; }
+        #qrcode { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>EXCorp QR 코드 생성</h1>
+    <input type="file" id="fileInput">
+    <button id="uploadBtn">업로드</button>
+    <div id="status"></div>
+    <div id="debugInfo"></div>
+    <div id="qrcode"></div>
+
+    <script>
+        const firebaseConfig = {
+            storageBucket: "xxxx.appspot.com",
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        const storage = firebase.storage();
+        const fileInput = document.getElementById('fileInput');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const status = document.getElementById('status');
+        const debugInfo = document.getElementById('debugInfo');
+        const qrcodeDiv = document.getElementById('qrcode');
+
+        uploadBtn.addEventListener('click', () => {
+            const file = fileInput.files[0];
+            if (!file) {
+                status.textContent = '파일을 선택해주세요.';
+                return;
+            }
+
+            const storageRef = storage.ref();
+            const fileRef = storageRef.child(file.name);
+
+            status.textContent = '업로드 중...';
+            debugInfo.textContent = '';
+            qrcodeDiv.innerHTML = '';
+
+            fileRef.put(file).then((snapshot) => {
+                status.textContent = '업로드 완료! URL 생성 중...';
+                return fileRef.getDownloadURL();
+            }).then((url) => {
+                console.log('파일 다운로드 URL:', url);
+                status.textContent = '업로드 및 URL 생성 완료!';
+                debugInfo.textContent = `다운로드 URL: ${url}`;
+                
+                // QR 코드 생성
+                new QRCode(qrcodeDiv, {
+                    text: url,
+                    width: 512,
+                    height: 512,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+
+                // URL 테스트 링크 추가
+                const testLink = document.createElement('a');
+                testLink.href = url;
+                testLink.textContent = 'URL 테스트 (새 탭에서 열기)';
+                testLink.target = '_blank';
+                debugInfo.appendChild(document.createElement('br'));
+                debugInfo.appendChild(testLink);
+            }).catch((error) => {
+                console.error('에러:', error);
+                status.textContent = '오류가 발생했습니다.';
+                debugInfo.textContent = `에러 메시지: ${error.message}`;
+            });
+        });
+    </script>
+</body>
+</html>
