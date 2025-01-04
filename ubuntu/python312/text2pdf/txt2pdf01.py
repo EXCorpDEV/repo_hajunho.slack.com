@@ -2,10 +2,10 @@ from fpdf import FPDF
 from PyPDF2 import PdfWriter, PdfReader
 
 # 파일 경로
-txt_file = "tel.txt"
-pdf_file = "eteo.pdf"
+txt_file = "t.txt"
+pdf_file = "e.pdf"
 watermark_pdf = "watermark.pdf"
-final_pdf = "HJH_eteo.pdf"
+final_pdf = "HJH_restricted.pdf"
 
 # 텍스트를 안전하게 변환하는 함수
 def safe_text(text):
@@ -37,15 +37,12 @@ watermark_pdf_creator.set_text_color(200, 200, 200)  # 연한 회색
 # 페이지 크기 가져오기
 page_width = watermark_pdf_creator.w  # 페이지 너비
 page_height = watermark_pdf_creator.h  # 페이지 높이
-
-# 텍스트 중앙에 배치
 x_center = page_width / 2
 y_center = page_height / 2
 
 watermark_pdf_creator.set_xy(x_center, y_center)  # 페이지 중앙으로 이동
 watermark_pdf_creator.rotate(45)  # 45도 회전
 watermark_pdf_creator.cell(0, 0, 'CONFIDENTIAL - HJH', align='C')  # 중앙 정렬 텍스트
-
 watermark_pdf_creator.output(watermark_pdf)
 
 # 워터마크 추가
@@ -58,7 +55,10 @@ for page in reader.pages:
     page.merge_page(watermark_page)
     writer.add_page(page)
 
+# 암호화 적용 (user_password와 owner_password 설정)
+writer.encrypt(user_password="", owner_password="owner_password")  # 사용자 암호는 빈 문자열, 소유자 암호는 설정
+
 with open(final_pdf, "wb") as f:
     writer.write(f)
 
-print(f"PDF with watermark saved: {final_pdf}")
+print(f"Restricted PDF saved: {final_pdf}")
