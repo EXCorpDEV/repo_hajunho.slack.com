@@ -34,7 +34,8 @@ class AdvancedChatAssistant:
 
         # 프롬프트 템플릿 설정
         self.prompt = ChatPromptTemplate.from_messages([
-            SystemMessage(content="당신은 도움이 되는 AI 어시스턴트입니다. 명확하고 이해하기 쉽게 답변해주세요."),
+            SystemMessage(
+                content="You are a helpful AI assistant. Please respond in the same language as the user's input. If the user speaks Korean, respond in Korean. If they speak English, respond in English. Always be clear and easy to understand."),
             MessagesPlaceholder(variable_name="history"),
             HumanMessage(content="{input}")
         ])
@@ -82,7 +83,7 @@ class AdvancedChatAssistant:
                     input=augmented_input,
                     history=self.message_history.messages[:-1]  # 현재 입력을 제외한 이전 대화 기록
                 )
-                response = self.llm.predict_messages(messages)
+                response = self.llm.invoke(messages)
 
                 # 대화 기록에 AI 응답 추가
                 self.message_history.add_ai_message(response.content)
