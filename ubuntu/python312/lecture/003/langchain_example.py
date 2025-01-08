@@ -126,8 +126,19 @@ class AdvancedChatAssistant:
                 else:
                     augmented_input = user_input
 
-                # 사용자 메시지 저장
-                self.message_history.add_user_message(user_input)  # 원래 질문 저장
+                # 검색 결과를 포함한 전체 메시지 저장
+                self.message_history.add_user_message(augmented_input)
+
+                # 최근 5개의 메시지만 유지 (2-3번의 대화)
+                if len(self.message_history.messages) > 10:
+                    # 메시지 목록 초기화 후 최근 메시지만 유지
+                    recent_messages = self.message_history.messages[-10:]
+                    self.message_history = ChatMessageHistory()
+                    for msg in recent_messages:
+                        if isinstance(msg, HumanMessage):
+                            self.message_history.add_user_message(msg.content)
+                        else:
+                            self.message_history.add_ai_message(msg.content)
 
                 # 응답 생성
                 messages = self.prompt.format_messages(
@@ -138,6 +149,11 @@ class AdvancedChatAssistant:
 
                 # AI 응답 저장
                 self.message_history.add_ai_message(response.content)
+
+                # 디버깅용 메시지 히스토리 출력
+                print("\n=== 현재 대화 기록 ===")
+                for i, msg in enumerate(self.message_history.messages[-4:], 1):
+                    print(f"{i}. {'사용자' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content[:50]}...")
 
                 print(f"\n토큰 사용량: {cb.total_tokens} (프롬프트: {cb.prompt_tokens}, 생성: {cb.completion_tokens})")
                 print(f"예상 비용: ${cb.total_cost:.5f}")
