@@ -26,12 +26,27 @@ class AdvancedChatAssistant:
         self.message_history = ChatMessageHistory()
 
         # 개선된 시스템 프롬프트
-        system_prompt = """당신은 친절하고 도움이 되는 AI 어시스턴트입니다.
-        1. 사용자가 한국어로 물어보면 한국어로, 영어로 물어보면 영어로 답변하세요.
-        2. 검색 결과가 있으면 그 내용을 바탕으로 자연스럽게 설명해주세요.
-        3. 이전 대화 내용을 참고하되, 이전 응답에 오류가 있었다면 새로운 정보로 수정해서 답변하세요.
-        4. 검색에 실패하더라도 알고 있는 정보를 바탕으로 최선을 다해 답변하세요.
-        5. 모르는 내용은 솔직히 모른다고 말씀하세요."""
+        system_prompt = """당신은 친절하고 도움이 되는 한국어 AI 어시스턴트입니다.
+
+1. 기본 응답:
+   - 항상 한국어로 답변하세요
+   - 친절하고 자연스러운 어투를 사용하세요
+   - 전문용어는 쉽게 풀어서 설명하세요
+
+2. 검색 결과 활용:
+   - 검색 결과가 있다면 그 내용을 바탕으로 종합적으로 설명해주세요
+   - 검색 결과를 그대로 복사하지 말고 자연스럽게 재구성하세요
+   - 최신 정보와 관련된 질문에는 검색 결과의 시점을 언급해주세요
+
+3. 대화 관리:
+   - 이전 대화 내용을 참고하여 문맥을 유지하세요
+   - 이전 응답에 오류가 있었다면 새로운 정보로 수정하세요
+   - 모르는 내용은 솔직히 모른다고 말씀하세요
+
+4. 특별 지침:
+   - 인물 설명 시 주요 경력과 현재 역할을 중심으로 설명하세요
+   - 개념 설명 시 정의, 특징, 예시 순으로 구성하세요
+   - 검색 실패 시 일반적인 설명이라도 제공하도록 노력하세요"""
 
         self.prompt = ChatPromptTemplate.from_messages([
             SystemMessage(content=system_prompt),
@@ -40,19 +55,49 @@ class AdvancedChatAssistant:
         ])
 
         # 검색 도구 초기화
-        self.search = DuckDuckGoSearchAPIWrapper(region="kr-kr", time='y')
-        self.wikipedia = WikipediaAPIWrapper(lang="ko")
+        self.search = DuckDuckGoSearchAPIWrapper(
+            region="kr-kr",
+            time='y',
+            max_results=3  # 최대 3개의 결과만 가져오기
+        )
+        self.wikipedia = WikipediaAPIWrapper(
+            lang="ko",
+            top_k_results=1,  # 가장 관련성 높은 결과 1개만 가져오기
+            load_max_docs=1
+        )
 
     def safe_search(self, query: str, search_type: str = "web") -> str:
         """안전한 검색 수행"""
         try:
             # 검색어 전처리
-            search_query = query.replace("란?", "").replace("이란?", "").replace("가 뭐야?", "").strip()
+            replacements = [
+                "란?", "이란?", "가 뭐야?", "이 뭐야?", "은 뭐야?",
+                "는 뭐야?", "에 대해 알려줘", "를 알려줘", "을 알려줘",
+                "이 누구야?", "가 누구야?", "은 누구야?", "는 누구야?"
+            ]
+            search_query = query
+            for rep in replacements:
+                search_query = search_query.replace(rep, "")
+            search_query = search_query.strip()
+
+            if not search_query:
+                return ""
 
             if search_type == "web":
-                return self.search.run(f"{search_query} 설명")
+                # 한국어 검색을 위한 키워드 추가
+                return self.search.run(f"{search_query} 정의 설명 개념")
             else:  # wiki
-                return self.wikipedia.run(search_query)
+                try:
+                    # Wikipedia 검색 시도
+                    result = self.wikipedia.run(search_query)
+                    if not result or "Page id" in result:  # 검색 실패 시
+                        # 웹 검색으로 폴백
+                        return self.search.run(f"{search_query} wikipedia")
+                    return result
+                except Exception as wiki_error:
+                    print(f"Wikipedia 검색 실패: {str(wiki_error)}")
+                    # 웹 검색으로 폴백
+                    return self.search.run(f"{search_query} wikipedia")
         except Exception as e:
             print(f"검색 실패 ({search_type}): {str(e)}")
             return ""
