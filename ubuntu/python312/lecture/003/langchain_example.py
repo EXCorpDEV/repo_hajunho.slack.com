@@ -6,7 +6,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_community.utilities.duckduckgo_search import DuckDuckGoSearchAPIWrapper
 from langchain_community.utilities.wikipedia import WikipediaAPIWrapper
-from langchain.tools import Tool
+import time
 
 
 def load_api_key(key_path: str = "secret.key") -> str:
@@ -27,11 +27,11 @@ class AdvancedChatAssistant:
 
         # 개선된 시스템 프롬프트
         system_prompt = """당신은 친절하고 도움이 되는 AI 어시스턴트입니다.
-        - 사용자의 언어로 응답하세요 (한국어면 한국어로, 영어면 영어로)
-        - 인사에는 친근하게 응답하세요
-        - 검색 결과가 제공되면 그 내용을 바탕으로 자연스럽게 설명해주세요
-        - 검색 결과를 그대로 복사하지 말고, 이해하기 쉽게 설명해주세요
-        - 이전 대화 내용을 참고하여 문맥을 이해하세요"""
+        1. 사용자가 한국어로 물어보면 한국어로, 영어로 물어보면 영어로 답변하세요.
+        2. 검색 결과가 있으면 그 내용을 바탕으로 자연스럽게 설명해주세요.
+        3. 이전 대화 내용을 참고하되, 이전 응답에 오류가 있었다면 새로운 정보로 수정해서 답변하세요.
+        4. 검색에 실패하더라도 알고 있는 정보를 바탕으로 최선을 다해 답변하세요.
+        5. 모르는 내용은 솔직히 모른다고 말씀하세요."""
 
         self.prompt = ChatPromptTemplate.from_messages([
             SystemMessage(content=system_prompt),
@@ -39,55 +39,50 @@ class AdvancedChatAssistant:
             HumanMessage(content="{input}")
         ])
 
-        # 검색 도구 설정
-        self.search = DuckDuckGoSearchAPIWrapper()
-        self.wikipedia = WikipediaAPIWrapper()
+        # 검색 도구 초기화
+        self.search = DuckDuckGoSearchAPIWrapper(region="kr-kr", time='y')
+        self.wikipedia = WikipediaAPIWrapper(lang="ko")
 
-    def _process_query(self, query: str) -> tuple[str, str]:
-        """
-        쿼리 처리 및 검색 방법 결정
-        반환: (처리된 쿼리, 검색 방법)
-        """
-        # 간단한 인사말 처리
-        greetings = ['안녕', 'hi', 'hello', '반가워', '잘 지내']
-        if any(greeting in query.lower() for greeting in greetings):
-            return query, "none"
+    def safe_search(self, query: str, search_type: str = "web") -> str:
+        """안전한 검색 수행"""
+        try:
+            # 검색어 전처리
+            search_query = query.replace("란?", "").replace("이란?", "").replace("가 뭐야?", "").strip()
 
-        # 명시적 검색 요청 처리
-        if any(word in query for word in ['찾아', '검색', '알려줘']):
-            search_term = query.replace('찾아', '').replace('검색', '').replace('알려줘', '').strip()
-            return search_term, "web"
-
-        # 질문형 검색 처리
-        question_keywords = ['뭐야', '무엇', '누구', '어떻게', '언제', '어디', '방법']
-        if any(keyword in query for keyword in question_keywords):
-            return query, "web"
-
-        # 위키백과 검색이 적합한 경우
-        wiki_keywords = ['란', '의미', '정의', '설명', '역사']
-        if any(keyword in query for keyword in wiki_keywords):
-            return query, "wiki"
-
-        return query, "none"
+            if search_type == "web":
+                return self.search.run(f"{search_query} 설명")
+            else:  # wiki
+                return self.wikipedia.run(search_query)
+        except Exception as e:
+            print(f"검색 실패 ({search_type}): {str(e)}")
+            return ""
 
     def chat(self, user_input: str) -> str:
         try:
             with get_openai_callback() as cb:
-                # 쿼리 처리
-                processed_query, search_type = self._process_query(user_input)
+                # 검색 시도
+                web_result = self.safe_search(user_input, "web")
+                time.sleep(1)  # API 호출 간 간격 추가
+                wiki_result = self.safe_search(user_input, "wiki")
 
-                # 검색 수행
-                if search_type == "web":
-                    search_result = self.search.run(processed_query)
-                    augmented_input = f"다음 정보를 참고하여 자연스럽게 설명해주세요: {search_result}\n\n질문: {user_input}"
-                elif search_type == "wiki":
-                    search_result = self.wikipedia.run(processed_query)
-                    augmented_input = f"다음 Wikipedia 정보를 참고하여 설명해주세요: {search_result}\n\n질문: {user_input}"
+                # 검색 결과 조합
+                search_results = []
+                if web_result:
+                    search_results.append(f"웹 검색 결과: {web_result}")
+                if wiki_result:
+                    search_results.append(f"Wikipedia 결과: {wiki_result}")
+
+                if search_results:
+                    augmented_input = (
+                        f"다음 정보를 참고하여 질문에 답변해주세요:\n"
+                        f"{'\n'.join(search_results)}\n"
+                        f"질문: {user_input}"
+                    )
                 else:
                     augmented_input = user_input
 
                 # 사용자 메시지 저장
-                self.message_history.add_user_message(augmented_input)
+                self.message_history.add_user_message(user_input)  # 원래 질문 저장
 
                 # 응답 생성
                 messages = self.prompt.format_messages(
@@ -114,11 +109,10 @@ def main():
     try:
         assistant = AdvancedChatAssistant()
         print("AI 어시스턴트와 대화를 시작합니다. (종료: 'quit' 또는 'exit')")
-        print("\n사용 방법:")
-        print("- 일반적인 대화: 평소처럼 자연스럽게 대화하세요")
-        print("- 정보 검색: '찾아줘', '검색해줘', '알려줘' 등을 포함하여 질문하세요")
-        print("- 개념 설명: '란?', '의미', '정의' 등을 포함하여 질문하세요")
-        print("이전 대화 내용을 기억하며 대화합니다.")
+        print("\n질문 방법:")
+        print("1. 개념 설명: '...란?', '...이 뭐야?', '...에 대해 알려줘'")
+        print("2. 일반 검색: 궁금한 것을 자연스럽게 물어보세요")
+        print("3. 이전 대화: '아까 무슨 얘기했지?', '이전 답변이 뭐였어?' 등")
 
         while True:
             user_input = input("\n질문: ").strip()
