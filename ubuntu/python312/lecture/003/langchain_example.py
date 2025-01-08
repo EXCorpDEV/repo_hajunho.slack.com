@@ -16,12 +16,6 @@ def load_api_key(key_path: str = "secret.key") -> str:
 
 class AdvancedChatAssistant:
     def __init__(self, key_path: str = "secret.key"):
-        """
-        고급 기능을 갖춘 ChatAssistant 초기화
-        - 대화 기억
-        - 웹 검색 기능
-        - Wikipedia 검색 기능
-        """
         self.api_key = load_api_key(key_path)
         self.llm = ChatOpenAI(
             model_name="gpt-3.5-turbo",
@@ -32,10 +26,17 @@ class AdvancedChatAssistant:
         # 대화 기록 초기화
         self.message_history = ChatMessageHistory()
 
+        # 시스템 프롬프트 설정
+        system_prompt = """당신은 친절하고 도움이 되는 AI 어시스턴트입니다.
+        - 사용자의 언어로 응답하세요 (한국어면 한국어로, 영어면 영어로)
+        - 인사에는 친근하게 응답하세요
+        - 모르는 것은 솔직히 모른다고 하세요
+        - 검색이 필요한 경우 검색을 활용하세요
+        - 이전 대화 내용을 참고하여 문맥을 이해하세요"""
+
         # 프롬프트 템플릿 설정
         self.prompt = ChatPromptTemplate.from_messages([
-            SystemMessage(
-                content="You are a helpful AI assistant. Please respond in the same language as the user's input. If the user speaks Korean, respond in Korean. If they speak English, respond in English. Always be clear and easy to understand."),
+            SystemMessage(content=system_prompt),
             MessagesPlaceholder(variable_name="history"),
             HumanMessage(content="{input}")
         ])
@@ -51,8 +52,13 @@ class AdvancedChatAssistant:
 
     def _should_use_search(self, query: str) -> tuple[bool, str]:
         """검색 도구 사용 여부와 도구 종류 결정"""
-        search_keywords = ['찾아', '검색', '알려줘', '최근', '뉴스', '날씨']
-        wiki_keywords = ['역사', '누구야', '개념', '정의', '설명']
+        # 인사말이나 간단한 대화는 검색하지 않음
+        simple_phrases = ['안녕', 'hi', 'hello', '반가워', '잘 지내']
+        if any(phrase in query.lower() for phrase in simple_phrases):
+            return False, ""
+
+        search_keywords = ['찾아', '검색', '알려줘', '최근', '뉴스', '날씨', '어떻게', '무엇', '뭐', '언제', '어디']
+        wiki_keywords = ['역사', '누구야', '개념', '정의', '설명', '의미']
 
         if any(keyword in query for keyword in search_keywords):
             return True, "웹검색"
@@ -61,31 +67,29 @@ class AdvancedChatAssistant:
         return False, ""
 
     def chat(self, user_input: str) -> str:
-        """
-        사용자 입력에 따라 적절한 도구를 사용하여 응답
-        """
+        """사용자 입력에 대한 응답 생성"""
         try:
             with get_openai_callback() as cb:
+                # 검색 필요 여부 확인
                 use_search, tool_name = self._should_use_search(user_input)
 
                 if use_search:
-                    # 검색 도구 사용
                     search_result = self.tools[tool_name](user_input)
                     augmented_input = f"다음 정보를 참고하여 답변해주세요: {search_result}\n\n질문: {user_input}"
                 else:
                     augmented_input = user_input
 
-                # 대화 기록에 사용자 입력 추가
+                # 사용자 메시지 저장
                 self.message_history.add_user_message(augmented_input)
 
-                # 프롬프트 생성 및 LLM 실행
+                # 응답 생성
                 messages = self.prompt.format_messages(
                     input=augmented_input,
-                    history=self.message_history.messages[:-1]  # 현재 입력을 제외한 이전 대화 기록
+                    history=self.message_history.messages[:-1]
                 )
                 response = self.llm.invoke(messages)
 
-                # 대화 기록에 AI 응답 추가
+                # AI 응답 저장
                 self.message_history.add_ai_message(response.content)
 
                 print(f"\n토큰 사용량: {cb.total_tokens} (프롬프트: {cb.prompt_tokens}, 생성: {cb.completion_tokens})")
@@ -104,9 +108,10 @@ def main():
         assistant = AdvancedChatAssistant()
         print("AI 어시스턴트와 대화를 시작합니다. (종료: 'quit' 또는 'exit')")
         print("기능:")
-        print("1. 대화 기억")
+        print("1. 일상적인 대화")
         print("2. 실시간 웹 검색")
         print("3. Wikipedia 정보 검색")
+        print("4. 대화 기억")
 
         while True:
             user_input = input("\n질문: ").strip()
