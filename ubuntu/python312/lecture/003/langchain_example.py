@@ -80,51 +80,106 @@ class AdvancedChatAssistant:
                 search_query = search_query.replace(rep, "")
             search_query = search_query.strip()
 
+            print(f"\n[검색 디버그] 원본 쿼리: {query}")
+            print(f"[검색 디버그] 전처리된 쿼리: {search_query}")
+
             if not search_query:
+                print("[검색 디버그] 검색어가 비어있음")
                 return ""
 
             if search_type == "web":
-                # 한국어 검색을 위한 키워드 추가
-                return self.search.run(f"{search_query} 정의 설명 개념")
+                try:
+                    # 한국어 검색을 위한 키워드 추가
+                    search_results = []
+
+                    # 일반 검색
+                    result1 = self.search.run(f"{search_query}")
+                    if result1:
+                        search_results.append(f"기본 검색: {result1}")
+
+                    # 개념 검색
+                    result2 = self.search.run(f"{search_query} 정의 설명 개념")
+                    if result2 and result2 != result1:
+                        search_results.append(f"개념 검색: {result2}")
+
+                    # 최신 정보 검색
+                    result3 = self.search.run(f"{search_query} 현재 최신")
+                    if result3 and result3 not in [result1, result2]:
+                        search_results.append(f"최신 정보: {result3}")
+
+                    print(f"[검색 디버그] 웹 검색 결과 수: {len(search_results)}")
+                    return "\n".join(search_results)
+
+                except Exception as web_error:
+                    print(f"[검색 디버그] 웹 검색 실패: {str(web_error)}")
+                    return ""
+
             else:  # wiki
                 try:
                     # Wikipedia 검색 시도
+                    print("[검색 디버그] Wikipedia 검색 시도")
                     result = self.wikipedia.run(search_query)
+
                     if not result or "Page id" in result:  # 검색 실패 시
-                        # 웹 검색으로 폴백
-                        return self.search.run(f"{search_query} wikipedia")
-                    return result
+                        print("[검색 디버그] Wikipedia 검색 실패, 웹 검색으로 전환")
+                        web_result = self.search.run(f"{search_query} wikipedia")
+                        if web_result:
+                            return f"Wikipedia 대체 검색: {web_result}"
+                        return ""
+
+                    print("[검색 디버그] Wikipedia 검색 성공")
+                    return f"Wikipedia: {result}"
+
                 except Exception as wiki_error:
-                    print(f"Wikipedia 검색 실패: {str(wiki_error)}")
-                    # 웹 검색으로 폴백
-                    return self.search.run(f"{search_query} wikipedia")
+                    print(f"[검색 디버그] Wikipedia 오류: {str(wiki_error)}")
+                    return ""
+
         except Exception as e:
-            print(f"검색 실패 ({search_type}): {str(e)}")
+            print(f"[검색 디버그] 전체 검색 실패: {str(e)}")
             return ""
 
     def chat(self, user_input: str) -> str:
         try:
             with get_openai_callback() as cb:
-                # 검색 시도
-                web_result = self.safe_search(user_input, "web")
-                time.sleep(1)  # API 호출 간 간격 추가
-                wiki_result = self.safe_search(user_input, "wiki")
+                print("\n[처리 시작] 사용자 입력:", user_input)
 
-                # 검색 결과 조합
-                search_results = []
-                if web_result:
-                    search_results.append(f"웹 검색 결과: {web_result}")
-                if wiki_result:
-                    search_results.append(f"Wikipedia 결과: {wiki_result}")
+                # 검색 필요성 확인
+                should_search = not any(greeting in user_input.lower()
+                                        for greeting in ['안녕', 'hi', 'hello'])
 
-                if search_results:
-                    augmented_input = (
-                        f"다음 정보를 참고하여 질문에 답변해주세요:\n"
-                        f"{'\n'.join(search_results)}\n"
-                        f"질문: {user_input}"
-                    )
-                else:
-                    augmented_input = user_input
+                augmented_input = user_input
+                if should_search:
+                    # 웹 검색 시도
+                    print("\n[검색 시작] 웹 검색")
+                    web_result = self.safe_search(user_input, "web")
+                    if web_result:
+                        print("[검색 성공] 웹 검색 결과 있음")
+                        augmented_input = (
+                            f"다음 정보를 참고하여 자연스럽게 답변해주세요:\n"
+                            f"{web_result}\n"
+                            f"질문: {user_input}\n"
+                            f"위 정보를 바탕으로 쉽게 설명해주세요."
+                        )
+                    else:
+                        print("[검색 실패] 웹 검색 결과 없음")
+
+                        # Wikipedia 검색 시도
+                        print("\n[검색 시작] Wikipedia 검색")
+                        wiki_result = self.safe_search(user_input, "wiki")
+                        if wiki_result:
+                            print("[검색 성공] Wikipedia 검색 결과 있음")
+                            augmented_input = (
+                                f"다음 Wikipedia 정보를 참고하여 자연스럽게 답변해주세요:\n"
+                                f"{wiki_result}\n"
+                                f"질문: {user_input}\n"
+                                f"위 정보를 바탕으로 쉽게 설명해주세요."
+                            )
+                        else:
+                            print("[검색 실패] Wikipedia 검색 결과 없음")
+                            augmented_input = (
+                                f"다음 질문에 대해 알고 있는 정보를 바탕으로 답변해주세요: {user_input}\n"
+                                f"검색 결과가 없다면 솔직히 모른다고 말씀해주세요."
+                            )
 
                 # 검색 결과를 포함한 전체 메시지 저장
                 self.message_history.add_user_message(augmented_input)
