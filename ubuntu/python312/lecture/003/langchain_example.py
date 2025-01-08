@@ -3,20 +3,13 @@ import os
 import traceback
 
 # === (1) langchain & community/openai 패키지 가져오기 ===
-# 공식 LangChain
 from langchain.schema import HumanMessage, SystemMessage
-
-# langchain_community (DuckDuckGoSearchAPIWrapper, ChatMessageHistory 등)
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_community.utilities.duckduckgo_search import DuckDuckGoSearchAPIWrapper
 from langchain_community.utilities.wikipedia import WikipediaAPIWrapper
-
-# langchain_openai (최신 ChatOpenAI)
 from langchain_openai import ChatOpenAI
 
-# === (2) Prompt 관련 ===
-# 공식 LangChain에서 제공하는 ChatPromptTemplate, MessagesPlaceholder
-# (만약 langchain_core가 아닌, langchain.prompts.chat 쪽에서 불러오는 버전이 맞다면 해당 경로 사용)
+# prompt 관련
 from langchain.prompts.chat import ChatPromptTemplate, MessagesPlaceholder
 
 
@@ -33,41 +26,31 @@ class AdvancedChatAssistant:
             openai_api_key=self.api_key,
             temperature=0.7
         )
+
         self.message_history = ChatMessageHistory()
+        self.current_subject = None  # <--- 이번 예시에서 '윤석열' 같은 대상 보관
 
-        # --- 시스템 프롬프트 설정 ---
-        system_prompt = """당신은 신중하고 정확한 정보를 제공하는 AI 어시스턴트입니다.
+        system_prompt = """당신은 정확한 정보를 제공하는 AI 어시스턴트입니다.
 
-1. 검색 결과 처리:
-   - 제공된 검색 결과를 반드시 활용하여 답변을 구성하세요
-   - 검색 결과에서 가장 관련성 높은 정보를 선택하세요
-   - 검색 결과가 불충분하면 추가 검색을 요청하세요
-   - 검색 결과를 이해하기 쉽게 재구성하여 설명하세요
+1. 검색 결과:
+   - 제공된 검색 결과를 반드시 활용하고, 그 내용을 답변에 전부 노출하세요.
+   - 검색 결과가 길 경우 핵심 요약을 함께 해주세요.
 
-2. 인물 정보 제공 시:
-   - 현재 공식 직위나 역할을 먼저 언급하세요
-   - 주요 경력이나 이력을 간단히 설명하세요
-   - 논란이 될 수 있는 내용은 제외하세요
-   - 개인적인 평가나 의견은 배제하세요
+2. 맥락 이해:
+   - 직전에 언급된 주제가 있으면, "그의", "그녀의" 등의 대명사가 해당 주제를 가리킨다고 가정하세요.
 
 3. 응답 형식:
-   - 한국어로 명확하고 간단히 답변하세요
-   - 정보의 출처나 시점을 명시하세요
-   - 불확실한 부분은 "확인이 필요합니다"라고 하세요
-   - 검색 결과가 없으면 솔직히 모른다고 하세요
+   - 한국어로 간결하고 정확하게 답하세요.
+   - 검색 결과가 전혀 없을 경우, 솔직히 모른다고 해주세요.
         """
 
-        # ChatPromptTemplate.from_messages 구성
         self.prompt = ChatPromptTemplate.from_messages([
             SystemMessage(content=system_prompt),
             MessagesPlaceholder(variable_name="history"),
-            # 이 위치에서 {input}을 그대로 쓰려면 HumanMessage(content="{input}")를 써야 하는데,
-            # 아래 chat() 메서드에서 augmented_input을 user 메시지로 추가하기 때문에
-            # 실질적으로는 PromptTemplate의 human prompt 부분이 잘 활용되는지 확인 필요
+            # 주의: 아래 "{input}" 부분이 실제로 user 메시지를 전달받을 자리입니다.
             HumanMessage(content="{input}")
         ])
 
-        # --- 검색 도구 초기화 ---
         self.search = DuckDuckGoSearchAPIWrapper(region="kr-kr", time='y')
         self.wikipedia = WikipediaAPIWrapper(lang="ko")
 
@@ -98,30 +81,31 @@ class AdvancedChatAssistant:
                 wiki_query = f"{search_query} site:wikipedia.org"
                 result1 = self.search.run(wiki_query)
                 if result1:
-                    search_results.append(f"위키백과 정보: {result1}")
+                    search_results.append(f"[위키백과 정보]\n{result1}")
 
                 # 공식 프로필 검색
                 profile_query = f"{search_query} 프로필 경력 이력"
                 result2 = self.search.run(profile_query)
                 if result2 and result2 != result1:
-                    search_results.append(f"프로필 정보: {result2}")
+                    search_results.append(f"[프로필 정보]\n{result2}")
 
                 # 현재 정보 검색
                 current_query = f"{search_query} 현재 소속 직책 2024"
                 result3 = self.search.run(current_query)
                 if result3 and result3 not in [result1, result2]:
-                    search_results.append(f"현재 정보: {result3}")
+                    search_results.append(f"[현재 정보]\n{result3}")
 
-                print(f"\n[검색 결과]")
+                print(f"\n[검색 결과 목록]")
                 for idx, res in enumerate(search_results, start=1):
-                    print(f"{idx}. {res[:100]}...")
+                    preview = (res[:200] + "...") if len(res) > 200 else res
+                    print(f"{idx}.\n{preview}\n")
 
-                return "\n".join(search_results) if search_results else ""
+                return "\n\n".join(search_results) if search_results else ""
 
             elif search_type == "wiki":
                 result = self.wikipedia.run(search_query)
                 if result and "Page id" not in result:
-                    return f"Wikipedia: {result}"
+                    return f"[Wikipedia]\n{result}"
                 return ""
 
             return ""
@@ -130,73 +114,103 @@ class AdvancedChatAssistant:
             print(f"[검색 실패] {search_type}: {str(e)}")
             return ""
 
+    def handle_pronouns(self, user_input: str) -> str:
+        """
+        사용자가 '그의', '그녀의' 등 대명사를 썼을 때,
+        직전에 저장된 self.current_subject가 있으면 치환해줌.
+        """
+        # 단순 예시: "그의" -> "{self.current_subject}의"
+        # 복잡한 대명사는 여기서 추가 처리
+        if self.current_subject:
+            user_input = user_input.replace("그의", f"{self.current_subject}의")
+            user_input = user_input.replace("그녀의", f"{self.current_subject}의")
+        return user_input
+
+    def parse_subject(self, user_input: str):
+        """
+        사용자가 새롭게 특정 인물을 언급했다면 그 인물을 찾아 self.current_subject에 저장.
+        여기서는 아주 단순하게 '윤석열'처럼 고유명사 하나를 찾는 예시.
+        실제로는 NER(Named Entity Recognition) 등을 활용해야 더 정확합니다.
+        """
+        possible_subjects = ["윤석열", "이재명", "문재인", "트럼프", "바이든"]  # 예시
+        for subj in possible_subjects:
+            if subj in user_input:
+                self.current_subject = subj
+                break
+
     def chat(self, user_input: str) -> str:
-        # 여기서 get_openai_callback()은 langchain_community.callbacks.manager에 있는 것으로 가정
         from langchain_community.callbacks.manager import get_openai_callback
 
         try:
-            with get_openai_callback() as cb:
-                print("\n[처리 시작] 사용자 입력:", user_input)
+            print("\n[처리 시작] 사용자 입력:", user_input)
 
-                # 검색 여부 결정 (간단 조건 예시)
-                should_search = not any(greeting in user_input.lower() for greeting in ['안녕', 'hi', 'hello'])
+            # 1) 사용자 입력에서 대명사(그의, 그녀의)가 있으면 이전 subject로 치환
+            processed_input = self.handle_pronouns(user_input)
 
-                augmented_input = user_input
-                if should_search:
-                    # 1) 웹 검색 시도
-                    web_result = self.perform_search(user_input, "web")
-                    if web_result:
+            # 2) 새 subject가 있는지 파악
+            self.parse_subject(processed_input)
+
+            # 3) 검색 필요 여부(간단 규칙)
+            should_search = not any(greeting in processed_input.lower() for greeting in ['안녕', 'hi', 'hello'])
+
+            augmented_input = processed_input
+            if should_search:
+                # 3-1) 웹 검색
+                web_result = self.perform_search(processed_input, "web")
+                if web_result:
+                    # 검색 결과를 전부 답변에 포함시키라고 지시
+                    augmented_input = (
+                        f"아래는 검색 결과입니다:\n\n"
+                        f"{web_result}\n\n"
+                        f"위 검색 결과 내용을 전부 인용해 답변해 주세요. "
+                        f"질문: {processed_input}\n\n"
+                        f"1) 검색 결과를 전부 보여주고\n"
+                        f"2) 추가 설명이 있다면 꼭 작성\n"
+                        f"3) 만약 부족하면 wiki 검색도 할 것."
+                    )
+                else:
+                    # 3-2) 위키백과 검색
+                    wiki_result = self.perform_search(processed_input, "wiki")
+                    if wiki_result:
                         augmented_input = (
-                            f"다음 정보를 바탕으로 답변을 작성해주세요. 반드시 제공된 정보를 활용하여 응답하세요:\n"
-                            f"{web_result}\n\n"
-                            f"질문: {user_input}\n\n"
-                            f"답변 형식:\n"
-                            f"1. 현재 직위/역할\n"
-                            f"2. 주요 경력\n"
-                            f"3. 최근 활동/현재 상황\n\n"
-                            f"위 정보를 바탕으로 객관적이고 명확하게 설명해주세요."
+                            f"아래는 위키백과 검색 결과입니다:\n\n"
+                            f"{wiki_result}\n\n"
+                            f"위 정보를 전부 보여주고, 요약해서 답변해 주세요.\n"
+                            f"질문: {processed_input}"
                         )
                     else:
-                        # 2) 위키백과 검색 시도
-                        wiki_result = self.perform_search(user_input, "wiki")
-                        if wiki_result:
-                            augmented_input = (
-                                f"다음 Wikipedia 정보를 참고하여 자연스럽게 답변해주세요:\n"
-                                f"{wiki_result}\n\n"
-                                f"질문: {user_input}\n"
-                                f"위 정보를 바탕으로 쉽게 설명해주세요."
-                            )
-                        else:
-                            # 3) 검색 결과도 없을 시
-                            augmented_input = (
-                                f"다음 질문에 대해 알고 있는 정보를 바탕으로 답변해주세요: {user_input}\n"
-                                f"검색 결과가 없다면 솔직히 모른다고 말씀해주세요."
-                            )
+                        # 검색 결과 없을 때
+                        augmented_input = (
+                            f"검색 결과가 전혀 없습니다. 알고 있는 정보만으로 답변해 주세요.\n"
+                            f"질문: {processed_input}"
+                        )
 
-                # 사용자 메시지 기록
-                self.message_history.add_user_message(augmented_input)
+            # 4) 메시지 기록(대화 히스토리)
+            self.message_history.add_user_message(augmented_input)
 
-                # 메시지 변환: history는 직전에 추가한 메시지를 제외하기 위해 [:-1]
+            # 5) LLM 호출
+            with get_openai_callback() as cb:
                 messages = self.prompt.format_messages(
                     input=augmented_input,
                     history=self.message_history.messages[:-1]
                 )
                 response = self.llm.invoke(messages)
 
-                # AI 응답 기록
+                # 6) AI 응답 기록
                 self.message_history.add_ai_message(response.content)
 
-                # 대화 기록 확인
-                print("\n=== 현재 대화 기록 (최근 4개) ===")
+                # 7) 디버그 출력
+                print("\n=== 대화 기록 (최근 4개 메시지) ===")
                 for i, msg in enumerate(self.message_history.messages[-4:], 1):
                     who = "사용자" if isinstance(msg, HumanMessage) else "AI"
-                    print(f"{i}. {who}: {msg.content[:50]}...")
+                    snippet = (msg.content[:60] + "...") if len(msg.content) > 60 else msg.content
+                    print(f"{i}. [{who}] {snippet}")
 
-                print(f"\n토큰 사용량: {cb.total_tokens} "
+                print(f"\n[토큰 사용량] 총 {cb.total_tokens} "
                       f"(프롬프트: {cb.prompt_tokens}, 생성: {cb.completion_tokens})")
-                print(f"예상 비용: ${cb.total_cost:.5f}")
+                print(f"[예상 비용] ${cb.total_cost:.5f}")
 
-                return response.content
+            return response.content
 
         except Exception as e:
             print(f"Error details: {traceback.format_exc()}")
@@ -217,11 +231,11 @@ def main():
                 continue
 
             response = assistant.chat(user_input)
-            print(f"\n답변: {response}")
+            print(f"\n[AI 답변]\n{response}")
 
     except Exception as e:
         print(f"프로그램 실행 중 오류 발생: {str(e)}")
-        print("필요한 패키지를 설치했는지 확인해주세요:")
+        print("아래 명령어로 필요한 패키지를 설치했는지 확인해주세요:\n")
         print("pip install langchain langchain-openai langchain-community wikipedia-api duckduckgo-search")
 
 
