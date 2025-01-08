@@ -6,7 +6,6 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_community.utilities.duckduckgo_search import DuckDuckGoSearchAPIWrapper
 from langchain_community.utilities.wikipedia import WikipediaAPIWrapper
-import time
 
 
 def load_api_key(key_path: str = "secret.key") -> str:
@@ -25,28 +24,26 @@ class AdvancedChatAssistant:
 
         self.message_history = ChatMessageHistory()
 
-        # 개선된 시스템 프롬프트
-        system_prompt = """당신은 친절하고 도움이 되는 한국어 AI 어시스턴트입니다.
+        # 시스템 프롬프트 설정
+        system_prompt = """당신은 신중하고 정확한 정보를 제공하는 AI 어시스턴트입니다.
 
-1. 기본 응답:
-   - 항상 한국어로 답변하세요
-   - 친절하고 자연스러운 어투를 사용하세요
-   - 전문용어는 쉽게 풀어서 설명하세요
+1. 정보 제공 원칙:
+   - 공식적이고 검증된 정보를 우선으로 제공하세요
+   - 논란이 있는 내용은 제외하고 객관적 사실만 전달하세요
+   - 최신 정보의 경우 "검색 결과에 따르면" 등의 한정어를 사용하세요
+   - 불확실한 정보는 제공하지 마세요
 
-2. 검색 결과 활용:
-   - 검색 결과가 있다면 그 내용을 바탕으로 종합적으로 설명해주세요
-   - 검색 결과를 그대로 복사하지 말고 자연스럽게 재구성하세요
-   - 최신 정보와 관련된 질문에는 검색 결과의 시점을 언급해주세요
+2. 인물 정보 제공 시:
+   - 현재 공식 직위나 역할을 먼저 언급하세요
+   - 주요 경력이나 이력을 간단히 설명하세요
+   - 논란이 될 수 있는 내용은 제외하세요
+   - 개인적인 평가나 의견은 배제하세요
 
-3. 대화 관리:
-   - 이전 대화 내용을 참고하여 문맥을 유지하세요
-   - 이전 응답에 오류가 있었다면 새로운 정보로 수정하세요
-   - 모르는 내용은 솔직히 모른다고 말씀하세요
-
-4. 특별 지침:
-   - 인물 설명 시 주요 경력과 현재 역할을 중심으로 설명하세요
-   - 개념 설명 시 정의, 특징, 예시 순으로 구성하세요
-   - 검색 실패 시 일반적인 설명이라도 제공하도록 노력하세요"""
+3. 응답 형식:
+   - 한국어로 명확하고 간단히 답변하세요
+   - 정보의 출처나 시점을 명시하세요
+   - 불확실한 부분은 "확인이 필요합니다"라고 하세요
+   - 검색 결과가 없으면 솔직히 모른다고 하세요"""
 
         self.prompt = ChatPromptTemplate.from_messages([
             SystemMessage(content=system_prompt),
@@ -55,19 +52,11 @@ class AdvancedChatAssistant:
         ])
 
         # 검색 도구 초기화
-        self.search = DuckDuckGoSearchAPIWrapper(
-            region="kr-kr",
-            time='y',
-            max_results=3  # 최대 3개의 결과만 가져오기
-        )
-        self.wikipedia = WikipediaAPIWrapper(
-            lang="ko",
-            top_k_results=1,  # 가장 관련성 높은 결과 1개만 가져오기
-            load_max_docs=1
-        )
+        self.search = DuckDuckGoSearchAPIWrapper(region="kr-kr", time='y')
+        self.wikipedia = WikipediaAPIWrapper(lang="ko")
 
-    def safe_search(self, query: str, search_type: str = "web") -> str:
-        """안전한 검색 수행"""
+    def perform_search(self, query: str, search_type: str = "web") -> str:
+        """검색 실행"""
         try:
             # 검색어 전처리
             replacements = [
@@ -84,58 +73,41 @@ class AdvancedChatAssistant:
             print(f"[검색 디버그] 전처리된 쿼리: {search_query}")
 
             if not search_query:
-                print("[검색 디버그] 검색어가 비어있음")
                 return ""
 
             if search_type == "web":
-                try:
-                    # 한국어 검색을 위한 키워드 추가
-                    search_results = []
+                search_results = []
 
-                    # 일반 검색
-                    result1 = self.search.run(f"{search_query}")
-                    if result1:
-                        search_results.append(f"기본 검색: {result1}")
+                # 기본 정보 검색
+                official_query = f"{search_query} 프로필 위키백과"
+                result1 = self.search.run(official_query)
+                if result1:
+                    search_results.append(f"기본 정보: {result1}")
 
-                    # 개념 검색
-                    result2 = self.search.run(f"{search_query} 정의 설명 개념")
-                    if result2 and result2 != result1:
-                        search_results.append(f"개념 검색: {result2}")
+                # 직위/직책 검색
+                position_query = f"{search_query} 현재 직책 직위"
+                result2 = self.search.run(position_query)
+                if result2 and result2 != result1:
+                    search_results.append(f"현재 직위: {result2}")
 
-                    # 최신 정보 검색
-                    result3 = self.search.run(f"{search_query} 현재 최신")
-                    if result3 and result3 not in [result1, result2]:
-                        search_results.append(f"최신 정보: {result3}")
+                # 공식 발표 검색
+                news_query = f"{search_query} 공식 발표 보도자료"
+                result3 = self.search.run(news_query)
+                if result3 and result3 not in [result1, result2]:
+                    search_results.append(f"공식 발표: {result3}")
 
-                    print(f"[검색 디버그] 웹 검색 결과 수: {len(search_results)}")
-                    return "\n".join(search_results)
+                return "\n".join(search_results) if search_results else ""
 
-                except Exception as web_error:
-                    print(f"[검색 디버그] 웹 검색 실패: {str(web_error)}")
-                    return ""
-
-            else:  # wiki
-                try:
-                    # Wikipedia 검색 시도
-                    print("[검색 디버그] Wikipedia 검색 시도")
-                    result = self.wikipedia.run(search_query)
-
-                    if not result or "Page id" in result:  # 검색 실패 시
-                        print("[검색 디버그] Wikipedia 검색 실패, 웹 검색으로 전환")
-                        web_result = self.search.run(f"{search_query} wikipedia")
-                        if web_result:
-                            return f"Wikipedia 대체 검색: {web_result}"
-                        return ""
-
-                    print("[검색 디버그] Wikipedia 검색 성공")
+            elif search_type == "wiki":
+                result = self.wikipedia.run(search_query)
+                if result and "Page id" not in result:
                     return f"Wikipedia: {result}"
+                return ""
 
-                except Exception as wiki_error:
-                    print(f"[검색 디버그] Wikipedia 오류: {str(wiki_error)}")
-                    return ""
+            return ""
 
         except Exception as e:
-            print(f"[검색 디버그] 전체 검색 실패: {str(e)}")
+            print(f"[검색 실패] {search_type}: {str(e)}")
             return ""
 
     def chat(self, user_input: str) -> str:
@@ -150,10 +122,8 @@ class AdvancedChatAssistant:
                 augmented_input = user_input
                 if should_search:
                     # 웹 검색 시도
-                    print("\n[검색 시작] 웹 검색")
-                    web_result = self.safe_search(user_input, "web")
+                    web_result = self.perform_search(user_input, "web")
                     if web_result:
-                        print("[검색 성공] 웹 검색 결과 있음")
                         augmented_input = (
                             f"다음 정보를 참고하여 자연스럽게 답변해주세요:\n"
                             f"{web_result}\n"
@@ -161,13 +131,9 @@ class AdvancedChatAssistant:
                             f"위 정보를 바탕으로 쉽게 설명해주세요."
                         )
                     else:
-                        print("[검색 실패] 웹 검색 결과 없음")
-
                         # Wikipedia 검색 시도
-                        print("\n[검색 시작] Wikipedia 검색")
-                        wiki_result = self.safe_search(user_input, "wiki")
+                        wiki_result = self.perform_search(user_input, "wiki")
                         if wiki_result:
-                            print("[검색 성공] Wikipedia 검색 결과 있음")
                             augmented_input = (
                                 f"다음 Wikipedia 정보를 참고하여 자연스럽게 답변해주세요:\n"
                                 f"{wiki_result}\n"
@@ -175,25 +141,13 @@ class AdvancedChatAssistant:
                                 f"위 정보를 바탕으로 쉽게 설명해주세요."
                             )
                         else:
-                            print("[검색 실패] Wikipedia 검색 결과 없음")
                             augmented_input = (
                                 f"다음 질문에 대해 알고 있는 정보를 바탕으로 답변해주세요: {user_input}\n"
                                 f"검색 결과가 없다면 솔직히 모른다고 말씀해주세요."
                             )
 
-                # 검색 결과를 포함한 전체 메시지 저장
+                # 사용자 메시지 저장
                 self.message_history.add_user_message(augmented_input)
-
-                # 최근 5개의 메시지만 유지 (2-3번의 대화)
-                if len(self.message_history.messages) > 10:
-                    # 메시지 목록 초기화 후 최근 메시지만 유지
-                    recent_messages = self.message_history.messages[-10:]
-                    self.message_history = ChatMessageHistory()
-                    for msg in recent_messages:
-                        if isinstance(msg, HumanMessage):
-                            self.message_history.add_user_message(msg.content)
-                        else:
-                            self.message_history.add_ai_message(msg.content)
 
                 # 응답 생성
                 messages = self.prompt.format_messages(
@@ -205,7 +159,7 @@ class AdvancedChatAssistant:
                 # AI 응답 저장
                 self.message_history.add_ai_message(response.content)
 
-                # 디버깅용 메시지 히스토리 출력
+                # 대화 기록 출력
                 print("\n=== 현재 대화 기록 ===")
                 for i, msg in enumerate(self.message_history.messages[-4:], 1):
                     print(f"{i}. {'사용자' if isinstance(msg, HumanMessage) else 'AI'}: {msg.content[:50]}...")
