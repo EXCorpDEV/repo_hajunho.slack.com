@@ -24,7 +24,6 @@ retriever = SimpleRetriever(dataset)
 
 # RAG 모델 로드
 model = RagSequenceForGeneration.from_pretrained("facebook/rag-sequence-nq").to(device)
-`
 # 질문 입력
 question = "What is the capital of France?"
 
