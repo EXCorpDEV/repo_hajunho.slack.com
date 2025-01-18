@@ -2,10 +2,10 @@ from fpdf import FPDF
 from PyPDF2 import PdfWriter, PdfReader
 
 # 파일 경로
-txt_file = "telegram_messages_20250104_175736.txt"
-pdf_file = "eosrio_in_the_root.pdf"
+txt_file = "telegram_messages_20250107_201300.txt"
+pdf_file = "btg.pdf"
 watermark_pdf = "watermark.pdf"
-final_pdf = "HJH_eosrio_restricted.pdf"
+final_pdf = "HJH_btg_restricted.pdf"
 
 # 텍스트를 안전하게 변환하는 함수
 def safe_text(text):
