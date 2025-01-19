@@ -1,0 +1,70 @@
+2025-01-14 13:29:41,497 - INFO - === Python 환경 정보 ===
+2025-01-14 13:29:41,497 - INFO - Python 버전: 3.12.8 (tags/v3.12.8:2dc476b, Dec  3 2024, 19:30:04) [MSC v.1942 64 bit (AMD64)]
+2025-01-14 13:29:41,497 - INFO - Python 경로: C:\GitHub\repo_hajunho.slack.com\AIprojects\face_blur\fastApiProject\.venv\Scripts\python.exe
+2025-01-14 13:29:41,497 - INFO - 
+=== CUDA 환경 변수 ===
+2025-01-14 13:29:41,497 - INFO - CUDA_PATH: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8
+2025-01-14 13:29:41,498 - INFO - 
+=== NVIDIA-SMI 정보 ===
+2025-01-14 13:29:41,574 - INFO - nvidia-smi 출력:
+Tue Jan 14 13:29:41 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 565.90                 Driver Version: 565.90         CUDA Version: 12.7     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090      WDDM  |   00000000:01:00.0  On |                  N/A |
+|  0%   38C    P8             29W /  350W |    2817MiB /  24576MiB |      2%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A      4420    C+G   ...ta\Local\Programs\Notion\Notion.exe      N/A      |
+|    0   N/A  N/A      6240    C+G   ...CBS_cw5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A      7664    C+G   ...ne\Binaries\Win64\EpicWebHelper.exe      N/A      |
+|    0   N/A  N/A     12328    C+G   ...cal\Microsoft\OneDrive\OneDrive.exe      N/A      |
+|    0   N/A  N/A     13036    C+G   C:\Windows\System32\ShellHost.exe           N/A      |
+|    0   N/A  N/A     13044    C+G   C:\Windows\explorer.exe                     N/A      |
+|    0   N/A  N/A     13948    C+G   ...n\131.0.2903.112\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A     14868    C+G   ...nt.CBS_cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A     14880    C+G   ...2txyewy\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A     14904    C+G   ...inaries\Win64\EpicGamesLauncher.exe      N/A      |
+|    0   N/A  N/A     21932    C+G   ...ekyb3d8bbwe\PhoneExperienceHost.exe      N/A      |
+|    0   N/A  N/A     22188    C+G   ...siveControlPanel\SystemSettings.exe      N/A      |
+|    0   N/A  N/A     22848    C+G   ...5n1h2txyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A     23620    C+G   ...s\Toolbox\bin\jetbrains-toolbox.exe      N/A      |
+|    0   N/A  N/A     23796    C+G   ...oogle\Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A     25060    C+G   ...804_x64__8wekyb3d8bbwe\ms-teams.exe      N/A      |
+|    0   N/A  N/A     25968    C+G   ...804_x64__8wekyb3d8bbwe\ms-teams.exe      N/A      |
+|    0   N/A  N/A     27140    C+G   ...oogle\Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A     28652    C+G   ...s\System32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A     31108    C+G   ...__8wekyb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A     32160    C+G   ...8bbwe\SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A     32588    C+G   ...n\131.0.2903.112\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A     35144    C+G   ...harm Professional\bin\pycharm64.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+
+2025-01-14 13:29:41,574 - INFO - 
+=== PyTorch CUDA 지원 확인 ===
+2025-01-14 13:29:43,114 - INFO - PyTorch 버전: 2.5.1+cu118
+2025-01-14 13:29:43,145 - INFO - CUDA 사용 가능: True
+2025-01-14 13:29:43,145 - INFO - 현재 CUDA 버전: 11.8
+2025-01-14 13:29:43,145 - INFO - GPU 개수: 1
+2025-01-14 13:29:43,148 - INFO - GPU 0: NVIDIA GeForce RTX 3090
+2025-01-14 13:29:43,148 - INFO - 
+=== CUDA 툴킷 버전 확인 ===
+2025-01-14 13:29:43,158 - INFO - NVCC 버전 정보:
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2022 NVIDIA Corporation
+Built on Wed_Sep_21_10:41:10_Pacific_Daylight_Time_2022
+Cuda compilation tools, release 11.8, V11.8.89
+Build cuda_11.8.r11.8/compiler.31833905_0
+
+2025-01-14 13:29:43,158 - INFO - 
+=== 체크 완료 ===
