@@ -232,7 +232,7 @@ def main():
         'model_state_dict': model.state_dict(),
         'optimizer_state_dict': optimizer.state_dict(),
         'vocab': dataset.char_to_index,
-    }, 'small_conformer_checkpoint.pth')
+    }, 'data/small_conformer_checkpoint.pth')
 
     print("학습 완료!")
 
