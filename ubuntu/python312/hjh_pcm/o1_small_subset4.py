@@ -15,39 +15,58 @@ import torchaudio
 # -------------------
 # 1) Conformer 블록 예시
 # -------------------
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
 class ConformerBlock(nn.Module):
-    """간단한 Conformer Block 예시 (실제로는 더 많은 세부 구현 필요)"""
-    def __init__(self, d_model, n_heads, conv_kernel=3, ff_multiplier=4, dropout=0.1):
+    """
+    간략히 Conformer 블록 구조를 예시로 구현:
+    - Macaron FeedForward (전단)
+    - Multi-Head Self-Attention
+    - Convolution Module (GLU 사용)
+    - Macaron FeedForward (후단)
+    - LayerNorm 등
+    """
+    def __init__(self, d_model, n_heads=4, ff_multiplier=4, conv_kernel=7, dropout=0.1):
         super().__init__()
         self.dropout = nn.Dropout(dropout)
 
-        # 1) FeedForward module (Macaron) - 전단
+        # --- 1) Macaron FeedForward #1 ---
         self.ff1 = nn.Sequential(
             nn.LayerNorm(d_model),
             nn.Linear(d_model, d_model * ff_multiplier),
             nn.ReLU(),
+            nn.Dropout(dropout),
             nn.Linear(d_model * ff_multiplier, d_model),
             nn.Dropout(dropout),
         )
 
-        # 2) Multi-Head Self-Attention
+        # --- 2) Self-Attention ---
         self.ln_attn = nn.LayerNorm(d_model)
-        self.attn = nn.MultiheadAttention(embed_dim=d_model, num_heads=n_heads, batch_first=True, dropout=dropout)
+        self.attn = nn.MultiheadAttention(embed_dim=d_model, num_heads=n_heads, dropout=dropout, batch_first=True)
 
-        # 3) Convolution module
+        # --- 3) Convolution Module ---
         self.ln_conv = nn.LayerNorm(d_model)
-        self.pointwise_conv1 = nn.Conv1d(d_model, d_model*2, kernel_size=1)
-        self.depthwise_conv = nn.Conv1d(d_model*2, d_model*2, kernel_size=conv_kernel,
-                                        groups=d_model*2, padding=conv_kernel//2)
-        self.batchnorm = nn.BatchNorm1d(d_model*2)
-        self.pointwise_conv2 = nn.Conv1d(d_model*2, d_model, kernel_size=1)
-        self.act = nn.GLU(dim=1)  # GLU 활성함수
+        # pointwise_conv1: (d_model -> 2*d_model)
+        self.pointwise_conv1 = nn.Conv1d(d_model, 2*d_model, kernel_size=1)
+        # depthwise_conv: (in=d_model -> out=d_model)를 위해, GLU 후 채널이 d_model이 되도록 설계
+        #   하지만 GLU를 pointwise_conv1 -> depthwise_conv 사이에 넣기 위해서는
+        #   depthwise_conv in/out도 d_model이 되어야 합니다.
+        #   아래에서는 GLU를 pointwise_conv1 직후에 적용.
+        self.depthwise_conv = nn.Conv1d(d_model, d_model, kernel_size=conv_kernel,
+                                        padding=conv_kernel//2, groups=d_model)
+        self.batchnorm = nn.BatchNorm1d(d_model)
+        self.act = nn.ReLU()  # 예: ReLU, SiLU, Swish 등
+        # pointwise_conv2: (d_model -> d_model)
+        self.pointwise_conv2 = nn.Conv1d(d_model, d_model, kernel_size=1)
 
-        # 4) FeedForward module (Macaron) - 후단
+        # --- 4) Macaron FeedForward #2 ---
         self.ff2 = nn.Sequential(
             nn.LayerNorm(d_model),
             nn.Linear(d_model, d_model * ff_multiplier),
             nn.ReLU(),
+            nn.Dropout(dropout),
             nn.Linear(d_model * ff_multiplier, d_model),
             nn.Dropout(dropout),
         )
@@ -55,31 +74,49 @@ class ConformerBlock(nn.Module):
         self.ln_out = nn.LayerNorm(d_model)
 
     def forward(self, x):
-        # x shape: [B, T, D]
-
-        # 1) FF1 (Macaron) & residual
+        """
+        x: [B, T, d_model]
+        반환: [B, T, d_model]
+        """
+        # --- FeedForward #1 (Macaron) ---
         x = x + 0.5 * self.ff1(x)
 
-        # 2) Multi-Head Self-Attention & residual
+        # --- Multi-Head Self-Attention ---
         x_norm = self.ln_attn(x)
-        attn_out, _ = self.attn(x_norm, x_norm, x_norm)
+        attn_out, _ = self.attn(x_norm, x_norm, x_norm)  # batch_first=True
         x = x + attn_out
 
-        # 3) Conv module & residual
-        x_norm = self.ln_conv(x)
-        x_norm = x_norm.transpose(1, 2)  # [B, D, T] for conv
-        x_conv = self.pointwise_conv1(x_norm)  # [B, 2D, T]
-        x_conv = self.depthwise_conv(x_conv)   # [B, 2D, T]
-        x_conv = self.batchnorm(x_conv)
-        x_conv = self.act(x_conv)              # GLU: split into [B, D, T] x 2
-        x_conv = self.pointwise_conv2(x_conv)  # [B, D, T]
-        x_conv = x_conv.transpose(1, 2)        # back to [B, T, D]
-        x = x + x_conv
+        # --- Convolution Module ---
+        residual = x
+        x_conv = self.ln_conv(x)
+        # (B, T, d_model) -> (B, d_model, T)
+        x_conv = x_conv.transpose(1, 2)
 
-        # 4) FF2 (Macaron) & residual
+        # 1) pointwise_conv1: d_model -> 2*d_model
+        x_conv = self.pointwise_conv1(x_conv)  # [B, 2*d_model, T]
+
+        # 2) GLU: 2*d_model => split => d_model
+        xA, xB = x_conv.chunk(2, dim=1)  # (2*d_model) -> (d_model, d_model)
+        x_conv = xA * torch.sigmoid(xB)  # => [B, d_model, T]
+
+        # 3) depthwise_conv: d_model -> d_model
+        x_conv = self.depthwise_conv(x_conv)   # [B, d_model, T]
+        x_conv = self.batchnorm(x_conv)
+        x_conv = self.act(x_conv)
+
+        # 4) pointwise_conv2: d_model -> d_model
+        x_conv = self.pointwise_conv2(x_conv)  # [B, d_model, T]
+
+        # (B, d_model, T) -> (B, T, d_model)
+        x_conv = x_conv.transpose(1, 2)
+
+        # residual
+        x = residual + x_conv
+
+        # --- FeedForward #2 (Macaron) ---
         x = x + 0.5 * self.ff2(x)
 
-        # 5) 최종 LayerNorm
+        # --- 최종 LayerNorm ---
         x = self.ln_out(x)
         return x
 
