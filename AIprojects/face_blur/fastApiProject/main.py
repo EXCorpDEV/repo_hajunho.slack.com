@@ -18,14 +18,14 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Jinja2 템플릿 설정 (템플릿 폴더 이름: "templates")
 templates = Jinja2Templates(directory="templates")
 
-# 사용하려는 SDXL 모델 ID (Turbo 모델)
-model_id = "stabilityai/stable-diffusion-xl-turbo"
+# 사용하려는 SDXL 모델 ID (1.1 버전 - 더 나은 품질)
+model_id = "stabilityai/stable-diffusion-xl-base-1.1"
 
 # SDXL 파이프라인 로드
+# 처음 실행 시 모델 파일(수GB)이 다운로드될 수 있음
 pipe = StableDiffusionXLPipeline.from_pretrained(
     model_id,
-    torch_dtype=torch.float16,
-    variant="fp16"  # Turbo 모델용 추가 설정
+    torch_dtype=torch.float16
 ).to("cuda")
 
 # 기본 라우트 (GET) - 입력 폼을 보여주는 페이지
