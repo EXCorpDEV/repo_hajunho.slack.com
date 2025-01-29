@@ -1,96 +1,62 @@
-from fastapi import FastAPI, File, UploadFile, Request
-from fastapi.responses import StreamingResponse, HTMLResponse
-import cv2
-import numpy as np
-import io
+from fastapi import FastAPI, Request, Form
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
+# SDXL 파이프라인 임포트
+from diffusers import StableDiffusionXLPipeline
+import torch
+import time
+import os
+
+# FastAPI 앱 생성
 app = FastAPI()
 
-# Haar Cascade 파일 로드
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+# "static" 폴더를 "/static" 경로로 서빙 (이미지·CSS·JS 등 정적 파일 제공)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
+# Jinja2 템플릿 설정 (템플릿 폴더 이름: "templates")
+templates = Jinja2Templates(directory="templates")
+
+# 사용하려는 SDXL 모델 ID (Base 모델)
+model_id = "stabilityai/stable-diffusion-xl-base-1.0"
+
+# SDXL 파이프라인 로드
+# 처음 실행 시 모델 파일(수GB)이 다운로드될 수 있음
+pipe = StableDiffusionXLPipeline.from_pretrained(
+    model_id,
+    torch_dtype=torch.float16
+).to("cuda")
+
+# 기본 라우트 (GET) - 입력 폼을 보여주는 페이지
 @app.get("/", response_class=HTMLResponse)
-async def read_root():
-    html_content = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Face Blur App</title>
-    </head>
-    <body>
-        <h1>(주)EX 얼굴 블러 처리 앱</h1>
-        <form id="upload-form">
-            <input type="file" id="file-input" accept="image/*">
-            <button type="submit">업로드</button>
-        </form>
-        <div id="result">
-            <h2>결과:</h2>
-            <img id="result-image" src="" alt="처리된 이미지" style="max-width:100%;">
-        </div>
-        <script>
-            const form = document.getElementById('upload-form');
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const fileInput = document.getElementById('file-input');
-                const file = fileInput.files[0];
-                const formData = new FormData();
-                formData.append('file', file);
+async def read_root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
-                const response = await fetch('/blur_faces/', {
-                    method: 'POST',
-                    body: formData
-                });
+# 이미지 생성 라우트 (POST) - 프롬프트를 받아 SDXL로 이미지 생성
+@app.post("/generate")
+async def generate(request: Request):
+    # HTML form 데이터 받기
+    form = await request.form()
+    prompt = form.get("prompt")
 
-                if (response.ok) {
-                    const blob = await response.blob();
-                    const url = URL.createObjectURL(blob);
-                    const img = document.getElementById('result-image');
-                    img.src = url;
-                } else {
-                    alert('이미지 처리 중 오류가 발생했습니다.');
-                }
-            });
-        </script>
-    </body>
-    </html>
-    """
-    return HTMLResponse(content=html_content, status_code=200)
+    # SDXL로 이미지 생성
+    image = pipe(prompt).images[0]
 
-@app.post("/blur_faces/")
-async def blur_faces(file: UploadFile = File(...)):
+    # 파일 이름에 타임스탬프를 붙여 중복 방지
+    timestamp = int(time.time())
+    image_path = f"static/generated_image_{timestamp}.png"
+
+    # 이미지 파일 저장
+    # static 폴더가 없으면 미리 만들어 주세요 (os.makedirs("static", exist_ok=True))
     try:
-        # 업로드된 파일 읽기
-        contents = await file.read()
-        nparr = np.frombuffer(contents, np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-
-        # 이미지가 유효한지 확인
-        if img is None:
-            return {"error": "유효하지 않은 이미지입니다."}
-
-        # 그레이스케일 변환
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-        # 얼굴 검출
-        faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-
-        # 얼굴이 검출되지 않은 경우 원본 이미지 반환
-        if len(faces) == 0:
-            # 원본 이미지 인코딩
-            _, img_encoded = cv2.imencode('.jpg', img)
-            img_bytes = img_encoded.tobytes()
-            return StreamingResponse(io.BytesIO(img_bytes), media_type="image/jpeg")
-
-        # 얼굴 영역 블러 처리
-        for (x, y, w, h) in faces:
-            roi = img[y:y+h, x:x+w]
-            roi = cv2.GaussianBlur(roi, (99, 99), 30)
-            img[y:y+h, x:x+w] = roi
-
-        # 처리된 이미지 인코딩
-        _, img_encoded = cv2.imencode('.jpg', img)
-        img_bytes = img_encoded.tobytes()
-        return StreamingResponse(io.BytesIO(img_bytes), media_type="image/jpeg")
+        image.save(image_path)
+        print(f"Image saved to {image_path}")
     except Exception as e:
-        return {"error": str(e)}
+        print(f"Error saving file: {e}")
 
+    # 결과 페이지 렌더링, 생성된 이미지 경로 전달
+    return templates.TemplateResponse("result.html", {
+        "request": request,
+        "image_path": image_path
+    })
