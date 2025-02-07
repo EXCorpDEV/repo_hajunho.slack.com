@@ -1,11 +1,5 @@
-// EXCAM.cpp : 애플리케이션에 대한 진입점을 정의합니다.
-//
-#ifndef _WIN32_WINNT
-#define _WIN32_WINNT 0x0601 // Windows 7 이상
-#endif
-
 #include "framework.h"
-#include "EXCAM.h"
+#include "EXCAM2.h"
 
 // Media Foundation 및 기타 헤더들
 #include <mfapi.h>
@@ -13,16 +7,13 @@
 #include <mfreadwrite.h>
 #include <shlwapi.h>
 #include <strsafe.h>
-#include <tchar.h>
-#include <windows.h>
 
 // 라이브러리 링크
-#pragma comment(lib, "mf.lib")
 #pragma comment(lib, "mfplat.lib")
 #pragma comment(lib, "mfreadwrite.lib")
 #pragma comment(lib, "mfuuid.lib")
 #pragma comment(lib, "shlwapi.lib")
-
+#pragma comment(lib, "mf.lib")
 
 #define MAX_LOADSTRING 100
 
@@ -34,6 +25,12 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름�
 // 캡처 스레드 관련 전역 변수
 HANDLE g_hCaptureThread = NULL;
 volatile bool g_bExitCapture = false;
+
+// 프레임 데이터를 위한 전역 변수
+BYTE* g_pFrameBuffer = nullptr;
+UINT g_Width = 0;
+UINT g_Height = 0;
+CRITICAL_SECTION g_FrameCS;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -119,7 +116,7 @@ DWORD WINAPI WebcamCaptureThread(LPVOID lpParam)
         return 0;
     }
 
-    // Source Reader 생성 (공유 모드를 유도하기 위해 변환 비활성화)
+    // Source Reader 생성
     IMFAttributes* pReaderAttributes = nullptr;
     hr = MFCreateAttributes(&pReaderAttributes, 1);
     if (SUCCEEDED(hr))
@@ -147,7 +144,7 @@ DWORD WINAPI WebcamCaptureThread(LPVOID lpParam)
         return 0;
     }
 
-    // 비디오 스트림의 미디어 타입을 RGB32로 설정합니다.
+    // 비디오 스트림의 미디어 타입을 RGB32로 설정
     IMFMediaType* pType = nullptr;
     hr = MFCreateMediaType(&pType);
     if (SUCCEEDED(hr))
@@ -162,6 +159,25 @@ DWORD WINAPI WebcamCaptureThread(LPVOID lpParam)
     {
         hr = pReader->SetCurrentMediaType((DWORD)MF_SOURCE_READER_FIRST_VIDEO_STREAM, nullptr, pType);
     }
+
+    // 미디어 타입에서 해상도 정보 가져오기
+    IMFMediaType* pCurrentType = nullptr;
+    hr = pReader->GetCurrentMediaType((DWORD)MF_SOURCE_READER_FIRST_VIDEO_STREAM, &pCurrentType);
+    if (SUCCEEDED(hr))
+    {
+        UINT32 width, height;
+        MFGetAttributeSize(pCurrentType, MF_MT_FRAME_SIZE, &width, &height);
+
+        EnterCriticalSection(&g_FrameCS);
+        g_Width = width;
+        g_Height = height;
+        if (g_pFrameBuffer) delete[] g_pFrameBuffer;
+        g_pFrameBuffer = new BYTE[width * height * 4];
+        LeaveCriticalSection(&g_FrameCS);
+
+        pCurrentType->Release();
+    }
+
     pType->Release();
     if (FAILED(hr))
     {
@@ -196,7 +212,6 @@ DWORD WINAPI WebcamCaptureThread(LPVOID lpParam)
             break;
         }
 
-        // MF_SOURCE_READERF_STREAMTICK은 실제 프레임이 아닌 스트림 타이밍 정보입니다.
         if (flags & MF_SOURCE_READERF_STREAMTICK)
         {
             if (pSample)
@@ -206,17 +221,28 @@ DWORD WINAPI WebcamCaptureThread(LPVOID lpParam)
 
         if (pSample)
         {
-            // 예제에서는 단순히 타임스탬프를 출력합니다.
-            wchar_t debugMsg[128];
-            StringCchPrintf(debugMsg, 128, L"프레임 캡처됨 - 타임스탬프: %lld\n", llTimestamp);
-            OutputDebugString(debugMsg);
+            IMFMediaBuffer* pBuffer = nullptr;
+            hr = pSample->ConvertToContiguousBuffer(&pBuffer);
+            if (SUCCEEDED(hr))
+            {
+                BYTE* pData = nullptr;
+                DWORD maxLength, currentLength;
+                hr = pBuffer->Lock(&pData, &maxLength, &currentLength);
+                if (SUCCEEDED(hr))
+                {
+                    EnterCriticalSection(&g_FrameCS);
+                    memcpy(g_pFrameBuffer, pData, min(currentLength, g_Width * g_Height * 4));
+                    LeaveCriticalSection(&g_FrameCS);
 
-            // 여기서 pSample의 버퍼에 접근하여 영상 데이터를 처리할 수 있습니다.
-
+                    pBuffer->Unlock();
+                    InvalidateRect((HWND)lpParam, NULL, FALSE);  // 화면 갱신 요청
+                }
+                pBuffer->Release();
+            }
             pSample->Release();
         }
 
-        Sleep(30);
+        Sleep(30); // 프레임 레이트 조절
     }
 
     // 자원 정리
@@ -228,75 +254,14 @@ DWORD WINAPI WebcamCaptureThread(LPVOID lpParam)
 }
 
 //---------------------------------------------------------------------------
-// wWinMain 및 나머지 기존 코드
+// InitInstance 함수 수정
 //---------------------------------------------------------------------------
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-    _In_opt_ HINSTANCE hPrevInstance,
-    _In_ LPWSTR    lpCmdLine,
-    _In_ int       nCmdShow)
-{
-    UNREFERENCED_PARAMETER(hPrevInstance);
-    UNREFERENCED_PARAMETER(lpCmdLine);
-
-    // 전역 문자열 초기화
-    LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-    LoadStringW(hInstance, IDC_EXCAM, szWindowClass, MAX_LOADSTRING);
-    MyRegisterClass(hInstance);
-
-    // 애플리케이션 초기화를 수행합니다.
-    if (!InitInstance(hInstance, nCmdShow))
-    {
-        return FALSE;
-    }
-
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_EXCAM));
-
-    MSG msg;
-
-    // 기본 메시지 루프
-    while (GetMessage(&msg, nullptr, 0, 0))
-    {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
-    }
-
-    return (int)msg.wParam;
-}
-
-//
-//  함수: MyRegisterClass()
-//
-ATOM MyRegisterClass(HINSTANCE hInstance)
-{
-    WNDCLASSEXW wcex;
-
-    wcex.cbSize = sizeof(WNDCLASSEX);
-
-    wcex.style = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc = WndProc;
-    wcex.cbClsExtra = 0;
-    wcex.cbWndExtra = 0;
-    wcex.hInstance = hInstance;
-    wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_EXCAM));
-    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
-    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-    wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_EXCAM);
-    wcex.lpszClassName = szWindowClass;
-    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
-
-    return RegisterClassExW(&wcex);
-}
-
-//
-//   함수: InitInstance(HINSTANCE, int)
-//
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+    hInst = hInstance;
+
+    InitializeCriticalSection(&g_FrameCS);  // Critical Section 초기화
 
     HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
@@ -309,8 +274,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
 
-    // 캡처 스레드 생성: 창 생성 후 별도의 스레드에서 웹캠 캡처를 시작합니다.
-    g_hCaptureThread = CreateThread(NULL, 0, WebcamCaptureThread, NULL, 0, NULL);
+    // 캡처 스레드 생성
+    g_hCaptureThread = CreateThread(NULL, 0, WebcamCaptureThread, hWnd, 0, NULL);
     if (g_hCaptureThread == NULL)
     {
         MessageBox(hWnd, _T("캡처 스레드 생성 실패"), _T("오류"), MB_OK);
@@ -319,9 +284,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     return TRUE;
 }
 
-//
-//  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
-//
+//---------------------------------------------------------------------------
+// WndProc 함수 수정
+//---------------------------------------------------------------------------
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -329,7 +295,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_COMMAND:
     {
         int wmId = LOWORD(wParam);
-        // 메뉴 선택을 파싱합니다.
         switch (wmId)
         {
         case IDM_ABOUT:
@@ -347,7 +312,33 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(hWnd, &ps);
-        // TODO: 필요한 그리기 작업 수행 (예: 영상 데이터를 창에 출력)
+
+        EnterCriticalSection(&g_FrameCS);
+        if (g_pFrameBuffer && g_Width > 0 && g_Height > 0)
+        {
+            BITMAPINFO bmi = { 0 };
+            bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+            bmi.bmiHeader.biWidth = g_Width;
+            bmi.bmiHeader.biHeight = -(LONG)g_Height;  // Top-down DIB
+            bmi.bmiHeader.biPlanes = 1;
+            bmi.bmiHeader.biBitCount = 32;
+            bmi.bmiHeader.biCompression = BI_RGB;
+
+            SetStretchBltMode(hdc, COLORONCOLOR);
+
+            // 창 크기에 맞게 스트레치하여 그리기
+            RECT rc;
+            GetClientRect(hWnd, &rc);
+            StretchDIBits(hdc,
+                0, 0, rc.right, rc.bottom,
+                0, 0, g_Width, g_Height,
+                g_pFrameBuffer,
+                &bmi,
+                DIB_RGB_COLORS,
+                SRCCOPY);
+        }
+        LeaveCriticalSection(&g_FrameCS);
+
         EndPaint(hWnd, &ps);
     }
     break;
@@ -360,6 +351,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             CloseHandle(g_hCaptureThread);
             g_hCaptureThread = NULL;
         }
+
+        EnterCriticalSection(&g_FrameCS);
+        if (g_pFrameBuffer)
+        {
+            delete[] g_pFrameBuffer;
+            g_pFrameBuffer = nullptr;
+        }
+        LeaveCriticalSection(&g_FrameCS);
+        DeleteCriticalSection(&g_FrameCS);
+
         PostQuitMessage(0);
         break;
     default:
@@ -368,7 +369,44 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     return 0;
 }
 
-// 정보 대화 상자의 메시지 처리기입니다.
+// WinMain 함수 추가
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+    _In_opt_ HINSTANCE hPrevInstance,
+    _In_ LPWSTR    lpCmdLine,
+    _In_ int       nCmdShow)
+{
+    UNREFERENCED_PARAMETER(hPrevInstance);
+    UNREFERENCED_PARAMETER(lpCmdLine);
+
+    // 전역 문자열을 초기화합니다.
+    LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+    LoadStringW(hInstance, IDC_EXCAM2, szWindowClass, MAX_LOADSTRING);
+    MyRegisterClass(hInstance);
+
+    // 애플리케이션 초기화를 수행합니다:
+    if (!InitInstance(hInstance, nCmdShow))
+    {
+        return FALSE;
+    }
+
+    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_EXCAM2));
+
+    MSG msg;
+
+    // 기본 메시지 루프입니다:
+    while (GetMessage(&msg, nullptr, 0, 0))
+    {
+        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        {
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
+        }
+    }
+
+    return (int)msg.wParam;
+}
+
+// About 대화 상자 메시지 처리기입니다.
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
     UNREFERENCED_PARAMETER(lParam);
@@ -387,3 +425,30 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return (INT_PTR)FALSE;
 }
+
+//
+//  함수: MyRegisterClass()
+//
+//  용도: 창 클래스를 등록합니다.
+//
+ATOM MyRegisterClass(HINSTANCE hInstance)
+{
+    WNDCLASSEXW wcex;
+
+    wcex.cbSize = sizeof(WNDCLASSEX);
+
+    wcex.style = CS_HREDRAW | CS_VREDRAW;
+    wcex.lpfnWndProc = WndProc;
+    wcex.cbClsExtra = 0;
+    wcex.cbWndExtra = 0;
+    wcex.hInstance = hInstance;
+    wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_EXCAM2));
+    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
+    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+    wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_EXCAM2);
+    wcex.lpszClassName = szWindowClass;
+    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+
+    return RegisterClassExW(&wcex);
+}
+
