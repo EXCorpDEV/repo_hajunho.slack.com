@@ -1,0 +1,487 @@
+
+  index.html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 서비스 모음 | naver.how</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI 서비스 모음</h1>
+            <div class="animated-bg"></div>
+        </header>
+
+        <main>
+            <div class="service-grid">
+                <div class="service-card" data-category="chat">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-robot icon"></i>
+                            <h3>Grok-3</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>일반적인 대화와 검색에 강한 AI 챗봇</p>
+                            <a href="https://grok.x.ai" class="btn" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="service-card" data-category="search">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-search icon"></i>
+                            <h3>You.com</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>AI 기반 검색 엔진</p>
+                            <a href="https://you.com" class="btn" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="research">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-microscope icon"></i>
+                            <h3>Perplexity</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>리서치에 특화된 AI 도구</p>
+                            <a href="https://perplexity.ai" class="btn" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="coding">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-code icon"></i>
+                            <h3>Claude 3.7</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>코딩에 특화된 강력한 AI 모델</p>
+                            <a href="https://claude.ai" class="btn" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="math">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-square-root-alt icon"></i>
+                            <h3>DeepSeek-R1/o3</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>수학 문제 해결에 특화된 AI</p>
+                            <a href="https://deepseek.ai" class="btn" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="writing">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-pen-fancy icon"></i>
+                            <h3>GPT-4.5</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>글쓰기에 특화된 최신 AI 모델</p>
+                            <a href="https://chat.openai.com" class="btn" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="music">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-music icon"></i>
+                            <h3>Mureka</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>AI 작곡 및 음악 생성 서비스</p>
+                            <a href="https://www.mureka.ai" class="btn" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 naver.how - AI 서비스 모음</p>
+            <div class="floating-particles"></div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+script.js 
+document.addEventListener('DOMContentLoaded', () => {
+    // 애니메이션 배경에 움직이는 효과 추가
+    const animatedBg = document.querySelector('.animated-bg');
+    
+    // 카드 애니메이션 효과
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach((card, index) => {
+        // 카드 등장 애니메이션 지연 효과
+        card.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.1}s`;
+        card.style.opacity = '0';
+    });
+    
+    // 배경 입자 애니메이션 생성
+    createParticles();
+    
+    // 마우스 이동에 따른 시차(parallax) 효과
+    document.addEventListener('mousemove', (e) => {
+        const moveX = (e.clientX / window.innerWidth - 0.5) * 20;
+        const moveY = (e.clientY / window.innerHeight - 0.5) * 20;
+        
+        animatedBg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        
+        cards.forEach(card => {
+            const depth = Math.random() * 0.5 + 0.5; // 0.5 ~ 1.0 사이의 랜덤 깊이
+            card.style.transform = `translate(${moveX * depth * 0.1}px, ${moveY * depth * 0.1}px)`;
+        });
+    });
+});
+
+// 랜덤 배경 입자 생성 함수
+function createParticles() {
+    const container = document.querySelector('.floating-particles');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // 랜덤 스타일 설정
+        const size = Math.random() * 10 + 5;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        
+        // 입자 색상 랜덤 설정 (AI 서비스 테마 색상들)
+        const colors = ['#4285f4', '#34a853', '#ea4335', '#fbbc05', '#7b36ff', '#1da1f2', '#ff6d00'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        // 입자 스타일 적용
+        particle.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            background-color: ${color};
+            border-radius: 50%;
+            opacity: ${Math.random() * 0.6 + 0.2};
+            left: ${posX}%;
+            top: ${posY}%;
+            animation: float ${duration}s ease-in-out ${delay}s infinite;
+            box-shadow: 0 0 ${size}px ${color};
+        `;
+        
+        container.appendChild(particle);
+    }
+    
+    // 헤더에도 입자 추가
+    const header = document.querySelector('header');
+    const headerParticleCount = 30;
+    
+    for (let i = 0; i < headerParticleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('header-particle');
+        
+        const size = Math.random() * 8 + 3;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const duration = Math.random() * 15 + 5;
+        const delay = Math.random() * 3;
+        
+        particle.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            left: ${posX}%;
+            top: ${posY}%;
+            animation: float ${duration}s ease-in-out ${delay}s infinite;
+            z-index: 2;
+        `;
+        
+        header.appendChild(particle);
+    }
+}
+
+// 카드 애니메이션용 키프레임 추가
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes float {
+        0% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+        100% { transform: translateY(0) rotate(0deg); }
+    }
+`;
+document.head.appendChild(style);
+
+// 카드 클릭 시 회전 애니메이션 토글
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.querySelector('.card-inner').classList.toggle('active');
+    });
+});
+
+
+styles.css 
+/* 기본 스타일 및 리셋 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #4285f4;
+    --primary-dark: #3367d6;
+    --secondary-color: #34a853;
+    --accent-color: #ea4335;
+    --light-color: #f8f9fa;
+    --dark-color: #202124;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --gradient-start: #4285f4;
+    --gradient-mid: #7b36ff;
+    --gradient-end: #ea4335;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 헤더 스타일 */
+header {
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 10;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-out;
+}
+
+.animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+    opacity: 0.8;
+    z-index: 1;
+    animation: gradientFlow 15s ease infinite;
+}
+
+/* 서비스 그리드 및 카드 스타일 */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    perspective: 1000px;
+    height: 250px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.card-front {
+    background-color: var(--card-bg);
+    border: 2px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.card-back {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    transform: rotateY(180deg);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.card-front h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.card-back p {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
+}
+
+/* 서비스 카테고리별 색상 */
+.service-card[data-category="chat"] .icon { color: #4285f4; }
+.service-card[data-category="search"] .icon { color: #34a853; }
+.service-card[data-category="research"] .icon { color: #ea4335; }
+.service-card[data-category="coding"] .icon { color: #7b36ff; }
+.service-card[data-category="math"] .icon { color: #fbbc05; }
+.service-card[data-category="writing"] .icon { color: #1da1f2; }
+.service-card[data-category="music"] .icon { color: #ff6d00; }
+
+/* 애니메이션 효과 */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* 푸터 스타일 */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    position: relative;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.floating-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .service-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
