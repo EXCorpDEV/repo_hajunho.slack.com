@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 모델 다운로드 - naver.how</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --hover-color: #f5f9fc;
+            --border-color: #ddd;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .page-title {
+            margin-bottom: 30px;
+        }
+        
+        .page-title h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .page-title p {
+            font-size: 16px;
+            color: #666;
+            margin-top: 0;
+        }
+        
+        /* 파일 탐색기 스타일 테이블 */
+        .models-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .models-table th {
+            background-color: #f0f0f0;
+            text-align: left;
+            padding: 12px 15px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .models-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        
+        .models-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .models-table tr:hover {
+            background-color: var(--hover-color);
+        }
+        
+        /* 모델 타입 뱃지 */
+        .model-type {
+            display: inline-block;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .type-nlp {
+            background-color: #e1f5fe;
+            color: #0288d1;
+        }
+        
+        .type-cv {
+            background-color: #e8f5e9;
+            color: #388e3c;
+        }
+        
+        .type-multimodal {
+            background-color: #fff8e1;
+            color: #ffa000;
+        }
+        
+        .type-code {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        /* 라이선스 배지 */
+        .license {
+            display: inline-block;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        
+        /* 다운로드 버튼 */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 12px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .download-btn svg {
+            margin-right: 5px;
+        }
+        
+        .external-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .external-link:hover {
+            text-decoration: underline;
+        }
+        
+        .external-link svg {
+            margin-left: 4px;
+        }
+        
+        /* 검색 필터 */
+        .filter-controls {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-box {
+            flex: 1;
+            max-width: 300px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .search-box svg {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        /* 공지사항 섹션 */
+        .notice-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .notice-section h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* 반응형 조정 */
+        @media (max-width: 768px) {
+            .models-table th:nth-child(4), 
+            .models-table td:nth-child(4) {
+                display: none;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .search-box {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">naver.how</div>
+            <nav>
+                <a href="#" style="text-decoration: none; color: var(--text-color); margin-left: 20px;">홈</a>
+                <a href="#" style="text-decoration: none; color: var(--text-color); margin-left: 20px;">AI 모델</a>
+                <a href="#" style="text-decoration: none; color: var(--text-color); margin-left: 20px;">튜토리얼</a>
+                <a href="#" style="text-decoration: none; color: var(--text-color); margin-left: 20px;">문의</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="page-title">
+            <h1>AI 모델 다운로드</h1>
+            <p>다양한 인공지능 모델들을 다운로드하여 바로 사용해보세요.</p>
+        </div>
+        
+        <div class="filter-controls">
+            <div class="search-box">
+                <input type="text" placeholder="모델 이름 검색...">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+            <select class="filter-select">
+                <option value="all">모든 유형</option>
+                <option value="nlp">자연어 처리</option>
+                <option value="cv">컴퓨터 비전</option>
+                <option value="multimodal">멀티모달</option>
+                <option value="code">코드 생성</option>
+            </select>
+            <select class="filter-select">
+                <option value="all">모든 라이선스</option>
+                <option value="mit">MIT</option>
+                <option value="apache">Apache 2.0</option>
+                <option value="other">기타</option>
+            </select>
+        </div>
+        
+        <table class="models-table">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">모델명</th>
+                    <th style="width: 15%;">유형</th>
+                    <th style="width: 15%;">라이선스</th>
+                    <th style="width: 15%;">크기</th>
+                    <th style="width: 10%;">업데이트</th>
+                    <th style="width: 15%;">다운로드</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- DeepSeek V3 Base -->
+                <tr>
+                    <td>
+                        <strong>DeepSeek V3 Base</strong>
+                        <div style="font-size: 13px; color: #666;">자연어 처리, 다국어 지원</div>
+                    </td>
+                    <td><span class="model-type type-nlp">자연어 처리</span></td>
+                    <td><span class="license">MIT</span></td>
+                    <td>7.5GB</td>
+                    <td>2025.03.16</td>
+                    <td>
+                        <a href="https://drive.google.com/drive/folders/1A-tARKv-sVScp7ue3CE4G6mPylObShS1?usp=sharing" target="_blank" class="download-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            다운로드
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- Llama 3 -->
+                <tr>
+                    <td>
+                        <strong>Llama 3 70B</strong>
+                        <div style="font-size: 13px; color: #666;">Meta의 최신 오픈소스 대규모 언어 모델</div>
+                    </td>
+                    <td><span class="model-type type-nlp">자연어 처리</span></td>
+                    <td><span class="license">Llama 2 CLA</span></td>
+                    <td>140GB</td>
+                    <td>2025.03.10</td>
+                    <td>
+                        <a href="https://huggingface.co/meta-llama/Llama-3-70b" target="_blank" class="external-link">
+                            HuggingFace
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- Mistral -->
+                <tr>
+                    <td>
+                        <strong>Mistral 7B</strong>
+                        <div style="font-size: 13px; color: #666;">고성능 경량 언어 모델</div>
+                    </td>
+                    <td><span class="model-type type-nlp">자연어 처리</span></td>
+                    <td><span class="license">Apache 2.0</span></td>
+                    <td>14GB</td>
+                    <td>2025.02.28</td>
+                    <td>
+                        <a href="https://huggingface.co/mistralai/Mistral-7B-v0.1" target="_blank" class="external-link">
+                            HuggingFace
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- Stable Diffusion -->
+                <tr>
+                    <td>
+                        <strong>Stable Diffusion XL</strong>
+                        <div style="font-size: 13px; color: #666;">텍스트에서 이미지 생성 모델</div>
+                    </td>
+                    <td><span class="model-type type-cv">이미지 생성</span></td>
+                    <td><span class="license">CreativeML OSL</span></td>
+                    <td>6.5GB</td>
+                    <td>2025.03.05</td>
+                    <td>
+                        <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0" target="_blank" class="external-link">
+                            HuggingFace
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- CodeLlama -->
+                <tr>
+                    <td>
+                        <strong>CodeLlama 34B</strong>
+                        <div style="font-size: 13px; color: #666;">코드 생성 및 분석을 위한 대규모 언어 모델</div>
+                    </td>
+                    <td><span class="model-type type-code">코드 생성</span></td>
+                    <td><span class="license">Llama 2 CLA</span></td>
+                    <td>68GB</td>
+                    <td>2025.01.20</td>
+                    <td>
+                        <a href="https://huggingface.co/codellama/CodeLlama-34b-hf" target="_blank" class="external-link">
+                            HuggingFace
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- CLIP -->
+                <tr>
+                    <td>
+                        <strong>CLIP</strong>
+                        <div style="font-size: 13px; color: #666;">OpenAI의 이미지-텍스트 이해 모델</div>
+                    </td>
+                    <td><span class="model-type type-multimodal">멀티모달</span></td>
+                    <td><span class="license">MIT</span></td>
+                    <td>2.1GB</td>
+                    <td>2025.02.15</td>
+                    <td>
+                        <a href="https://github.com/openai/CLIP" target="_blank" class="external-link">
+                            GitHub
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- Whisper -->
+                <tr>
+                    <td>
+                        <strong>Whisper Large</strong>
+                        <div style="font-size: 13px; color: #666;">OpenAI의 음성 인식 및 번역 모델</div>
+                    </td>
+                    <td><span class="model-type type-nlp">음성 인식</span></td>
+                    <td><span class="license">MIT</span></td>
+                    <td>1.5GB</td>
+                    <td>2025.02.10</td>
+                    <td>
+                        <a href="https://github.com/openai/whisper" target="_blank" class="external-link">
+                            GitHub
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- Gemma -->
+                <tr>
+                    <td>
+                        <strong>Gemma 7B</strong>
+                        <div style="font-size: 13px; color: #666;">Google의 경량 오픈 소스 AI 모델</div>
+                    </td>
+                    <td><span class="model-type type-nlp">자연어 처리</span></td>
+                    <td><span class="license">Gemma 라이선스</span></td>
+                    <td>12GB</td>
+                    <td>2025.02.25</td>
+                    <td>
+                        <a href="https://huggingface.co/google/gemma-7b" target="_blank" class="external-link">
+                            HuggingFace
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="notice-section">
+            <h2>라이선스 및 사용 안내</h2>
+            <p>이 웹사이트에서 제공하는, 또는 링크된 모든 AI 모델은 각각의 라이선스 조건하에 배포됩니다. 모델 사용 전 해당 라이선스를 반드시 확인하세요.</p>
+            <p><strong>주의사항:</strong></p>
+            <ul>
+                <li>모델 사용 시 원본 저작권 및 라이선스 고지를 유지해야 합니다.</li>
+                <li>모델은 "있는 그대로" 제공되며, 어떠한 종류의 보증도 제공되지 않습니다.</li>
+                <li>모델 사용 과정에서 발생하는 문제에 대해 모델 제공자 및 배포자는 책임을 지지 않습니다.</li>
+            </ul>
+            <p>직접 다운로드 링크가 제공되는 모델의 경우 Google Drive를 통해 제공되며, 외부 링크는 HuggingFace 또는 GitHub와 같은 공식 저장소로 연결됩니다.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div>
+                <p>&copy; 2025 naver.how | HJH</p>
+                <p>이 웹사이트는 다양한 오픈소스 AI 모델에 대한 접근성을 높이기 위해 제작되었습니다.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">문의하기</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
