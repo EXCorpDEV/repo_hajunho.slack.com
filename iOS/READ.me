@@ -1,0 +1,71 @@
+# iOS
+
+이 폴더는 **ARM 아키텍처 기반 (Apple Silicon, iOS 등)의 환경에서 실행 가능한 Kotlin 및 Java 기반 JAR 파일과 예제 소스 코드**를 포함합니다.
+
+## 📌 목적
+
+원래 엔터프라이즈 개발 실험용으로 구성되었던 이 디렉토리는, **2025년 5월부터 학생 교육 목적의 실습 예제 폴더**로 전환되었습니다.  
+주요 대상은 다음과 같습니다:
+
+- Apple M1/M2 환경에서 Kotlin/Java 개발을 시작하려는 학습자
+- SQLite 등의 경량 데이터베이스를 활용한 CLI 개발 실습
+- SLF4J, JDBC 등 엔터프라이즈 수준 라이브러리 활용 경험 쌓기
+
+## 📂 포함 내용
+
+- Kotlin 단일 파일 실행 예제 (`Main.kt`)
+- SQLite 연동 및 JDBC 설정
+- SLF4J 로깅 적용 사례
+- ARM 기반 환경에서의 실행 호환성 확보용 JAR
+
+## ✅ 실행 환경
+
+- macOS (Apple Silicon - M1/M2 이상)
+- Kotlin 2.x
+- Java 17 이상 (JDK 17+)
+- SQLite JDBC 3.44+
+- SLF4J API + 구현체 포함
+
+## 🚀 실행 예시
+
+```bash
+kotlinc Main.kt -include-runtime -d Main.jar
+java -cp "Main.jar:sqlite-jdbc-3.44.1.0.jar:slf4j-api-2.0.9.jar:slf4j-simple-2.0.9.jar" MainKt
+
+
+# iOS
+
+This directory contains Kotlin and Java-based example source code and JAR files built for **ARM-based environments**, including Apple Silicon (M1/M2) and iOS platforms.
+
+## 📌 Purpose
+
+Originally designed for enterprise-oriented development experiments, this project was **reorganized in May 2025 as an educational example folder** for student learning and instructional use.
+
+It serves as a practical resource for:
+
+- Learners developing Kotlin/Java on ARM-based Macs
+- Students exploring CLI-based apps using SQLite
+- Understanding enterprise-level libraries like JDBC and SLF4J
+
+## 📂 What’s Included
+
+- A runnable Kotlin example (`Main.kt`)
+- SQLite integration via JDBC
+- SLF4J logging setup
+- Pre-built JAR files compatible with macOS ARM (Apple Silicon)
+
+## ✅ Environment Requirements
+
+- macOS with Apple Silicon (M1/M2 or newer)
+- Java 17 or higher (JDK)
+- Kotlin 2.x
+- SQLite JDBC 3.44+
+- SLF4J API and a simple binding
+
+## 🚀 How to Run
+
+```bash
+kotlinc Main.kt -include-runtime -d Main.jar
+java -cp "Main.jar:sqlite-jdbc-3.44.1.0.jar:slf4j-api-2.0.9.jar:slf4j-simple-2.0.9.jar" MainKt
+
+
