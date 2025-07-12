@@ -1,0 +1,56 @@
+work@main1[EWOqQ7Jp-session]:~/.exdata98/test/YOLO$ cat convert_voc_to_yolotxt.py
+
+import os
+import xml.etree.ElementTree as ET
+
+ANNOTATION_DIR = './annotations'
+LABEL_DIR = './labels_yolo'
+os.makedirs(LABEL_DIR, exist_ok=True)
+
+class_map = {
+    "tire": 0,
+    "wood": 1,
+    "rope": 2,
+    "spring fish trap": 3,
+    "bundle of ropes": 4,
+    "circular fish trap": 5,
+    "eel fish trap": 6,
+    "fish net": 7,
+    "rectangular fish trap": 8,
+    "other objects": 9
+}
+
+def convert_bbox(size, box):
+    dw = 1. / size[0]
+    dh = 1. / size[1]
+    x_center = (box[0] + box[1]) / 2.0
+    y_center = (box[2] + box[3]) / 2.0
+    w = box[1] - box[0]
+    h = box[3] - box[2]
+    return (x_center * dw, y_center * dh, w * dw, h * dh)
+
+for filename in os.listdir(ANNOTATION_DIR):
+    if not filename.endswith('.xml'):
+        continue
+
+    tree = ET.parse(os.path.join(ANNOTATION_DIR, filename))
+    root = tree.getroot()
+    size = root.find('size')
+    w = int(size.find('width').text)
+    h = int(size.find('height').text)
+
+    out_path = os.path.join(LABEL_DIR, filename.replace('.xml', '.txt'))
+    with open(out_path, 'w') as out_file:
+        for obj in root.findall('object'):
+            class_name = obj.find('name').text.strip().lower()
+            if class_name not in class_map:
+                continue  # 무시할 클래스
+            cls_id = class_map[class_name]
+            xmlbox = obj.find('bndbox')
+            xmin = float(xmlbox.find('xmin').text)
+            ymin = float(xmlbox.find('ymin').text)
+            xmax = float(xmlbox.find('xmax').text)
+            ymax = float(xmlbox.find('ymax').text)
+            bbox = convert_bbox((w, h), (xmin, xmax, ymin, ymax))
+            out_file.write(f"{cls_id} {' '.join([f'{a:.6f}' for a in bbox])}\n")
+
