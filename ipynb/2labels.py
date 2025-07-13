@@ -1,6 +1,15 @@
 import os
 import json
+import sys
 from datetime import datetime
+
+# 프로그레스바 함수
+def show_progress_bar(current, total, prefix="진행률", length=50):
+    percent = (current / total) * 100
+    filled_length = int(length * current // total)
+    bar = '█' * filled_length + '░' * (length - filled_length)
+    sys.stdout.write(f'\r{prefix}: [{bar}] {percent:.1f}% ({current}/{total})')
+    sys.stdout.flush()
 
 print("🚀 YOLO 라벨 변환 시작!")
 print(f"⏰ 시작 시간: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -39,6 +48,21 @@ total_files = 0
 processed_files = 0
 total_objects = 0
 error_files = 0
+current_file_count = 0
+
+# 전체 파일 수 미리 계산
+print("📊 전체 파일 수 계산 중...")
+for folder in json_folders:
+    folder_path = os.path.join(root_dir, folder)
+    json_files = [f for f in os.listdir(folder_path) if f.endswith('.json')]
+    total_files += len(json_files)
+
+print(f"📋 전체 처리할 파일: {total_files}개")
+print()
+
+# 초기 프로그레스바 표시
+show_progress_bar(0, total_files, "🔄 전체 진행률")
+print()  # 줄바꿈
 
 # JSON 폴더 순회
 for folder_idx, folder in enumerate(json_folders, 1):
@@ -54,20 +78,17 @@ for folder_idx, folder in enumerate(json_folders, 1):
         print(f"   ❌ class_id 찾을 수 없음: {folder}")
         continue
     
-    print(f"   📌 클래스: {class_base} (ID: {class_id})")
-    
     # 폴더 내 JSON 파일 목록
     json_files = [f for f in os.listdir(folder_path) if f.endswith('.json')]
-    total_files += len(json_files)
     
+    print(f"   📌 클래스: {class_base} (ID: {class_id})")
     print(f"   📄 JSON 파일 수: {len(json_files)}개")
     
     folder_objects = 0
     folder_errors = 0
     
     for file_idx, file in enumerate(json_files, 1):
-        if file_idx % 10 == 0 or file_idx == len(json_files):
-            print(f"      진행률: {file_idx}/{len(json_files)} ({file_idx/len(json_files)*100:.1f}%)")
+        current_file_count += 1
         
         json_path = os.path.join(folder_path, file)
         
@@ -75,9 +96,10 @@ for folder_idx, folder in enumerate(json_folders, 1):
             with open(json_path, 'r') as f:
                 data = json.load(f)
         except Exception as e:
-            print(f"      ❌ JSON 파싱 실패: {file}, 오류: {e}")
+            print(f"\n      ❌ JSON 파싱 실패: {file}, 오류: {e}")
             error_files += 1
             folder_errors += 1
+            show_progress_bar(current_file_count, total_files, "🔄 전체 진행률")
             continue
         
         out_name = os.path.splitext(file)[0] + '.txt'
@@ -94,7 +116,8 @@ for folder_idx, folder in enumerate(json_folders, 1):
                         out_file.write(f"{class_id} {x:.6f} {y:.6f} {w:.6f} {h:.6f}\n")
                         file_objects += 1
                     except Exception as e:
-                        print(f"      ⚠️ 객체 변환 오류 (파일: {file}): {e}")
+                        print(f"\n      ⚠️ 객체 변환 오류 (파일: {file}): {e}")
+                        show_progress_bar(current_file_count, total_files, "🔄 전체 진행률")
                         continue
             
             processed_files += 1
@@ -102,14 +125,17 @@ for folder_idx, folder in enumerate(json_folders, 1):
             total_objects += file_objects
             
         except Exception as e:
-            print(f"      ❌ 파일 쓰기 실패: {file}, 오류: {e}")
+            print(f"\n      ❌ 파일 쓰기 실패: {file}, 오류: {e}")
             error_files += 1
             folder_errors += 1
+        
+        # 전체 프로그레스바 업데이트
+        show_progress_bar(current_file_count, total_files, "🔄 전체 진행률")
     
-    print(f"   ✅ 완료 - 객체 수: {folder_objects}개, 오류: {folder_errors}개")
-    print()
+    
+    print(f"\n   ✅ 완료 - 객체 수: {folder_objects}개, 오류: {folder_errors}개")
 
-print("=" * 60)
+print("\n" + "=" * 60)
 print("🎉 라벨 변환 완료!")
 print(f"⏰ 완료 시간: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 print()
