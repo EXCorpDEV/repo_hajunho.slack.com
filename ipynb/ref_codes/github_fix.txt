@@ -1,0 +1,23 @@
+Step 1: Navigate to a valid directory
+The "No such file or directory" error suggests your current directory might have been affected by the stash. First, navigate to your repository root:
+bashcd ~/path/to/repo_hajunho.slack.com
+Or if you're unsure of the path:
+bashpwd
+ls -la
+Step 2: Check your repository status
+Once you're in a valid directory within your repo:
+bashgit status
+git log --oneline -5
+Step 3: Pull the remote changes
+Now that your working directory is clean (thanks to the stash), you can pull:
+bashgit pull origin master
+Step 4: Restore your stashed changes
+After successfully pulling, restore your local changes:
+bashgit stash pop
+Step 5: Resolve any merge conflicts
+If there are conflicts between your stashed changes and the pulled changes, Git will mark them. Edit the conflicted files to resolve them, then:
+bashgit add .
+git commit -m "Resolve merge conflicts"
+Step 6: Push your changes
+Finally, push your integrated changes:
+bashgit push origin master
