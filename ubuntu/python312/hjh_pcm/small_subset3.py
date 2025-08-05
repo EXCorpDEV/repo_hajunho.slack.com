@@ -12,25 +12,30 @@ from torch.nn.utils.rnn import pad_sequence
 import matplotlib.pyplot as plt
 import time  # 시간 측정을 위해 추가
 
-
 class SubsetKsponDataset(Dataset):
-    def __init__(self, data_dir: str, subset_size: int = 5000):  # 기본값 5000으로 변경
+    def __init__(self, data_dir: str, subset_size: int = 5000):
         self.data_dir = data_dir
         self.subset_size = subset_size
+        # (1) 절대 경로를 사용하도록 수정
         self.file_pairs = self._get_subset_pairs()
         self.char_to_index = self._create_vocab()
         print(f"총 클래스 수 (문자 종류): {len(self.char_to_index)}")
 
     def _get_subset_pairs(self) -> List[Tuple[str, str]]:
+        """
+        여러 하위 폴더가 있어도 문제 없도록,
+        각 (pcm, txt)에 대해 절대 경로를 바로 저장.
+        """
         all_pairs = []
         for root, _, files in os.walk(self.data_dir):
-            pcm_files = {f for f in files if f.endswith('.pcm')}
+            pcm_files = [f for f in files if f.endswith('.pcm')]
             for pcm in pcm_files:
                 txt = pcm.replace('.pcm', '.txt')
                 if txt in files:
-                    rel_path = os.path.relpath(root, self.data_dir)
-                    all_pairs.append((os.path.join(rel_path, pcm),
-                                      os.path.join(rel_path, txt)))
+                    # 절대 경로로 만들기
+                    pcm_full = os.path.join(root, pcm)
+                    txt_full = os.path.join(root, txt)
+                    all_pairs.append((pcm_full, txt_full))
 
         subset_pairs = random.sample(all_pairs, min(self.subset_size, len(all_pairs)))
         print(f"선택된 데이터 수: {len(subset_pairs)}")
@@ -40,7 +45,8 @@ class SubsetKsponDataset(Dataset):
         chars = {'<pad>', '<sos>', '<eos>', '<blank>'}
         for _, txt_file in self.file_pairs:
             try:
-                with open(os.path.join(self.data_dir, txt_file), 'r', encoding='cp949') as f:
+                # (2) txt_file는 절대 경로이므로 그대로 open
+                with open(txt_file, 'r', encoding='cp949') as f:
                     text = f.read().strip()
                     chars.update(list(text))
             except UnicodeDecodeError:
@@ -52,10 +58,10 @@ class SubsetKsponDataset(Dataset):
         return len(self.file_pairs)
 
     def __getitem__(self, idx: int) -> Tuple[torch.Tensor, torch.Tensor, int, int]:
-        pcm_path = os.path.join(self.data_dir, self.file_pairs[idx][0])
-        txt_path = os.path.join(self.data_dir, self.file_pairs[idx][1])
+        # (3) 이미 절대 경로이므로 그대로 사용
+        pcm_path, txt_path = self.file_pairs[idx]
 
-        # PCM 파일 로드 (numpy array copy로 경고 해결)
+        # PCM 파일 로드
         with open(pcm_path, 'rb') as f:
             audio_data = np.frombuffer(f.read(), dtype=np.int16).copy()
         waveform = torch.FloatTensor(audio_data) / 32768.0
@@ -75,10 +81,9 @@ class SubsetKsponDataset(Dataset):
 
 def collate_fn(batch):
     waveforms, text_encoded, wav_lengths, txt_lengths = zip(*batch)
-
     # 패딩
-    waveforms_padded = pad_sequence(waveforms, batch_first=True).unsqueeze(1)
-    text_padded = pad_sequence(text_encoded, batch_first=True, padding_value=0)
+    waveforms_padded = pad_sequence(waveforms, batch_first=True).unsqueeze(1)  # [B, 1, T]
+    text_padded = pad_sequence(text_encoded, batch_first=True, padding_value=0)  # [B, max_len]
 
     return {
         'waveforms': waveforms_padded,
@@ -115,34 +120,35 @@ class SmallConformer(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         # x shape: [batch, 1, time]
-        x = self.frontend(x)
-        x = x.transpose(1, 2)  # [batch, time, channels]
-        x = self.transformer(x)
-        x = self.projection(x)
+        x = self.frontend(x)           # [batch, d_model, time']
+        x = x.transpose(1, 2)          # [batch, time', d_model]
+        x = self.transformer(x)        # [batch, time', d_model]
+        x = self.projection(x)         # [batch, time', num_classes]
         return x
 
 
 def train_epoch(model, dataloader, optimizer, criterion, device, epoch):
     model.train()
     total_loss = 0
-    epoch_start_time = time.time()  # Epoch 시작 시간
-    progress_bar = tqdm(dataloader, desc=f'Epoch {epoch}')
+    epoch_start_time = time.time()
+    progress_bar = tqdm(dataloader, desc=f'Epoch {epoch+1}')
 
     for batch_idx, batch in enumerate(progress_bar):
         optimizer.zero_grad()
 
-        # 데이터를 GPU로
-        waveforms = batch['waveforms'].to(device)
+        waveforms = batch['waveforms'].to(device)      # [B, 1, T_waveform]
         text_encoded = batch['text_encoded'].to(device)
 
         # Forward pass
-        output = model(waveforms)
+        output = model(waveforms)  # [B, T_out, num_classes]
 
         # CTC Loss 계산을 위한 길이 정보
-        input_lengths = batch['wav_lengths'].div(20).int()  # 프론트엔드의 총 stride
+        # 프론트엔드가 (stride=5) → (stride=4) 총 20배 downsample, 대략: input_lengths/20
+        input_lengths = batch['wav_lengths'].div(20).int()
         target_lengths = batch['txt_lengths']
 
-        # Loss 계산
+        # CTC Loss
+        # CTC: (T, N, C)가 필요하므로 (B, T, C) -> (T, B, C)로 transpose
         loss = criterion(
             output.transpose(0, 1).log_softmax(-1),
             text_encoded,
@@ -150,35 +156,32 @@ def train_epoch(model, dataloader, optimizer, criterion, device, epoch):
             target_lengths
         )
 
-        # Backward pass
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=5)
+        nn.utils.clip_grad_norm_(model.parameters(), max_norm=5)
         optimizer.step()
 
         total_loss += loss.item()
         avg_loss = total_loss / (batch_idx + 1)
         progress_bar.set_postfix({
             'loss': f'{avg_loss:.4f}',
-            'time': f'{(time.time() - epoch_start_time):.1f}s'  # 경과 시간 표시
+            'time': f'{(time.time() - epoch_start_time):.1f}s'
         })
 
     epoch_time = time.time() - epoch_start_time
-    print(f"Epoch {epoch + 1} 소요 시간: {epoch_time:.2f}초")
-    return total_loss / len(dataloader)
+    print(f"Epoch {epoch+1} 소요 시간: {epoch_time:.2f}초")
+    return avg_loss
 
 
 def main():
-    # 설정
-    data_dir = 'D:/korean/KsponSpeech_01'
+    data_dir = 'D:/korean'
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     batch_size = 8
-    subset_size = 5000  # 5000개로 증가
+    subset_size = 15000
     num_epochs = 10
 
-    # 전체 학습 시작 시간
     total_start_time = time.time()
 
-    # 데이터셋 준비
+    # 데이터셋
     dataset = SubsetKsponDataset(data_dir, subset_size)
     dataloader = DataLoader(
         dataset,
@@ -188,32 +191,30 @@ def main():
         num_workers=2
     )
 
-    # 모델 설정
+    # 모델
     model = SmallConformer(
         num_classes=len(dataset.char_to_index),
-        d_model=144,  # 작은 모델 사이즈
+        d_model=144,
         num_layers=4
     ).to(device)
 
-    # 옵티마이저와 손실 함수
+    # 옵티마이저, 손실함수
     optimizer = optim.Adam(model.parameters(), lr=0.001)
     criterion = nn.CTCLoss()
 
-    # 학습 루프
-    losses = []
     print(f"\n학습 시작 - 디바이스: {device}")
+    losses = []
 
     try:
         for epoch in range(num_epochs):
-            loss = train_epoch(model, dataloader, optimizer, criterion, device, epoch)
-            losses.append(loss)
-            print(f"Epoch {epoch + 1}/{num_epochs}, Loss: {loss:.4f}")
+            loss_val = train_epoch(model, dataloader, optimizer, criterion, device, epoch)
+            losses.append(loss_val)
+            print(f"Epoch {epoch+1}/{num_epochs}, Loss: {loss_val:.4f}")
 
-        # 전체 학습 시간 계산
         total_time = time.time() - total_start_time
-        print(f"\n전체 학습 소요 시간: {total_time:.2f}초 ({total_time / 3600:.2f}시간)")
+        print(f"\n전체 학습 소요 시간: {total_time:.2f}초 ({total_time/3600:.2f}시간)")
 
-        # 손실 그래프 그리기
+        # 손실 그래프
         plt.figure(figsize=(10, 5))
         plt.plot(losses)
         plt.title('Training Loss')

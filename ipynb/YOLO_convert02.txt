@@ -1,0 +1,190 @@
+#다음과 같은 형식일 때, YOLO txt로 변환
+work@main1[EWOqQ7Jp-session]:~/.exdata98/test/2YOLO/Training/311/애호박 json$ cat A260172XX_10001.json 
+[
+  {
+    "Code Name": "A260172XX_10001.jpg",
+    "Name": "squash",
+    "W": "0.321810699588477",
+    "H": "0.368518518518519",
+    "File Format": "jpg",
+    "Cat 1": "26",
+    "Cat 2": "01",
+    "Cat 3": "72",
+    "Cat 4": "xx",
+    "Annotation Type": "binding",
+    "Point(x,y)": "0.179012345679012,0.736111111111111",
+    "Label": "0",
+    "Serving Size": "xx",
+    "Camera Angle": "xx",
+    "Cardinal Angle": "xx",
+    "Color of Container": "xx",
+    "Material of Container": "xx",
+    "Illuminance": "xx"
+  }
+]
+
+#data.yaml 분류 전략은 폴더명으로...
+#다음과 같이 폴더명 checking
+
+work@main1[EWOqQ7Jp-session]:~/.exdata98/test/2YOLO/Training/311$ cat classlist.py 
+import os
+
+root_dir = '/home/work/.exdata98/test/2YOLO/Training/311'
+class_names = sorted([d for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d)) and not d.endswith('json')])
+
+print("클래스 수 (nc):", len(class_names))
+print("클래스 목록 (names):")
+for i, name in enumerate(class_names):
+    print(f"{i}: {name}")
+
+
+# 폴더명에 맞춰 label 만들기
+work@main1[EWOqQ7Jp-session]:~/.exdata98/test/2YOLO/Training/311$ cat labels.py 
+import os
+import json
+
+# 전체 데이터 루트 디렉토리
+root_dir = '/home/work/.exdata98/test/2YOLO/Training/311'
+
+# class_name → class_id 매핑 (폴더명 기준)
+class_names = sorted([d for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d)) and not d.endswith('json')])
+class_map = {name: idx for idx, name in enumerate(class_names)}
+
+# 출력 디렉토리
+output_label_dir = os.path.join(root_dir, 'labels_yolo')
+os.makedirs(output_label_dir, exist_ok=True)
+
+# JSON 폴더 순회
+for folder in os.listdir(root_dir):
+    folder_path = os.path.join(root_dir, folder)
+    if not os.path.isdir(folder_path) or not folder.endswith('json'):
+        continue
+
+    # 대응하는 class_id 찾기 (ex: '애호박 json' → '애호박')
+    class_base = folder.replace(' json', '')
+    class_id = class_map.get(class_base)
+
+    if class_id is None:
+        print(f"❌ class_id 찾을 수 없음: {folder}")
+        continue
+
+    for file in os.listdir(folder_path):
+        if not file.endswith('.json'):
+            continue
+
+        json_path = os.path.join(folder_path, file)
+        with open(json_path, 'r') as f:
+            try:
+                data = json.load(f)
+            except Exception as e:
+                print(f"❌ JSON 파싱 실패: {json_path}, 오류: {e}")
+                continue
+
+        out_name = os.path.splitext(file)[0] + '.txt'
+        out_path = os.path.join(output_label_dir, out_name)
+
+        with open(out_path, 'w') as out_file:
+            for obj in data:
+                try:
+                    x, y = map(float, obj['Point(x,y)'].split(','))
+                    w = float(obj['W'])
+                    h = float(obj['H'])
+                    out_file.write(f"{class_id} {x:.6f} {y:.6f} {w:.6f} {h:.6f}\n")
+                except Exception as e:
+                    print(f"⚠️ 라벨 변환 오류 (파일: {file}): {e}")
+                    continue
+
+work@main1[EWOqQ7Jp-session]:~/.exdata98/test/2YOLO/Training/311/labels_yolo$ cat B170210XX_011
+B170210XX_01100.txt  B170210XX_01113.txt  B170210XX_01126.txt  B170210XX_01139.txt  B170210XX_01153.txt  B170210XX_01174.txt  B170210XX_01187.txt
+B170210XX_01101.txt  B170210XX_01114.txt  B170210XX_01127.txt  B170210XX_01140.txt  B170210XX_01154.txt  B170210XX_01175.txt  B170210XX_01188.txt
+B170210XX_01102.txt  B170210XX_01115.txt  B170210XX_01128.txt  B170210XX_01141.txt  B170210XX_01155.txt  B170210XX_01176.txt  B170210XX_01189.txt
+B170210XX_01103.txt  B170210XX_01116.txt  B170210XX_01129.txt  B170210XX_01142.txt  B170210XX_01156.txt  B170210XX_01177.txt  B170210XX_01190.txt
+B170210XX_01104.txt  B170210XX_01117.txt  B170210XX_01130.txt  B170210XX_01143.txt  B170210XX_01160.txt  B170210XX_01178.txt  B170210XX_01191.txt
+B170210XX_01105.txt  B170210XX_01118.txt  B170210XX_01131.txt  B170210XX_01144.txt  B170210XX_01161.txt  B170210XX_01179.txt  B170210XX_01192.txt
+B170210XX_01106.txt  B170210XX_01119.txt  B170210XX_01132.txt  B170210XX_01145.txt  B170210XX_01162.txt  B170210XX_01180.txt  B170210XX_01194.txt
+B170210XX_01107.txt  B170210XX_01120.txt  B170210XX_01133.txt  B170210XX_01146.txt  B170210XX_01165.txt  B170210XX_01181.txt  B170210XX_01195.txt
+B170210XX_01108.txt  B170210XX_01121.txt  B170210XX_01134.txt  B170210XX_01147.txt  B170210XX_01166.txt  B170210XX_01182.txt  B170210XX_01196.txt
+B170210XX_01109.txt  B170210XX_01122.txt  B170210XX_01135.txt  B170210XX_01148.txt  B170210XX_01167.txt  B170210XX_01183.txt  B170210XX_01197.txt
+B170210XX_01110.txt  B170210XX_01123.txt  B170210XX_01136.txt  B170210XX_01150.txt  B170210XX_01168.txt  B170210XX_01184.txt  B170210XX_01198.txt
+B170210XX_01111.txt  B170210XX_01124.txt  B170210XX_01137.txt  B170210XX_01151.txt  B170210XX_01172.txt  B170210XX_01185.txt  B170210XX_01199.txt
+B170210XX_01112.txt  B170210XX_01125.txt  B170210XX_01138.txt  B170210XX_01152.txt  B170210XX_01173.txt  B170210XX_01186.txt  
+work@main1[EWOqQ7Jp-session]:~/.exdata98/test/2YOLO/Training/311/labels_yolo$ cat B170210XX_01100.txt 
+6 0.508020 0.511033 0.609932 0.790585
+work@main1[EWOqQ7Jp-session]:~/.exdata98/test/2YOLO/Training/311/labels_yolo$ 
+
+import os
+import shutil
+import random
+
+base_dir = '/home/work/.exdata98/test/2YOLO/Training/311'
+images_dir = os.path.join(base_dir, 'images')
+labels_dir = os.path.join(base_dir, 'labels')
+yolo_label_dir = os.path.join(base_dir, 'labels_yolo')
+
+# 출력 디렉토리
+for split in ['train', 'val']:
+    os.makedirs(os.path.join(images_dir, split), exist_ok=True)
+    os.makedirs(os.path.join(labels_dir, split), exist_ok=True)
+
+# 폴더 순회하며 이미지 & 라벨 분리
+image_subdirs = [d for d in os.listdir(base_dir) if os.path.isdir(os.path.join(base_dir, d)) and not d.endswith('json') and d not in ['images', 'labels', 'labels_yolo']]
+
+image_label_pairs = []
+
+for folder in image_subdirs:
+    image_folder_path = os.path.join(base_dir, folder)
+    for file in os.listdir(image_folder_path):
+        if file.endswith('.jpg'):
+            image_path = os.path.join(image_folder_path, file)
+            label_name = os.path.splitext(file)[0] + '.txt'
+            label_path = os.path.join(yolo_label_dir, label_name)
+            if os.path.exists(label_path):
+                image_label_pairs.append((image_path, label_path))
+
+# 셔플 후 분할
+random.shuffle(image_label_pairs)
+split_idx = int(len(image_label_pairs) * 0.8)
+train_set = image_label_pairs[:split_idx]
+val_set = image_label_pairs[split_idx:]
+
+# 복사 함수
+def copy_pairs(pairs, img_out, label_out):
+    for img, lbl in pairs:
+        shutil.copy(img, os.path.join(img_out, os.path.basename(img)))
+        shutil.copy(lbl, os.path.join(label_out, os.path.basename(lbl)))
+
+# 복사 실행
+copy_pairs(train_set, os.path.join(images_dir, 'train'), os.path.join(labels_dir, 'train'))
+copy_pairs(val_set, os.path.join(images_dir, 'val'), os.path.join(labels_dir, 'val'))
+
+print(f"✅ 총 {len(image_label_pairs)}개 샘플 중 {len(train_set)}개 train, {len(val_set)}개 val로 분할 완료")
+
+
+data.yaml
+
+path: /home/work/.exdata98/test/2YOLO/Training/311
+
+train: images/train
+val: images/val
+
+nc: 15
+names:
+  - 애호박
+  - 앵두
+  - 야채볶음
+  - 양꼬치
+  - 양배추샐러드
+  - 양배추쌈
+  - 양배추절임
+  - 양상추샐러드
+  - 양주
+  - 양파
+  - 양파샐러드
+  - 양파튀김
+  - 어묵국
+  - 어육소시지
+  - 에그타르트
+
+
+yolo task=detect mode=train model=yolov8m.pt data=./data.yaml epochs=50 imgsz=640 batch=16
+
