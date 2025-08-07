@@ -27,7 +27,7 @@ Generates comprehensive statistics and metadata
 
 🚀 Quick Start
 Prerequisites
-bash# Install Ollama
+# Install Ollama
 curl -fsSL https://ollama.ai/install.sh | sh
 
 # Start Ollama service
@@ -36,17 +36,17 @@ ollama serve
 # Pull your preferred model (example)
 ollama pull gpt-oss:120b
 Installation
-bashgit clone https://github.com/EXCorpDEV/repo_hajunho.slack.com.git 
+git clone https://github.com/EXCorpDEV/repo_hajunho.slack.com.git 
 cd ai-english-dictionary
 pip install requests
 Basic Usage
-bash# Stage 1: Collect basic words (adaptive mode - recommended for beginners)
+# Stage 1: Collect basic words (adaptive mode - recommended for beginners)
 python3 massive_dict.py --stage 1 --mode adaptive --batch 30
 
 # Stage 2: Enhance with detailed information
 python3 massive_dict.py --stage 2 --file [generated_file]
 Advanced Usage
-bash# Large-scale dictionary generation (15,000+ words)
+# Large-scale dictionary generation (15,000+ words)
 python3 massive_dict.py --stage 1 --mode 2letter --batch 35
 
 # Custom model and settings
