@@ -36,7 +36,7 @@ ollama serve
 # Pull your preferred model (example)
 ollama pull gpt-oss:120b
 Installation
-bashgit clone https://github.com/yourusername/ai-english-dictionary
+bashgit clone https://github.com/EXCorpDEV/repo_hajunho.slack.com.git 
 cd ai-english-dictionary
 pip install requests
 Basic Usage
