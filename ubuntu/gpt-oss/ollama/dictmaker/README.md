@@ -161,7 +161,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Issues: Please use GitHub Issues for bug reports and feature requests
 Discussions: Join our GitHub Discussions for general questions
-Email: [your-email@example.com]
+Email: [hajunho@excorp.io]
 
 
 Made with ❤️ for the global education community
