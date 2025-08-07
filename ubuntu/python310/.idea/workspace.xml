@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions">
-      <change beforePath="$PROJECT_DIR$/../../.idea/.idea.repo_hajunho.slack.com.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.repo_hajunho.slack.com.dir/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../python312/hjh_calc/002_ex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +50,7 @@
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:hajunho/repo_hajunho.slack.com.git&quot;,
+    &quot;url&quot;: &quot;git@github.com:EXCorpDEV/repo_hajunho.slack.com.git&quot;,
     &quot;accountId&quot;: &quot;a9af45df-272d-412c-a960-d1952b3aa9aa&quot;
   }
 }</component>
@@ -85,6 +86,7 @@
     &quot;Python.versionInfo.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/junhoha/github/repo_hajunho.slack.com/ubuntu/python310/paddle_examples&quot;,
@@ -138,8 +140,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
-        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.90" />
+        <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
       </set>
     </attachedChunks>
   </component>
@@ -175,6 +177,8 @@
       <workItem from="1718708320171" duration="609000" />
       <workItem from="1718780023082" duration="599000" />
       <workItem from="1727755238301" duration="18000" />
+      <workItem from="1753854258609" duration="614000" />
+      <workItem from="1754448355582" duration="1432000" />
     </task>
     <task id="LOCAL-00040" summary="removing thread cause of model error.">
       <option name="closed" value="true" />
