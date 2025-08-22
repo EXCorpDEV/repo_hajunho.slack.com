@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions">
-      <change afterPath="$PROJECT_DIR$/../python312/hjh_calc/002_ex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,8 +139,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.90" />
-        <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-PY-252.23892.439" />
+        <option value="bundled-python-sdk-b3ae9b5d7125-f0eec537fc84-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.23892.439" />
       </set>
     </attachedChunks>
   </component>
@@ -178,7 +177,16 @@
       <workItem from="1718780023082" duration="599000" />
       <workItem from="1727755238301" duration="18000" />
       <workItem from="1753854258609" duration="614000" />
-      <workItem from="1754448355582" duration="1432000" />
+      <workItem from="1754448355582" duration="2041000" />
+      <workItem from="1754827675466" duration="1210000" />
+      <workItem from="1754957666961" duration="11000" />
+      <workItem from="1754957686762" duration="7000" />
+      <workItem from="1754957701970" duration="7000" />
+      <workItem from="1754957717295" duration="606000" />
+      <workItem from="1754963172307" duration="79000" />
+      <workItem from="1754963263883" duration="586000" />
+      <workItem from="1755647741266" duration="541000" />
+      <workItem from="1755839249276" duration="404000" />
     </task>
     <task id="LOCAL-00040" summary="removing thread cause of model error.">
       <option name="closed" value="true" />
