@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions">
-      <change afterPath="$PROJECT_DIR$/../python312/hjh_calc/002_ex.py" afterDir="false" />
+    <list default="true" id="b3acdadb-174f-4156-b18a-8d798618c299" name="변경" comment="new verison">
+      <change afterPath="$PROJECT_DIR$/fullstackAIengineer/gemini.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fullstackAIengineer/gemini.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullstackAIengineer/999.py" beforeDir="false" afterPath="$PROJECT_DIR$/fullstackAIengineer/999.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,43 +67,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Python.001.executor&quot;: &quot;Run&quot;,
-    &quot;Python.FindingArea_cube.executor&quot;: &quot;Run&quot;,
-    &quot;Python.a.executor&quot;: &quot;Run&quot;,
-    &quot;Python.d.executor&quot;: &quot;Run&quot;,
-    &quot;Python.download_models2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.examCoin.executor&quot;: &quot;Run&quot;,
-    &quot;Python.examHashMine.executor&quot;: &quot;Run&quot;,
-    &quot;Python.hjhskew.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.paddleocr.executor&quot;: &quot;Run&quot;,
-    &quot;Python.predict_system.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test01.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test02.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ver08.executor&quot;: &quot;Run&quot;,
-    &quot;Python.versionInfo.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/junhoha/github/repo_hajunho.slack.com/ubuntu/python310/paddle_examples&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/PyCharm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Python.001.executor": "Run",
+    "Python.999.executor": "Run",
+    "Python.FindingArea_cube.executor": "Run",
+    "Python.a.executor": "Run",
+    "Python.d.executor": "Run",
+    "Python.download_models2.executor": "Run",
+    "Python.examCoin.executor": "Run",
+    "Python.examHashMine.executor": "Run",
+    "Python.hjhskew.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.paddleocr.executor": "Run",
+    "Python.predict_system.executor": "Run",
+    "Python.test01.executor": "Run",
+    "Python.test02.executor": "Run",
+    "Python.ver08.executor": "Run",
+    "Python.versionInfo.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/junhoha/github/repo_hajunho.slack.com/ubuntu/python310/fullstackAIengineer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "ts.external.directory.path": "/Applications/PyCharm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fullstackAIengineer" />
       <recent name="$PROJECT_DIR$/paddle_examples" />
       <recent name="$PROJECT_DIR$/paddle" />
       <recent name="$PROJECT_DIR$/splitter" />
@@ -140,8 +145,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.90" />
-        <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-PY-252.23892.439" />
+        <option value="bundled-python-sdk-b3ae9b5d7125-f0eec537fc84-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.23892.439" />
       </set>
     </attachedChunks>
   </component>
@@ -178,31 +183,16 @@
       <workItem from="1718780023082" duration="599000" />
       <workItem from="1727755238301" duration="18000" />
       <workItem from="1753854258609" duration="614000" />
-      <workItem from="1754448355582" duration="1432000" />
-    </task>
-    <task id="LOCAL-00040" summary="removing thread cause of model error.">
-      <option name="closed" value="true" />
-      <created>1713447031328</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1713447031328</updated>
-    </task>
-    <task id="LOCAL-00041" summary="img_width, img_height = 299, 299">
-      <option name="closed" value="true" />
-      <created>1713447107178</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1713447107178</updated>
-    </task>
-    <task id="LOCAL-00042" summary="data_dir = '/mnt/splitter/datas/fortest'">
-      <option name="closed" value="true" />
-      <created>1713451105684</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1713451105684</updated>
+      <workItem from="1754448355582" duration="2041000" />
+      <workItem from="1754827675466" duration="1210000" />
+      <workItem from="1754957666961" duration="11000" />
+      <workItem from="1754957686762" duration="7000" />
+      <workItem from="1754957701970" duration="7000" />
+      <workItem from="1754957717295" duration="606000" />
+      <workItem from="1754963172307" duration="79000" />
+      <workItem from="1754963263883" duration="586000" />
+      <workItem from="1755647741266" duration="541000" />
+      <workItem from="1755839249276" duration="2137000" />
     </task>
     <task id="LOCAL-00043" summary="Adding label Names to the ver02">
       <option name="closed" value="true" />
@@ -572,7 +562,31 @@
       <option name="project" value="LOCAL" />
       <updated>1718707783776</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions">
+      <option name="closed" value="true" />
+      <created>1755849334569</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1755849334569</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Old_type Usage [Deprecated] Google AI Python SDK for the Gemini API&#10;With Gemini 2.0, we took the chance to create a single unified SDK for all developers who want to use Google's GenAI models (Gemini, Veo, Imagen, etc). As part of that process, we took all of the feedback from this SDK and what developers like about other SDKs in the ecosystem to create the Google Gen AI SDK.&#10;&#10;The full migration guide from the old SDK to new SDK is available in the Gemini API docs.&#10;&#10;The Gemini API docs are fully updated to show examples of the new Google Gen AI SDK. We know how disruptive an SDK change can be and don't take this change lightly, but our goal is to create an extremely simple and clear path for developers to build with our models so it felt necessary to make this change.&#10;&#10;Thank you for building with Gemini and let us know if you need any help!&#10;&#10;Please be advised that this repository is now considered legacy. For the latest features, performance improvements, and active development, we strongly recommend migrating to the official Google Generative AI SDK for Python.&#10;&#10;Support Plan for this Repository:&#10;&#10;Limited Maintenance: Development is now restricted to critical bug fixes only. No new features will be added.&#10;Purpose: This limited support aims to provide stability for users while they transition to the new SDK.&#10;End-of-Life Date: All support for this repository (including bug fixes) will permanently end on August 31st, 2025.&#10;We encourage all users to begin planning their migration to the Google Generative AI SDK to ensure continued access to the latest capabilities and support.">
+      <option name="closed" value="true" />
+      <created>1755850069561</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1755850069561</updated>
+    </task>
+    <task id="LOCAL-00091" summary="new verison">
+      <option name="closed" value="true" />
+      <created>1755850303259</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1755850303259</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,8 +605,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="bug fix" />
-    <MESSAGE value=".h5 model generating" />
     <MESSAGE value="class indexing information" />
     <MESSAGE value="+ epochs" />
     <MESSAGE value="following class_indicies" />
@@ -616,23 +628,26 @@
     <MESSAGE value="OverflowError when trying to convert it to an unsigned integer." />
     <MESSAGE value="predictions[i] or labels[i][1] is not a valid integer index" />
     <MESSAGE value="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions" />
-    <option name="LAST_COMMIT_MESSAGE" value="compute_metrics function to directly use the label_start and label_end indices without converting them to character-level positions" />
+    <MESSAGE value="Old_type Usage [Deprecated] Google AI Python SDK for the Gemini API&#10;With Gemini 2.0, we took the chance to create a single unified SDK for all developers who want to use Google's GenAI models (Gemini, Veo, Imagen, etc). As part of that process, we took all of the feedback from this SDK and what developers like about other SDKs in the ecosystem to create the Google Gen AI SDK.&#10;&#10;The full migration guide from the old SDK to new SDK is available in the Gemini API docs.&#10;&#10;The Gemini API docs are fully updated to show examples of the new Google Gen AI SDK. We know how disruptive an SDK change can be and don't take this change lightly, but our goal is to create an extremely simple and clear path for developers to build with our models so it felt necessary to make this change.&#10;&#10;Thank you for building with Gemini and let us know if you need any help!&#10;&#10;Please be advised that this repository is now considered legacy. For the latest features, performance improvements, and active development, we strongly recommend migrating to the official Google Generative AI SDK for Python.&#10;&#10;Support Plan for this Repository:&#10;&#10;Limited Maintenance: Development is now restricted to critical bug fixes only. No new features will be added.&#10;Purpose: This limited support aims to provide stability for users while they transition to the new SDK.&#10;End-of-Life Date: All support for this repository (including bug fixes) will permanently end on August 31st, 2025.&#10;We encourage all users to begin planning their migration to the Google Generative AI SDK to ensure continued access to the latest capabilities and support." />
+    <MESSAGE value="new verison" />
+    <option name="LAST_COMMIT_MESSAGE" value="new verison" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python310$versionInfo.coverage" NAME="versionInfo 커버리지 결과" MODIFIED="1713492001951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hjh_tensorflow" />
-    <SUITE FILE_PATH="coverage/python310$d.coverage" NAME="d 커버리지 결과" MODIFIED="1714039527707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paddle_examples" />
-    <SUITE FILE_PATH="coverage/python310$ver08.coverage" NAME="ver08 커버리지 결과" MODIFIED="1713444678739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/splitter" />
     <SUITE FILE_PATH="coverage/python310$test02.coverage" NAME="test02 커버리지 결과" MODIFIED="1717876176912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face" />
-    <SUITE FILE_PATH="coverage/python310$examCoin.coverage" NAME="examCoin 커버리지 결과" MODIFIED="1713395083880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
+    <SUITE FILE_PATH="coverage/python310$001.coverage" NAME="001 커버리지 결과" MODIFIED="1718632305823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face/llm_snippet" />
+    <SUITE FILE_PATH="coverage/python310$ver08.coverage" NAME="ver08 커버리지 결과" MODIFIED="1713444678739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/splitter" />
+    <SUITE FILE_PATH="coverage/python310$hjhskew.coverage" NAME="hjhskew 커버리지 결과" MODIFIED="1711279483776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/skew" />
+    <SUITE FILE_PATH="coverage/python310$versionInfo.coverage" NAME="versionInfo 커버리지 결과" MODIFIED="1713492001951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hjh_tensorflow" />
+    <SUITE FILE_PATH="coverage/python310$test01.coverage" NAME="test01 커버리지 결과" MODIFIED="1717875648083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face" />
+    <SUITE FILE_PATH="coverage/python310$predict_system.coverage" NAME="predict_system 커버리지 결과" MODIFIED="1714039522020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/paddleocr/tools/infer" />
     <SUITE FILE_PATH="coverage/python310$download_models2.coverage" NAME="download_models2 커버리지 결과" MODIFIED="1717919819672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face" />
     <SUITE FILE_PATH="coverage/python310$main.coverage" NAME="main 커버리지 결과" MODIFIED="1713324674905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/python310$examHashMine.coverage" NAME="examHashMine 커버리지 결과" MODIFIED="1713395125854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
-    <SUITE FILE_PATH="coverage/python310$hjhskew.coverage" NAME="hjhskew 커버리지 결과" MODIFIED="1711279483776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/skew" />
     <SUITE FILE_PATH="coverage/python310$FindingArea_cube.coverage" NAME="FindingArea_cube 커버리지 결과" MODIFIED="1713384568844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
-    <SUITE FILE_PATH="coverage/python310$a.coverage" NAME="a 커버리지 결과" MODIFIED="1714080432260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paddle_examples" />
     <SUITE FILE_PATH="coverage/python310$paddleocr.coverage" NAME="paddleocr 커버리지 결과" MODIFIED="1714082360439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/paddleocr" />
-    <SUITE FILE_PATH="coverage/python310$001.coverage" NAME="001 커버리지 결과" MODIFIED="1718632305823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face/llm_snippet" />
-    <SUITE FILE_PATH="coverage/python310$predict_system.coverage" NAME="predict_system 커버리지 결과" MODIFIED="1714039522020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/paddleocr/tools/infer" />
-    <SUITE FILE_PATH="coverage/python310$test01.coverage" NAME="test01 커버리지 결과" MODIFIED="1717875648083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hugging_face" />
+    <SUITE FILE_PATH="coverage/python310$a.coverage" NAME="a 커버리지 결과" MODIFIED="1714080432260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paddle_examples" />
+    <SUITE FILE_PATH="coverage/python310$999.coverage" NAME="999 커버리지 결과" MODIFIED="1755850965566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fullstackAIengineer" />
+    <SUITE FILE_PATH="coverage/python310$d.coverage" NAME="d 커버리지 결과" MODIFIED="1714039527707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paddle_examples" />
+    <SUITE FILE_PATH="coverage/python310$examHashMine.coverage" NAME="examHashMine 커버리지 결과" MODIFIED="1713395125854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
+    <SUITE FILE_PATH="coverage/python310$examCoin.coverage" NAME="examCoin 커버리지 결과" MODIFIED="1713395083880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
   </component>
 </project>
