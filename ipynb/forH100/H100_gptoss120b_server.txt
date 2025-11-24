@@ -1,0 +1,1 @@
+vllm serve "openai/gpt-oss-120b"     --host 0.0.0.0     --port 8001     --gpu-memory-utilization 0.9     --tensor-parallel-size $(nvidia-smi --list-gpus | wc -l)
