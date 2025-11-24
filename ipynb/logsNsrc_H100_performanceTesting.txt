@@ -1,0 +1,521 @@
+by claude, Sonnet 4.5
+================================================================================
+GPU 성능 벤치마크 시작: NVIDIA H100 80GB HBM3
+================================================================================
+
+[1/5] 연산 성능 측정 중... (행렬 크기: 8192x8192)
+  → 측정값: 724.18 TFLOPS
+  → 수식: (2 × 8192³ × 100) / 0.1518초 / 10¹²
+
+[2/5] 메모리 대역폭 측정 중... (데이터 크기: 2.0GB)
+  → 측정값: 3038.91 GB/s
+  → 수식: (2.0GB × 50 × 2) / 0.0707초
+
+[3/5] 이미지 생성 처리량 측정 중... (FP32, BS=32, 512x512)
+  → 측정값: 318.88 images/sec
+  → 수식: (32 × 100) / 10.0350초
+
+[3/5] 이미지 생성 처리량 측정 중... (FP16, BS=32, 512x512)
+  → 측정값: 552.69 images/sec
+  → 수식: (32 × 100) / 5.7899초
+
+[4/5] 정규화된 점수 계산 중...
+  → 연산 점수: 73.2/100
+    수식: (724.18 / 989) × 100
+  → 메모리 점수: 90.7/100
+    수식: (3038.91 / 3350) × 100
+  → 처리량 점수: 69.1/100
+    수식: (552.69 / 800) × 100
+
+[5/5] 최종 종합 점수 계산 중...
+  → 수식: (73.2 × 0.4) + (90.7 × 0.3) + (69.1 × 0.3)
+  → 계산: 29.3 + 27.2 + 20.7 = 77.2
+
+================================================================================
+📊 GPU 성능 벤치마크 최종 보고서
+================================================================================
+
+🖥️  GPU 모델: NVIDIA H100 80GB HBM3
+💾 총 메모리: 79.19 GB
+
+────────────────────────────────────────────────────────────────────────────────
+📈 원시 성능 측정값
+────────────────────────────────────────────────────────────────────────────────
+  ⚡ 연산 성능 (FP16):          724.18 TFLOPS
+  🚀 메모리 대역폭:            3038.91 GB/s
+  🖼️  FP32 이미지 처리량:       318.88 images/sec
+  🖼️  FP16 이미지 처리량:       552.69 images/sec
+  ⏱️  FP16 가속 비율:             1.73x
+
+────────────────────────────────────────────────────────────────────────────────
+🎯 정규화 점수 (H100 이론 성능 기준)
+────────────────────────────────────────────────────────────────────────────────
+  연산 성능:   [█████████████████████████████░░░░░░░░░░░]  73.2/100
+  메모리 성능: [████████████████████████████████████░░░░]  90.7/100
+  처리량 성능: [███████████████████████████░░░░░░░░░░░░░]  69.1/100
+
+================================================================================
+🏆 종합 성능 점수: 77.2/100 - A+ (우수)
+================================================================================
+
+💡 성능 해석:
+  • 이론 대비 실제 달성률: ~77%
+  • 연산 효율성: 73.2% (이론 989 TFLOPS 대비)
+  • 메모리 효율성: 90.7% (이론 3,350 GB/s 대비)
+
+📝 이미지 생성 모델 권장 사항:
+  • 배치 크기: 16-32 (512x512 기준)
+  • 예상 학습 속도: 시간당 약 1990K 이미지
+  • FP16 Mixed Precision 필수 권장 (1.7x 가속)
+  • Gradient Checkpointing 고려 (더 큰 배치 가능)
+
+💾 JSON 결과:
+{
+  "device": "NVIDIA H100 80GB HBM3",
+  "metrics": {
+    "compute_tflops": 724.1798667473894,
+    "memory_bandwidth_gbs": 3038.9071562170175,
+    "fp32_throughput": 318.88241108264145,
+    "fp16_throughput": 552.6872287475356,
+    "memory_total_gb": 79.1895751953125
+  },
+  "scores": {
+    "compute": 73.22344456495343,
+    "memory": 90.71364645423932,
+    "throughput": 69.08590359344196,
+    "overall": 77.22924284028576,
+    "rating": "A+ (우수)"
+  }
+}
+
+
+import torch
+import torch.nn as nn
+import time
+import numpy as np
+from dataclasses import dataclass
+from typing import Dict, Tuple
+import json
+
+@dataclass
+class GPUBenchmarkResult:
+    """GPU 벤치마크 결과를 담는 데이터 클래스"""
+    # 원시 측정값
+    compute_tflops: float  # 연산 성능 (TFLOPS)
+    memory_bandwidth_gbs: float  # 메모리 대역폭 (GB/s)
+    fp16_throughput: float  # FP16 이미지 처리량 (images/sec)
+    fp32_throughput: float  # FP32 이미지 처리량 (images/sec)
+    memory_total_gb: float  # 총 메모리 (GB)
+    
+    # 정규화된 점수 (0-100)
+    compute_score: float
+    memory_score: float
+    throughput_score: float
+    
+    # 최종 종합 점수
+    overall_score: float
+    performance_rating: str
+
+class GPUPerformanceBenchmark:
+    """GPU 성능을 종합 평가하는 벤치마크 클래스"""
+    
+    # 참조 성능 (H100 이론값 기준)
+    H100_REFERENCE = {
+        'compute_tflops': 989.0,  # FP16 Tensor Core 이론 성능
+        'memory_bandwidth': 3350.0,  # HBM3 이론 대역폭
+        'fp16_throughput': 800.0,  # 예상 이미지 처리량 (512x512, BS=32)
+    }
+    
+    A100_REFERENCE = {
+        'compute_tflops': 312.0,  # FP16 Tensor Core 이론 성능
+        'memory_bandwidth': 2039.0,  # HBM2e 이론 대역폭
+        'fp16_throughput': 400.0,  # 예상 이미지 처리량
+    }
+    
+    def __init__(self, device_id: int = 0):
+        self.device = torch.device(f'cuda:{device_id}')
+        self.device_name = torch.cuda.get_device_name(device_id)
+        self.device_id = device_id
+        
+    def measure_compute_performance(self, size: int = 8192, iterations: int = 100) -> float:
+        """
+        연산 성능 측정 (TFLOPS)
+        
+        계산식:
+        TFLOPS = (연산 횟수 × 반복 횟수) / (실행 시간 × 10^12)
+        행렬곱 연산 횟수 = 2 × M × N × K (M=N=K=size)
+        """
+        print(f"\n[1/5] 연산 성능 측정 중... (행렬 크기: {size}x{size})")
+        
+        A = torch.randn(size, size, device=self.device, dtype=torch.float16)
+        B = torch.randn(size, size, device=self.device, dtype=torch.float16)
+        
+        # Warmup
+        for _ in range(10):
+            C = torch.matmul(A, B)
+        torch.cuda.synchronize()
+        
+        # 실제 측정
+        start = time.time()
+        for _ in range(iterations):
+            C = torch.matmul(A, B)
+        torch.cuda.synchronize()
+        elapsed = time.time() - start
+        
+        # FLOPS 계산: 행렬곱 연산량 = 2 × M × N × K
+        flops_per_matmul = 2 * size * size * size
+        total_flops = flops_per_matmul * iterations
+        tflops = total_flops / elapsed / 1e12
+        
+        print(f"  → 측정값: {tflops:.2f} TFLOPS")
+        print(f"  → 수식: (2 × {size}³ × {iterations}) / {elapsed:.4f}초 / 10¹²")
+        
+        return tflops
+    
+    def measure_memory_bandwidth(self, size_gb: float = 2.0, iterations: int = 50) -> float:
+        """
+        메모리 대역폭 측정 (GB/s)
+        
+        계산식:
+        대역폭 = (데이터 크기 × 반복 횟수 × 2) / 실행 시간
+        × 2는 읽기+쓰기 때문
+        """
+        print(f"\n[2/5] 메모리 대역폭 측정 중... (데이터 크기: {size_gb:.1f}GB)")
+        
+        num_elements = int(size_gb * 1024**3 / 4)  # float32 = 4 bytes
+        data = torch.randn(num_elements, device=self.device, dtype=torch.float32)
+        
+        # Warmup
+        for _ in range(5):
+            result = data * 2.0
+        torch.cuda.synchronize()
+        
+        # 실제 측정
+        start = time.time()
+        for _ in range(iterations):
+            result = data * 2.0  # 읽기 + 쓰기
+        torch.cuda.synchronize()
+        elapsed = time.time() - start
+        
+        # 대역폭 계산 (읽기 + 쓰기 = 2배)
+        bytes_transferred = num_elements * 4 * iterations * 2
+        bandwidth_gbs = bytes_transferred / elapsed / 1e9
+        
+        print(f"  → 측정값: {bandwidth_gbs:.2f} GB/s")
+        print(f"  → 수식: ({size_gb:.1f}GB × {iterations} × 2) / {elapsed:.4f}초")
+        
+        return bandwidth_gbs
+    
+    def measure_image_generation_throughput(
+        self, 
+        batch_size: int = 32, 
+        image_size: int = 512,
+        use_fp16: bool = False
+    ) -> float:
+        """
+        이미지 생성 처리량 측정 (images/sec)
+        
+        계산식:
+        처리량 = (배치 크기 × 반복 횟수) / 실행 시간
+        """
+        dtype_str = "FP16" if use_fp16 else "FP32"
+        print(f"\n[3/5] 이미지 생성 처리량 측정 중... ({dtype_str}, BS={batch_size}, {image_size}x{image_size})")
+        
+        class SimpleUNet(nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.encoder = nn.Sequential(
+                    nn.Conv2d(3, 64, 3, padding=1),
+                    nn.ReLU(),
+                    nn.Conv2d(64, 128, 3, stride=2, padding=1),
+                    nn.ReLU(),
+                    nn.Conv2d(128, 256, 3, stride=2, padding=1),
+                    nn.ReLU(),
+                    nn.Conv2d(256, 512, 3, stride=2, padding=1),
+                    nn.ReLU(),
+                )
+                self.decoder = nn.Sequential(
+                    nn.ConvTranspose2d(512, 256, 4, stride=2, padding=1),
+                    nn.ReLU(),
+                    nn.ConvTranspose2d(256, 128, 4, stride=2, padding=1),
+                    nn.ReLU(),
+                    nn.ConvTranspose2d(128, 64, 4, stride=2, padding=1),
+                    nn.ReLU(),
+                    nn.Conv2d(64, 3, 3, padding=1),
+                )
+            
+            def forward(self, x):
+                x = self.encoder(x)
+                x = self.decoder(x)
+                return x
+        
+        model = SimpleUNet().to(self.device)
+        optimizer = torch.optim.Adam(model.parameters())
+        criterion = nn.MSELoss()
+        
+        if use_fp16:
+            scaler = torch.amp.GradScaler('cuda')
+        
+        dummy_input = torch.randn(
+            batch_size, 3, image_size, image_size, 
+            device=self.device,
+            dtype=torch.float32  # 항상 FP32로 입력 (autocast가 자동 변환)
+        )
+        
+        # Warmup
+        for _ in range(10):
+            if use_fp16:
+                with torch.amp.autocast('cuda', dtype=torch.float16):
+                    output = model(dummy_input)
+                    loss = criterion(output, dummy_input)
+                scaler.scale(loss).backward()
+                scaler.step(optimizer)
+                scaler.update()
+            else:
+                output = model(dummy_input)
+                loss = criterion(output, dummy_input)
+                loss.backward()
+                optimizer.step()
+            optimizer.zero_grad()
+        
+        torch.cuda.synchronize()
+        
+        # 실제 측정
+        iterations = 100
+        start = time.time()
+        
+        for _ in range(iterations):
+            if use_fp16:
+                with torch.amp.autocast('cuda', dtype=torch.float16):
+                    output = model(dummy_input)
+                    loss = criterion(output, dummy_input)
+                scaler.scale(loss).backward()
+                scaler.step(optimizer)
+                scaler.update()
+            else:
+                output = model(dummy_input)
+                loss = criterion(output, dummy_input)
+                loss.backward()
+                optimizer.step()
+            optimizer.zero_grad()
+        
+        torch.cuda.synchronize()
+        elapsed = time.time() - start
+        
+        throughput = (batch_size * iterations) / elapsed
+        
+        print(f"  → 측정값: {throughput:.2f} images/sec")
+        print(f"  → 수식: ({batch_size} × {iterations}) / {elapsed:.4f}초")
+        
+        return throughput
+    
+    def calculate_normalized_scores(
+        self,
+        compute_tflops: float,
+        memory_bandwidth: float,
+        fp16_throughput: float
+    ) -> Tuple[float, float, float]:
+        """
+        각 지표를 0-100 점수로 정규화
+        
+        점수 계산식:
+        점수 = (측정값 / 참조값) × 100
+        단, 100점 초과시 100점으로 제한
+        """
+        print(f"\n[4/5] 정규화된 점수 계산 중...")
+        
+        # H100 이론 성능 대비 퍼센트로 점수화
+        compute_score = min((compute_tflops / self.H100_REFERENCE['compute_tflops']) * 100, 100)
+        memory_score = min((memory_bandwidth / self.H100_REFERENCE['memory_bandwidth']) * 100, 100)
+        throughput_score = min((fp16_throughput / self.H100_REFERENCE['fp16_throughput']) * 100, 100)
+        
+        print(f"  → 연산 점수: {compute_score:.1f}/100")
+        print(f"    수식: ({compute_tflops:.2f} / {self.H100_REFERENCE['compute_tflops']:.0f}) × 100")
+        print(f"  → 메모리 점수: {memory_score:.1f}/100")
+        print(f"    수식: ({memory_bandwidth:.2f} / {self.H100_REFERENCE['memory_bandwidth']:.0f}) × 100")
+        print(f"  → 처리량 점수: {throughput_score:.1f}/100")
+        print(f"    수식: ({fp16_throughput:.2f} / {self.H100_REFERENCE['fp16_throughput']:.0f}) × 100")
+        
+        return compute_score, memory_score, throughput_score
+    
+    def calculate_overall_score(
+        self,
+        compute_score: float,
+        memory_score: float,
+        throughput_score: float
+    ) -> Tuple[float, str]:
+        """
+        종합 점수 계산
+        
+        계산식:
+        종합점수 = (연산점수 × 0.4) + (메모리점수 × 0.3) + (처리량점수 × 0.3)
+        
+        가중치 근거:
+        - 연산 성능 40%: 딥러닝 학습에서 가장 중요
+        - 메모리 대역폭 30%: 대규모 모델 학습시 병목
+        - 이미지 처리량 30%: 실제 워크로드 성능
+        """
+        print(f"\n[5/5] 최종 종합 점수 계산 중...")
+        
+        overall = (
+            compute_score * 0.4 +
+            memory_score * 0.3 +
+            throughput_score * 0.3
+        )
+        
+        print(f"  → 수식: ({compute_score:.1f} × 0.4) + ({memory_score:.1f} × 0.3) + ({throughput_score:.1f} × 0.3)")
+        print(f"  → 계산: {compute_score*0.4:.1f} + {memory_score*0.3:.1f} + {throughput_score*0.3:.1f} = {overall:.1f}")
+        
+        # 등급 산정
+        if overall >= 90:
+            rating = "S+ (최상급)"
+        elif overall >= 80:
+            rating = "S (상급)"
+        elif overall >= 70:
+            rating = "A+ (우수)"
+        elif overall >= 60:
+            rating = "A (양호)"
+        elif overall >= 50:
+            rating = "B (보통)"
+        else:
+            rating = "C (미흡)"
+        
+        return overall, rating
+    
+    def run_full_benchmark(self) -> GPUBenchmarkResult:
+        """전체 벤치마크 실행"""
+        print("=" * 80)
+        print(f"GPU 성능 벤치마크 시작: {self.device_name}")
+        print("=" * 80)
+        
+        # 1. 연산 성능 측정
+        compute_tflops = self.measure_compute_performance()
+        
+        # 2. 메모리 대역폭 측정
+        memory_bandwidth = self.measure_memory_bandwidth()
+        
+        # 3. FP32 처리량 측정
+        fp32_throughput = self.measure_image_generation_throughput(
+            batch_size=32, image_size=512, use_fp16=False
+        )
+        
+        # 4. FP16 처리량 측정
+        fp16_throughput = self.measure_image_generation_throughput(
+            batch_size=32, image_size=512, use_fp16=True
+        )
+        
+        # 5. 정규화된 점수 계산
+        compute_score, memory_score, throughput_score = self.calculate_normalized_scores(
+            compute_tflops, memory_bandwidth, fp16_throughput
+        )
+        
+        # 6. 종합 점수 계산
+        overall_score, rating = self.calculate_overall_score(
+            compute_score, memory_score, throughput_score
+        )
+        
+        # 7. 메모리 정보
+        memory_total = torch.cuda.get_device_properties(self.device_id).total_memory / 1024**3
+        
+        return GPUBenchmarkResult(
+            compute_tflops=compute_tflops,
+            memory_bandwidth_gbs=memory_bandwidth,
+            fp16_throughput=fp16_throughput,
+            fp32_throughput=fp32_throughput,
+            memory_total_gb=memory_total,
+            compute_score=compute_score,
+            memory_score=memory_score,
+            throughput_score=throughput_score,
+            overall_score=overall_score,
+            performance_rating=rating
+        )
+
+def print_benchmark_report(result: GPUBenchmarkResult, device_name: str):
+    """벤치마크 결과를 보기 좋게 출력"""
+    print("\n" + "=" * 80)
+    print("📊 GPU 성능 벤치마크 최종 보고서")
+    print("=" * 80)
+    
+    print(f"\n🖥️  GPU 모델: {device_name}")
+    print(f"💾 총 메모리: {result.memory_total_gb:.2f} GB")
+    
+    print(f"\n{'─' * 80}")
+    print("📈 원시 성능 측정값")
+    print(f"{'─' * 80}")
+    print(f"  ⚡ 연산 성능 (FP16):        {result.compute_tflops:>8.2f} TFLOPS")
+    print(f"  🚀 메모리 대역폭:           {result.memory_bandwidth_gbs:>8.2f} GB/s")
+    print(f"  🖼️  FP32 이미지 처리량:     {result.fp32_throughput:>8.2f} images/sec")
+    print(f"  🖼️  FP16 이미지 처리량:     {result.fp16_throughput:>8.2f} images/sec")
+    print(f"  ⏱️  FP16 가속 비율:         {result.fp16_throughput/result.fp32_throughput:>8.2f}x")
+    
+    print(f"\n{'─' * 80}")
+    print("🎯 정규화 점수 (H100 이론 성능 기준)")
+    print(f"{'─' * 80}")
+    
+    # 점수 바 그래프
+    def score_bar(score: float, width: int = 40) -> str:
+        filled = int(score / 100 * width)
+        return f"[{'█' * filled}{'░' * (width - filled)}]"
+    
+    print(f"  연산 성능:   {score_bar(result.compute_score)} {result.compute_score:>5.1f}/100")
+    print(f"  메모리 성능: {score_bar(result.memory_score)} {result.memory_score:>5.1f}/100")
+    print(f"  처리량 성능: {score_bar(result.throughput_score)} {result.throughput_score:>5.1f}/100")
+    
+    print(f"\n{'=' * 80}")
+    print(f"🏆 종합 성능 점수: {result.overall_score:.1f}/100 - {result.performance_rating}")
+    print(f"{'=' * 80}")
+    
+    # 성능 해석
+    print(f"\n💡 성능 해석:")
+    if "H100" in device_name:
+        print(f"  • 이론 대비 실제 달성률: ~{result.overall_score:.0f}%")
+        print(f"  • 연산 효율성: {result.compute_score:.1f}% (이론 989 TFLOPS 대비)")
+        print(f"  • 메모리 효율성: {result.memory_score:.1f}% (이론 3,350 GB/s 대비)")
+    elif "A100" in device_name:
+        h100_equiv = result.overall_score * (GPUPerformanceBenchmark.A100_REFERENCE['compute_tflops'] / 
+                                            GPUPerformanceBenchmark.H100_REFERENCE['compute_tflops'])
+        print(f"  • H100 환산 성능: ~{h100_equiv:.0f}% 수준")
+        print(f"  • A100 대비 H100은 이론상 약 3.2배 빠름")
+    
+    print(f"\n📝 이미지 생성 모델 권장 사항:")
+    if result.fp16_throughput > 600:
+        print(f"  • 배치 크기: 32-64 (512x512 기준)")
+        print(f"  • 예상 학습 속도: 시간당 약 {result.fp16_throughput * 3600 / 1000:.0f}K 이미지")
+    elif result.fp16_throughput > 400:
+        print(f"  • 배치 크기: 16-32 (512x512 기준)")
+        print(f"  • 예상 학습 속도: 시간당 약 {result.fp16_throughput * 3600 / 1000:.0f}K 이미지")
+    else:
+        print(f"  • 배치 크기: 8-16 (512x512 기준)")
+        print(f"  • 예상 학습 속도: 시간당 약 {result.fp16_throughput * 3600 / 1000:.0f}K 이미지")
+    
+    print(f"  • FP16 Mixed Precision 필수 권장 ({result.fp16_throughput/result.fp32_throughput:.1f}x 가속)")
+    print(f"  • Gradient Checkpointing 고려 (더 큰 배치 가능)")
+
+# 실행
+benchmark = GPUPerformanceBenchmark(device_id=0)
+result = benchmark.run_full_benchmark()
+print_benchmark_report(result, benchmark.device_name)
+
+# JSON 형태로도 저장
+result_dict = {
+    'device': benchmark.device_name,
+    'metrics': {
+        'compute_tflops': result.compute_tflops,
+        'memory_bandwidth_gbs': result.memory_bandwidth_gbs,
+        'fp32_throughput': result.fp32_throughput,
+        'fp16_throughput': result.fp16_throughput,
+        'memory_total_gb': result.memory_total_gb,
+    },
+    'scores': {
+        'compute': result.compute_score,
+        'memory': result.memory_score,
+        'throughput': result.throughput_score,
+        'overall': result.overall_score,
+        'rating': result.performance_rating,
+    }
+}
+
+print(f"\n💾 JSON 결과:")
+print(json.dumps(result_dict, indent=2, ensure_ascii=False))
+
+
