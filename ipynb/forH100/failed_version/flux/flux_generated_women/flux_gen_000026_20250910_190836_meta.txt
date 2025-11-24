@@ -1,0 +1,4 @@
+Prompt: beautiful woman, realistic
+Generation: 26
+Timestamp: 20250910_190836
+Model: black-forest-labs/FLUX.1-schnell

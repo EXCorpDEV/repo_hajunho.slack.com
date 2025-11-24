@@ -1,0 +1,4 @@
+Prompt: beautiful woman, cinematic
+Generation: 46
+Timestamp: 20250910_190555
+Model: black-forest-labs/FLUX.1-schnell

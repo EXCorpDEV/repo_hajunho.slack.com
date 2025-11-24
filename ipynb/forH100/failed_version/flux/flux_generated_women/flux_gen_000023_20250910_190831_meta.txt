@@ -1,0 +1,4 @@
+Prompt: beautiful woman, soft lighting
+Generation: 23
+Timestamp: 20250910_190831
+Model: black-forest-labs/FLUX.1-schnell

@@ -1,0 +1,4 @@
+Prompt: beautiful woman, natural lighting
+Generation: 48
+Timestamp: 20250910_190558
+Model: black-forest-labs/FLUX.1-schnell

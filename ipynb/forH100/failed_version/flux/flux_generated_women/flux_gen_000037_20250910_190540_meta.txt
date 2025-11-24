@@ -1,0 +1,4 @@
+Prompt: beautiful woman, professional photo
+Generation: 37
+Timestamp: 20250910_190540
+Model: black-forest-labs/FLUX.1-schnell

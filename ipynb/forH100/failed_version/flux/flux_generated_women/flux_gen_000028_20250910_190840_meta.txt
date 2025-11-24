@@ -1,0 +1,4 @@
+Prompt: beautiful woman, detailed
+Generation: 28
+Timestamp: 20250910_190840
+Model: black-forest-labs/FLUX.1-schnell

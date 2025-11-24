@@ -1,0 +1,4 @@
+Prompt: beautiful woman, studio lighting
+Generation: 2
+Timestamp: 20250910_190755
+Model: black-forest-labs/FLUX.1-schnell
